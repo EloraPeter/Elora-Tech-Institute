@@ -1367,8 +1367,8 @@ footer hr {
 }
 
 #web-dev h1 {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 30px;
+    margin-bottom: 30px 0;
 }
 
 #web-dev h2 {
