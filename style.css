@@ -166,6 +166,10 @@ nav.scrolled {
 
 }
 
+.dropdown li a::after{
+    display: none;
+}
+
 .dropdown1 {
     position: absolute;
     /* background: var(--background-color); */
@@ -176,7 +180,7 @@ nav.scrolled {
     display: none;
     z-index: 1000;
     min-width: 300px;
-    height: 450px;
+    height: 500px;
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.2s ease, transform 0.2s ease;
@@ -202,7 +206,7 @@ ul.dropdown{
 #nav-link ul.dropdown li{
     font-size: 15px;
     font-weight: 600;
-    padding: 0 20px;
+    padding: 10px 20px;
 }
 
 .dropdown ul {
@@ -213,10 +217,10 @@ ul.dropdown{
 
 .dropdown li {
     /* position: relative; */
-    padding: 12px 0;
+    padding: 15px 0;
     font-size: 17px;
     font-weight: 300;
-    margin: 20px 0;
+    margin: 5px 0;
     text-align: left;
     transition: background 0.3s ease, padding-left 0.2s ease;
 }
@@ -250,6 +254,7 @@ ul.dropdown{
     color: var(--text-color);
     display: block;
     width: 100%;
+   
     /* position: relative; */
     transition: color 0.3s ease;
 }
@@ -267,6 +272,7 @@ ul.dropdown{
     border-radius: 5px;
     border: 1px solid var(--tertiary-color);
     padding: 8px 0;
+    
     display: none;
     min-width: 280px;
     opacity: 0;
@@ -274,7 +280,7 @@ ul.dropdown{
     transition: opacity 0.2s ease, transform 0.2s ease;
     /* background: rgba(255, 255, 255, 0.1); */
     backdrop-filter: blur(15px);
-    min-height: 450px;
+    min-height: 500px;
     /* box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37); */
     /* -webkit-backdrop-filter: blur(15px); */
 }
