@@ -159,7 +159,7 @@ nav.scrolled {
 
 .dropdown li {
     position: relative;
-    padding: 12px 150px;
+    padding: 12px 15px;
     font-size: 18px;
     font-weight: 600;
     text-align: left;
@@ -191,7 +191,7 @@ nav.scrolled {
 
 .dropdown li:hover {
     background: var(--tertiary-color);
-    padding-left: 30px;
+    padding-left: 10px;
 }
 
 .dropdown li:hover::before {
