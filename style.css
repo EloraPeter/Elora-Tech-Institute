@@ -1361,3 +1361,24 @@ footer hr {
     margin: 0 15%;
     text-align: left;
 }
+
+#web-dev h1{
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+#web-dev h2{
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+#web-dev p{
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+#web-dev .webdev-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
