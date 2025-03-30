@@ -75,12 +75,7 @@ nav.scrolled {
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.dropdown li:hover .dropdown2,
-.dropdown li.active .dropdown2 {
-    display: block;
-    opacity: 1;
-    transform: translateX(0);
-}
+
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
