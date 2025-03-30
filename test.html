@@ -1,0 +1,39 @@
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+    <h1 id="logo">
+        <img src="images/eti logo main.jfif" alt="ETI Logo">
+    </h1>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul id="nav-link" role="menu">
+        <li role="menuitem"><a href="index.html">Home</a></li>
+        <li role="menuitem"><a href="about.html">About</a></li>
+        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+            <a href="#">Courses</a>
+            <div class="dropdown1">
+                <ul class="dropdown" role="menu">
+                    <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                        <a href="web-development.html">Web Development</a>
+                        <div class="dropdown2">
+                            <ul class="dropdown-sub" role="menu">
+                                <li role="menuitem"><a href="web-development-html.html">HTML</a></li>
+                                <li role="menuitem"><a href="web-development-css.html">CSS</a></li>
+                                <li role="menuitem"><a href="web-development-javascript.html">JavaScript</a></li>
+                                <li role="menuitem"><a href="web-development-php.html">PHP & Laravel</a></li>
+                                <li role="menuitem"><a href="web-development-wordpress.html">WordPress</a></li>
+                                <li role="menuitem"><a href="web-development-frontend.html">Frontend Development</a></li>
+                                <li role="menuitem"><a href="web-development-backend.html">Backend Development</a></li>
+                                <li role="menuitem"><a href="web-development-fullstack.html">Full-Stack Development</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- Repeat similar structure for other dropdown items -->
+                </ul>
+            </div>
+        </li>
+        <li role="menuitem"><a href="admissions.html">Admissions</a></li>
+        <li role="menuitem"><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="https://docs.google.com/forms/..." class="btn">Enroll Now</a>
+    <div id="toggle"><i class="fa-solid fa-moon"></i></div>
+</nav>

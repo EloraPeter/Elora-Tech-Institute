@@ -64,6 +64,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+// Menu Toggle for Mobile
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+  const navLink = document.querySelector('#nav-link');
+  const toggleButton = document.querySelector('.menu-toggle');
+  navLink.classList.toggle('active');
+  const isExpanded = navLink.classList.contains('active');
+  toggleButton.setAttribute('aria-expanded', isExpanded);
+  toggleButton.querySelector('i').classList.toggle('fa-bars');
+  toggleButton.querySelector('i').classList.toggle('fa-times');
+});
+
+// Dropdown Toggle for Mobile
+document.querySelectorAll('.dropdown-parent').forEach(parent => {
+  parent.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+          e.preventDefault();
+          parent.classList.toggle('active');
+          const isExpanded = parent.classList.contains('active');
+          parent.setAttribute('aria-expanded', isExpanded);
+      }
+  });
+});
+
+
+
 // Dark mode toggle functionality
 const toggleDark = document.querySelector("#toggle");
 // Toggle dark mode and update UI/localStorage
