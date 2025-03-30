@@ -1358,5 +1358,6 @@ footer hr {
 
 /* web dev page */
 #web-dev{
-    margin: 0 10%;
+    margin: 0 15%;
+    text-align: left;
 }
