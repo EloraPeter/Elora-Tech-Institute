@@ -10,9 +10,9 @@
 
 /* 🎨 Light Mode */
 :root {
-    --primary-color: #4169E1;
-    --secondary-color: #FFD700;
-    --tertiary-color: #A0B7B8;
+    --primary-color: #4169e1;
+    --secondary-color: #ffd700;
+    --tertiary-color: #a0b7b8;
     --background-color: white;
     --text-color: black;
     --shadow-light: rgba(0, 0, 0, 0.2);
@@ -20,9 +20,9 @@
 
 /* 🌙 Dark Mode */
 body.dark {
-    --primary-color: #668FFF;
-    --secondary-color: #E6C200;
-    --tertiary-color: #B8D1D2;
+    --primary-color: #668fff;
+    --secondary-color: #e6c200;
+    --tertiary-color: #b8d1d2;
     --background-color: #121212;
     --text-color: white;
     --shadow-light: rgba(255, 255, 255, 0.2);
@@ -82,7 +82,6 @@ nav.scrolled {
     -webkit-backdrop-filter: blur(12px);
 }
 
-/* Menu Toggle Button */
 .menu-toggle {
     display: none;
     background: none;
@@ -93,7 +92,6 @@ nav.scrolled {
     padding: 10px;
 }
 
-/* Focus Styles */
 #nav-link li a:focus,
 .dropdown li a:focus,
 .menu-toggle:focus {
@@ -125,14 +123,13 @@ nav.scrolled {
 
 #nav-link li {
     list-style-type: none;
-    
+
     padding: 0;
     font-size: 20px;
     font-weight: 700;
-    /* position: relative; */
 }
 
-#nav-link li.nb{
+#nav-link li.nb {
     margin: 20px;
 }
 
@@ -142,12 +139,8 @@ nav.scrolled {
     position: relative;
 }
 
-/* #nav-link li:hover a {
-    text-decoration: var(--secondary-color) underline 3px solid;
-} */
-
 #nav-link li a::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 3px;
@@ -163,17 +156,15 @@ nav.scrolled {
 
 .dropdown-parent.main {
     position: relative;
-
 }
 
-.dropdown li a::after{
+.dropdown li a::after {
     display: none;
 }
 
 .dropdown1 {
     position: absolute;
-    /* background: var(--background-color); */
-    /* box-shadow: 2px 5px 15px var(--shadow-light); */
+
     border-radius: 5px;
     border: 1px solid var(--tertiary-color);
     padding: 8px 0;
@@ -187,9 +178,7 @@ nav.scrolled {
     margin: 0;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
-    /* box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37); */
     -webkit-backdrop-filter: blur(12px);
-   
 }
 
 #nav-link li:hover .dropdown1,
@@ -199,11 +188,11 @@ nav.scrolled {
     transform: translateY(0);
 }
 
-ul.dropdown{
+ul.dropdown {
     padding-inline-start: 0;
 }
 
-#nav-link ul.dropdown li{
+#nav-link ul.dropdown li {
     font-size: 15px;
     font-weight: 600;
     padding: 10px 20px;
@@ -216,7 +205,6 @@ ul.dropdown{
 }
 
 .dropdown li {
-    /* position: relative; */
     padding: 15px 0;
     font-size: 17px;
     font-weight: 300;
@@ -235,13 +223,11 @@ ul.dropdown{
 }
 
 .dropdown li::before {
-    /* content: ''; */
     position: absolute;
     left: 0;
     top: 50%;
     width: 6px;
     height: 6px;
-    /* background: var(--secondary-color); */
     border-radius: 50%;
     opacity: 0;
     transform: translateY(-50%);
@@ -254,8 +240,7 @@ ul.dropdown{
     color: var(--text-color);
     display: block;
     width: 100%;
-   
-    /* position: relative; */
+
     transition: color 0.3s ease;
 }
 
@@ -268,21 +253,17 @@ ul.dropdown{
     left: 98%;
     top: 0;
     background: rgba(255, 255, 255, 0.9);
-    /* box-shadow: 2px 5px 15px var(--shadow-light); */
     border-radius: 5px;
     border: 1px solid var(--tertiary-color);
     padding: 8px 0;
-    
+
     display: none;
     min-width: 280px;
     opacity: 0;
     transform: translateX(10px);
     transition: opacity 0.2s ease, transform 0.2s ease;
-    /* background: rgba(255, 255, 255, 0.1); */
     backdrop-filter: blur(15px);
     min-height: 500px;
-    /* box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37); */
-    /* -webkit-backdrop-filter: blur(15px); */
 }
 
 .dropdown li:hover .dropdown2,
@@ -292,31 +273,25 @@ ul.dropdown{
     transform: translateX(0);
 }
 
-/* Show Dropdown on Hover */
 #nav-link li:hover .dropdown1 {
     display: block;
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Transition Effects */
 .dropdown1,
 .dropdown2 {
     transition: all 0.3s ease-in-out;
 }
 
-/* Enroll Button inside nav-link */
 .enroll-btn {
     margin: 0 20px;
-    /* Align with other nav items on desktop */
     display: none;
 }
 
 .enroll-btn .btn {
     display: inline-block;
-    /* Ensure it behaves like other links on desktop */
     margin: 0;
-    /* Reset margins for consistency */
 }
 
 .btn {
@@ -334,7 +309,7 @@ ul.dropdown{
 }
 
 .btn::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -362,7 +337,6 @@ ul.dropdown{
 
 nav .btn {
     margin: 10px 20px 10px 10px;
-
 }
 
 #toggle {
@@ -421,7 +395,6 @@ nav .btn {
         opacity: 1;
         padding: 10px 0 10px 20px;
         background: rgba(0, 0, 0, 0.05);
-        /* Subtle nesting effect */
     }
 
     #nav-link li.active .dropdown1,
@@ -431,18 +404,14 @@ nav .btn {
 
     .enroll-btn {
         margin: 20px 0;
-        /* Spacing for mobile */
         padding: 0 20px;
-        /* Align with other items */
         display: block;
     }
 
     .enroll-btn .btn {
         display: block;
-        /* Full width on mobile */
         text-align: center;
         width: 100%;
-        /* Ensure it stretches */
     }
 
     .btn.big {
@@ -546,7 +515,7 @@ nav .btn {
 }
 
 #hero .btn {
-    margin-right: 30px
+    margin-right: 30px;
 }
 
 #hero .btn:first-child {
@@ -719,7 +688,6 @@ nav .btn {
     color: #333;
     font-size: 18px;
     margin-bottom: 0;
-
 }
 
 #featured-courses .fcc-item .fcc-info .pd p {
@@ -766,7 +734,7 @@ nav .btn {
 }
 
 #featured-courses .fcc-item .fcc-info .rmbtn a::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 2px;
@@ -837,13 +805,16 @@ swiper-slide.swiper-slide-active {
 }
 
 .content::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -50%;
     left: -50%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, transparent, var(--secondary-color), transparent);
+    background: linear-gradient(45deg,
+            transparent,
+            var(--secondary-color),
+            transparent);
     opacity: 0;
     transition: opacity 0.5s ease;
     animation: shine 2s infinite;
@@ -902,7 +873,7 @@ swiper-slide.swiper-slide-active {
     transform: scale(1.8);
 }
 
-@media(max-width:768px) {
+@media (max-width: 768px) {
     .nav-btn {
         visibility: hidden;
     }
@@ -913,22 +884,20 @@ swiper-slide.swiper-slide-active {
     position: relative;
     padding: 100px 20px;
     text-align: center;
-    background: url('images/DALL·E\ 2025-03-27\ 20.20.26\ -\ A\ minimalistic\ digital\ illustration\ of\ a\ young\ woman\ with\ glasses\ working\ on\ a\ laptop\ at\ a\ wooden\ desk.\ The\ background\ is\ soft\ and\ transparent\,\ ensuri.webp') no-repeat center/cover;
+    background: url("images/DALL·E\ 2025-03-27\ 20.20.26\ -\ A\ minimalistic\ digital\ illustration\ of\ a\ young\ woman\ with\ glasses\ working\ on\ a\ laptop\ at\ a\ wooden\ desk.\ The\ background\ is\ soft\ and\ transparent\,\ ensuri.webp") no-repeat center/cover;
     overflow: hidden;
     margin: 50px 0 0;
 }
 
 #cta::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
-    /* Dark tint for contrast */
     backdrop-filter: blur(8px);
-    /* Background blur */
     z-index: 1;
 }
 
@@ -937,7 +906,6 @@ swiper-slide.swiper-slide-active {
 #cta .btn {
     position: relative;
     z-index: 2;
-    /* Ensure content stays above blur */
 }
 
 #cta h2 {
@@ -950,14 +918,12 @@ swiper-slide.swiper-slide-active {
 
 #cta h2 span {
     color: var(--secondary-color);
-    /* Highlighted text */
     display: inline-block;
     transition: transform 0.3s ease;
 }
 
 #cta:hover h2 span {
     transform: scale(1.1);
-    /* Slight zoom on hover */
 }
 
 #cta p {
@@ -975,7 +941,7 @@ swiper-slide.swiper-slide-active {
 }
 
 #cta .btn::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -990,7 +956,6 @@ swiper-slide.swiper-slide-active {
 #cta .btn:hover::before {
     width: 400px;
     height: 400px;
-    /* Ripple effect */
 }
 
 #cta .btn:hover {
@@ -999,7 +964,6 @@ swiper-slide.swiper-slide-active {
 
 #cta .btn:active {
     transform: scale(0.95);
-    /* Slight shrink on click */
 }
 
 /* Responsive Adjustments */
@@ -1027,7 +991,7 @@ footer {
 }
 
 footer::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -1059,7 +1023,7 @@ footer .info {
 }
 
 .info .about h2::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 50px;
     height: 2px;
@@ -1092,7 +1056,8 @@ footer .info {
     background-color: #333;
     padding: 10px;
     border-radius: 50%;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 footer .info .about .sm li:hover {
@@ -1133,7 +1098,7 @@ footer .info .about .sm li:hover {
 }
 
 .info .quick-links h2::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 50px;
     height: 2px;
@@ -1167,7 +1132,7 @@ footer .info .about .sm li:hover {
 }
 
 .info .quick-links ul li a::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 1px;
@@ -1183,7 +1148,6 @@ footer .info .about .sm li:hover {
 
 .info .quick-links ul li:hover a::after {
     width: 100%;
-    /* Underline animates on hover */
 }
 
 /* Apply Section */
@@ -1200,7 +1164,7 @@ footer .info .about .sm li:hover {
 }
 
 .info .apply h2::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 50px;
     height: 2px;
@@ -1231,7 +1195,6 @@ footer .info .about .sm li:hover {
 
 .info .apply ol li:hover {
     transform: translateX(10px);
-    /* Slight shift on hover */
     color: var(--secondary-color);
 }
 
@@ -1251,7 +1214,7 @@ footer .info .about .sm li:hover {
 }
 
 .info .apply .apply-button::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1266,7 +1229,6 @@ footer .info .about .sm li:hover {
 .info .apply .apply-button:hover::before {
     width: 300px;
     height: 300px;
-    /* Ripple effect */
 }
 
 .info .apply .apply-button:hover {
@@ -1309,7 +1271,7 @@ footer hr {
 }
 
 #designer a::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 1px;
@@ -1348,7 +1310,6 @@ footer hr {
     }
 }
 
-
 /* whatsapp bubble */
 .whatsapp-bubble {
     position: fixed;
@@ -1356,7 +1317,7 @@ footer hr {
     right: 20px;
     width: 60px;
     height: 60px;
-    background-color: #25D366;
+    background-color: #25d366;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -1393,3 +1354,6 @@ footer hr {
     width: 40px;
     height: 40px;
 }
+
+
+/* web dev page */
