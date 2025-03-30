@@ -210,7 +210,7 @@ ul.dropdown{
     padding: 12px 0;
     font-size: 17px;
     font-weight: 300;
-    
+    margin: 20px 0;
     text-align: left;
     transition: background 0.3s ease, padding-left 0.2s ease;
 }
