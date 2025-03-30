@@ -194,6 +194,11 @@ ul.dropdown{
     padding-inline-start: 0;
 }
 
+#nav-link ul.dropdown li{
+    font-size: 17px;
+    font-weight: 300;
+}
+
 .dropdown ul {
     list-style: none;
     padding: 0;
