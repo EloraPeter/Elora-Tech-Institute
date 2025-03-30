@@ -1383,3 +1383,9 @@ footer hr {
     justify-content: space-between;
     gap: 3px;
 }
+
+#web-dev .webdev-container img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
