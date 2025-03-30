@@ -136,6 +136,69 @@ nav.scrolled {
     width: 100%;
 }
 
+.dropdown1 {
+    position: absolute;
+    background: var(--background-color);
+    box-shadow: 2px 5px 15px var(--shadow-light);
+    border-radius: 8px;
+    padding: 10px 0;
+    display: none;
+    z-index: 1000;
+    min-width: 250px;
+}
+
+.dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown li {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    transition: background 0.3s ease;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    width: 100%;
+}
+
+.dropdown li:hover {
+    background: var(--tertiary-color);
+}
+
+.dropdown2 {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: var(--background-color);
+    box-shadow: 2px 5px 15px var(--shadow-light);
+    border-radius: 8px;
+    padding: 10px 0;
+    display: none;
+    min-width: 220px;
+}
+
+.dropdown li:hover .dropdown2 {
+    display: block;
+}
+
+/* Show Dropdown on Hover */
+#nav-link li:hover .dropdown1 {
+    display: block;
+}
+
+/* Transition Effects */
+.dropdown1, .dropdown2 {
+    transition: all 0.3s ease-in-out;
+}
+
 .btn {
     background-color: var(--primary-color);
     border: none;
