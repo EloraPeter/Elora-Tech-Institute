@@ -141,10 +141,14 @@ nav.scrolled {
     background: var(--background-color);
     box-shadow: 2px 5px 15px var(--shadow-light);
     border-radius: 8px;
-    padding: 10px 0;
+    padding: 15px 0;
     display: none;
     z-index: 1000;
-    min-width: 250px;
+    min-width: 280px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    margin: 0;
 }
 
 .dropdown ul {
@@ -155,11 +159,25 @@ nav.scrolled {
 
 .dropdown li {
     position: relative;
-    padding: 10px 20px;
+    padding: 12px 150px;
     font-size: 18px;
     font-weight: 600;
     text-align: left;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, padding-left 0.2s ease;
+}
+
+.dropdown li::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease;
 }
 
 .dropdown li a {
@@ -167,10 +185,21 @@ nav.scrolled {
     color: var(--text-color);
     display: block;
     width: 100%;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
 .dropdown li:hover {
     background: var(--tertiary-color);
+    padding-left: 30px;
+}
+
+.dropdown li:hover::before {
+    opacity: 1;
+}
+
+.dropdown li:hover a {
+    color: var(--primary-color);
 }
 
 .dropdown2 {
@@ -180,18 +209,25 @@ nav.scrolled {
     background: var(--background-color);
     box-shadow: 2px 5px 15px var(--shadow-light);
     border-radius: 8px;
-    padding: 10px 0;
+    padding: 15px 0;
     display: none;
-    min-width: 220px;
+    min-width: 250px;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .dropdown li:hover .dropdown2 {
     display: block;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* Show Dropdown on Hover */
 #nav-link li:hover .dropdown1 {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Transition Effects */
