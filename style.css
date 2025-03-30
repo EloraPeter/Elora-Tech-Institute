@@ -190,6 +190,10 @@ nav.scrolled {
     transform: translateY(0);
 }
 
+ul.dropdown{
+    padding: 0;
+}
+
 .dropdown ul {
     list-style: none;
     padding: 0;
