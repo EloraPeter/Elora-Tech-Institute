@@ -191,7 +191,7 @@ nav.scrolled {
 }
 
 ul.dropdown{
-    padding: 0;
+    padding-inline-start: 0;
 }
 
 .dropdown ul {
