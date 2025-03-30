@@ -1461,4 +1461,11 @@ footer hr {
     margin-left: 20px;
 }
 
+.faacl{
+    display: flex;
 
+}
+
+.allcourse-item{
+    display: flex;
+}
