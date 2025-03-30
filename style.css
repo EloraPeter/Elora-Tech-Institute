@@ -1398,6 +1398,7 @@ footer hr {
 
 #web-dev .webdev-container .courseitem-info{
     /* margin: 20px 30px; */
+    color: var(--text-color);
 }
 
 #web-dev .webdev-container .courseitem-info h3{
@@ -1409,4 +1410,12 @@ footer hr {
 #web-dev .webdev-container .courseitem-info p{
     font-size: 14px;
     margin-bottom: 10px;
+}
+
+#web-dev .webdev-container .courseitem-info .pd {
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 0;
 }
