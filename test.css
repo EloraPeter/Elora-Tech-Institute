@@ -1,0 +1,140 @@
+#featured-courses h2 {
+    font-weight: 700;
+    font-size: 18px;
+    animation: fadeInLeft 1s ease-out;
+}
+
+#featured-courses h2 span {
+    color: var(--tertiary-color);
+    font-size: 25px;
+}
+
+#featured-courses p {
+    font-size: 25px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+#featured-courses .featured-courses-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+#featured-courses .fcc-item {
+    width: calc(30% - 30px);
+    box-shadow: 10px 15px 50px var(--shadow-light);
+    border-radius: 15px;
+    text-align: left;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#featured-courses .fcc-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 15px 20px 60px var(--tertiary-color);
+}
+
+#featured-courses .fcc-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 20px 20px 0 0;
+}
+
+#featured-courses .fcc-item .fcc-info {
+    margin: 20px 30px;
+}
+
+#featured-courses .fcc-item .fcc-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#featured-courses .fcc-item .fcc-info p {
+    font-size: 16px;
+    color: var(--tertiary-color);
+    margin-bottom: 10px;
+}
+
+#featured-courses .fcc-item .fcc-info .pd {
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+#featured-courses .fcc-item .fcc-info .pd p {
+    color: #333;
+    font-weight: 700;
+}
+
+#featured-courses .fcc-item .fcc-info .pd i {
+    color: var(--primary-color);
+    font-size: 22px;
+    margin-right: 20px;
+}
+
+#featured-courses .fcc-item .fcc-info .sr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+#featured-courses .fcc-item .fcc-info .sr .star i {
+    color: var(--secondary-color);
+    font-size: 14px;
+}
+
+#featured-courses .fcc-item .fcc-info .sr .star p {
+    color: #738485;
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#featured-courses .fcc-item .fcc-info .rmbtn {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+#featured-courses .fcc-item .fcc-info .rmbtn a {
+    color: #333;
+    text-transform: uppercase;
+    position: relative;
+}
+
+#featured-courses .fcc-item .fcc-info .rmbtn a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+#featured-courses .fcc-item .fcc-info .rmbtn a:hover::after {
+    width: 100%;
+}
+
+#featured-courses .fcc-item .fcc-info .rmbtn a:hover {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+#featured-courses .fcc-item .fcc-info .rmbtn a i {
+    font-size: 18px;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+
+#featured-courses .fcc-item .fcc-info .rmbtn a:hover i {
+    transform: translateX(10px);
+}
