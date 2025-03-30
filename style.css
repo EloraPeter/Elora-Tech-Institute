@@ -1358,7 +1358,7 @@ footer hr {
 
 /* web dev page */
 #web-dev{
-    margin: 0 15%;
+    margin: 0 13%;
     text-align: left;
 }
 
@@ -1381,4 +1381,5 @@ footer hr {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 3px;
 }
