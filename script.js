@@ -201,3 +201,16 @@ function filterCourses() {
 filterCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', filterCourses);
 });
+
+
+
+
+
+// "Show More" Functionality (Example for Categories)
+const showMoreLink = document.querySelector('.show-more');
+showMoreLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  const collapsible = showMoreLink.closest('.collapsible');
+  // Add logic to expand categories here (e.g., dynamically add more items or toggle visibility)
+  alert('Expand categories here! Add more items or toggle visibility.');
+});

@@ -1510,13 +1510,13 @@ footer hr {
     list-style: none;
     padding: 0;
     margin: 0;
-    padding-inline-start: 0;
-
+    cursor: pointer;
 }
 
 .all-courses .faacl .filter-all #filterButtons li{
     list-style: none;
     text-align: left;
+    cursor: pointer;
 }
 
 .all-courses .faacl .filter-all #filterButtons li h3{
@@ -1538,6 +1538,43 @@ footer hr {
 .all-courses .faacl .filter-all #filterButtons > li:hover {
     transform: scale(1.05);
 }
+
+.all-courses .faacl .filter-all #filterButtons .filter-sub {
+    left: 100%;
+    top: 0;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    min-width: 150px;
+    padding-inline-start: 0;
+    
+}
+
+.all-courses .faacl .filter-all #filterButtons .filter-sub li{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.all-courses .faacl .filter-all #filterButtons .filter-sub li label {
+    cursor: pointer;
+
+}
+
+.collapsible .more {
+    display: block;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
 
 
 .all-courses .faacl .allcourse-item{
