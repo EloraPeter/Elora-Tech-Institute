@@ -408,7 +408,7 @@
             <div class="filter-header">
                 <i class="fa-solid fa-filter" id="toggleFilter"></i>
                 <div class="search-wrapper">
-                    <input type="text" id="searchInput" placeholder="Search projects..." />
+                    <input type="text" id="searchInput" placeholder="Search courses..." />
                     <i class="fa-solid fa-magnifying-glass" id="search-btn"></i>
                 </div>
             </div>
@@ -419,24 +419,20 @@
                             Video Duration <i class="fa-solid fa-chevron-down"></i>
                             <ul class="filter-sub">
                                 <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
+                                    <input type="checkbox" name="duration" id="dur-0-1" /><label for="dur-0-1">0–1
+                                        hr</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
+                                    <input type="checkbox" name="duration" id="dur-1-3" /><label for="dur-1-3">1–3
+                                        hrs</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
+                                    <input type="checkbox" name="duration" id="dur-3-5" /><label for="dur-3-5">3–5
+                                        hrs</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
+                                    <input type="checkbox" name="duration" id="dur-5plus" /><label for="dur-5plus">5+
+                                        hrs</label>
                                 </li>
                             </ul>
                         </li>
@@ -444,21 +440,22 @@
                             Course Duration<i class="fa-solid fa-chevron-down"></i>
                             <ul class="filter-sub">
                                 <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
+                                    <input type="checkbox" name="course-dur" id="cdur-1-4" /><label for="cdur-1-4">1–4
+                                        weeks</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
+                                    <input type="checkbox" name="course-dur" id="cdur-4-8" /><label for="cdur-4-8">4–8
+                                        weeks</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
+                                    <input type="checkbox" name="course-dur" id="cdur-8-12" /><label
+                                        for="cdur-8-12">8–12 weeks</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
+                                    <input type="checkbox" name="course-dur" id="cdur-12plus" /><label
+                                        for="cdur-12plus">12+ weeks</label>
                                 </li>
+
                                 <li>
                                     <input type="checkbox" name="0-1" id="" />
                                     <label for="0-1">0-1</label>
@@ -468,172 +465,150 @@
                         <li>
                             Level<i class="fa-solid fa-chevron-down"></i>
                             <ul class="filter-sub">
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
+                                <li><input type="checkbox" name="level" id="lvl-beginner" /><label
+                                        for="lvl-beginner">Beginner</label></li>
+                                <li><input type="checkbox" name="level" id="lvl-intermediate" /><label
+                                        for="lvl-intermediate">Intermediate</label></li>
+                                <li><input type="checkbox" name="level" id="lvl-advanced" /><label
+                                        for="lvl-advanced">Advanced</label></li>
                             </ul>
                         </li>
                         <li>
                             Price<i class="fa-solid fa-chevron-down"></i>
                             <ul class="filter-sub">
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
+                                <li><input type="checkbox" name="price" id="price-free" /><label
+                                        for="price-free">Free</label></li>
+                                <li><input type="checkbox" name="price" id="price-paid" /><label
+                                        for="price-paid">Paid</label></li>
                             </ul>
                         </li>
                         <li>
                             Availability<i class="fa-solid fa-chevron-down"></i>
                             <ul class="filter-sub">
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
+                                <li><input type="checkbox" name="avail" id="avail-now" /><label
+                                        for="avail-now">Available Now</label></li>
+                                <li><input type="checkbox" name="avail" id="avail-soon" /><label for="avail-soon">Coming
+                                        Soon</label></li>
                             </ul>
                         </li>
                         <li>
                             Categories<i class="fa-solid fa-chevron-down"></i>
                             <ul class="filter-sub">
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                            </ul>
+                                <input type="checkbox" name="cat" id="cat-data" /><label for="cat-data">Data
+                                    Science</label>
+                        </li>
+                        <li><input li><input type="checkbox" name="cat" id="cat-dev" /><label
+                                for="cat-dev">Development</label></li>
+                        <li><input type="checkbox" name="cat" id="cat-design" /><label for="cat-design">Design</label>
                         </li>
                         <li>
-                            Topics<i class="fa-solid fa-chevron-down"></i>
-                            <ul class="filter-sub">
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="0-1" id="" />
-                                    <label for="0-1">0-1</label>
-                                </li>
-                            </ul>
+                            <type="checkbox" name="cat" id="cat-business" /><label for="cat-business">Business</label>
                         </li>
+                        <li class="more"><a href="#" class="show-more">Show more...</a></li>
+
+                        <li>
+                            <input type="checkbox" name="0-1" id="" />
+                            <label for="0-1">0-1</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="0-1" id="" />
+                            <label for="0-1">0-1</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="0-1" id="" />
+                            <label for="0-1">0-1</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="0-1" id="" />
+                            <label for="0-1">0-1</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="0-1" id="" />
+                            <label for="0-1">0-1</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="0-1" id="" />
+                            <label for="0-1">0-1</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="0-1" id="" />
+                            <label for="0-1">0-1</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="0-1" id="" />
+                            <label for="0-1">0-1</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="0-1" id="" />
+                            <label for="0-1">0-1</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="0-1" id="" />
+                            <label for="0-1">0-1</label>
+                        </li>
+                    </ul>
+                    </li>
+                    <li>
+                        Topics<i class="fa-solid fa-chevron-down"></i>
+                        <ul class="filter-sub">
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="0-1" id="" />
+                                <label for="0-1">0-1</label>
+                            </li>
+                        </ul>
+                    </li>
                     </ul>
                 </div>
 
@@ -763,7 +738,9 @@
             <h3>Frequently Asked Questions</h3>
             <div class="accordion">
                 <div class="accordion-item">
-                    <h4 class="accordion-title">What is Website Development?<i class="fa-solid fa-chevron-down"></i></h4>
+                    <h4 class="accordion-title">
+                        What is Website Development?<i class="fa-solid fa-chevron-down"></i>
+                    </h4>
                     <div class="accordion-content">
                         <p>
                             Elora Tech Institute is a leading tech institution committed to
@@ -775,7 +752,9 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h4 class="accordion-title">What is Website Development?<i class="fa-solid fa-chevron-down"></i></h4>
+                    <h4 class="accordion-title">
+                        What is Website Development?<i class="fa-solid fa-chevron-down"></i>
+                    </h4>
                     <div class="accordion-content">
                         <p>
                             Elora Tech Institute is a leading tech institution committed to
@@ -787,7 +766,9 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h4 class="accordion-title">What is Website Development?<i class="fa-solid fa-chevron-down"></i></h4>
+                    <h4 class="accordion-title">
+                        What is Website Development?<i class="fa-solid fa-chevron-down"></i>
+                    </h4>
                     <div class="accordion-content">
                         <p>
                             Elora Tech Institute is a leading tech institution committed to
@@ -799,7 +780,9 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h4 class="accordion-title">What is Website Development?<i class="fa-solid fa-chevron-down"></i></h4>
+                    <h4 class="accordion-title">
+                        What is Website Development?<i class="fa-solid fa-chevron-down"></i>
+                    </h4>
                     <div class="accordion-content">
                         <p>
                             Elora Tech Institute is a leading tech institution committed to
@@ -811,7 +794,9 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h4 class="accordion-title">What is Website Development?<i class="fa-solid fa-chevron-down"></i></h4>
+                    <h4 class="accordion-title">
+                        What is Website Development?<i class="fa-solid fa-chevron-down"></i>
+                    </h4>
                     <div class="accordion-content">
                         <p>
                             Elora Tech Institute is a leading tech institution committed to
@@ -824,9 +809,7 @@
                 </div>
             </div>
             <button class="accordion-toggle">Show More</button>
-
         </div>
-
     </main>
 
     <footer>
