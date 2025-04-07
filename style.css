@@ -1510,14 +1510,21 @@ footer hr {
     list-style: none;
     padding: 0;
     margin: 0;
+    padding-inline-start: 0;
+
 }
 
 .all-courses .faacl .filter-all #filterButtons li{
     list-style: none;
+    text-align: left;
 }
 
 .all-courses .faacl .filter-all #filterButtons li h3{
-    
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .all-courses .faacl .filter-all #filterButtons > li {
