@@ -1559,7 +1559,8 @@ footer hr {
 
 .all-courses .faacl .filter-all #filterButtons .filter-sub li label {
     cursor: pointer;
-
+    font-size: 14px;
+    padding-left: 5px;
 }
 
 .collapsible .more {
