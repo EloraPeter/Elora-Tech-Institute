@@ -1463,6 +1463,15 @@ footer hr {
 
 .filter-header{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filter-header i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
 }
 
 .faacl{

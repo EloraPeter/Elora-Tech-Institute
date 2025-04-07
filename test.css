@@ -1,140 +1,224 @@
-#featured-courses h2 {
-    font-weight: 700;
-    font-size: 18px;
-    animation: fadeInLeft 1s ease-out;
+/* 🎨 Light Mode */
+:root {
+    --primary-color: #4169e1;
+    --secondary-color: #ffd700;
+    --tertiary-color: #a0b7b8;
+    --background-color: white;
+    --text-color: black;
+    --shadow-light: rgba(0, 0, 0, 0.2);
 }
 
-#featured-courses h2 span {
-    color: var(--tertiary-color);
-    font-size: 25px;
+/* 🌙 Dark Mode */
+body.dark {
+    --primary-color: #668fff;
+    --secondary-color: #e6c200;
+    --tertiary-color: #b8d1d2;
+    --background-color: #121212;
+    --text-color: white;
+    --shadow-light: rgba(255, 255, 255, 0.2);
 }
 
-#featured-courses p {
-    font-size: 25px;
-    animation: fadeInUp 1.2s ease-out;
+* {
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-#featured-courses .featured-courses-container {
+h2, h3 {
+    font-family: "Montserrat", "Helvetica", serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.all-courses {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filter-header {
     display: flex;
-    justify-content: center;
-    gap: 30px;
     align-items: center;
-}
-
-#featured-courses .fcc-item {
-    width: calc(30% - 30px);
-    box-shadow: 10px 15px 50px var(--shadow-light);
-    border-radius: 15px;
-    text-align: left;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-#featured-courses .fcc-item:hover {
-    transform: translateY(-15px);
-    box-shadow: 15px 20px 60px var(--tertiary-color);
-}
-
-#featured-courses .fcc-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    object-position: top center;
-    border-radius: 20px 20px 0 0;
-}
-
-#featured-courses .fcc-item .fcc-info {
-    margin: 20px 30px;
-}
-
-#featured-courses .fcc-item .fcc-info h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-#featured-courses .fcc-item .fcc-info p {
-    font-size: 16px;
-    color: var(--tertiary-color);
-    margin-bottom: 10px;
-}
-
-#featured-courses .fcc-item .fcc-info .pd {
-    display: flex;
     justify-content: space-between;
-    color: #333;
-    font-size: 18px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 
-#featured-courses .fcc-item .fcc-info .pd p {
-    color: #333;
-    font-weight: 700;
-}
-
-#featured-courses .fcc-item .fcc-info .pd i {
+.filter-header i#toggleFilter {
+    font-size: 1.5rem;
+    cursor: pointer;
     color: var(--primary-color);
-    font-size: 22px;
-    margin-right: 20px;
 }
 
-#featured-courses .fcc-item .fcc-info .sr {
+.search-wrapper {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    color: #333;
-    font-size: 20px;
-    margin-bottom: 0;
+    border: 1px solid var(--tertiary-color);
+    border-radius: 5px;
+    padding: 5px;
 }
 
-#featured-courses .fcc-item .fcc-info .sr .star i {
-    color: var(--secondary-color);
-    font-size: 14px;
+#searchInput {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--text-color);
+    width: 200px;
 }
 
-#featured-courses .fcc-item .fcc-info .sr .star p {
-    color: #738485;
-    font-size: 15px;
-    display: inline-block;
-    margin-left: 20px;
+#search-btn {
+    cursor: pointer;
+    color: var(--primary-color);
 }
 
-#featured-courses .fcc-item .fcc-info .rmbtn {
-    font-weight: 700;
-    font-size: 16px;
+.faacl {
+    display: flex;
+    gap: 20px;
 }
 
-#featured-courses .fcc-item .fcc-info .rmbtn a {
-    color: #333;
-    text-transform: uppercase;
+.filter-all {
+    width: 25%;
+    background: var(--background-color);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    display: block;
+}
+
+.filter-all.hidden {
+    display: none;
+}
+
+#filterButtons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#filterButtons > li {
     position: relative;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--tertiary-color);
 }
 
-#featured-courses .fcc-item .fcc-info .rmbtn a::after {
-    content: "";
+#filterButtons > li:hover {
+    background: var(--tertiary-color);
+}
+
+.filter-sub {
+    display: none;
     position: absolute;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    left: 0;
-    bottom: -5px;
-    transition: width 0.3s ease;
+    left: 100%;
+    top: 0;
+    background: var(--background-color);
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    border-radius: 5px;
+    min-width: 150px;
 }
 
-#featured-courses .fcc-item .fcc-info .rmbtn a:hover::after {
-    width: 100%;
+#filterButtons > li:hover .filter-sub {
+    display: block;
 }
 
-#featured-courses .fcc-item .fcc-info .rmbtn a:hover {
+.filter-sub li {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.filter-sub input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.filter-sub label {
+    font-size: 0.9rem;
+}
+
+.collapsible .more {
+    display: block;
+    text-align: center;
+}
+
+.show-more {
+    color: var(--primary-color);
     text-decoration: none;
+}
+
+.show-more:hover {
+    text-decoration: underline;
+}
+
+.allcourse-list {
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.allcourse-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background: var(--background-color);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    color: var(--text-color);
+}
+
+.allcourse-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+.image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details {
+    padding-left: 15px;
+    text-align: left;
+}
+
+.details h2 {
+    margin: 0;
+    font-size: 1.2rem;
     color: var(--primary-color);
 }
 
-#featured-courses .fcc-item .fcc-info .rmbtn a i {
-    font-size: 18px;
-    margin-left: 20px;
-    transition: transform 0.3s ease;
+.details h3 {
+    margin: 5px 0;
+    font-size: 1rem;
+    font-weight: normal;
 }
 
-#featured-courses .fcc-item .fcc-info .rmbtn a:hover i {
-    transform: translateX(10px);
+.details p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: var(--tertiary-color);
+}
+
+.course.hidden {
+    display: none;
 }
