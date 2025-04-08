@@ -1725,7 +1725,18 @@ height: 100vh;
     mix-blend-mode: soft-light;
 }
 
-
+.grid-line{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    box-sizing: border-box;
+    user-select: none;
+    pointer-events: none;
+    transition: all 0.8s ease-out;
+}
 
 #full-stack-mastery .hero h1{
     margin: 0;
