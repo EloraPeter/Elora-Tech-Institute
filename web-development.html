@@ -1,1158 +1,963 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
     <title>Website Development- Elora Tech Institute</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
 
-  <body>
+<body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
-      <h1 id="logo">
-        <img src="images/eti logo main.jfif" alt="" />
-      </h1>
-      <button
-        class="menu-toggle"
-        aria-label="Toggle menu"
-        aria-expanded="false"
-      >
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <ul id="nav-link" role="menu">
-        <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
-        <li class="nb" role="menuitem"><a href="about.html">About</a></li>
-        <li
-          role="menuitem"
-          class="dropdown-parent main nb"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <a href="#">Courses</a>
-          <div class="dropdown1">
-            <ul class="dropdown" role="menuitem">
-              <li
-                role="menuitem"
-                class="dropdown-parent"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <a href="web-development.html">Web Development</a>
-                <div class="dropdown2">
-                  <ul class="dropdown-sub" role="menu">
-                    <li><a href="web-development-html.html">HTML</a></li>
-                    <li><a href="web-development-css.html">CSS</a></li>
-                    <li>
-                      <a href="web-development-javascript.html">JavaScript</a>
-                    </li>
-                    <li>
-                      <a href="web-development-php.html">PHP & Laravel</a>
-                    </li>
-                    <li>
-                      <a href="web-development-wordpress.html">WordPress</a>
-                    </li>
-                    <li>
-                      <a href="web-development-frontend.html"
-                        >Frontend Development</a
-                      >
-                    </li>
-                    <li>
-                      <a href="web-development-backend.html"
-                        >Backend Development</a
-                      >
-                    </li>
-                    <li>
-                      <a href="web-development-fullstack.html"
-                        >Full-Stack Development</a
-                      >
-                    </li>
-                  </ul>
+        <h1 id="logo">
+            <img src="images/eti logo main.jfif" alt="" />
+        </h1>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul id="nav-link" role="menu">
+            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
+            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
+            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false">
+                <a href="#">Courses</a>
+                <div class="dropdown1">
+                    <ul class="dropdown" role="menuitem">
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                            <a href="web-development.html">Web Development</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="web-development-html.html">HTML</a></li>
+                                    <li><a href="web-development-css.html">CSS</a></li>
+                                    <li>
+                                        <a href="web-development-javascript.html">JavaScript</a>
+                                    </li>
+                                    <li>
+                                        <a href="web-development-php.html">PHP & Laravel</a>
+                                    </li>
+                                    <li>
+                                        <a href="web-development-wordpress.html">WordPress</a>
+                                    </li>
+                                    <li>
+                                        <a href="web-development-frontend.html">Frontend Development</a>
+                                    </li>
+                                    <li>
+                                        <a href="web-development-backend.html">Backend Development</a>
+                                    </li>
+                                    <li>
+                                        <a href="web-development-fullstack.html">Full-Stack Development</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                            <a href="mobile-apps.html">Mobile App Development</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="mobile-react-native.html">React Native</a></li>
+                                    <li><a href="mobile-flutter.html">Flutter</a></li>
+                                    <li>
+                                        <a href="mobile-android.html">Android Development (Kotlin)</a>
+                                    </li>
+                                    <li>
+                                        <a href="mobile-ios.html">iOS Development (Swift)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                            <a href="data-science.html">Data Science & Machine Learning</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li>
+                                        <a href="data-python.html">Python for Data Science</a>
+                                    </li>
+                                    <li>
+                                        <a href="data-machine-learning.html">Machine Learning</a>
+                                    </li>
+                                    <li>
+                                        <a href="data-deep-learning.html">Deep Learning & AI</a>
+                                    </li>
+                                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                            <a href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li>
+                                        <a href="cyber-ethical-hacking.html">Ethical Hacking</a>
+                                    </li>
+                                    <li>
+                                        <a href="cyber-network-security.html">Network Security</a>
+                                    </li>
+                                    <li>
+                                        <a href="cyber-threat-intelligence.html">Threat Intelligence</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                            <a href="cloud-computing.html">Cloud Computing & DevOps</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
+                                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
+                                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                            <a href="blockchain.html">Blockchain & Web3</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li>
+                                        <a href="blockchain-solidity.html">Solidity & Smart Contracts</a>
+                                    </li>
+                                    <li>
+                                        <a href="blockchain-dapps.html">Decentralized Apps (dApps)</a>
+                                    </li>
+                                    <li>
+                                        <a href="blockchain-nfts.html">NFT & Crypto Development</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                            <a href="game-development.html">Game Development</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li>
+                                        <a href="game-unity.html">Unity Game Development</a>
+                                    </li>
+                                    <li><a href="game-unreal.html">Unreal Engine</a></li>
+                                    <li>
+                                        <a href="game-mobile.html">Mobile Game Development</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                            <a href="robotics.html">Robotics & IoT</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li>
+                                        <a href="robotics-arduino.html">Arduino & Raspberry Pi</a>
+                                    </li>
+                                    <li>
+                                        <a href="robotics-automation.html">Automation & AI in IoT</a>
+                                    </li>
+                                    <li>
+                                        <a href="robotics-smart-home.html">Smart Home Devices</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                            <a href="ui-ux.html">UI/UX Design</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
+                                    <li>
+                                        <a href="ui-wireframing.html">Wireframing & Prototyping</a>
+                                    </li>
+                                    <li>
+                                        <a href="ui-user-research.html">User Research & UX Strategy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false">
+                            <a href="digital-marketing.html">Digital Marketing & Tech Business</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li>
+                                        <a href="marketing-seo.html">SEO & Content Marketing</a>
+                                    </li>
+                                    <li>
+                                        <a href="marketing-social-media.html">Social Media Growth</a>
+                                    </li>
+                                    <li>
+                                        <a href="marketing-tech-startup.html">Tech Startup Strategies</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-              </li>
-              <li
-                role="menuitem"
-                class="dropdown-parent"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <a href="mobile-apps.html">Mobile App Development</a>
-                <div class="dropdown2">
-                  <ul class="dropdown-sub" role="menu">
-                    <li><a href="mobile-react-native.html">React Native</a></li>
-                    <li><a href="mobile-flutter.html">Flutter</a></li>
-                    <li>
-                      <a href="mobile-android.html"
-                        >Android Development (Kotlin)</a
-                      >
-                    </li>
-                    <li>
-                      <a href="mobile-ios.html">iOS Development (Swift)</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li
-                role="menuitem"
-                class="dropdown-parent"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <a href="data-science.html">Data Science & Machine Learning</a>
-                <div class="dropdown2">
-                  <ul class="dropdown-sub" role="menu">
-                    <li>
-                      <a href="data-python.html">Python for Data Science</a>
-                    </li>
-                    <li>
-                      <a href="data-machine-learning.html">Machine Learning</a>
-                    </li>
-                    <li>
-                      <a href="data-deep-learning.html">Deep Learning & AI</a>
-                    </li>
-                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li
-                role="menuitem"
-                class="dropdown-parent"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <a href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
-                <div class="dropdown2">
-                  <ul class="dropdown-sub" role="menu">
-                    <li>
-                      <a href="cyber-ethical-hacking.html">Ethical Hacking</a>
-                    </li>
-                    <li>
-                      <a href="cyber-network-security.html">Network Security</a>
-                    </li>
-                    <li>
-                      <a href="cyber-threat-intelligence.html"
-                        >Threat Intelligence</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li
-                role="menuitem"
-                class="dropdown-parent"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <a href="cloud-computing.html">Cloud Computing & DevOps</a>
-                <div class="dropdown2">
-                  <ul class="dropdown-sub" role="menu">
-                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
-                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
-                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li
-                role="menuitem"
-                class="dropdown-parent"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <a href="blockchain.html">Blockchain & Web3</a>
-                <div class="dropdown2">
-                  <ul class="dropdown-sub" role="menu">
-                    <li>
-                      <a href="blockchain-solidity.html"
-                        >Solidity & Smart Contracts</a
-                      >
-                    </li>
-                    <li>
-                      <a href="blockchain-dapps.html"
-                        >Decentralized Apps (dApps)</a
-                      >
-                    </li>
-                    <li>
-                      <a href="blockchain-nfts.html"
-                        >NFT & Crypto Development</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li
-                role="menuitem"
-                class="dropdown-parent"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <a href="game-development.html">Game Development</a>
-                <div class="dropdown2">
-                  <ul class="dropdown-sub" role="menu">
-                    <li>
-                      <a href="game-unity.html">Unity Game Development</a>
-                    </li>
-                    <li><a href="game-unreal.html">Unreal Engine</a></li>
-                    <li>
-                      <a href="game-mobile.html">Mobile Game Development</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li
-                role="menuitem"
-                class="dropdown-parent"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <a href="robotics.html">Robotics & IoT</a>
-                <div class="dropdown2">
-                  <ul class="dropdown-sub" role="menu">
-                    <li>
-                      <a href="robotics-arduino.html">Arduino & Raspberry Pi</a>
-                    </li>
-                    <li>
-                      <a href="robotics-automation.html"
-                        >Automation & AI in IoT</a
-                      >
-                    </li>
-                    <li>
-                      <a href="robotics-smart-home.html">Smart Home Devices</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li
-                role="menuitem"
-                class="dropdown-parent"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <a href="ui-ux.html">UI/UX Design</a>
-                <div class="dropdown2">
-                  <ul class="dropdown-sub" role="menu">
-                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
-                    <li>
-                      <a href="ui-wireframing.html"
-                        >Wireframing & Prototyping</a
-                      >
-                    </li>
-                    <li>
-                      <a href="ui-user-research.html"
-                        >User Research & UX Strategy</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li
-                role="menuitem"
-                class="dropdown-parent"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <a href="digital-marketing.html"
-                  >Digital Marketing & Tech Business</a
-                >
-                <div class="dropdown2">
-                  <ul class="dropdown-sub" role="menu">
-                    <li>
-                      <a href="marketing-seo.html">SEO & Content Marketing</a>
-                    </li>
-                    <li>
-                      <a href="marketing-social-media.html"
-                        >Social Media Growth</a
-                      >
-                    </li>
-                    <li>
-                      <a href="marketing-tech-startup.html"
-                        >Tech Startup Strategies</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </li>
+            </li>
 
-        <li class="nb" role="menuitem">
-          <a href="admissions.html">Admissions</a>
-        </li>
-        <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
-        <li role="menuitem" class="enroll-btn">
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
-            class="btn"
-            >Enroll Now</a
-          >
-        </li>
-      </ul>
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
-        class="btn big"
-        >Enroll Now</a
-      >
-      <div id="toggle"><i class="fa-solid fa-moon"></i></div>
+            <li class="nb" role="menuitem">
+                <a href="admissions.html">Admissions</a>
+            </li>
+            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
+            <li role="menuitem" class="enroll-btn">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+                    class="btn">Enroll Now</a>
+            </li>
+        </ul>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+            class="btn big">Enroll Now</a>
+        <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
 
     <main id="web-dev">
-      <h1>Website Development Courses</h1>
-      <h2>Start creating your own websites</h2>
-      <p>Explore courses from experienced real world experts</p>
+        <h1>Website Development Courses</h1>
+        <h2>Start creating your own websites</h2>
+        <p>Explore courses from experienced real world experts</p>
 
-      <div class="webdev-container">
-        <div class="course-item">
-          <a href="web-development-frontend.html">
-            <img src="images/webdev.jpeg" alt="" />
-            <div class="courseitem-info">
-              <h3>Full-Stack Web Development Mastery</h3>
-              <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
-              <div class="pd">
-                <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                <p><i class="fa-solid fa-clock"></i>Duration:</p>
-              </div>
+        <div class="webdev-container">
+            <div class="course-item">
+                <a href="web-development-frontend.html">
+                    <img src="images/webdev.jpeg" alt="" />
+                    <div class="courseitem-info">
+                        <h3>Full-Stack Web Development Mastery</h3>
+                        <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
+                        <div class="pd">
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price: &#8358; 190,500</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                        </div>
 
-              <div class="sr">
-                <div class="star">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <p>(4.5/5)</p>
-                </div>
-              </div>
+                        <div class="sr">
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p>(4.5/5)</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </a>
-        </div>
-        <div class="course-item">
-          <a href="web-development-frontend.html">
-            <img src="images/webdev.jpeg" alt="" />
-            <div class="courseitem-info">
-              <h3>Frontend Development Bootcamp</h3>
-              <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
-              <div class="pd">
-                <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                <p><i class="fa-solid fa-clock"></i>Duration:</p>
-              </div>
-              <div class="sr">
-                <div class="star">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <p>(4.5/5)</p>
-                </div>
-              </div>
+            <div class="course-item">
+                <a href="web-development-frontend.html">
+                    <img src="images/webdev.jpeg" alt="" />
+                    <div class="courseitem-info">
+                        <h3>Frontend Development Bootcamp</h3>
+                        <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
+                        <div class="pd">
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                        </div>
+                        <div class="sr">
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p>(4.5/5)</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </a>
-        </div>
-        <div class="course-item">
-          <a href="web-development-frontend.html">
-            <img src="images/webdev.jpeg" alt="" />
-            <div class="courseitem-info">
-              <h3>Frontend Development Bootcamp</h3>
-              <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
-              <div class="pd">
-                <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                <p><i class="fa-solid fa-clock"></i>Duration:</p>
-              </div>
-              <div class="sr">
-                <div class="star">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <p>(4.5/5)</p>
-                </div>
-              </div>
+            <div class="course-item">
+                <a href="web-development-frontend.html">
+                    <img src="images/webdev.jpeg" alt="" />
+                    <div class="courseitem-info">
+                        <h3>Frontend Development Bootcamp</h3>
+                        <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
+                        <div class="pd">
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                        </div>
+                        <div class="sr">
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p>(4.5/5)</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </a>
-        </div>
-        <div class="course-item">
-          <a href="web-development-frontend.html">
-            <img src="images/webdev.jpeg" alt="" />
-            <div class="courseitem-info">
-              <h3>Frontend Development Bootcamp</h3>
-              <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
-              <div class="pd">
-                <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                <p><i class="fa-solid fa-clock"></i>Duration:</p>
-              </div>
-              <div class="sr">
-                <div class="star">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <p>(4.5/5)</p>
-                </div>
-              </div>
+            <div class="course-item">
+                <a href="web-development-frontend.html">
+                    <img src="images/webdev.jpeg" alt="" />
+                    <div class="courseitem-info">
+                        <h3>Frontend Development Bootcamp</h3>
+                        <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
+                        <div class="pd">
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                        </div>
+                        <div class="sr">
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p>(4.5/5)</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </a>
-        </div>
-        <div class="course-item">
-          <a href="web-development-frontend.html">
-            <img src="images/webdev.jpeg" alt="" />
-            <div class="courseitem-info">
-              <h3>Frontend Development Bootcamp</h3>
-              <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
-              <div class="pd">
-                <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                <p><i class="fa-solid fa-clock"></i>Duration:</p>
-              </div>
-              <div class="sr">
-                <div class="star">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <p>(4.5/5)</p>
-                </div>
-              </div>
+            <div class="course-item">
+                <a href="web-development-frontend.html">
+                    <img src="images/webdev.jpeg" alt="" />
+                    <div class="courseitem-info">
+                        <h3>Frontend Development Bootcamp</h3>
+                        <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
+                        <div class="pd">
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                        </div>
+                        <div class="sr">
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p>(4.5/5)</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </a>
-        </div>
-        <div class="course-item">
-          <a href="web-development-frontend.html">
-            <img src="images/webdev.jpeg" alt="" />
-            <div class="courseitem-info">
-              <h3>Frontend Development Bootcamp</h3>
-              <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
-              <div class="pd">
-                <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                <p><i class="fa-solid fa-clock"></i>Duration:</p>
-              </div>
-              <div class="sr">
-                <div class="star">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <p>(4.5/5)</p>
-                </div>
-              </div>
+            <div class="course-item">
+                <a href="web-development-frontend.html">
+                    <img src="images/webdev.jpeg" alt="" />
+                    <div class="courseitem-info">
+                        <h3>Frontend Development Bootcamp</h3>
+                        <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
+                        <div class="pd">
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                        </div>
+                        <div class="sr">
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p>(4.5/5)</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </a>
-        </div>
-        <div class="course-item">
-          <a href="web-development-frontend.html">
-            <img src="images/webdev.jpeg" alt="" />
-            <div class="courseitem-info">
-              <h3>Frontend Development Bootcamp</h3>
-              <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
-              <div class="pd">
-                <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                <p><i class="fa-solid fa-clock"></i>Duration:</p>
-              </div>
-              <div class="sr">
-                <div class="star">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <p>(4.5/5)</p>
-                </div>
-              </div>
+            <div class="course-item">
+                <a href="web-development-frontend.html">
+                    <img src="images/webdev.jpeg" alt="" />
+                    <div class="courseitem-info">
+                        <h3>Frontend Development Bootcamp</h3>
+                        <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
+                        <div class="pd">
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                        </div>
+                        <div class="sr">
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p>(4.5/5)</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </a>
-        </div>
-        <div class="course-item">
-          <a href="web-development-frontend.html">
-            <img src="images/webdev.jpeg" alt="" />
-            <div class="courseitem-info">
-              <h3>Frontend Development Bootcamp</h3>
-              <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
-              <div class="pd">
-                <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                <p><i class="fa-solid fa-clock"></i>Duration:</p>
-              </div>
-              <div class="sr">
-                <div class="star">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <p>(4.5/5)</p>
-                </div>
-              </div>
+            <div class="course-item">
+                <a href="web-development-frontend.html">
+                    <img src="images/webdev.jpeg" alt="" />
+                    <div class="courseitem-info">
+                        <h3>Frontend Development Bootcamp</h3>
+                        <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
+                        <div class="pd">
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                        </div>
+                        <div class="sr">
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p>(4.5/5)</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </a>
         </div>
-      </div>
 
-      <div class="all-courses">
-        <h2>All Courses</h2>
-        <div class="filter-header">
-          <i class="fa-solid fa-filter" id="toggleFilter"></i>
-          <div class="search-wrapper">
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search courses..."
-            />
-            <i class="fa-solid fa-magnifying-glass" id="search-btn"></i>
-          </div>
-        </div>
-        <div class="faacl">
-          <div class="filter-all" id="filterPanel">
-            <ul id="filterButtons">
-              <li>
-                <h3>Video Duration <i class="fa-solid fa-chevron-down"></i></h3>
-                <ul class="filter-sub">
-                  <li>
-                    <input type="checkbox" name="duration" id="dur-0-1" /><label
-                      for="dur-0-1"
-                      >0–1 hr</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="duration" id="dur-1-3" /><label
-                      for="dur-1-3"
-                      >1–3 hrs</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="duration" id="dur-3-6" /><label
-                      for="dur-3-6"
-                      >3–6 hrs</label
-                    >
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="duration"
-                      id="dur-6-12"
-                    /><label for="dur-5plus">6-12 hrs</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="duration"
-                      id="dur-12-17"
-                    /><label for="dur-12-17">12-17 hrs</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="duration"
-                      id="dur-17-20"
-                    /><label for="dur-17-20">17-20 hrs</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="duration"
-                      id="dur-20plus"
-                    /><label for="dur-20plus">20+ hrs</label>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h3>Course Duration<i class="fa-solid fa-chevron-down"></i></h3>
-                <ul class="filter-sub">
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="course-dur"
-                      id="cdur-1-4"
-                    /><label for="cdur-1-4">1–4 weeks</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="course-dur"
-                      id="cdur-4-8"
-                    /><label for="cdur-4-8">4–8 weeks</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="course-dur"
-                      id="cdur-8-12"
-                    /><label for="cdur-8-12">8–12 weeks</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="course-dur"
-                      id="cdur-12-20"
-                    /><label for="cdur-12-20">12-20 weeks</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="course-dur"
-                      id="cdur-20plus"
-                    /><label for="cdur-20plus">20+ weeks</label>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h3>Level<i class="fa-solid fa-chevron-down"></i></h3>
-                <ul class="filter-sub">
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="level"
-                      id="lvl-beginner"
-                    /><label for="lvl-beginner">Beginner</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="level"
-                      id="lvl-intermediate"
-                    /><label for="lvl-intermediate">Intermediate</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="level"
-                      id="lvl-advanced"
-                    /><label for="lvl-advanced">Advanced</label>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h3>Price<i class="fa-solid fa-chevron-down"></i></h3>
-                <ul class="filter-sub">
-                  <li>
-                    <input type="checkbox" name="price" id="price-free" /><label
-                      for="price-free"
-                      >Free</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="price" id="price-paid" /><label
-                      for="price-paid"
-                      >Paid</label
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h3>Availability<i class="fa-solid fa-chevron-down"></i></h3>
-                <ul class="filter-sub">
-                  <li>
-                    <input type="checkbox" name="avail" id="avail-now" /><label
-                      for="avail-now"
-                      >Available Now</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="avail" id="avail-soon" /><label
-                      for="avail-soon"
-                      >Coming Soon</label
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h3>Course Format <i class="fa-solid fa-chevron-down"></i></h3>
-                <ul class="filter-sub">
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="course-format"
-                      value="live"
-                      id="live"
-                    />
-                    <label for="live">Live</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="course-format"
-                      value="recorded"
-                      id="recorded"
-                    />
-                    <label for="recorded">Pre-recorded</label>
-                  </li>
-                  <li>
-                    <input
-                      type="checkbox"
-                      name="course-format"
-                      value="reading"
-                      id="reading"
-                    />
-                    <label for="reading">Reading (Self-paced text)</label>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h3>Categories<i class="fa-solid fa-chevron-down"></i></h3>
-                <ul class="filter-sub">
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-web" /><label
-                      for="cat-web"
-                      >Web Development</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-mobile" /><label
-                      for="cat-mobile"
-                      >Mobile App Development</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-game" /><label
-                      for="cat-game"
-                      >Game Development</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-data" /><label
-                      for="cat-data"
-                      >Data Science &amp; Analysis</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-graphic" /><label
-                      for="cat-design"
-                      >Graphic Design &amp; Illustration</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-software" /><label
-                      for="cat-software"
-                      >Software Engineering</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-cyber" /><label
-                      for="cat-cyber"
-                      >Cyber Security</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-ict" /><label
-                      for="cat-ict"
-                      >Information &amp; Communication Technology </label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-cloud" /><label
-                      for="cat-cloud"
-                      >Cloud Computing</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-blockchain" /><label
-                      for="cat-blockchain"
-                      >Blockchain &amp; Web3</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-robotics" /><label
-                      for="cat-robotics"
-                      >Robotics &amp; IOT</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-marketing" /><label
-                      for="cat-marketing"
-                      >Digital Marketing</label
-                    >
-                  </li>
-                  <li>
-                    <input type="checkbox" name="cat" id="cat-ui-ux" /><label
-                      for="cat-software"
-                      >UI/UX Design</label
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <h3>Topics<i class="fa-solid fa-chevron-down"></i></h3>
-                <ul class="filter-sub">
-                  <li>
-                    <input type="checkbox" name="top" id="top-html" />
-                    <label for="top-html">HTML</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-php" />
-                    <label for="top-php">PHP</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-css" />
-                    <label for="top-css">CSS</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-javascript" />
-                    <label for="top-javascript">JavaScript</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-wordpress" />
-                    <label for="top-wordpress">WordPress</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-frontend" />
-                    <label for="top-frontend">Frontend</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-java" />
-                    <label for="top-java">JAVA</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-backend" />
-                    <label for="top-backend">Backend</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-fullstack" />
-                    <label for="top-fullstack">Full-Stack</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-node" />
-                    <label for="top-node">NodeJS</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-sql" />
-                    <label for="top-sql">MySQL</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-python" />
-                    <label for="top-python">PYTHON</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-react" />
-                    <label for="top-react">ReactJS</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="top" id="top-ui/ux" />
-                    <label for="top-ui/ux">UI/UX</label>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+        <div class="all-courses">
+            <h2>All Courses</h2>
+            <div class="filter-header">
+                <i class="fa-solid fa-filter" id="toggleFilter"></i>
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="Search courses..." />
+                    <i class="fa-solid fa-magnifying-glass" id="search-btn"></i>
+                </div>
+            </div>
+            <div class="faacl">
+                <div class="filter-all" id="filterPanel">
+                    <ul id="filterButtons">
+                        <li>
+                            <h3>Video Duration <i class="fa-solid fa-chevron-down"></i></h3>
+                            <ul class="filter-sub">
+                                <li>
+                                    <input type="checkbox" name="duration" id="dur-0-1" /><label for="dur-0-1">0–1
+                                        hr</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="duration" id="dur-1-3" /><label for="dur-1-3">1–3
+                                        hrs</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="duration" id="dur-3-6" /><label for="dur-3-6">3–6
+                                        hrs</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="duration" id="dur-6-12" /><label for="dur-5plus">6-12
+                                        hrs</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="duration" id="dur-12-17" /><label for="dur-12-17">12-17
+                                        hrs</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="duration" id="dur-17-20" /><label for="dur-17-20">17-20
+                                        hrs</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="duration" id="dur-20plus" /><label for="dur-20plus">20+
+                                        hrs</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>Course Duration<i class="fa-solid fa-chevron-down"></i></h3>
+                            <ul class="filter-sub">
+                                <li>
+                                    <input type="checkbox" name="course-dur" id="cdur-1-4" /><label for="cdur-1-4">1–4
+                                        weeks</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="course-dur" id="cdur-4-8" /><label for="cdur-4-8">4–8
+                                        weeks</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="course-dur" id="cdur-8-12" /><label
+                                        for="cdur-8-12">8–12 weeks</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="course-dur" id="cdur-12-20" /><label
+                                        for="cdur-12-20">12-20 weeks</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="course-dur" id="cdur-20plus" /><label
+                                        for="cdur-20plus">20+ weeks</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>Level<i class="fa-solid fa-chevron-down"></i></h3>
+                            <ul class="filter-sub">
+                                <li>
+                                    <input type="checkbox" name="level" id="lvl-beginner" /><label
+                                        for="lvl-beginner">Beginner</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="level" id="lvl-intermediate" /><label
+                                        for="lvl-intermediate">Intermediate</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="level" id="lvl-advanced" /><label
+                                        for="lvl-advanced">Advanced</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>Price<i class="fa-solid fa-chevron-down"></i></h3>
+                            <ul class="filter-sub">
+                                <li>
+                                    <input type="checkbox" name="price" id="price-free" /><label
+                                        for="price-free">Free</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="price" id="price-paid" /><label
+                                        for="price-paid">Paid</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>Availability<i class="fa-solid fa-chevron-down"></i></h3>
+                            <ul class="filter-sub">
+                                <li>
+                                    <input type="checkbox" name="avail" id="avail-now" /><label
+                                        for="avail-now">Available Now</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="avail" id="avail-soon" /><label for="avail-soon">Coming
+                                        Soon</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>Course Format <i class="fa-solid fa-chevron-down"></i></h3>
+                            <ul class="filter-sub">
+                                <li>
+                                    <input type="checkbox" name="course-format" value="live" id="live" />
+                                    <label for="live">Live</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="course-format" value="recorded" id="recorded" />
+                                    <label for="recorded">Pre-recorded</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="course-format" value="reading" id="reading" />
+                                    <label for="reading">Reading (Self-paced text)</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>Categories<i class="fa-solid fa-chevron-down"></i></h3>
+                            <ul class="filter-sub">
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-web" /><label for="cat-web">Web
+                                        Development</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-mobile" /><label for="cat-mobile">Mobile
+                                        App Development</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-game" /><label for="cat-game">Game
+                                        Development</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-data" /><label for="cat-data">Data Science
+                                        &amp; Analysis</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-graphic" /><label for="cat-design">Graphic
+                                        Design &amp; Illustration</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-software" /><label
+                                        for="cat-software">Software Engineering</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-cyber" /><label for="cat-cyber">Cyber
+                                        Security</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-ict" /><label for="cat-ict">Information
+                                        &amp; Communication Technology </label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-cloud" /><label for="cat-cloud">Cloud
+                                        Computing</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-blockchain" /><label
+                                        for="cat-blockchain">Blockchain &amp; Web3</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-robotics" /><label
+                                        for="cat-robotics">Robotics &amp; IOT</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-marketing" /><label
+                                        for="cat-marketing">Digital Marketing</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="cat" id="cat-ui-ux" /><label for="cat-software">UI/UX
+                                        Design</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>Topics<i class="fa-solid fa-chevron-down"></i></h3>
+                            <ul class="filter-sub">
+                                <li>
+                                    <input type="checkbox" name="top" id="top-html" />
+                                    <label for="top-html">HTML</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-php" />
+                                    <label for="top-php">PHP</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-css" />
+                                    <label for="top-css">CSS</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-javascript" />
+                                    <label for="top-javascript">JavaScript</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-wordpress" />
+                                    <label for="top-wordpress">WordPress</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-frontend" />
+                                    <label for="top-frontend">Frontend</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-java" />
+                                    <label for="top-java">JAVA</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-backend" />
+                                    <label for="top-backend">Backend</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-fullstack" />
+                                    <label for="top-fullstack">Full-Stack</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-node" />
+                                    <label for="top-node">NodeJS</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-sql" />
+                                    <label for="top-sql">MySQL</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-python" />
+                                    <label for="top-python">PYTHON</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-react" />
+                                    <label for="top-react">ReactJS</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-ui/ux" />
+                                    <label for="top-ui/ux">UI/UX</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="top" id="top-digi-market" />
+                                    <label for="top-digi-market">Digital Marketing</label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
 
-          <div class="allcourse-list">
-            <div>
-              <a href="#" class="allcourse-item">
-                <div class="image">
-                  <img src="images/neural network.jpeg" alt="" />
+                <div class="allcourse-list">
+                    <div>
+                        <a href="#" class="allcourse-item">
+                            <div class="image">
+                                <img src="images/neural network.jpeg" alt="" />
+                            </div>
+                            <div class="details">
+                                <h2>Frontend Development</h2>
+                                <h3>Everything you need to know to create a nice frontend</h3>
+                                <p>Elora Peter</p>
+                                <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
+                            </div>
+                            <div class="price">
+                                <p>&#8358;190,500 </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="allcourse-item">
+                            <div class="image">
+                                <img src="images/neural network.jpeg" alt="" />
+                            </div>
+                            <div class="details">
+                                <h2>Frontend Development</h2>
+                                <h3>Everything you need to know to create a nice fronten</h3>
+                                <p>Elora Peter</p>
+                                <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
+                            </div>
+                            <div class="price">
+                                <p>&#8358;190,500 </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="allcourse-item">
+                            <div class="image">
+                                <img src="images/neural network.jpeg" alt="" />
+                            </div>
+                            <div class="details">
+                                <h2>Frontend Development</h2>
+                                <h3>Everything you need to know to create a nice fronten</h3>
+                                <p>Elora Peter</p>
+                                <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
+                            </div>
+                            <div class="price">
+                                <p>&#8358;190,500 </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="allcourse-item">
+                            <div class="image">
+                                <img src="images/neural network.jpeg" alt="" />
+                            </div>
+                            <div class="details">
+                                <h2>Frontend Development</h2>
+                                <h3>Everything you need to know to create a nice fronten</h3>
+                                <p>Elora Peter</p>
+                                <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
+                            </div>
+                            <div class="price">
+                                <p>&#8358;190,500 </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="allcourse-item">
+                            <div class="image">
+                                <img src="images/neural network.jpeg" alt="" />
+                            </div>
+                            <div class="details">
+                                <h2>Frontend Development</h2>
+                                <h3>Everything you need to know to create a nice fronten</h3>
+                                <p>Elora Peter</p>
+                                <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
+                            </div>
+                            <div class="price">
+                                <p>&#8358;190,500 </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="allcourse-item">
+                            <div class="image">
+                                <img src="images/neural network.jpeg" alt="" />
+                            </div>
+                            <div class="details">
+                                <h2>Frontend Development</h2>
+                                <h3>Everything you need to know to create a nice fronten</h3>
+                                <p>Elora Peter</p>
+                                <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
+                            </div>
+                            <div class="price">
+                                <p>&#8358;190,500 </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="allcourse-item">
+                            <div class="image">
+                                <img src="images/neural network.jpeg" alt="" />
+                            </div>
+                            <div class="details">
+                                <h2>Frontend Development</h2>
+                                <h3>Everything you need to know to create a nice fronten</h3>
+                                <p>Elora Peter</p>
+                                <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
+                            </div>
+                            <div class="price">
+                                <p>&#8358;190,500 </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="allcourse-item">
+                            <div class="image">
+                                <img src="images/neural network.jpeg" alt="" />
+                            </div>
+                            <div class="details">
+                                <h2>Frontend Development</h2>
+                                <h3>Everything you need to know to create a nice fronten</h3>
+                                <p>Elora Peter</p>
+                                <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
+                            </div>
+                            <div class="price">
+                                <p>&#8358;190,500 </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="allcourse-item">
+                            <div class="image">
+                                <img src="images/neural network.jpeg" alt="" />
+                            </div>
+                            <div class="details">
+                                <h2>Frontend Development</h2>
+                                <h3>Everything you need to know to create a nice fronten</h3>
+                                <p>Elora Peter</p>
+                                <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
+                            </div>
+                            <div class="price">
+                                <p>&#8358;190,500 </p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="details">
-                  <h2>Frontend Development</h2>
-                  <h3>Everything you need to know to create a nice frontend</h3>
-                  <p>Elora Peter</p>
-                  <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
-                </div>
-              </a>
             </div>
-            <div>
-              <a href="#" class="allcourse-item">
-                <div class="image">
-                  <img src="images/neural network.jpeg" alt="" />
-                </div>
-                <div class="details">
-                  <h2>Frontend Development</h2>
-                  <h3>Everything you need to know to create a nice fronten</h3>
-                  <p>Elora Peter</p>
-                  <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
-                </div>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="allcourse-item">
-                <div class="image">
-                  <img src="images/neural network.jpeg" alt="" />
-                </div>
-                <div class="details">
-                  <h2>Frontend Development</h2>
-                  <h3>Everything you need to know to create a nice fronten</h3>
-                  <p>Elora Peter</p>
-                  <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
-                </div>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="allcourse-item">
-                <div class="image">
-                  <img src="images/neural network.jpeg" alt="" />
-                </div>
-                <div class="details">
-                  <h2>Frontend Development</h2>
-                  <h3>Everything you need to know to create a nice fronten</h3>
-                  <p>Elora Peter</p>
-                  <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
-                </div>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="allcourse-item">
-                <div class="image">
-                  <img src="images/neural network.jpeg" alt="" />
-                </div>
-                <div class="details">
-                  <h2>Frontend Development</h2>
-                  <h3>Everything you need to know to create a nice fronten</h3>
-                  <p>Elora Peter</p>
-                  <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
-                </div>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="allcourse-item">
-                <div class="image">
-                  <img src="images/neural network.jpeg" alt="" />
-                </div>
-                <div class="details">
-                  <h2>Frontend Development</h2>
-                  <h3>Everything you need to know to create a nice fronten</h3>
-                  <p>Elora Peter</p>
-                  <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
-                </div>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="allcourse-item">
-                <div class="image">
-                  <img src="images/neural network.jpeg" alt="" />
-                </div>
-                <div class="details">
-                  <h2>Frontend Development</h2>
-                  <h3>Everything you need to know to create a nice fronten</h3>
-                  <p>Elora Peter</p>
-                  <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
-                </div>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="allcourse-item">
-                <div class="image">
-                  <img src="images/neural network.jpeg" alt="" />
-                </div>
-                <div class="details">
-                  <h2>Frontend Development</h2>
-                  <h3>Everything you need to know to create a nice fronten</h3>
-                  <p>Elora Peter</p>
-                  <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
-                </div>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="allcourse-item">
-                <div class="image">
-                  <img src="images/neural network.jpeg" alt="" />
-                </div>
-                <div class="details">
-                  <h2>Frontend Development</h2>
-                  <h3>Everything you need to know to create a nice fronten</h3>
-                  <p>Elora Peter</p>
-                  <p>12 weeks <i class="fa-solid fa-circle"></i> Beginner</p>
-                </div>
-              </a>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <div class="faq">
-        <h3>Frequently Asked Questions</h3>
-        <div class="accordion">
-          <div class="accordion-item">
-            <h4 class="accordion-title">
-              What is Website Development?<i
-                class="fa-solid fa-chevron-down"
-              ></i>
-            </h4>
-            <div class="accordion-content">
-              <p>
-                Elora Tech Institute is a leading tech institution committed to
-                innovation, excellence, and creating the next generation of tech
-                innovators. Our mission is to equip individuals with the skills
-                and knowledge needed to succeed in the rapidly changing world of
-                technology.
-              </p>
+        <div class="faq">
+            <h3>Frequently Asked Questions</h3>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <h4 class="accordion-title">
+                        What is Website Development?<i class="fa-solid fa-chevron-down"></i>
+                    </h4>
+                    <div class="accordion-content">
+                        <p>
+                            Elora Tech Institute is a leading tech institution committed to
+                            innovation, excellence, and creating the next generation of tech
+                            innovators. Our mission is to equip individuals with the skills
+                            and knowledge needed to succeed in the rapidly changing world of
+                            technology.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h4 class="accordion-title">
+                        What is Website Development?<i class="fa-solid fa-chevron-down"></i>
+                    </h4>
+                    <div class="accordion-content">
+                        <p>
+                            Elora Tech Institute is a leading tech institution committed to
+                            innovation, excellence, and creating the next generation of tech
+                            innovators. Our mission is to equip individuals with the skills
+                            and knowledge needed to succeed in the rapidly changing world of
+                            technology.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h4 class="accordion-title">
+                        What is Website Development?<i class="fa-solid fa-chevron-down"></i>
+                    </h4>
+                    <div class="accordion-content">
+                        <p>
+                            Elora Tech Institute is a leading tech institution committed to
+                            innovation, excellence, and creating the next generation of tech
+                            innovators. Our mission is to equip individuals with the skills
+                            and knowledge needed to succeed in the rapidly changing world of
+                            technology.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h4 class="accordion-title">
+                        What is Website Development?<i class="fa-solid fa-chevron-down"></i>
+                    </h4>
+                    <div class="accordion-content">
+                        <p>
+                            Elora Tech Institute is a leading tech institution committed to
+                            innovation, excellence, and creating the next generation of tech
+                            innovators. Our mission is to equip individuals with the skills
+                            and knowledge needed to succeed in the rapidly changing world of
+                            technology.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h4 class="accordion-title">
+                        What is Website Development?<i class="fa-solid fa-chevron-down"></i>
+                    </h4>
+                    <div class="accordion-content">
+                        <p>
+                            Elora Tech Institute is a leading tech institution committed to
+                            innovation, excellence, and creating the next generation of tech
+                            innovators. Our mission is to equip individuals with the skills
+                            and knowledge needed to succeed in the rapidly changing world of
+                            technology.
+                        </p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="accordion-item">
-            <h4 class="accordion-title">
-              What is Website Development?<i
-                class="fa-solid fa-chevron-down"
-              ></i>
-            </h4>
-            <div class="accordion-content">
-              <p>
-                Elora Tech Institute is a leading tech institution committed to
-                innovation, excellence, and creating the next generation of tech
-                innovators. Our mission is to equip individuals with the skills
-                and knowledge needed to succeed in the rapidly changing world of
-                technology.
-              </p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h4 class="accordion-title">
-              What is Website Development?<i
-                class="fa-solid fa-chevron-down"
-              ></i>
-            </h4>
-            <div class="accordion-content">
-              <p>
-                Elora Tech Institute is a leading tech institution committed to
-                innovation, excellence, and creating the next generation of tech
-                innovators. Our mission is to equip individuals with the skills
-                and knowledge needed to succeed in the rapidly changing world of
-                technology.
-              </p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h4 class="accordion-title">
-              What is Website Development?<i
-                class="fa-solid fa-chevron-down"
-              ></i>
-            </h4>
-            <div class="accordion-content">
-              <p>
-                Elora Tech Institute is a leading tech institution committed to
-                innovation, excellence, and creating the next generation of tech
-                innovators. Our mission is to equip individuals with the skills
-                and knowledge needed to succeed in the rapidly changing world of
-                technology.
-              </p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h4 class="accordion-title">
-              What is Website Development?<i
-                class="fa-solid fa-chevron-down"
-              ></i>
-            </h4>
-            <div class="accordion-content">
-              <p>
-                Elora Tech Institute is a leading tech institution committed to
-                innovation, excellence, and creating the next generation of tech
-                innovators. Our mission is to equip individuals with the skills
-                and knowledge needed to succeed in the rapidly changing world of
-                technology.
-              </p>
-            </div>
-          </div>
+            <button class="accordion-toggle">Show More</button>
         </div>
-        <button class="accordion-toggle">Show More</button>
-      </div>
 
-      <a href="test.html">testing</a>
+        <a href="test.html">testing</a>
     </main>
 
     <footer>
-      <div class="info">
-        <div class="about">
-          <h2>Elora Tech Institute</h2>
-          <p>
-            Elora Tech Institute equips individuals with in-demand tech skills
-            through hands-on training in web development, cybersecurity, Web3,
-            IoT, and more. Our vision is to be a leading tech institution,
-            shaping the future of tech education through innovation and
-            excellence. With a comprehensive curriculum, hands-on projects,
-            flexible online learning, and career support, Elora Tech Institute
-            is more than an academy—it’s a movement to create the next
-            generation of tech innovators.
-          </p>
-          <ul class="sm">
-            <li>
-              <a href="https://web.facebook.com/profile.php?id=61574697245670"
-                ><i class="fab fa-facebook"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://github.com/EloraPeter?tab=repositories"
-                ><i class="fab fa-github"></i
-              ></a>
-            </li>
-          </ul>
+        <div class="info">
+            <div class="about">
+                <h2>Elora Tech Institute</h2>
+                <p>
+                    Elora Tech Institute equips individuals with in-demand tech skills
+                    through hands-on training in web development, cybersecurity, Web3,
+                    IoT, and more. Our vision is to be a leading tech institution,
+                    shaping the future of tech education through innovation and
+                    excellence. With a comprehensive curriculum, hands-on projects,
+                    flexible online learning, and career support, Elora Tech Institute
+                    is more than an academy—it’s a movement to create the next
+                    generation of tech innovators.
+                </p>
+                <ul class="sm">
+                    <li>
+                        <a href="https://web.facebook.com/profile.php?id=61574697245670"><i
+                                class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i
+                                class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="quick-links">
+                <h2>Quick Links</h2>
+                <ul id="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="apply">
+                <h2>How to Apply</h2>
+                <ol>
+                    <li>Visit our website and check out the programs.</li>
+                    <li>Fill out the registration form.</li>
+                    <li>Make payment and confirm your enrollment.</li>
+                    <li>Start your tech journey with us!</li>
+                </ol>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+                    class="apply-button" target="_blank">Register Now</a>
+            </div>
         </div>
-        <div class="quick-links">
-          <h2>Quick Links</h2>
-          <ul id="links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html#faq">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="apply">
-          <h2>How to Apply</h2>
-          <ol>
-            <li>Visit our website and check out the programs.</li>
-            <li>Fill out the registration form.</li>
-            <li>Make payment and confirm your enrollment.</li>
-            <li>Start your tech journey with us!</li>
-          </ol>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
-            class="apply-button"
-            target="_blank"
-            >Register Now</a
-          >
-        </div>
-      </div>
-      <hr />
-      <p id="copyright">
-        &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
-      </p>
-      <p id="designer">
-        created by
-        <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a>
-        with ❤
-      </p>
+        <hr />
+        <p id="copyright">
+            &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
+        </p>
+        <p id="designer">
+            created by
+            <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a>
+            with ❤
+        </p>
     </footer>
 
-    <a
-      href="https://wa.me/+12025550123?text=Hi%20there"
-      target="_blank"
-      class="whatsapp-bubble"
-    >
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-        alt="WhatsApp"
-      />
+    <a href="https://wa.me/+12025550123?text=Hi%20there" target="_blank" class="whatsapp-bubble">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>
