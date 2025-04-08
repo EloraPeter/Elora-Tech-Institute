@@ -1748,6 +1748,10 @@ color: #f8f8f8;
     border-right: 1px solid rgba(255, 255, 255, 0.9);
 }
 
+.line-20:last-child{
+    border-right: none;
+}
+
 .line-60{
     width: 60vw;
     border-right: 1px solid rgba(255, 255, 255, 0.9);
