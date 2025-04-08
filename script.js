@@ -211,8 +211,18 @@ filterCheckboxes.forEach(checkbox => {
 //faq sections
 document.querySelectorAll('.accordion-title').forEach(title => {
   title.addEventListener('click', () => {
-    const item = title.parentElement;
-    item.classList.toggle('active');
+    const currentItem = title.parentElement; // The clicked accordion item
+    const accordionItems = document.querySelectorAll('.accordion-item'); // All items
+
+    // Close all items except the clicked one
+    accordionItems.forEach(item => {
+      if (item !== currentItem) {
+        item.classList.remove('active');
+      }
+    });
+
+    // Toggle the clicked item (open if closed, close if open)
+    currentItem.classList.toggle('active');
   });
 });
 
