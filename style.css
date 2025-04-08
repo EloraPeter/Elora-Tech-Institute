@@ -1429,21 +1429,21 @@ footer hr {
     display: flex;
     justify-content: space-between;
     color: #333;
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 0;
     margin-top: 10px;
 }
 
 .course-item .courseitem-info .pd p {
     color: #333;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 5px;
 }
 
 .course-item .courseitem-info .pd i {
     color: var(--primary-color);
-    font-size: 18px;
-    margin-right: 8px;
+    font-size: 15px;
+    margin-right: 5px;
 }
 
 .course-item .courseitem-info .sr {
