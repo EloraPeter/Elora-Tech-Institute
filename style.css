@@ -1740,7 +1740,7 @@ padding-top: 8%;
     transition: all 0.8s ease-out;
 }
 
-.grid-lines.gray .line-20, .grid-lines.grey .line-50{
+.grid-lines.gray .line-25, .grid-lines.grey .line-50{
     border-color: var(--tertiary-color);
 }
 
