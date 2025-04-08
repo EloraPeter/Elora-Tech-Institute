@@ -1714,10 +1714,11 @@ footer hr {
 
 /* Full-Stack Web Development Mastery page */
 #full-stack-mastery .hero{
-background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(images/webdev.jpeg);
+background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(images/webdev.jpeg);
 background-repeat: no-repeat;
 background-size: cover;
-height: 100vh;
+background-position: center;
+height: 80vh;
 color: #f8f8f8;
 padding-top: 8%;
 }
@@ -1764,4 +1765,10 @@ padding-top: 8%;
     margin: 0 auto;
     font-size: 70px;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#full-stack-mastery .hero p{
+    width: 65%;
+    margin: 20px auto;
+    font-size: 20px;
 }
