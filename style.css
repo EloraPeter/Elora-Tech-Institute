@@ -1719,6 +1719,7 @@ background-repeat: no-repeat;
 background-size: cover;
 height: 100vh;
 color: #f8f8f8;
+padding-top: 8%;
 }
 
 .grid-lines.global{
@@ -1739,25 +1740,28 @@ color: #f8f8f8;
     transition: all 0.8s ease-out;
 }
 
-.grid-lines.gray .line-20, .grid-lines.grey .line-60{
+.grid-lines.gray .line-20, .grid-lines.grey .line-50{
     border-color: var(--tertiary-color);
 }
 
-.line-20{
+.line-25{
     width: 20vw;
     border-right: 1px solid rgba(255, 255, 255, 0.9);
 }
 
-.line-20:last-child{
+.line-25:last-child{
     border-right: none;
 }
 
-.line-60{
+.line-50{
     width: 60vw;
     border-right: 1px solid rgba(255, 255, 255, 0.9);
 }
 
 #full-stack-mastery .hero h1{
-    margin: 0;
+    padding: 2%;
+    width: 80%;
+    margin: 0 auto;
     font-size: 70px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
