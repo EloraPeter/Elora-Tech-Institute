@@ -1720,6 +1720,7 @@ background-position: center;
 height: 60vh;
 color: #f8f8f8;
 padding-top: 8%;
+text-align: left;
 }
 
 .grid-lines.global{
@@ -1770,4 +1771,17 @@ padding-top: 8%;
     width: 65%;
     margin: 20px auto;
     font-size: 20px;
+}
+
+aside{
+    max-width: 320px;
+    margin: 30px auto;
+    padding: 20px;
+    background: var(--background-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    text-align: left;
+    position: sticky;
+    top: 20px;
+    animation: fadeInUp 0.8s ease-out;
 }
