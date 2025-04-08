@@ -41,7 +41,9 @@ h3 {
     font-family: "montserrat", "Helvetica", serif;
 }
 
-.price, [class*="price"], .has-price  {
+.price,
+[class*="price"],
+.has-price {
     font-family: "inter";
     font-weight: 800;
 }
@@ -1392,11 +1394,11 @@ footer hr {
     align-items: center;
 }
 
-.course-item{
+.course-item {
     margin-bottom: 50px;
 }
 
-.course-item a{
+.course-item a {
     text-decoration: none;
 }
 
@@ -1467,7 +1469,7 @@ footer hr {
     margin-left: 20px;
 }
 
-.all-courses .filter-header{
+.all-courses .filter-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1498,7 +1500,7 @@ footer hr {
     width: 200px;
 }
 
-.all-courses .faacl{
+.all-courses .faacl {
     display: flex;
     gap: 20px;
 }
@@ -1519,13 +1521,13 @@ footer hr {
     cursor: pointer;
 }
 
-.all-courses .faacl .filter-all #filterButtons li{
+.all-courses .faacl .filter-all #filterButtons li {
     list-style: none;
     text-align: left;
     cursor: pointer;
 }
 
-.all-courses .faacl .filter-all #filterButtons li h3{
+.all-courses .faacl .filter-all #filterButtons li h3 {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 5px;
@@ -1533,15 +1535,15 @@ footer hr {
     justify-content: space-between;
 }
 
-.all-courses .faacl .filter-all #filterButtons > li {
+.all-courses .faacl .filter-all #filterButtons>li {
     position: relative;
     padding: 10px;
     cursor: pointer;
     border-bottom: 1px solid var(--tertiary-color);
-    
+
 }
 
-.all-courses .faacl .filter-all #filterButtons > li:hover {
+.all-courses .faacl .filter-all #filterButtons>li:hover {
     transform: scale(1.05);
 }
 
@@ -1554,10 +1556,10 @@ footer hr {
     border-radius: 5px;
     min-width: 150px;
     padding-inline-start: 0;
-    
+
 }
 
-.all-courses .faacl .filter-all #filterButtons .filter-sub li{
+.all-courses .faacl .filter-all #filterButtons .filter-sub li {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1578,7 +1580,7 @@ footer hr {
     width: 75%;
 }
 
-.all-courses .faacl .allcourse-list .allcourse-item{
+.all-courses .faacl .allcourse-list .allcourse-item {
     display: flex;
     text-decoration: none;
     padding: 10px;
@@ -1610,38 +1612,43 @@ footer hr {
     text-align: left;
     width: 80%;
 }
+
 .all-courses .faacl .allcourse-list .allcourse-item .details h2 {
     margin: 0;
     font-size: 1.2rem;
     color: var(--primary-color);
 }
+
 .all-courses .faacl .allcourse-list .allcourse-item .details h3 {
     margin: 5px 0;
     font-size: 1rem;
 }
+
 .all-courses .faacl .allcourse-list .allcourse-item .details p {
     margin: 5px 0;
     font-size: 0.9rem;
     color: var(--tertiary-color);
 }
 
-.all-courses .faacl .allcourse-list .allcourse-item .details p i{
+.all-courses .faacl .allcourse-list .allcourse-item .details p i {
     font-size: 5px;
     vertical-align: middle;
 }
 
-.faq h3{
+.faq h3 {
     margin-bottom: 20px;
 }
 
 .faq .accordion {
     border: 1px solid #ddd;
     border-radius: 5px;
-  }
-.faq .accordion  .accordion-item {
+}
+
+.faq .accordion .accordion-item {
     border-bottom: 1px solid #ddd;
-  }
-.faq .accordion  .accordion-item .accordion-title {
+}
+
+.faq .accordion .accordion-item .accordion-title {
     font-size: 18px;
     /* color: #2c3e50; */
     padding: 10px;
@@ -1652,14 +1659,24 @@ footer hr {
     align-items: center;
     /* background-color: #f9f9f9; */
     transition: background-color 0.3s ease;
-  }
-.faq .accordion  .accordion-item .accordion-title:hover {
+}
+
+.faq .accordion .accordion-item .accordion-title:hover {
     background-color: var(--tertiary-color);
-  }
-.faq .accordion  .accordion-item .accordion-title i.fa-chevron-down {
+}
+
+.faq .accordion .accordion-item .accordion-title i.fa-chevron-down {
     transition: transform 0.3s ease;
-  }
+}
+
 .faq .accordion .accordion-item.active .accordion-title i.fa-chevron-down {
     transform: rotate(180deg);
+}
+
+.faq .accordion .accordion-item .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    background-color: #fff;
+    transition: max-height 0.3s ease, padding 0.3s ease;
   }
-  
