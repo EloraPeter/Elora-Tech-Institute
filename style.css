@@ -1711,3 +1711,11 @@ footer hr {
 .faq .accordion-toggle:hover {
     background-color: #2980b9;
 }
+
+/* Full-Stack Web Development Mastery page */
+#full-stack-mastery .hero{
+background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url(images/webdev.jpeg);
+background-repeat: no-repeat;
+background-size: cover;
+height: 100vh;
+}
