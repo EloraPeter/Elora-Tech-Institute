@@ -1630,6 +1630,6 @@ footer hr {
     vertical-align: middle;
 }
 
-.faq{
-    
+.faq h3{
+    margin-bottom: 20px;
 }
