@@ -1680,3 +1680,15 @@ footer hr {
     background-color: #fff;
     transition: max-height 0.3s ease, padding 0.3s ease;
   }
+
+  .faq .accordion .accordion-item.active .accordion-content {
+    max-height: 200px; /* Adjust based on content size */
+    padding: 15px;
+  }
+
+  .faq .accordion .accordion-item .accordion-content p {
+    font-size: 16px;
+    color: var(--tertiary-color);
+    line-height: 1.5;
+    margin: 0;
+  }
