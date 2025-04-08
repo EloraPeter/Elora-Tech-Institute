@@ -1725,7 +1725,7 @@ height: 100vh;
     mix-blend-mode: soft-light;
 }
 
-.grid-line{
+.grid-lines{
     position: fixed;
     top: 0;
     right: 0;
@@ -1737,6 +1737,8 @@ height: 100vh;
     pointer-events: none;
     transition: all 0.8s ease-out;
 }
+
+.grid-
 
 #full-stack-mastery .hero h1{
     margin: 0;
