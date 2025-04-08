@@ -1,224 +1,95 @@
-/* 🎨 Light Mode */
-:root {
-    --primary-color: #4169e1;
-    --secondary-color: #ffd700;
-    --tertiary-color: #a0b7b8;
-    --background-color: white;
-    --text-color: black;
-    --shadow-light: rgba(0, 0, 0, 0.2);
-}
-
-/* 🌙 Dark Mode */
-body.dark {
-    --primary-color: #668fff;
-    --secondary-color: #e6c200;
-    --tertiary-color: #b8d1d2;
-    --background-color: #121212;
-    --text-color: white;
-    --shadow-light: rgba(255, 255, 255, 0.2);
-}
-
-* {
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-}
-
-h2, h3 {
-    font-family: "Montserrat", "Helvetica", serif;
-}
-
-body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-.all-courses {
-    padding: 20px;
-    max-width: 1200px;
+/* General FAQ container */
+.faq {
+    max-width: 800px;
     margin: 0 auto;
-}
-
-.filter-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.filter-header i#toggleFilter {
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--primary-color);
-}
-
-.search-wrapper {
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--tertiary-color);
-    border-radius: 5px;
-    padding: 5px;
-}
-
-#searchInput {
-    border: none;
-    outline: none;
-    padding: 5px;
-    font-size: 1rem;
-    background: transparent;
-    color: var(--text-color);
-    width: 200px;
-}
-
-#search-btn {
-    cursor: pointer;
-    color: var(--primary-color);
-}
-
-.faacl {
-    display: flex;
-    gap: 20px;
-}
-
-.filter-all {
-    width: 25%;
-    background: var(--background-color);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px var(--shadow-light);
-    display: block;
-}
-
-.filter-all.hidden {
-    display: none;
-}
-
-#filterButtons {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#filterButtons > li {
-    position: relative;
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid var(--tertiary-color);
-}
-
-#filterButtons > li:hover {
-    background: var(--tertiary-color);
-}
-
-.filter-sub {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 0;
-    background: var(--background-color);
-    list-style: none;
-    padding: 10px;
-    margin: 0;
-    box-shadow: 0 2px 5px var(--shadow-light);
-    border-radius: 5px;
-    min-width: 150px;
-}
-
-#filterButtons > li:hover .filter-sub {
-    display: block;
-}
-
-.filter-sub li {
-    display: flex;
-    align-items: center;
-    padding: 5px 0;
-}
-
-.filter-sub input[type="checkbox"] {
-    margin-right: 5px;
-}
-
-.filter-sub label {
-    font-size: 0.9rem;
-}
-
-.collapsible .more {
-    display: block;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* FAQ heading */
+  .faq h3 {
+    font-size: 24px;
+    color: #333;
     text-align: center;
-}
-
-.show-more {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.show-more:hover {
-    text-decoration: underline;
-}
-
-.allcourse-list {
-    width: 75%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.allcourse-item {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    background: var(--background-color);
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 5px var(--shadow-light);
-    color: var(--text-color);
-}
-
-.allcourse-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px var(--shadow-light);
-}
-
-.image {
-    flex-shrink: 0;
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  /* Accordion container */
+  .accordion {
+    border: 1px solid #ddd;
     border-radius: 5px;
-}
-
-.image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.details {
-    padding-left: 15px;
-    text-align: left;
-}
-
-.details h2 {
+  }
+  
+  /* Individual accordion item */
+  .accordion-item {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Accordion title (clickable area) */
+  .accordion-title {
+    font-size: 18px;
+    color: #2c3e50;
+    padding: 15px;
     margin: 0;
-    font-size: 1.2rem;
-    color: var(--primary-color);
-}
-
-.details h3 {
-    margin: 5px 0;
-    font-size: 1rem;
-    font-weight: normal;
-}
-
-.details p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-    color: var(--tertiary-color);
-}
-
-.course.hidden {
-    display: none;
-}
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+  }
+  
+  .accordion-title:hover {
+    background-color: #ecf0f1;
+  }
+  
+  /* Chevron icon */
+  .accordion-title i.fa-chevron-down {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Rotate chevron when accordion is active */
+  .accordion-item.active .accordion-title i.fa-chevron-down {
+    transform: rotate(180deg);
+  }
+  
+  /* Accordion content (hidden by default) */
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    background-color: #fff;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  
+  /* Show content when accordion item is active */
+  .accordion-item.active .accordion-content {
+    max-height: 200px; /* Adjust based on content size */
+    padding: 15px;
+  }
+  
+  /* Paragraph inside accordion content */
+  .accordion-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  /* Show More button */
+  .accordion-toggle {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .accordion-toggle:hover {
+    background-color: #2980b9;
+  }
