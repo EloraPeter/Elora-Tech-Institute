@@ -208,9 +208,22 @@ filterCheckboxes.forEach(checkbox => {
 
 
 
+//faq sections
+document.querySelectorAll('.accordion-title').forEach(title => {
+  title.addEventListener('click', () => {
+    const item = title.parentElement;
+    item.classList.toggle('active');
+  });
+});
+
+
+
+
+
 //price styling for uniformity
 document.querySelectorAll('*').forEach(element => {
   if (element.textContent.toLowerCase().includes('price')) {
     element.classList.add('has-price');
   }
 });
+
