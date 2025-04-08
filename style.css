@@ -1684,7 +1684,6 @@ footer hr {
 
 .faq .accordion .accordion-item.active .accordion-content {
     max-height: 200px;
-    /* Adjust based on content size */
     padding: 15px;
 }
 
