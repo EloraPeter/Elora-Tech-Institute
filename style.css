@@ -1778,7 +1778,7 @@ footer hr {
 
 #full-stack-mastery #content{
     display: flex;
-    
+    justify-content: space-between;
 }
 
 
