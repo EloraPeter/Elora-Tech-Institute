@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
-    <title>Full-Stack Web Development Mastery - ETI</title>
+    <title>Pay for Your Course - ETI</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -14,6 +14,7 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+    <script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 
 <body>
@@ -209,222 +210,12 @@
             class="btn big">Enroll Now</a>
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
+    <h1>Pay for Your Elora Tech Course</h1>
+    <p id="courseInfo"></p>
+    <button class="btn" onclick="payWithPaystack()">Pay Now</button>
 
-    <main id="full-stack-mastery">
-        <div class="hero">
-            <div class="grid-lines gray global">
-                <div class="line-25"></div>
-                <div class="line-50"></div>
-                <div class="line-25"></div>
-            </div>
-            <h1>Full-Stack Web Development Mastery</h1>
-            <h2>Transform Your Career with Expert Training Institute (ETI)</h2>
-            <p>
-                Join live classes on Google Classroom and Google Meet to master
-                full-stack development. Learn HTML, CSS, JavaScript, Node.js, React,
-                PostgreSQL, Web3, and DApps while building real-world projects and
-                gaining hands-on experience.
-            </p>
-        </div>
 
-        <aside>
-            <section class="feedback">
-                <h2>Live Full-Stack Web Development Mastery</h2>
-                <span class="top-rated">Top-Rated</span>
-                <p class="score">4.7 ★★★★★ (249 reviews)</p>
-                <p class="enrollment">432 learners enrolled</p>
-            </section>
-            <section id="course-over">
-                <h2>Course Overview</h2>
-                <p>
-                    Ready to become a proficient full-stack web developer? Join the
-                    <strong>Live Full-Stack Web Development Mastery</strong> course
-                    starting <strong>March 14, 2025</strong>, on Google Meet.
-                </p>
-                <p>
-                    With over 61 hours of live instruction, real-time coding tasks, and
-                    over 100 downloadable resources, you’ll master
-                    <strong>JavaScript, React and Node.js.</strong>, building 20
-                    portfolio-worthy projects.
-                </p>
-                <p class="language-options">Available in English</p>
-            </section>
 
-            <div class="instructors">
-                <h2>Meet Your Instructors</h2>
-                <p>
-                    Led by <strong>ETI’s elite full-stack developers</strong>, our
-                    instructors bring years of industry experience from startups,
-                    corporations, and freelance projects. Expect live feedback,
-                    personalized Q&A sessions, and practical insights through coding
-                    demos to ensure you thrive in real-world settings.
-                </p>
-            </div>
-            <div class="updates">
-                <p class="last-update">Next class starts: 14/4/2025</p>
-                
-                <section class="cost">
-                    <div class="pricing-info">
-                        <p class="current-cost price">Now: ₦190,000</p>
-                        <p class="initial-cost price">Originally: ₦250,000</p>
-                        <p class="savings">Save 24%</p>
-                        <p class="deal-timer">
-                            Only 5 days left to register at this rate!
-                        </p>
-                    </div>
-                    <p class="refund-policy">7-Day Refund Option</p>
-                    <a href="pay.html" class="btn">Register Now</a>
-                </section>
-            </div>
-        </aside>
-
-        <section id="coursedes">
-            <section class="course-features">
-                <h2>What’s Included</h2>
-                <ul>
-                    <li>61 hours of live instruction via Google Meet</li>
-                    <li>7 real-time programming tasks</li>
-                    <li>66 interactive guides shared on Google Classroom</li>
-                    <li>194 downloadable resources</li>
-                    <li>Live Q&A and instructor feedback</li>
-                    <li>Access to recorded sessions for review</li>
-                    <li>Completion certificate</li>
-                </ul>
-            </section>
-
-            <section class="learning-goals">
-                <h2>What You’ll Achieve</h2>
-                <ul>
-                    <li>
-                        <strong>Portfolio Powerhouse:</strong> Build over 20 real-world
-                        projects with live guidance.
-                    </li>
-                    <li>
-                        <strong>Tool Mastery:</strong>Master modern tools like JavaScript,
-                        React and Node.js in real-time.
-                    </li>
-                    <li>
-                        <strong>End-to-End Skills:</strong> Create stunning frontends with
-                        React and robust backends with Node without instructor support by
-                        course end.
-                    </li>
-                    <li>
-                        <strong>Career Readiness:</strong> Prepare for freelance gigs or
-                        corporate roles, developing full web solutions for startups or
-                        companies.
-                    </li>
-                    <li>
-                        <strong>Problem-Solving Prowess:</strong> Tackle coding challenges
-                        confidently and use top developer techniques.
-                    </li>
-                </ul>
-            </section>
-
-            <section class="practice-tasks">
-                <h2>Hands-On Practice</h2>
-                <p>
-                    Enhance your skills with live coding challenges during Google Meet
-                    sessions.
-                </p>
-                <img src="practice-task-example.png" alt="Sample live coding challenge" />
-            </section>
-
-            <section class="group-training">
-                <h2>Training Multiple Team Members?</h2>
-                <p>
-                    Equip your team with live access to over 1,000+ expert-led sessions
-                    via Google Classroom.
-                </p>
-                <a href="#" class="btn">Find Out More</a>
-            </section>
-
-            <section class="course-outline">
-                <h2>Course Breakdown</h2>
-                <p>
-                    [Full live session schedule and module details to be inserted here]
-                </p>
-            </section>
-        </section>
-
-        <section class="faq">
-            <h3>Frequently Asked Questions</h3>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <h4 class="accordion-title">
-                        What is Full-Stack Development?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </h4>
-                    <div class="accordion-content">
-                        <p>
-                            Full-stack development involves working on both the front-end
-                            and back-end of a web application. It means building everything
-                            from the user interface to the server-side logic and database
-                            management.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h4 class="accordion-title">
-                        How long does it take to become a Full-Stack Developer?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </h4>
-                    <div class="accordion-content">
-                        <p>
-                            The timeline varies, but with focused learning, most people can
-                            become job-ready within 6 to 12 months. A well-structured
-                            learning path helps speed up the process.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h4 class="accordion-title">
-                        Do I need a degree to become a Full-Stack Developer?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </h4>
-                    <div class="accordion-content">
-                        <p>
-                            A degree isn't required. Many successful developers are
-                            self-taught or have learned through bootcamps and online
-                            courses. What really counts is your portfolio and
-                            problem-solving ability.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h4 class="accordion-title">
-                        Which programming languages should I learn?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </h4>
-                    <div class="accordion-content">
-                        <p>
-                            For full-stack development, start with HTML, CSS, and JavaScript
-                            for the front end. For the back end, consider learning Node.js,
-                            PHP, Python, or Ruby, along with SQL or NoSQL databases.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h4 class="accordion-title">
-                        What tools do Full-Stack Developers use?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </h4>
-                    <div class="accordion-content">
-                        <p>
-                            Common tools include code editors like VS Code, version control
-                            tools like Git, frameworks like React and Express.js, databases
-                            like MongoDB or MySQL, and deployment platforms like GitHub,
-                            Netlify, or Heroku.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <a href="test.html">testing</a>
-    </main>
 
     <footer>
         <div class="info">
@@ -496,6 +287,40 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
     </a>
 
+
+
+    <script>
+        // Get course, amount, email, and name from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const course = urlParams.get('course');
+        const amount = parseInt(urlParams.get('amount')) * 100; // Convert to kobo
+        const email = urlParams.get('email');
+        const name = urlParams.get('name');
+
+        document.getElementById('courseInfo').innerText = `Course: ${course === 'webdev' ? 'Web Dev Basics' : course === 'advjs' ? 'Advanced JS' : 'Full-Stack'} | Amount: ₦${amount / 100}`;
+
+        function payWithPaystack() {
+            let handler = PaystackPop.setup({
+                key: 'pk_test_your_public_key_here', // Your Paystack public key
+                email: email,
+                amount: amount,
+                currency: 'NGN',
+                ref: 'ETI_' + Math.floor(Math.random() * 1000000000),
+                callback: function (response) {
+                    // Send payment info to Firebase function
+                    fetch('https://us-central1-your-firebase-app.cloudfunctions.net/verifyPayment', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ reference: response.reference, course, email, name, amount: amount / 100 })
+                    }).then(() => window.location.href = '/success.html');
+                },
+                onClose: function () {
+                    alert('Payment cancelled.');
+                }
+            });
+            handler.openIframe();
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
