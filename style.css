@@ -1894,5 +1894,7 @@ aside .last-update {
 
 #coursedes{
     position: relative;
-    top: -50px;
+    top: -800px;
+    text-align: left;
+    margin-left: 10%;
 }
