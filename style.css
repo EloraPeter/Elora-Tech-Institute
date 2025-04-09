@@ -1776,6 +1776,11 @@ footer hr {
   font-size: 20px;
 }
 
+#full-stack-mastery #content{
+    display: flex;
+}
+
+
 aside {
   max-width: 360px;
   margin: 0 0 30px;
@@ -1786,7 +1791,7 @@ aside {
   text-align: left;
   position: sticky;
   top: 20px;
-  left: 90%;
+  /* left: 90%; */
   animation: fadeInUp 0.8s ease-out;
 }
 
