@@ -1776,7 +1776,7 @@ text-align: left;
 aside{
     max-width: 360px;
     margin: 0 0 30px;
-    padding: 10px 20px;
+    padding: 10px 20px 25px;
     background: var(--background-color);
     border-radius: 12px;
     box-shadow: 0 4px 15px var(--shadow-light);
@@ -1807,22 +1807,33 @@ aside .feedback .top-rated{
 }
 
 aside #course-over h2{
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 1000;
     margin-bottom: 5px;
+    color: #333;
 }
 
 aside #course-over p{
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 5px;
+    color: #555;
 }
 
-aside #course-over h2
+aside .instructors h2{
+    font-size: 19px;
+    font-weight: 1000;
+    margin-bottom: 5px;
+    color: #333;
+}
 
-.enrollment, .instructors, .last-update, .language-options {
+.enrollment, .instructors, .language-options {
     font-size: 15px;
-    color: var(--tertiary-color);
-    margin: 8px 0;
+    color: #555;
+    margin: 5px 0;
+}
+
+aside  .last-update{
+
 }
 
 .cost {
@@ -1845,7 +1856,7 @@ aside #course-over h2
     font-weight: 600;
     font-size: 16px;
     text-decoration: line-through;
-    color: var(--tertiary-color);
+    color: rgb(158, 0, 0);
 }
 
 .savings {
