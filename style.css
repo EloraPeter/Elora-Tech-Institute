@@ -1814,7 +1814,10 @@ aside #course-over h2{
 
 aside #course-over p{
     font-size: 14px;
+    margin-bottom: 5px;
 }
+
+aside #course-over h2
 
 .enrollment, .instructors, .last-update, .language-options {
     font-size: 15px;
