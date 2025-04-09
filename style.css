@@ -1216,7 +1216,7 @@ footer .info .about .sm li:hover {
 .info .apply .apply-button {
     display: inline-block;
     background-color: var(--secondary-color);
-    color: var(--p-color2);
+    color: #333;
     padding: 12px 25px;
     text-decoration: none;
     font-size: 14px;
