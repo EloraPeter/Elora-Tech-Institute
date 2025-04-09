@@ -1792,9 +1792,10 @@ aside .feedback h2{
 }
 
 aside .feedback .score{
-    
+    display: inline-block;
+    margin: 0 10px;
 }
-aside .top-rated{
+aside .feedback .top-rated{
     display: inline-block;
     background: var(--secondary-color);
     color: var(--background-color);
@@ -1803,6 +1804,16 @@ aside .top-rated{
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 10px;
+}
+
+aside #course-over h2{
+    font-size: 18px;
+    font-weight: 1000;
+    margin-bottom: 5px;
+}
+
+aside #course-over p{
+    font-size: 14px;
 }
 
 .enrollment, .instructors, .last-update, .language-options {
