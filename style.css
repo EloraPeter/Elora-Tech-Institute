@@ -1786,3 +1786,20 @@ aside{
     left: 90%;
     animation: fadeInUp 0.8s ease-out;
 }
+
+aside .top-rated{
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--background-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.enrollment, .instructors, .last-update, .language-options {
+    font-size: 15px;
+    color: var(--tertiary-color);
+    margin: 8px 0;
+}
