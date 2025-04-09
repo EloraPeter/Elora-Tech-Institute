@@ -1894,7 +1894,88 @@ aside .last-update {
 
 #coursedes{
     position: relative;
-    top: -800px;
+    top: -860px;
     text-align: left;
     margin-left: 10%;
+}
+
+.course-features, .feedback, .learning-goals, .corporate-trust, 
+.practice-tasks, .group-training, .course-outline {
+    margin: 40px 0;
+    animation: fadeInUp 1s ease-out;
+}
+
+#coursedes h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+}
+#coursedes h2::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background: var(--secondary-color);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.course-features:hover h2::after,
+.learning-goals:hover h2::after,
+.corporate-trust:hover h2::after,
+.practice-tasks:hover h2::after,
+.group-training:hover h2::after,
+.course-outline:hover h2::after {
+    width: 100px;
+}
+
+#coursedes ul {
+    list-style: none;
+    padding: 0;
+}
+#coursedes ul li {
+    font-size: 16px;
+    padding: 10px 0;
+    position: relative;
+    padding-left: 25px;
+    color: var(--text-color);
+}
+#coursedes ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+#coursedes .practice-tasks p {
+    font-size: 16px;
+    color: var(--p-color2);
+    margin-bottom: 20px;
+}
+
+#coursedes .practice-tasks img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform 0.4s ease;
+}
+
+#coursedes .practice-tasks img:hover {
+    transform: scale(1.05);
+}
+
+#coursedes .group-training p {
+    font-size: 16px;
+    color: var(--p-color2);
+    margin-bottom: 20px;
+}
+
+#coursedes .course-outline p {
+    font-size: 16px;
+    color: var(--p-color2);
 }
