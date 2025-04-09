@@ -1778,6 +1778,7 @@ footer hr {
 
 #full-stack-mastery #content{
     display: flex;
+    /* flex-direction: row-reverse; */
 }
 
 
@@ -1898,8 +1899,8 @@ aside .last-update {
 }
 
 #coursedes{
-    position: relative;
-    top: -860px;
+    /* position: relative; */
+    /* top: -860px; */
     text-align: left;
     margin-left: 10%;
 }
