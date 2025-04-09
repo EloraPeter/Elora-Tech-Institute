@@ -1454,7 +1454,7 @@ footer hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #333;
+    color: var(--p-color2);
     font-size: 20px;
     margin-bottom: 0;
 }
