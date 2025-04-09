@@ -16,6 +16,8 @@
     --background-color: white;
     --text-color: black;
     --shadow-light: rgba(0, 0, 0, 0.2);
+    --p-color1: #555;
+    --p-color2: #333;
 }
 
 /* 🌙 Dark Mode */
@@ -26,6 +28,8 @@ body.dark {
     --background-color: #121212;
     --text-color: white;
     --shadow-light: rgba(255, 255, 255, 0.2);
+    --p-color1: #AAA;
+    --p-color2: #CCC;
 }
 
 * {
@@ -599,7 +603,7 @@ nav .btn {
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.6s ease;
-    color: #333;
+    color: var(--p-color2);
 }
 
 .wcu-container .box.show {
@@ -696,13 +700,13 @@ nav .btn {
 #featured-courses .fcc-item .fcc-info .pd {
     display: flex;
     justify-content: space-between;
-    color: #333;
+    color: var(--p-color2)3;
     font-size: 18px;
     margin-bottom: 0;
 }
 
 #featured-courses .fcc-item .fcc-info .pd p {
-    color: #333;
+    color: var(--p-color2);
     font-weight: 700;
 }
 
@@ -716,7 +720,7 @@ nav .btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #333;
+    color: var(--p-color2);
     font-size: 20px;
     margin-bottom: 0;
 }
@@ -739,7 +743,7 @@ nav .btn {
 }
 
 #featured-courses .fcc-item .fcc-info .rmbtn a {
-    color: #333;
+    color: var(--p-color2);
     text-transform: uppercase;
     position: relative;
 }
@@ -1064,7 +1068,7 @@ footer .info {
 .info .about .sm li {
     list-style: none;
     margin: 0 15px;
-    background-color: #333;
+    background-color: var(--p-color2);
     padding: 10px;
     border-radius: 50%;
     transition: transform 0.3s ease, background-color 0.3s ease,
@@ -1212,7 +1216,7 @@ footer .info .about .sm li:hover {
 .info .apply .apply-button {
     display: inline-block;
     background-color: var(--secondary-color);
-    color: #333;
+    color: var(--p-color2);
     padding: 12px 25px;
     text-decoration: none;
     font-size: 14px;
@@ -1428,14 +1432,14 @@ footer hr {
 .course-item .courseitem-info .pd {
     display: flex;
     justify-content: space-between;
-    color: #333;
+    color: var(--p-color2);
     font-size: 12px;
     margin-bottom: 0;
     margin-top: 10px;
 }
 
 .course-item .courseitem-info .pd p {
-    color: #333;
+    color: var(--p-color2);
     font-weight: 600;
     margin-bottom: 5px;
 }
@@ -1635,7 +1639,7 @@ footer hr {
     vertical-align: middle;
 }
 
-.faq{
+.faq {
     margin: 20px 0;
 }
 
@@ -1712,23 +1716,23 @@ footer hr {
 }
 
 /* Full-Stack Web Development Mastery page */
-#full-stack-mastery .hero{
-background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(images/webdev.jpeg);
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center;
-height: 60vh;
-color: #f8f8f8;
-padding-top: 8%;
-text-align: left;
+#full-stack-mastery .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/webdev.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    color: #f8f8f8;
+    padding-top: 8%;
+    text-align: left;
 }
 
-.grid-lines.global{
+.grid-lines.global {
     display: flex;
     mix-blend-mode: soft-light;
 }
 
-.grid-lines{
+.grid-lines {
     position: fixed;
     top: 0;
     right: 0;
@@ -1741,25 +1745,26 @@ text-align: left;
     transition: all 0.8s ease-out;
 }
 
-.grid-lines.gray .line-25, .grid-lines.grey .line-50{
+.grid-lines.gray .line-25,
+.grid-lines.grey .line-50 {
     border-color: var(--tertiary-color);
 }
 
-.line-25{
+.line-25 {
     width: 20vw;
     border-right: 1px solid rgba(255, 255, 255, 0.9);
 }
 
-.line-25:last-child{
+.line-25:last-child {
     border-right: none;
 }
 
-.line-50{
+.line-50 {
     width: 60vw;
     border-right: 1px solid rgba(255, 255, 255, 0.9);
 }
 
-#full-stack-mastery .hero h1{
+#full-stack-mastery .hero h1 {
     padding: 2%;
     width: 80%;
     margin: 0 auto;
@@ -1767,13 +1772,13 @@ text-align: left;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-#full-stack-mastery .hero p{
+#full-stack-mastery .hero p {
     width: 65%;
     margin: 20px auto;
     font-size: 20px;
 }
 
-aside{
+aside {
     max-width: 360px;
     margin: 0 0 30px;
     padding: 10px 20px 25px;
@@ -1786,16 +1791,18 @@ aside{
     left: 90%;
     animation: fadeInUp 0.8s ease-out;
 }
-aside .feedback h2{
+
+aside .feedback h2 {
     font-size: 16.5px;
     font-weight: 1000;
 }
 
-aside .feedback .score{
+aside .feedback .score {
     display: inline-block;
     margin: 0 10px;
 }
-aside .feedback .top-rated{
+
+aside .feedback .top-rated {
     display: inline-block;
     background: var(--secondary-color);
     color: var(--background-color);
@@ -1806,41 +1813,42 @@ aside .feedback .top-rated{
     margin-bottom: 10px;
 }
 
-aside #course-over h2{
+aside #course-over h2 {
     font-size: 19px;
     font-weight: 1000;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--p-color2);
 }
 
-aside #course-over p{
+aside #course-over p {
     font-size: 15px;
     margin-bottom: 5px;
-    color: #555;
+    color: var(--p-color1);
 }
 
-aside #course-over .language-options{
+aside #course-over .language-options {
     font-size: 15px;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--p-color2);
 }
 
-aside .instructors h2{
+aside .instructors h2 {
     font-size: 19px;
     font-weight: 1000;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--p-color2);
 }
 
-.enrollment, .instructors {
+.enrollment,
+.instructors {
     font-size: 15px;
-    color: #555;
+    color: var(--p-color1);
     margin: 5px 0;
 }
 
-aside  .last-update{
-font-size: 16px;
-font-weight: 800;
+aside .last-update {
+    font-size: 16px;
+    font-weight: 800;
 }
 
 
@@ -1887,4 +1895,3 @@ font-weight: 800;
     color: var(--tertiary-color);
     margin: 10px 0 20px;
 }
-
