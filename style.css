@@ -1790,7 +1790,7 @@ aside {
   border-radius: 12px;
   box-shadow: 0 4px 15px var(--shadow-light);
   text-align: left;
-  position: sticky;
+  position: fixed;
   top: 20px;
   /* left: 90%; */
   animation: fadeInUp 0.8s ease-out;
