@@ -2094,8 +2094,8 @@ aside .last-update {
   border-radius: 5px;
   position: relative;
   box-shadow: 0 4px 15px var(--shadow-light);
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
   border-left: 15px solid black; /* arrow color */
 }
 
