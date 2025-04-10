@@ -239,3 +239,41 @@ document.querySelectorAll('*').forEach(element => {
   }
 });
 
+
+
+
+
+//payment gateway
+//Full-Stack Web Development Mastery course
+function initiatePayment() {
+  const handler = PaystackPop.setup({
+    key: 'pk_test_your_paystack_public_key', // Replace with your Paystack public key
+    email: 'user@example.com', // Replace with the user's email (dynamically fetch this)
+    amount: 19000000, // Amount in kobo (₦190,000 = 190,000,00 kobo)
+    currency: 'NGN',
+    ref: 'ETI-' + Math.floor(Math.random() * 1000000), // Unique transaction reference
+    metadata: {
+      course: 'Full-Stack Web Development Mastery',
+      name: 'User Name', // Replace with user's name (dynamically fetch this)
+    },
+    callback: function (response) {
+      // Payment successful, handle post-payment logic
+      if (response.status === 'success') {
+        alert('Payment successful! Check your email for course details.');
+        sendPaymentConfirmation(response.reference); // Call Firebase function
+        window.location.href = '/success.html'; // Redirect to success page
+      } else {
+        alert('Payment failed. Please try again.');
+      }
+    },
+    onClose: function () {
+      alert('Payment window closed.');
+    },
+  });
+  handler.openIframe(); // Open Paystack payment popup
+}
+
+// Load Paystack script dynamically
+const paystackScript = document.createElement('script');
+paystackScript.src = 'https://js.paystack.co/v1/inline.js';
+document.body.appendChild(paystackScript);
