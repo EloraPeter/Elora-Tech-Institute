@@ -248,14 +248,17 @@ document.querySelectorAll('*').forEach(element => {
 // Handle form submission and initiate payment
 function validateForm(name, email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
   if (!name || name.length < 2) {
     alert('Please enter a valid name (at least 2 characters).');
     return false;
   }
-  if (!emailRegex.test(email)) {
-    alert('Please enter a valid email address.');
+  
+  if (!email || !emailRegex.test(email)) {
+    alert('Please enter a valid email address (e.g., example@domain.com).');
     return false;
   }
+  
   return true;
 }
 
@@ -302,6 +305,7 @@ function loadPaystackScript(callback) {
 function initiatePayment(name, email) {
   showLoading();
   loadPaystackScript(() => {
+    console.log('Email:', email);
     const handler = PaystackPop.setup({
       key: 'pk_live_8eeec6fd3b1806dffc76d1449868b2e07ce6281e', // Replace with your Paystack public key
       email: email,
