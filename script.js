@@ -277,3 +277,27 @@ function initiatePayment() {
 const paystackScript = document.createElement('script');
 paystackScript.src = 'https://js.paystack.co/v1/inline.js';
 document.body.appendChild(paystackScript);
+
+
+
+
+
+async function sendPaymentConfirmation(reference) {
+  try {
+    const sendConfirmation = firebase.functions().httpsCallable('sendPaymentConfirmation');
+    const result = await sendConfirmation({ reference });
+    console.log(result.data.message);
+  } catch (error) {
+    console.error('Error sending confirmation:', error);
+  }
+}
+
+// Initialize Firebase in your script
+firebase.initializeApp({
+  apiKey: "your-api-key",
+  authDomain: "your-auth-domain",
+  projectId: "your-project-id",
+  storageBucket: "your-storage-bucket",
+  messagingSenderId: "your-messaging-sender-id",
+  appId: "your-app-id"
+});
