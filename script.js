@@ -303,9 +303,9 @@ function loadPaystackScript(callback) {
 }
 
 function initiatePayment(name, email) {
+  console.log('Email being sent to Paystack:', email)
   showLoading();
   loadPaystackScript(() => {
-    console.log('Email:', email);
     const handler = PaystackPop.setup({
       key: 'pk_live_8eeec6fd3b1806dffc76d1449868b2e07ce6281e', // Replace with your Paystack public key
       email: email,
