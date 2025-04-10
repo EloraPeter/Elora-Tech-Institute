@@ -39,7 +39,7 @@ exports.sendPaymentConfirmation = functions.https.onCall(async (data, context) =
       Woohoo! You’re one step closer to mastering ${course} with Elora Tech Institute!\n\n
       📌 Course: ${course}\n
       📜 Receipt: Transaction ID ${reference}\n
-      🔗 Google Classroom: https://classroom.google.com/c/your-class-code\n
+      🔗 Google Classroom: https://classroom.google.com/c/NzcxMTg0MzcyODQ0?cjc=ko3dlplk\n
       🔗 Google Meet: https://meet.google.com/your-meet-link\n
       🔗 WhatsApp Group: https://chat.whatsapp.com/your-whatsapp-link\n
       📅 Week 1 Kickoff: March 14, 2025\n
@@ -59,6 +59,7 @@ exports.sendPaymentConfirmation = functions.https.onCall(async (data, context) =
 
     return { success: true, message: 'Email sent successfully!' };
   } else {
+    console.error('Error sending email:', error);
     throw new functions.https.HttpsError('invalid-argument', 'Payment verification failed.');
   }
 });

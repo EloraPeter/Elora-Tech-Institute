@@ -348,10 +348,10 @@ document.getElementById('retryPayment')?.addEventListener('click', () => {
 
 
 
-async function sendPaymentConfirmation(reference) {
+async function sendPaymentConfirmation(reference, email) {
   try {
     const sendConfirmation = firebase.functions().httpsCallable('sendPaymentConfirmation');
-    const result = await sendConfirmation({ reference });
+    const result = await sendConfirmation({ reference, email });
     console.log(result.data.message);
   } catch (error) {
     console.error('Error sending confirmation:', error);
