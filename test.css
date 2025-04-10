@@ -23,6 +23,47 @@
     transition: all 0.3s ease;
 }
 
+
+.progress-tracker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+    position: relative;
+  }
+  
+  .step {
+    position: relative;
+    flex: 1;
+    padding: 20px 10px;
+    background: var(--tertiary-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    z-index: 1;
+    font-size: 14px;
+  }
+  
+  /* Add the arrow using ::after */
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -20px; /* pushes arrow outside the box */
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid var(--tertiary-color); /* same as background */
+    z-index: 0;
+  }
+  
+
 .progress-tracker .step.active {
     color: var(--primary-color);
     font-weight: 700;
