@@ -269,16 +269,16 @@ function updateProgressTracker(step) {
 }
 
 // In the form submission handler:
-document.getElementById('paymentDetailsForm')?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('userName').value.trim();
-  const email = document.getElementById('userEmail').value.trim();
-  console.log('Form Submission - Name:', name, 'Email:', email);
-  if (validateForm(name, email)) {
-    updateProgressTracker(2);
-    initiatePayment(name, email);
-  }
-});
+// document.getElementById('paymentDetailsForm')?.addEventListener('submit', (e) => {
+//   e.preventDefault();
+//   const name = document.getElementById('userName').value.trim();
+//   const email = document.getElementById('userEmail').value.trim();
+//   console.log('Form Submission - Name:', name, 'Email:', email);
+//   if (validateForm(name, email)) {
+//     updateProgressTracker(2);
+//     initiatePayment(name, email);
+//   }
+// });
 
 // Show/hide loading state
 function showLoading() {
