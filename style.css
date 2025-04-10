@@ -2084,6 +2084,7 @@ aside .last-update {
   max-width: 800px;
   margin: 40px auto;
   text-align: center;
+  position: relative;
 }
 
 .step {
@@ -2092,12 +2093,12 @@ aside .last-update {
   background: var(--tertiary-color);
   color: var(--text-color);
   border-radius: 5px;
-  position: relative;
+  /* position: relative; */
   box-shadow: 0 4px 15px var(--shadow-light);
   font-size: 16px;
   font-weight: 600;
   transition: all 0.3s ease;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .step.active {
@@ -2109,15 +2110,15 @@ aside .last-update {
   content: "";
   position: absolute;
   top: 50%;
-  right: -20px;
+  right: 270px;
   transform: translateY(-50%);
-  width: 20px;
+  width: 50px;
   height: 2px;
   background: var(--tertiary-color);
   border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-  border-left: 20px solid var(--tertiary-color);
-  z-index: -1;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid var(--primary-color);
+  z-index: 100;
 }
 
 .step.active:not(:last-child)::after {
