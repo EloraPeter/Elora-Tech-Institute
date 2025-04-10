@@ -369,13 +369,3 @@ firebase.initializeApp({
   appId: "1:353331632423:web:932e2ebf5d00123ce2b102"
 });
 
-
-async function sendPaymentConfirmation(reference) {
-  try {
-    const sendConfirmation = firebase.functions().httpsCallable('sendPaymentConfirmation');
-    const result = await sendConfirmation({ reference });
-    console.log(result.data.message);
-  } catch (error) {
-    console.error('Error sending confirmation:', error);
-  }
-}
