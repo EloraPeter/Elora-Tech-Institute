@@ -2078,8 +2078,11 @@ aside .last-update {
 .progress-tracker {
   display: flex;
   justify-content: space-between;
-  max-width: 600px;
-  margin: 20px auto;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 40px auto;
   text-align: center;
 }
 
@@ -2090,6 +2093,7 @@ aside .last-update {
   color: var(--text-color);
   border-radius: 5px;
   position: relative;
+  box-shadow: 0 4px 15px var(--shadow-light);
 }
 
 .step.active {
@@ -2116,10 +2120,6 @@ aside .last-update {
   text-align: center;
   margin: 20px 0;
   color: #dc3545;
-}
-
-.hidden {
-  display: none;
 }
 
 
