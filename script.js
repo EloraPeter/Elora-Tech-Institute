@@ -333,6 +333,15 @@ function initiatePayment(name, email) {
   });
 }
 
+// Retry button functionality
+document.getElementById('retryPayment')?.addEventListener('click', () => {
+  document.getElementById('paymentError').classList.add('hidden');
+  initiatePayment(
+    document.getElementById('userName').value.trim(),
+    document.getElementById('userEmail').value.trim()
+  );
+});
+
 
 
 

@@ -2112,6 +2112,15 @@ aside .last-update {
   background: var(--primary-color);
 }
 
+#paymentError {
+  text-align: center;
+  margin: 20px 0;
+  color: #dc3545;
+}
+
+.hidden {
+  display: none;
+}
 
 
 /* success page */
