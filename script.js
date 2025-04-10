@@ -247,7 +247,7 @@ document.querySelectorAll('*').forEach(element => {
 //Full-Stack Web Development Mastery course
 function initiatePayment() {
   const handler = PaystackPop.setup({
-    key: 'pk_test_your_paystack_public_key', // Replace with your Paystack public key
+    key: 'pk_live_8eeec6fd3b1806dffc76d1449868b2e07ce6281e', // Replace with your Paystack public key
     email: 'user@example.com', // Replace with the user's email (dynamically fetch this)
     amount: 19000000, // Amount in kobo (₦190,000 = 190,000,00 kobo)
     currency: 'NGN',
