@@ -2091,7 +2091,7 @@ aside .last-update {
 .step {
   flex: 1;
   padding: 10px 20px;
-  background: var(--tertiary-color);
+  /* background: var(--tertiary-color); */
   color: var(--text-color);
   border-radius: 5px;
   position: relative;
@@ -2113,12 +2113,14 @@ aside .last-update {
   top: 50%;
   right: 270px;
   transform: translateY(-50%);
-  width: 50px;
+  width: 0px;
   height: 2px;
-  background: var(--tertiary-color);
+  background: var(--background-color);
+  border: none;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-left: 20px solid var(--primary-color);
+  border-left: 40px solid var(--primary-color);
+  
   z-index: 100;
 }
 
