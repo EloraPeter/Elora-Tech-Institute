@@ -304,6 +304,10 @@ function loadPaystackScript(callback) {
 
 function initiatePayment(name, email) {
   console.log('Email being sent to Paystack:', email)
+  if (!name || !email) {
+    alert('Please fill in both name and email fields.');
+    return;
+  }
   const sanitizedEmail = email.trim().toLowerCase();
   console.log('Sanitized Email:', sanitizedEmail); // Debug
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(sanitizedEmail)) {
