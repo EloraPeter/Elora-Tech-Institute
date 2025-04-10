@@ -1,408 +1,273 @@
-/* 
-  🌟 Color Palette & Usage Guide 🌟  
-  - Primary: Key actions (buttons, links, important headings)
-  - Secondary: Accents (borders, icons, underlines, hover effects)
-  - Tertiary: Subtle elements (text, backgrounds, dividers)
-  - Background: Dominant space (white/light or dark mode)
-*/
-
-/* 🎨 Light Mode */
-:root {
-    --primary-color: #4169e1;
-    --secondary-color: #ffd700;
-    --tertiary-color: #a0b7b8;
-    --background-color: white;
-    --text-color: black;
-    --shadow-light: rgba(0, 0, 0, 0.2);
-}
-
-/* 🌙 Dark Mode */
-body.dark {
-    --primary-color: #668fff;
-    --secondary-color: #e6c200;
-    --tertiary-color: #b8d1d2;
-    --background-color: #121212;
-    --text-color: white;
-    --shadow-light: rgba(255, 255, 255, 0.2);
-}
-/* Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-}
-
-body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: "poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    overflow-x: hidden;
-}
-
-/* Aside Section */
-aside {
-    max-width: 320px;
-    margin: 30px auto;
+/* Progress Tracker */
+.progress-tracker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 40px auto;
     padding: 20px;
     background: var(--background-color);
     border-radius: 12px;
     box-shadow: 0 4px 15px var(--shadow-light);
-    text-align: left;
-    position: sticky;
-    top: 20px;
-    animation: fadeInUp 0.8s ease-out;
 }
 
-.top-rated {
-    display: inline-block;
-    background: var(--secondary-color);
-    color: var(--background-color);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
+.progress-tracker .step {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    font-family: "poppins", sans-serif;
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 10px;
+    color: var(--text-color);
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-.enrollment, .instructors, .last-update, .language-options {
-    font-size: 15px;
-    color: var(--tertiary-color);
-    margin: 8px 0;
-}
-
-.cost {
-    margin-top: 20px;
-}
-
-.pricing-info {
-    margin-bottom: 15px;
-}
-
-.current-cost {
-    font-family: "inter", sans-serif;
-    font-weight: 800;
-    font-size: 24px;
+.progress-tracker .step.active {
     color: var(--primary-color);
-}
-
-.initial-cost {
-    font-family: "inter", sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: line-through;
-    color: var(--tertiary-color);
-}
-
-.savings {
-    font-family: "inter", sans-serif;
     font-weight: 700;
-    font-size: 16px;
-    color: #28a745;
 }
 
-.deal-timer {
-    font-size: 14px;
-    color: #dc3545;
-    font-weight: 600;
-    margin-top: 5px;
+.progress-tracker .step::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: var(--secondary-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
 }
 
-.refund-policy {
-    font-size: 14px;
-    color: var(--tertiary-color);
-    margin: 10px 0;
+.progress-tracker .step.active::after {
+    width: 50%;
 }
 
-.discount-code {
-    margin: 15px 0;
-}
-
-.discount-code p {
-    font-size: 14px;
-    color: var(--text-color);
-    margin-bottom: 10px;
-}
-
-.discount-code input {
-    padding: 8px;
-    border: 1px solid var(--tertiary-color);
-    border-radius: 5px;
-    font-family: "poppins", sans-serif;
-    font-size: 14px;
-    width: 70%;
-    background: transparent;
-    color: var(--text-color);
-}
-
-.discount-code button {
-    padding: 8px 15px;
-    background: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-family: "poppins", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-left: 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-.discount-code button::before {
+.progress-tracker .step:not(:last-child)::before {
     content: "";
     position: absolute;
     top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
+    right: -50%;
+    width: 100%;
+    height: 1px;
+    background: var(--tertiary-color);
+    opacity: 0.5;
+    z-index: -1;
 }
 
-.discount-code button:hover::before {
-    width: 200px;
-    height: 200px;
-}
-
-.discount-code button:hover {
-    background: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
-.btn {
-    display: inline-block;
-    background: var(--primary-color);
-    color: #fff;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-family: "poppins", sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 10px var(--shadow-light);
-}
-
-.btn::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-}
-
-.btn:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.btn:hover {
-    background: var(--secondary-color);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px var(--shadow-light);
-}
-
-.btn:active {
-    transform: scale(0.95);
-}
-
-/* Course Description Section */
-#coursedes {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 0 20px;
-    text-align: left;
-}
-
-.course-features, .feedback, .learning-goals, .corporate-trust, 
-.practice-tasks, .group-training, .course-outline {
-    margin: 40px 0;
+/* Payment Form Section */
+.payment-form {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    padding: 40px;
+    background: var(--background-color);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px var(--shadow-light);
+    text-align: center;
     animation: fadeInUp 1s ease-out;
 }
 
-h2 {
-    font-family: "montserrat", "Helvetica", serif;
-    font-size: 24px;
+.payment-form h1 {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 40px;
     font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     position: relative;
 }
 
-h2::after {
+.payment-form h1::after {
     content: "";
     position: absolute;
     width: 50px;
     height: 2px;
     background: var(--secondary-color);
-    bottom: -5px;
-    left: 0;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
     transition: width 0.3s ease;
 }
 
-.course-features:hover h2::after,
-.learning-goals:hover h2::after,
-.corporate-trust:hover h2::after,
-.practice-tasks:hover h2::after,
-.group-training:hover h2::after,
-.course-outline:hover h2::after {
+.payment-form:hover h1::after {
     width: 100px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.payment-form .form-group {
+    margin-bottom: 25px;
+    text-align: left;
 }
 
-ul li {
+.payment-form label {
+    display: block;
+    font-family: "poppins", sans-serif;
     font-size: 16px;
-    padding: 10px 0;
-    position: relative;
-    padding-left: 25px;
+    font-weight: 600;
     color: var(--text-color);
+    margin-bottom: 8px;
 }
 
-ul li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--secondary-color);
-    font-weight: bold;
-}
-
-.feedback .top-rated {
-    margin-left: 15px;
-    vertical-align: middle;
-}
-
-.score {
-    font-size: 16px;
-    color: var(--secondary-color);
-    margin: 10px 0;
-}
-
-.feedback .enrollment {
-    font-size: 16px;
-    color: var(--text-color);
-}
-
-.corporate-trust p {
-    font-size: 16px;
-    color: var(--tertiary-color);
-    margin-bottom: 20px;
-}
-
-.company-icons {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.company-icons img {
-    max-height: 50px;
-    filter: grayscale(70%);
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.company-icons img:hover {
-    filter: grayscale(0%);
-    transform: scale(1.1);
-}
-
-.practice-tasks p {
-    font-size: 16px;
-    color: var(--tertiary-color);
-    margin-bottom: 20px;
-}
-
-.practice-tasks img {
+.payment-form input {
     width: 100%;
-    max-width: 600px;
+    padding: 12px 15px;
+    font-family: "poppins", sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    background: var(--background-color);
+    border: 1px solid var(--tertiary-color);
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.payment-form input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
+}
+
+.payment-form input::placeholder {
+    color: var(--p-color1);
+    opacity: 0.8;
+}
+
+.payment-form .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.payment-form .btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.payment-form .btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.payment-form .btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-light);
+}
+
+.payment-form .btn:active {
+    transform: scale(0.95);
+}
+
+/* Payment Error Section */
+#paymentError {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--background-color);
     border-radius: 12px;
     box-shadow: 0 4px 15px var(--shadow-light);
-    transition: transform 0.4s ease;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
 }
 
-.practice-tasks img:hover {
-    transform: scale(1.05);
-}
-
-.group-training p {
+#paymentError p {
+    font-family: "poppins", sans-serif;
     font-size: 16px;
-    color: var(--tertiary-color);
+    color: #dc3545; /* Red for error */
     margin-bottom: 20px;
 }
 
-.course-outline p {
+#paymentError .btn {
+    padding: 10px 25px;
     font-size: 16px;
-    color: var(--text-color);
-}
-
-/* Dark Mode Adjustments */
-body.dark .top-rated {
-    color: var(--background-color);
-}
-
-body.dark .btn, body.dark .discount-code button {
+    font-weight: 700;
+    background: var(--primary-color);
     color: #fff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-body.dark .practice-tasks img {
-    box-shadow: 0 4px 15px var(--shadow-light);
+#paymentError .btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
 }
 
-/* Responsive Design */
+#paymentError .btn:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+#paymentError .btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+#paymentError .btn:active {
+    transform: scale(0.95);
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    aside, #coursedes {
-        max-width: 100%;
-        padding: 15px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    ul li {
-        font-size: 14px;
-    }
-
-    .company-icons {
+    .progress-tracker {
         flex-direction: column;
-        align-items: center;
+        padding: 10px;
     }
 
-    .discount-code input {
-        width: 60%;
+    .progress-tracker .step {
+        margin: 10px 0;
     }
 
-    .btn {
-        padding: 10px 20px;
+    .progress-tracker .step:not(:last-child)::before {
+        display: none;
+    }
+
+    .payment-form {
+        padding: 20px;
+    }
+
+    .payment-form h1 {
+        font-size: 30px;
+    }
+
+    .payment-form input {
+        padding: 10px;
         font-size: 14px;
     }
-}
 
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+    .payment-form .btn {
+        padding: 10px 20px;
+        font-size: 16px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    #paymentError {
+        padding: 15px;
     }
 }
