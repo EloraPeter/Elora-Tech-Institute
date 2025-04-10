@@ -2129,8 +2129,120 @@ aside .last-update {
   display: block;
 }
 
-.progress-tracker .step.active::after {
-  width: 50%;
+.payment-form {
+  max-width: 600px;
+  margin: 0 auto 50px;
+  padding: 40px;
+  background: var(--background-color);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px var(--shadow-light);
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+.payment-form h1 {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.payment-form h1::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background: var(--secondary-color);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.payment-form:hover h1::after {
+  width: 100px;
+}
+
+.payment-form .form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.payment-form label {
+  display: block;
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+
+.payment-form input {
+  width: 100%;
+  padding: 12px 15px;
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  color: var(--text-color);
+  background: var(--background-color);
+  border: 1px solid var(--tertiary-color);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.payment-form input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
+}
+
+.payment-form input::placeholder {
+  color: var(--p-color1);
+  opacity: 0.8;
+}
+
+.payment-form .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: 700;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.payment-form .btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.payment-form .btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.payment-form .btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--shadow-light);
+}
+
+.payment-form .btn:active {
+  transform: scale(0.95);
 }
 
 #paymentError {

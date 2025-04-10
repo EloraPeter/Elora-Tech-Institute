@@ -227,7 +227,7 @@
         <form id="paymentDetailsForm">
             <div>
                 <label for="userName">Full Name:</label>
-                <input type="text" id="userName" required placeholder="e.g., John Doe" />
+                <input type="text" title="name" id="userName" required placeholder="e.g., John Doe" />
             </div>
             <div>
                 <label for="userEmail">Email:</label>
@@ -236,7 +236,7 @@
             <a href="#" class="btn" onclick="initiatePayment()">Proceed to Payment</a>
         </form>
     </section>
-    
+
     <div id="paymentError" class="hidden">
         <p>Payment failed. Please try again.</p>
         <button id="retryPayment" class="btn">Retry</button>
