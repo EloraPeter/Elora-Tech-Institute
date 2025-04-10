@@ -2090,7 +2090,7 @@ aside .last-update {
 
 .step {
   flex: 1;
-  padding: 10px 20px;
+  padding: 15px 20px;
   /* background: var(--tertiary-color); */
   color: var(--text-color);
   border-radius: 5px;
@@ -2111,21 +2111,26 @@ aside .last-update {
   content: "";
   position: absolute;
   top: 50%;
-  right: 270px;
+  right: -28px;
   transform: translateY(-50%);
   width: 0px;
   height: 2px;
   background: var(--background-color);
   border: none;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 40px solid var(--primary-color);
-  
+  border-top: 26.5px solid transparent;
+  border-bottom: 26.5px solid transparent;
+  border-left: 40px solid var(--background-color);
   z-index: 100;
+  display: none;
 }
 
 .step.active:not(:last-child)::after {
-  background: var(--primary-color);
+  border-left: 40px solid var(--primary-color);
+  display: block;
+}
+
+.progress-tracker .step.active::after {
+  width: 50%;
 }
 
 #paymentError {
