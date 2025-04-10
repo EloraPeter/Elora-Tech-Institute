@@ -2077,23 +2077,24 @@ aside .last-update {
 
 .progress-tracker {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 20px;
   border-radius: 12px;
+  width: 100%;
   max-width: 800px;
   margin: 40px auto;
   text-align: center;
-  position: relative;
+  /* position: relative; */
 }
 
 .step {
   flex: 1;
-  padding: 15px;
+  padding: 10px 20px;
   background: var(--tertiary-color);
   color: var(--text-color);
   border-radius: 5px;
-  /* position: relative; */
+  position: relative;
   box-shadow: 0 4px 15px var(--shadow-light);
   font-size: 16px;
   font-weight: 600;
