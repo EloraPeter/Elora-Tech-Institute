@@ -1,4 +1,26 @@
-/* Progress Tracker */
+:root {
+    --primary-color: #4169e1;
+    --secondary-color: #ffd700;
+    --tertiary-color: #a0b7b8;
+    --background-color: white;
+    --text-color: black;
+    --shadow-light: rgba(0, 0, 0, 0.2);
+    --p-color1: #555;
+    --p-color2: #333;
+  }
+  
+  /* 🌙 Dark Mode */
+  body.dark {
+    --primary-color: #668fff;
+    --secondary-color: #e6c200;
+    --tertiary-color: #b8d1d2;
+    --background-color: #121212;
+    --text-color: white;
+    --shadow-light: rgba(255, 255, 255, 0.2);
+    --p-color1: #aaa;
+    --p-color2: #ccc;
+  }
+  /* Progress Tracker */
 .progress-tracker {
     display: flex;
     justify-content: space-between;
