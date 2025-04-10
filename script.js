@@ -245,38 +245,87 @@ document.querySelectorAll('*').forEach(element => {
 
 //payment gateway
 //Full-Stack Web Development Mastery course
-function initiatePayment() {
-  const handler = PaystackPop.setup({
-    key: 'pk_live_8eeec6fd3b1806dffc76d1449868b2e07ce6281e', // Replace with your Paystack public key
-    email: 'user@example.com', // Replace with the user's email (dynamically fetch this)
-    amount: 19000000, // Amount in kobo (₦190,000 = 190,000,00 kobo)
-    currency: 'NGN',
-    ref: 'ETI-' + Math.floor(Math.random() * 1000000), // Unique transaction reference
-    metadata: {
-      course: 'Full-Stack Web Development Mastery',
-      name: 'User Name', // Replace with user's name (dynamically fetch this)
-    },
-    callback: function (response) {
-      // Payment successful, handle post-payment logic
-      if (response.status === 'success') {
-        alert('Payment successful! Check your email for course details.');
-        sendPaymentConfirmation(response.reference); // Call Firebase function
-        window.location.href = '/success.html'; // Redirect to success page
-      } else {
-        alert('Payment failed. Please try again.');
-      }
-    },
-    onClose: function () {
-      alert('Payment window closed.');
-    },
-  });
-  handler.openIframe(); // Open Paystack payment popup
+// Handle form submission and initiate payment
+function validateForm(name, email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!name || name.length < 2) {
+    alert('Please enter a valid name (at least 2 characters).');
+    return false;
+  }
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    return false;
+  }
+  return true;
 }
 
-// Load Paystack script dynamically
-const paystackScript = document.createElement('script');
-paystackScript.src = 'https://js.paystack.co/v1/inline.js';
-document.body.appendChild(paystackScript);
+// In the form submission handler:
+document.getElementById('paymentDetailsForm')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('userName').value.trim();
+  const email = document.getElementById('userEmail').value.trim();
+
+  if (validateForm(name, email)) {
+    initiatePayment(name, email);
+  }
+});
+
+// Show/hide loading state
+function showLoading() {
+  document.getElementById('loadingOverlay').classList.remove('hidden');
+}
+
+function hideLoading() {
+  document.getElementById('loadingOverlay').classList.add('hidden');
+}
+
+// Ensure Paystack script is loaded before initiating payment
+function loadPaystackScript(callback) {
+  if (window.PaystackPop) {
+    callback();
+    return;
+  }
+  const paystackScript = document.createElement('script');
+  paystackScript.src = 'https://js.paystack.co/v1/inline.js';
+  paystackScript.onload = callback;
+  paystackScript.onerror = () => alert('Failed to load payment gateway. Please try again.');
+  document.body.appendChild(paystackScript);
+}
+
+function initiatePayment(name, email) {
+  showLoading();
+  loadPaystackScript(() => {
+    const handler = PaystackPop.setup({
+      key: 'pk_live_8eeec6fd3b1806dffc76d1449868b2e07ce6281e', // Replace with your Paystack public key
+      email: email,
+      amount: 19000000, // Amount in kobo (₦190,000 = 190,000,00 kobo)
+      currency: 'NGN',
+      ref: 'ETI-' + Math.floor(Math.random() * 1000000), // Unique transaction reference
+      metadata: {
+        course: 'Full-Stack Web Development Mastery',
+        name: name,
+      },
+      callback: function (response) {
+        hideLoading();
+        // Payment successful, handle post-payment logic
+        if (response.status === 'success') {
+          alert('Payment successful! Check your email for course details.');
+          sendPaymentConfirmation(response.reference); // Call Firebase function
+          window.location.href = '/success.html'; // Redirect to success page
+        } else {
+          alert('Payment failed. Please try again.');
+        }
+      },
+      onClose: function () {
+        hideLoading();
+        alert('Payment window closed.');
+      },
+    });
+    handler.openIframe(); // Open Paystack payment popup
+  });
+}
+
+
 
 
 
@@ -289,6 +338,7 @@ async function sendPaymentConfirmation(reference) {
     console.log(result.data.message);
   } catch (error) {
     console.error('Error sending confirmation:', error);
+    alert('Failed to send confirmation email. Contact support.');
   }
 }
 
@@ -296,8 +346,19 @@ async function sendPaymentConfirmation(reference) {
 firebase.initializeApp({
   apiKey: "your-api-key",
   authDomain: "your-auth-domain",
-  projectId: "your-project-id",
+  projectId: "elora-tech-institute",
   storageBucket: "your-storage-bucket",
-  messagingSenderId: "your-messaging-sender-id",
-  appId: "your-app-id"
+  messagingSenderId: "353331632423",
+  appId: "1:353331632423:web:932e2ebf5d00123ce2b102"
 });
+
+
+async function sendPaymentConfirmation(reference) {
+  try {
+    const sendConfirmation = firebase.functions().httpsCallable('sendPaymentConfirmation');
+    const result = await sendConfirmation({ reference });
+    console.log(result.data.message);
+  } catch (error) {
+    console.error('Error sending confirmation:', error);
+  }
+}
