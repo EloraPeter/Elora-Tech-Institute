@@ -273,7 +273,7 @@ document.getElementById('paymentDetailsForm')?.addEventListener('submit', (e) =>
   e.preventDefault();
   const name = document.getElementById('userName').value.trim();
   const email = document.getElementById('userEmail').value.trim();
-
+  console.log('Form Submission - Name:', name, 'Email:', email);
   if (validateForm(name, email)) {
     updateProgressTracker(2);
     initiatePayment(name, email);
@@ -304,11 +304,17 @@ function loadPaystackScript(callback) {
 
 function initiatePayment(name, email) {
   console.log('Email being sent to Paystack:', email)
+  const sanitizedEmail = email.trim().toLowerCase();
+  console.log('Sanitized Email:', sanitizedEmail); // Debug
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(sanitizedEmail)) {
+    alert('Invalid email format detected. Please check your email.');
+    return;
+  }
   showLoading();
   loadPaystackScript(() => {
     const handler = PaystackPop.setup({
       key: 'pk_live_8eeec6fd3b1806dffc76d1449868b2e07ce6281e', // Replace with your Paystack public key
-      email: email,
+      email: sanitizedEmail,
       amount: 19000000, // Amount in kobo (₦190,000 = 190,000,00 kobo)
       currency: 'NGN',
       ref: 'ETI-' + Math.floor(Math.random() * 1000000), // Unique transaction reference
