@@ -259,6 +259,12 @@ function validateForm(name, email) {
   return true;
 }
 
+// progress
+function updateProgressTracker(step) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.step[data-step="${step}"]`).classList.add('active');
+}
+
 // In the form submission handler:
 document.getElementById('paymentDetailsForm')?.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -266,6 +272,7 @@ document.getElementById('paymentDetailsForm')?.addEventListener('submit', (e) =>
   const email = document.getElementById('userEmail').value.trim();
 
   if (validateForm(name, email)) {
+    updateProgressTracker(2);
     initiatePayment(name, email);
   }
 });
@@ -309,6 +316,7 @@ function initiatePayment(name, email) {
         hideLoading();
         // Payment successful, handle post-payment logic
         if (response.status === 'success') {
+          updateProgressTracker(3);
           alert('Payment successful! Check your email for course details.');
           sendPaymentConfirmation(response.reference); // Call Firebase function
           window.location.href = '/success.html'; // Redirect to success page

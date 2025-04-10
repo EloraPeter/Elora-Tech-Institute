@@ -488,6 +488,7 @@ nav .btn {
 }
 
 @keyframes bounce {
+
   0%,
   20%,
   50%,
@@ -549,6 +550,7 @@ nav .btn {
 }
 
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0);
@@ -825,12 +827,10 @@ swiper-slide.swiper-slide-active {
   left: -50%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    var(--secondary-color),
-    transparent
-  );
+  background: linear-gradient(45deg,
+      transparent,
+      var(--secondary-color),
+      transparent);
   opacity: 0;
   transition: opacity 0.5s ease;
   animation: shine 2s infinite;
@@ -900,8 +900,7 @@ swiper-slide.swiper-slide-active {
   position: relative;
   padding: 100px 20px;
   text-align: center;
-  background: url("images/DALL·E\ 2025-03-27\ 20.20.26\ -\ A\ minimalistic\ digital\ illustration\ of\ a\ young\ woman\ with\ glasses\ working\ on\ a\ laptop\ at\ a\ wooden\ desk.\ The\ background\ is\ soft\ and\ transparent\,\ ensuri.webp")
-    no-repeat center/cover;
+  background: url("images/DALL·E\ 2025-03-27\ 20.20.26\ -\ A\ minimalistic\ digital\ illustration\ of\ a\ young\ woman\ with\ glasses\ working\ on\ a\ laptop\ at\ a\ wooden\ desk.\ The\ background\ is\ soft\ and\ transparent\,\ ensuri.webp") no-repeat center/cover;
   overflow: hidden;
   margin: 50px 0 0;
 }
@@ -1538,14 +1537,14 @@ footer hr {
   justify-content: space-between;
 }
 
-.all-courses .faacl .filter-all #filterButtons > li {
+.all-courses .faacl .filter-all #filterButtons>li {
   position: relative;
   padding: 10px;
   cursor: pointer;
   border-bottom: 1px solid var(--tertiary-color);
 }
 
-.all-courses .faacl .filter-all #filterButtons > li:hover {
+.all-courses .faacl .filter-all #filterButtons>li:hover {
   transform: scale(1.05);
 }
 
@@ -1770,7 +1769,7 @@ footer hr {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-#full-stack-mastery .hero h2{
+#full-stack-mastery .hero h2 {
   width: 80%;
   padding-bottom: 10px;
   margin: 0 auto;
@@ -1784,9 +1783,9 @@ footer hr {
   line-height: 1.8;
 }
 
-#full-stack-mastery #content{
-    display: flex;
-    justify-content: space-between;
+#full-stack-mastery #content {
+  display: flex;
+  justify-content: space-between;
 }
 
 aside {
@@ -1905,35 +1904,41 @@ aside .last-update {
   margin: 10px 0 20px;
 }
 
-#coursedes{
-    /* position: relative; */
-    /* top: -860px; */
-    text-align: left;
-    margin-left: 10%;
+#coursedes {
+  /* position: relative; */
+  /* top: -860px; */
+  text-align: left;
+  margin-left: 10%;
 }
 
-.course-features, .feedback, .learning-goals, .corporate-trust, 
-.practice-tasks, .group-training, .course-outline {
-    margin: 40px 0;
-    animation: fadeInUp 1s ease-out;
+.course-features,
+.feedback,
+.learning-goals,
+.corporate-trust,
+.practice-tasks,
+.group-training,
+.course-outline {
+  margin: 40px 0;
+  animation: fadeInUp 1s ease-out;
 }
 
 #coursedes h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    position: relative;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  position: relative;
 }
+
 #coursedes h2::after {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 2px;
-    background: var(--secondary-color);
-    bottom: -5px;
-    left: 0;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background: var(--secondary-color);
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
 }
 
 .course-features:hover h2::after,
@@ -1942,134 +1947,180 @@ aside .last-update {
 .practice-tasks:hover h2::after,
 .group-training:hover h2::after,
 .course-outline:hover h2::after {
-    width: 100px;
+  width: 100px;
 }
 
 #coursedes ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
+
 #coursedes ul li {
-    font-size: 16px;
-    padding: 10px 0;
-    position: relative;
-    padding-left: 25px;
-    color: var(--text-color);
+  font-size: 16px;
+  padding: 10px 0;
+  position: relative;
+  padding-left: 25px;
+  color: var(--text-color);
 }
+
 #coursedes ul li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--secondary-color);
-    font-weight: bold;
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-weight: bold;
 }
 
 #coursedes .practice-tasks p {
-    font-size: 16px;
-    color: var(--p-color2);
-    margin-bottom: 20px;
+  font-size: 16px;
+  color: var(--p-color2);
+  margin-bottom: 20px;
 }
 
 #coursedes .practice-tasks img {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    transition: transform 0.4s ease;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-light);
+  transition: transform 0.4s ease;
 }
 
 #coursedes body.dark .practice-tasks img {
-    box-shadow: 0 4px 15px var(--shadow-light);
+  box-shadow: 0 4px 15px var(--shadow-light);
 }
 
 #coursedes .practice-tasks img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 #coursedes .group-training p {
-    font-size: 16px;
-    color: var(--p-color2);
-    margin-bottom: 20px;
+  font-size: 16px;
+  color: var(--p-color2);
+  margin-bottom: 20px;
 }
 
 #coursedes .course-outline p {
-    font-size: 16px;
-    color: var(--p-color2);
+  font-size: 16px;
+  color: var(--p-color2);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    aside, #coursedes {
-        max-width: 100%;
-        padding: 15px;
-    }
 
-    h2 {
-        font-size: 20px;
-    }
+  aside,
+  #coursedes {
+    max-width: 100%;
+    padding: 15px;
+  }
 
-    ul li {
-        font-size: 14px;
-    }
+  h2 {
+    font-size: 20px;
+  }
 
-    .company-icons {
-        flex-direction: column;
-        align-items: center;
-    }
+  ul li {
+    font-size: 14px;
+  }
 
-    .discount-code input {
-        width: 60%;
-    }
+  .company-icons {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
+  .discount-code input {
+    width: 60%;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 }
 
 
 /* payment page */
 .loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--tertiary-color);
+  border-top: 5px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid var(--tertiary-color);
-    border-top: 5px solid var(--primary-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+
+  100% {
+    transform: rotate(360deg);
   }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  .hidden {
-    display: none;
-  }
+}
+
+.hidden {
+  display: none;
+}
+
+.progress-tracker {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.step {
+  flex: 1;
+  padding: 10px;
+  background: var(--tertiary-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  position: relative;
+}
+
+.step.active {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  width: 20px;
+  height: 2px;
+  background: var(--tertiary-color);
+  z-index: -1;
+}
+
+.step.active:not(:last-child)::after {
+  background: var(--primary-color);
+}
 
 
 
-  /* success page */
-  .success-container {
-    text-align: center;
-    padding: 50px;
-    background: var(--background-color);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    margin: 50px auto;
-    max-width: 600px;
-  }
+/* success page */
+.success-container {
+  text-align: center;
+  padding: 50px;
+  background: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-light);
+  margin: 50px auto;
+  max-width: 600px;
+}
