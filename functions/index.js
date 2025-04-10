@@ -33,9 +33,9 @@ exports.sendPaymentConfirmation = functions.https.onCall(async (data, context) =
     const { course, name } = metadata;
 
     // Email content
-    const subject = `Welcome to Elora Tech Institute, ${name}!`;
+    const subject = `Payment Confirmation - Full-Stack Web Development Mastery`;
     const message = `
-      Hello ${name},\n\n
+      Welcome to Elora Tech Institute, ${name}!,\n\n
       Woohoo! You’re one step closer to mastering ${course} with Elora Tech Institute!\n\n
       📌 Course: ${course}\n
       📜 Receipt: Transaction ID ${reference}\n
@@ -51,7 +51,7 @@ exports.sendPaymentConfirmation = functions.https.onCall(async (data, context) =
 
     // Send email
     await transporter.sendMail({
-      from: '"Elora Tech Institute" <your-email@gmail.com>',
+      from: '"Elora Tech Institute" <florenceonyi09@gmail.com>',
       to: email,
       subject: subject,
       text: message,
