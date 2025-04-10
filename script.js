@@ -246,21 +246,21 @@ document.querySelectorAll('*').forEach(element => {
 //payment gateway
 //Full-Stack Web Development Mastery course
 // Handle form submission and initiate payment
-function validateForm(name, email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// function validateForm(name, email) {
+//   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
-  if (!name || name.length < 2) {
-    alert('Please enter a valid name (at least 2 characters).');
-    return false;
-  }
+//   if (!name || name.length < 2) {
+//     alert('Please enter a valid name (at least 2 characters).');
+//     return false;
+//   }
   
-  if (!email || !emailRegex.test(email)) {
-    alert('Please enter a valid email address (e.g., example@domain.com).');
-    return false;
-  }
+//   if (!email || !emailRegex.test(email)) {
+//     alert('Please enter a valid email address (e.g., example@domain.com).');
+//     return false;
+//   }
   
-  return true;
-}
+//   return true;
+// }
 
 // progress
 function updateProgressTracker(step) {
