@@ -1421,7 +1421,9 @@ footer hr {
 /* Page-Specific Styles */
 
 /* About Page */
-#about-page {}
+#about-page {
+  margin: 30px 50px;
+}
 
 #about-page #about-hero {
   height: 30vh;
@@ -1431,6 +1433,7 @@ footer hr {
 
 #about-page #about-hero h1 {
   font-size: 5rem;
+  text-align: left;
 }
 
 #about-page #about-hero p {}
