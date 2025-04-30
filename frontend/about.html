@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Elora Tech Institute</title>
     <link rel="stylesheet" href="css/style.css">
-    
+
 </head>
 
 <body>
@@ -137,90 +137,110 @@
             <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
             <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
             <li role="menuitem" class="enroll-btn">
-                <a href="login-signup.html"
-                    class="btn">Enroll Now</a>
+                <a href="login-signup.html" class="btn">Enroll Now</a>
             </li>
         </ul>
-        <a href="login-signup.html"
-            class="btn big">Enroll Now</a>
+        <a href="login-signup.html" class="btn big">Enroll Now</a>
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
-
     <main id="about-page">
-        <section id="about-hero">
+        <!-- Hero Section -->
+        <section id="about-hero" class="hero">
+          <div class="hero-text">
             <h1>About ETI</h1>
             <p>Coding | Tech Skills | Innovation</p>
+            <a href="/enroll" class="btn">Join Our Mission</a>
+          </div>
         </section>
-    
-        <section id="our-story">
-            <h2>Our Story</h2>
-            <p><span class="highlight">Elora Tech Institute</span> was founded to bridge the gap between aspiring tech
-                talents and real-world skills. We believe that everyone — from young children to adults — deserves the
-                opportunity to build a successful tech career, no matter their starting point.</p>
+      
+        <!-- Our Story -->
+        <section id="our-story" class="content-section">
+          <h2><span>|</span> Our Story <span>|</span></h2>
+          <div class="story-container">
+            <div class="story-text">
+              <p><span class="highlight">Elora Tech Institute</span> was founded to bridge the gap between aspiring tech talents and real-world skills. We believe that everyone — from young children to adults — deserves the opportunity to build a successful tech career, no matter their starting point.</p>
+            </div>
+            <div class="story-img">
+              <img src="images/eti-team.jpg" alt="ETI Team working together">
+            </div>
+          </div>
         </section>
-    
-        <section id="mission">
-            <h2>Our Mission</h2>
-            <p>Our mission is to empower individuals with cutting-edge technology skills and the confidence to innovate,
-                lead, and transform the world.</p>
+      
+        <!-- Mission, Vision, Values -->
+        <section id="mission-vision-values" class="content-section">
+          <h2><span>|</span> Our Mission & Vision <span>|</span></h2>
+          <div class="mv-grid">
+            <div class="mv-card">
+              <i class="fa-solid fa-bullseye"></i>
+              <h3>Our Mission</h3>
+              <p>Empower individuals with cutting-edge technology skills and the confidence to innovate, lead, and transform the world.</p>
+            </div>
+            <div class="mv-card">
+              <i class="fa-solid fa-eye"></i>
+              <h3>Our Vision</h3>
+              <p>A future where African talents lead global innovation, with ETI as a world-class institute nurturing tech leaders.</p>
+            </div>
+          </div>
+          <h2><span>|</span> Our Values <span>|</span></h2>
+          <div class="values-grid">
+            <div class="value-card"><strong>Innovation</strong>: Embracing creativity.</div>
+            <div class="value-card"><strong>Excellence</strong>: Achieving high standards.</div>
+            <div class="value-card"><strong>Community</strong>: Growing together.</div>
+            <div class="value-card"><strong>Integrity</strong>: Leading with honesty.</div>
+            <div class="value-card"><strong>Empowerment</strong>: Opportunities for all.</div>
+          </div>
         </section>
-    
-        <section id="vision">
-            <h2>Our Vision</h2>
-            <p>We envision a future where African talents lead global innovation. ETI aims to become a world-class institute
-                with physical centers across Nigeria and beyond, nurturing tech leaders from childhood through professional
-                life.</p>
+      
+        <!-- Programs -->
+        <section id="programs" class="content-section">
+          <h2><span>|</span> Our Programs <span>|</span></h2>
+          <p>ETI offers a wide range of programs tailored to different stages of learning:</p>
+          <div class="programs-grid">
+            <div class="program-card">
+              <img src="images/webdev.jpeg" alt="Web Development">
+              <h3>Web Development</h3>
+              <p>HTML, CSS, JavaScript, React</p>
+            </div>
+            <div class="program-card">
+              <img src="images/cyber.jpeg" alt="Cybersecurity">
+              <h3>Cybersecurity</h3>
+              <p>Ethical Hacking, Network Security</p>
+            </div>
+            <div class="program-card">
+              <img src="images/robotics.jpeg" alt="Robotics">
+              <h3>Robotics & IoT</h3>
+              <p>Arduino, Raspberry Pi</p>
+            </div>
+          </div>
+          <a href="courses.html" class="btn">Explore All Courses</a>
         </section>
-    
-        <section id="values">
-            <h2>Our Values</h2>
-            <ul class="values-list">
-                <li><strong>Innovation:</strong> Embracing creativity and future-thinking.</li>
-                <li><strong>Excellence:</strong> Setting and achieving the highest standards.</li>
-                <li><strong>Community:</strong> Growing together through collaboration.</li>
-                <li><strong>Integrity:</strong> Leading with honesty and transparency.</li>
-                <li><strong>Empowerment:</strong> Providing opportunities for all to succeed.</li>
-            </ul>
+      
+        <!-- Future Plans -->
+        <section id="future-plans" class="content-section">
+          <h2><span>|</span> Our Future Plans <span>|</span></h2>
+          <div class="fp-container">
+            <div class="fp-text">
+              <p>We are excited to expand beyond online learning with our first physical campus, accommodating:</p>
+              <ul class="values-list">
+                <li>Children (Crèche to SS3) for early tech education</li>
+                <li>Industrial Training students for hands-on experience</li>
+                <li>Adults eager to gain in-demand tech skills</li>
+              </ul>
+              <p>ETI is committed to opening branches across Nigeria and internationally.</p>
+            </div>
+            <div class="fp-img">
+              <img src="images/campus-vision.jpg" alt="Future ETI Campus">
+            </div>
+          </div>
         </section>
-    
-        <section id="programs">
-            <h2>Our Programs</h2>
-            <p>ETI offers a wide range of programs tailored to different stages of learning:</p>
-            <ul class="values-list">
-                <li>Web Development (HTML, CSS, JavaScript, React)</li>
-                <li>Cybersecurity and Ethical Hacking</li>
-                <li>Robotics and Internet of Things (IoT)</li>
-                <li>AI and Machine Learning Fundamentals</li>
-                <li>Web3 and Blockchain Technologies</li>
-                <li>Tech for Kids: Coding programs from Crèche to SS3</li>
-                <li>Industrial Training (IT) Programs for University Students</li>
-                <li>Special Courses for Adults and Professionals looking to pivot into Tech</li>
-            </ul>
+      
+        <!-- CTA -->
+        <section id="ab-cta" class="cta">
+          <h2>Ready to Build Your Future?</h2>
+          <p>Whether you're starting your tech journey or building the next big thing, ETI is the place for you.</p>
+          <a href="/enroll" class="btn">Join Us Today</a>
         </section>
-    
-        <section id="fp">
-            <h2>Our Future Plans</h2>
-            <p>We are excited to announce that <span class="highlight">Elora Tech Institute</span> will soon expand beyond
-                online learning!
-                We are building our first physical campus to accommodate:</p>
-            <ul class="values-list">
-                <li>Children (Crèche to SS3) interested in early tech education</li>
-                <li>Industrial Training (IT) students seeking hands-on real-world experience</li>
-                <li>Adults and individuals eager to gain in-demand tech skills</li>
-            </ul>
-            <p>But we won’t stop there — ETI is committed to opening multiple branches across Nigeria and internationally,
-                making world-class tech education accessible to everyone, everywhere.</p>
-        </section>
-    
-        <section id="ab-cta" style="text-align: center;">
-            <h2>Ready to Build Your Future?</h2>
-            <p>Whether you're starting your tech journey, growing your career, or building the next big thing — ETI is the
-                place for you.
-                Let's innovate, create, and lead together.</p>
-            <a href="/enroll" class="cta">Join Us Today</a>
-        </section>
-    
-    </main>
+      </main>
 
     <footer>
         <div class="info">
