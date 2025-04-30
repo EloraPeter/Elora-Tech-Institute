@@ -1672,7 +1672,182 @@ footer hr {
   }
 }
 
-/* Admissions Page */
+/*---------------------------------------- Courses Page---------------------------- */
+#courses-page {
+  margin: 0 30px;
+  padding-top: 20px;
+}
+
+#courses-page .content-section {
+  padding: 50px 0;
+  animation: fadeInUp 1s ease-out;
+}
+
+#courses-page h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  animation: fadeInLeft 1s ease-out;
+}
+
+#courses-page h2 span {
+  color: var(--tertiary-color);
+  font-size: 25px;
+}
+
+#courses-page h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+#courses-page p {
+  font-size: 16px;
+  color: var(--p-color2);
+  line-height: 1.6;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* Hero Section */
+#courses-page #courses-hero {
+  height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/courses-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#courses-hero .hero-text {
+  color: #fff;
+  animation: fadeInDown 1s ease-out;
+}
+
+#courses-hero h1 {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+#courses-hero p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#courses-hero .btn {
+  padding: 12px 30px;
+  font-size: 18px;
+}
+
+/* Explore Courses */
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.program-card {
+  background: var(--background-color);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-light);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-10px);
+}
+
+.program-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.program-card p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.program-card .btn {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* CTA */
+#courses-page .cta {
+  padding: 100px 20px;
+  background: url('../images/cta-bg.jpg') no-repeat center/cover;
+  position: relative;
+  border-radius: 15px;
+  margin: 50px 0;
+  text-align: center;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+.cta h2, .cta p, .cta .btn {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.cta h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.cta .btn {
+  padding: 12px 30px;
+  font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #courses-hero {
+    height: 50vh;
+  }
+  #courses-hero h1 {
+    font-size: 40px;
+  }
+  #courses-hero p {
+    font-size: 18px;
+  }
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+  .cta h2 {
+    font-size: 30px;
+  }
+  .cta p {
+    font-size: 18px;
+  }
+}
+
+/*------------- Admissions Page---------------- */
 #admissions-page {
   margin: 0 30px;
   padding-top: 20px;
