@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog & Updates | Elora Tech Institute</title>
     <link rel="stylesheet" href="css/style.css">
-
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSS7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
@@ -147,43 +147,120 @@
             class="btn big">Enroll Now</a>
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
-    <header>
-        <h1>Blog & Updates</h1>
-        <p>Stay informed about the latest from Elora Tech Institute!</p>
-    </header>
 
-    <section>
+    <main id="blog-page">
+        <!-- Hero Section -->
+        <section id="blog-hero" class="hero">
+            <div class="hero-text">
+                <h1>Blog & Updates</h1>
+                <p>Stay informed about the latest from Elora Tech Institute!</p>
+                <a href="#blog-posts" class="btn">Explore Posts</a>
+            </div>
+        </section>
 
-        <div class="blog-post">
-            <h2>New Batch Admissions Now Open for 2025!</h2>
-            <div class="date">April 28, 2025</div>
-            <p>We are excited to announce that applications for the next batch of students are now open. Join our
-                dynamic tech programs and start your career journey with ETI. Limited slots available!</p>
-            <a href="#" class="read-more">Read More</a>
-        </div>
+        <!-- Blog Posts -->
+        <section class="content-section blog-posts">
+            <h2><span>|</span> Latest News & Updates <span>|</span></h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="images/admissions-2025.jpg" alt="New Batch Admissions 2025">
+                    <div class="blog-content">
+                        <h3>New Batch Admissions Now Open for 2025!</h3>
+                        <div class="meta">
+                            <span><i class="fa-solid fa-calendar"></i> April 28, 2025</span>
+                            <span><i class="fa-solid fa-user"></i> ETI Team</span>
+                        </div>
+                        <p>We are excited to announce that applications for the next batch of students are now open. Join our dynamic tech programs and start your career journey with ETI. Limited slots available!</p>
+                        <a href="admissions.html" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="images/campus-launch.jpg" alt="Physical Campus Launch">
+                    <div class="blog-content">
+                        <h3>Physical Campus Launch Coming Soon!</h3>
+                        <div class="meta">
+                            <span><i class="fa-solid fa-calendar"></i> April 25, 2025</span>
+                            <span><i class="fa-solid fa-user"></i> ETI Team</span>
+                        </div>
+                        <p>Big things are coming! ETI is preparing to launch our physical campus with programs from Crèche to SS3, IT internships, and tech skills training for all levels. Get ready for a new era of learning!</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="images/global-expansion.jpg" alt="Global Expansion Plans">
+                    <div class="blog-content">
+                        <h3>Global Expansion Plans Underway 🌍</h3>
+                        <div class="meta">
+                            <span><i class="fa-solid fa-calendar"></i> April 20, 2025</span>
+                            <span><i class="fa-solid fa-user"></i> ETI Team</span>
+                        </div>
+                        <p>We are taking Elora Tech Institute to the world! Plans are in motion to open branches across Nigeria and internationally. Stay tuned for updates and opportunities to grow with us.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="blog-post">
-            <h2>Physical Campus Launch Coming Soon!</h2>
-            <div class="date">April 25, 2025</div>
-            <p>Big things are coming! ETI is preparing to launch our physical campus with programs from Crèche to SS3,
-                IT internships, and tech skills training for all levels. Get ready for a new era of learning!</p>
-            <a href="#" class="read-more">Read More</a>
-        </div>
+        <!-- CTA -->
+        <section class="content-section cta">
+            <h2>Stay Updated with ETI</h2>
+            <p>Subscribe to our newsletter for the latest news, course updates, and tech tips!</p>
+            <form class="newsletter-form" action="#" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </section>
+    </main>
 
-        <div class="blog-post">
-            <h2>Global Expansion Plans Underway 🌍</h2>
-            <div class="date">April 20, 2025</div>
-            <p>We are taking Elora Tech Institute to the world! Plans are in motion to open branches across Nigeria and
-                internationally. Stay tuned for updates and opportunities to grow with us.</p>
-            <a href="#" class="read-more">Read More</a>
-        </div>
-
-    </section>
-
+    
     <footer>
-        <p>© 2025 Elora Tech Institute. All rights reserved.</p>
+        <div class="info">
+            <div class="about">
+                <h2>Elora Tech Institute</h2>
+                <p>Elora Tech Institute equips individuals with in-demand tech skills through hands-on training in web development, cybersecurity, Web3, IoT, and more...</p>
+                <ul class="sm">
+                    <li><a href="https://web.facebook.com/profile.php?id=61574697245670"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://instagram.com/elorainstitute"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a></li>
+                </ul>
+            </div>
+            <div class="quick-links">
+                <h2>Discover ETI</h2>
+                <ul id="links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="teach-online.html">Teach on ETI</a></li>
+                    <li><a href="blog&updates.html">Blog</a></li>
+                    <li><a href="#">Help & Support</a></li>
+                </ul>
+            </div>
+            <div class="apply">
+                <h2>How to Apply</h2>
+                <ol>
+                    <li>Visit our website and check out the programs.</li>
+                    <li>Fill out the registration form.</li>
+                    <li>Make payment and confirm your enrollment.</li>
+                    <li>Start your tech journey with us!</li>
+                </ol>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing" class="apply-button" target="_blank">Register Now</a>
+            </div>
+        </div>
+        <hr />
+        <p id="copyright">© Elora Tech Institute 2023 - 2025. All rights reserved.</p>
+        <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
     </footer>
 
-</body>
+    <!-- WhatsApp Bubble -->
+    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank" class="whatsapp-bubble">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/script.js"></script>
+</body>
 </html>
