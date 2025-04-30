@@ -12,104 +12,185 @@
 
 <body>
 
-    <header>
-        <h1>Admissions at Elora Tech Institute (ETI)</h1>
-        <p>Empowering the next generation of tech leaders.</p>
-    </header>
-
-    <section class="admission-info">
-        <h2>Welcome to ETI Admissions</h2>
-        <p>We are excited to welcome future innovators, developers, and tech enthusiasts into our community! Whether you
-            are a beginner, IT student, or someone passionate about learning a tech skill, there's a place for you at
-            ETI.</p>
-    </section>
-
-    <section>
-        <h2>Who Can Apply?</h2>
-        <ul>
-            <li>Children (Crèche to SS3)</li>
-            <li>University IT (Industrial Training) Students</li>
-            <li>Graduates seeking post-degree tech skills</li>
-            <li>Adults looking to pivot into tech careers</li>
-            <li>International students (Coming soon!)</li>
-        </ul>
-    </section>
-
-    <section class="important-dates">
-        <h2>Important Dates</h2>
-        <ul>
-            <li><strong>Next Batch Opens:</strong> June 2025</li>
-            <li><strong>Registration Deadline:</strong> May 25, 2025</li>
-            <li><strong>Physical Center Launch:</strong> Coming soon in Delta State, Nigeria!</li>
-        </ul>
-    </section>
-
-    <section class="tuition-info">
-        <h2>Tuition Information</h2>
-        <p>We offer flexible payment plans to make tech education accessible for all. Contact us for full pricing and
-            available scholarships!</p>
-    </section>
-
-    <section>
-        <h2>How to Apply</h2>
-        <ol>
-            <li>Fill out the Admission Form below.</li>
-            <li>Wait for a confirmation email with payment details.</li>
-            <li>Complete payment to secure your admission.</li>
-            <li>Start your tech journey with ETI!</li>
-        </ol>
-    </section>
-
-    <section>
-        <h2>Admission Form</h2>
-        <form action="#" method="POST">
-            <div class="form-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+    <main id="admissions-page">
+        <!-- Hero Section -->
+        <section id="admissions-hero" class="hero">
+            <div class="hero-text">
+                <h1>Admissions at ETI</h1>
+                <p>Empowering the next generation of tech leaders</p>
+                <a href="#admission-form" class="btn">Apply Now</a>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <!-- Welcome Section -->
+        <section class="content-section admission-info">
+            <h2><span>|</span> Welcome to ETI Admissions <span>|</span></h2>
+            <div class="info-container">
+                <div class="info-text">
+                    <p>We are excited to welcome future innovators, developers, and tech enthusiasts into our community! Whether you are a beginner, IT student, or passionate about learning a tech skill, there's a place for you at ETI.</p>
+                </div>
+                <div class="info-img">
+                    <img src="images/admissions-welcome.jpg" alt="Students at ETI">
+                </div>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="+234 123 456 7890" required>
+        <!-- Who Can Apply -->
+        <section class="content-section who-can-apply">
+            <h2><span>|</span> Who Can Apply? <span>|</span></h2>
+            <div class="apply-grid">
+                <div class="apply-card">
+                    <i class="fa-solid fa-child"></i>
+                    <h3>Children</h3>
+                    <p>Crèche to SS3 students</p>
+                </div>
+                <div class="apply-card">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <h3>IT Students</h3>
+                    <p>University Industrial Training</p>
+                </div>
+                <div class="apply-card">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <h3>Graduates</h3>
+                    <p>Post-degree tech skills</p>
+                </div>
+                <div class="apply-card">
+                    <i class="fa-solid fa-sync-alt"></i>
+                    <h3>Adults</h3>
+                    <p>Pivoting to tech careers</p>
+                </div>
+                <div class="apply-card">
+                    <i class="fa-solid fa-globe"></i>
+                    <h3>International</h3>
+                    <p>Coming soon!</p>
+                </div>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="program">Program of Interest</label>
-                <select id="program" name="program" required>
-                    <option value="">-- Select Program --</option>
-                    <option value="Web Development">Web Development</option>
-                    <option value="Cybersecurity">Cybersecurity</option>
-                    <option value="Robotics">Robotics</option>
-                    <option value="IoT (Internet of Things)">IoT (Internet of Things)</option>
-                    <option value="AI and Machine Learning">AI and Machine Learning</option>
-                </select>
+        <!-- Important Dates -->
+        <section class="content-section important-dates">
+            <h2><span>|</span> Important Dates <span>|</span></h2>
+            <div class="dates-grid">
+                <div class="date-card">
+                    <h3>Next Batch</h3>
+                    <p><strong>June 2025</strong></p>
+                </div>
+                <div class="date-card">
+                    <h3>Registration Deadline</h3>
+                    <p><strong>May 25, 2025</strong></p>
+                </div>
+                <div class="date-card">
+                    <h3>Physical Center Launch</h3>
+                    <p><strong>Coming soon in Delta State!</strong></p>
+                </div>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="message">Additional Information (Optional)</label>
-                <textarea id="message" name="message" placeholder="Tell us more..."></textarea>
+        <!-- Tuition Information -->
+        <section class="content-section tuition-info">
+            <h2><span>|</span> Tuition Information <span>|</span></h2>
+            <div class="tuition-container">
+                <p>We offer flexible payment plans to make tech education accessible for all. Contact us for full pricing and available scholarships!</p>
+                <a href="contact.html" class="btn">Inquire About Tuition</a>
             </div>
+        </section>
 
-            <button type="submit">Submit Application</button>
-        </form>
-    </section>
+        <!-- How to Apply -->
+        <section class="content-section how-to-apply">
+            <h2><span>|</span> How to Apply <span>|</span></h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <p>Fill out the Admission Form below</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <p>Wait for a confirmation email with payment details</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">3</span>
+                    <p>Complete payment to secure your admission</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">4</span>
+                    <p>Start your tech journey with ETI!</p>
+                </div>
+            </div>
+        </section>
 
-    <section class="faq">
-        <h2>Frequently Asked Questions (FAQ)</h2>
-        <h3>Is there an age limit?</h3>
-        <p>No, ETI is open to children, teenagers, young adults, and professionals.</p>
+        <!-- Admission Form -->
+        <section class="content-section admission-form" id="admission-form">
+            <h2><span>|</span> Admission Form <span>|</span></h2>
+            <form action="#" method="POST" class="payment-form">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+234 123 456 7890" required>
+                </div>
+                <div class="form-group">
+                    <label for="program">Program of Interest</label>
+                    <select id="program" name="program" required>
+                        <option value="">-- Select Program --</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Cybersecurity">Cybersecurity</option>
+                        <option value="Robotics">Robotics</option>
+                        <option value="IoT (Internet of Things)">IoT (Internet of Things)</option>
+                        <option value="AI and Machine Learning">AI and Machine Learning</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Information (Optional)</label>
+                    <textarea id="message" name="message" placeholder="Tell us more..."></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </section>
 
-        <h3>Can I join if I'm outside Nigeria?</h3>
-        <p>Yes! We are building an international structure. Our online programs are available worldwide.</p>
+        <!-- FAQ -->
+        <section class="content-section faq">
+            <h2><span>|</span> Frequently Asked Questions <span>|</span></h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        Is there an age limit? <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>No, ETI is open to children, teenagers, young adults, and professionals.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        Can I join if I'm outside Nigeria? <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes! Our online programs are available worldwide, with international structures coming soon.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        Do I need a tech background? <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>No prior experience needed. We teach you from beginner to expert!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <h3>Do I need a tech background?</h3>
-        <p>No prior experience needed. We teach you from beginner to expert!</p>
-    </section>
+        <!-- CTA -->
+        <section class="content-section cta">
+            <h2>Ready to Start Your Tech Journey?</h2>
+            <p>Join ETI and unlock your potential in the world of technology.</p>
+            <a href="#admission-form" class="btn">Apply Today</a>
+        </section>
+    </main>
 
     <footer>
         <div class="info">
