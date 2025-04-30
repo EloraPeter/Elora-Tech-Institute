@@ -587,7 +587,6 @@ nav .btn {
   width: 100%;
   border-radius: 0 0 50% 50%;
   transition: transform 0.5s ease;
-  transform: rotateZ('angle');
 }
 
 #hero .hero-img:hover img {
