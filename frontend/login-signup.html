@@ -1,11 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
+    <meta name="title" content="Elora Tech Institute | Learn, Innovate, Succeed">
+    <meta name="description"
+        content="Elora Tech Institute offers top-tier tech education, helping students master web development, cybersecurity, AI, and more. Join us and build your future in tech.">
+    <meta name="keywords"
+        content="Elora Tech Institute, tech academy, web development, cybersecurity, programming, coding school, AI, robotics, IT training">
+    <title>Student Login/Signup - Elora Tech Institute</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSB7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-    
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <h1 id="logo">
+            <img src="images/eti-logo-main.jfif" alt="Elora Tech Institute Logo">
+        </h1>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul id="nav-link" role="menu">
+            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
+            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
+            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
+                    href="#">Courses</a>
+                <div class="dropdown1">
+                    <ul class="dropdown" role="menuitem">
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="web-development.html">Web Development</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="web-development-html.html">HTML</a></li>
+                                    <li><a href="web-development-css.html">CSS</a></li>
+                                    <li><a href="web-development-javascript.html">JavaScript</a></li>
+                                    <li><a href="web-development-php.html">PHP & Laravel</a></li>
+                                    <li><a href="web-development-wordpress.html">WordPress</a></li>
+                                    <li><a href="web-development-frontend.html">Frontend Development</a></li>
+                                    <li><a href="web-development-backend.html">Backend Development</a></li>
+                                    <li><a href="web-development-fullstack.html">Full-Stack Development</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="mobile-apps.html">Mobile App Development</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="mobile-react-native.html">React Native</a></li>
+                                    <li><a href="mobile-flutter.html">Flutter</a></li>
+                                    <li><a href="mobile-android.html">Android Development (Kotlin)</a></li>
+                                    <li><a href="mobile-ios.html">iOS Development (Swift)</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="data-science.html">Data Science & Machine Learning</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="data-python.html">Python for Data Science</a></li>
+                                    <li><a href="data-machine-learning.html">Machine Learning</a></li>
+                                    <li><a href="data-deep-learning.html">Deep Learning & AI</a></li>
+                                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="cyber-ethical-hacking.html">Ethical Hacking</a></li>
+                                    <li><a href="cyber-network-security.html">Network Security</a></li>
+                                    <li><a href="cyber-threat-intelligence.html">Threat Intelligence</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="cloud-computing.html">Cloud Computing & DevOps</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
+                                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
+                                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="blockchain.html">Blockchain & Web3</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="blockchain-solidity.html">Solidity & Smart Contracts</a></li>
+                                    <li><a href="blockchain-dapps.html">Decentralized Apps (dApps)</a></li>
+                                    <li><a href="blockchain-nfts.html">NFT & Crypto Development</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="game-development.html">Game Development</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="game-unity.html">Unity Game Development</a></li>
+                                    <li><a href="game-unreal.html">Unreal Engine</a></li>
+                                    <li><a href="game-mobile.html">Mobile Game Development</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="robotics.html">Robotics & IoT</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="robotics-arduino.html">Arduino & Raspberry Pi</a></li>
+                                    <li><a href="robotics-automation.html">Automation & AI in IoT</a></li>
+                                    <li><a href="robotics-smart-home.html">Smart Home Devices</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="ui-ux.html">UI/UX Design</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
+                                    <li><a href="ui-wireframing.html">Wireframing & Prototyping</a></li>
+                                    <li><a href="ui-user-research.html">User Research & UX Strategy</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="digital-marketing.html">Digital Marketing & Tech Business</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="marketing-seo.html">SEO & Content Marketing</a></li>
+                                    <li><a href="marketing-social-media.html">Social Media Growth</a></li>
+                                    <li><a href="marketing-tech-startup.html">Tech Startup Strategies</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
+            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
+            <li role="menuitem" class="enroll-btn">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+                    class="btn">Enroll Now</a>
+            </li>
+        </ul>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+            class="btn big">Enroll Now</a>
+        <div id="toggle"><i class="fa-solid fa-moon"></i></div>
+    </nav>
+
+    <div class="payment-form">
+        <div class="form-section active" id="loginForm">
+            <h2>Student Login</h2>
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email" required
+                    aria-label="Email address" />
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required
+                    aria-label="Password" />
+            </div>
+            <button class="btn" onclick="login()">Login</button>
+            <div class="toggle-link" onclick="toggleForms()">Don't have an account? Sign up</div>
+            <div id="loginError"></div>
+        </div>
+
+        <div class="form-section" id="signupForm">
+            <h2>Student Sign Up</h2>
+            <div class="form-group">
+                <label for="signupName">Full Name</label>
+                <input type="text" id="signupName" placeholder="Enter your full name" required aria-label="Full name" />
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" placeholder="Enter your email" required
+                    aria-label="Email address" />
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" placeholder="Enter your password" required
+                    aria-label="Password" />
+            </div>
+            <input type="hidden" id="signupRole" value="student" />
+            <button class="btn" onclick="signup()">Register</button>
+            <div class="toggle-link" onclick="toggleForms()">Already have an account? Login</div>
+            <div id="signupError"></div>
+        </div>
+    </div>
+
+    <script src="js/studentauth.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>

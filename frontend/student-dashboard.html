@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Elora Tech Institute | Student Dashboard">
+    <meta name="description" content="Master your learning journey with Elora Tech Institute's student dashboard.">
+    <title>Student Dashboard - Elora Tech Institute</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSB7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #4b0082, #007bff);
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: white;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .dashboard-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+        }
+        .logout-btn {
+            background: #fff;
+            color: #4b0082;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .logout-btn:hover {
+            transform: scale(1.1);
+            background: #f0f0f0;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .card i {
+            font-size: 2.5rem;
+            color: #4b0082;
+            margin-bottom: 0.8rem;
+        }
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.6rem;
+            color: #333;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1.5rem;
+            color: #4b0082;
+        }
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+        .list li {
+            padding: 1.2rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .list li:hover {
+            background: #f0f0f0;
+        }
+        .list li button {
+            background: #4b0082;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 0.6rem;
+            transition: background 0.2s;
+        }
+        .list li button:hover {
+            background: #6a0dad;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 95%;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+        .modal-content .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #333;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+        .analytics-chart {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        #error {
+            margin-top: 1rem;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        .progress-bar {
+            background: #ddd;
+            border-radius: 6px;
+            height: 10px;
+            margin-top: 0.5rem;
+        }
+        .progress-bar div {
+            background: #4b0082;
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <h1 id="logo">
+            <img src="images/eti-logo-main.jfif" alt="Elora Tech Institute Logo">
+        </h1>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul id="nav-link" role="menu">
+            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
+            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
+            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a href="#">Courses</a>
+                <!-- Dropdown menu as in admin-dashboard.html -->
+                <div class="dropdown1">
+                    <ul class="dropdown" role="menuitem">
+                        <li role="menuitem"><a href="web-development.html">Web Development</a></li>
+                        <li role="menuitem"><a href="mobile-apps.html">Mobile App Development</a></li>
+                        <li role="menuitem"><a href="data-science.html">Data Science & Machine Learning</a></li>
+                        <li role="menuitem"><a href="cybersecurity.html">Cybersecurity & Ethical Hacking</a></li>
+                        <li role="menuitem"><a href="cloud-computing.html">Cloud Computing & DevOps</a></li>
+                        <li role="menuitem"><a href="blockchain.html">Blockchain & Web3</a></li>
+                        <li role="menuitem"><a href="game-development.html">Game Development</a></li>
+                        <li role="menuitem"><a href="robotics.html">Robotics & IoT</a></li>
+                        <li role="menuitem"><a href="ui-ux.html">UI/UX Design</a></li>
+                        <li role="menuitem"><a href="digital-marketing.html">Digital Marketing & Tech Business</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
+            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
+            <li role="menuitem" class="enroll-btn">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+                    class="btn">Enroll Now</a>
+            </li>
+        </ul>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+            class="btn big">Enroll Now</a>
+        <div id="toggle"><i class="fa-solid fa-moon"></i></div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h2>Master Your Journey, <span id="userName"></span>! 🚀</h2>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+
+        <div class="card-grid">
+            <div class="card" onclick="scrollToSection('courses')">
+                <i class="fas fa-book"></i>
+                <h3>My Courses</h3>
+                <p>Explore your enrolled courses.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('progress')">
+                <i class="fas fa-chart-line"></i>
+                <h3>Track Progress</h3>
+                <p>Monitor your learning achievements.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('certificates')">
+                <i class="fas fa-certificate"></i>
+                <h3>Certificates</h3>
+                <p>View and download your certificates.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('discussions')">
+                <i class="fas fa-comments"></i>
+                <h3>Discussions</h3>
+                <p>Engage with peers and instructors.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('events')">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Events</h3>
+                <p>Stay updated on live sessions.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('assessments')">
+                <i class="fas fa-clipboard-check"></i>
+                <h3>Assessments</h3>
+                <p>Complete quizzes and assignments.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('resources')">
+                <i class="fas fa-folder-open"></i>
+                <h3>Resources</h3>
+                <p>Access course materials and downloads.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('notifications')">
+                <i class="fas fa-bell"></i>
+                <h3>Notifications</h3>
+                <p>Stay informed with updates.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('profile')">
+                <i class="fas fa-user"></i>
+                <h3>Profile</h3>
+                <p>Update your personal details.</p>
+            </div>
+        </div>
+
+        <div class="section" id="progress">
+            <h2>Your Learning Progress</h2>
+            <div class="analytics-chart">
+                <canvas id="progressChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section" id="courses">
+            <h2>My Enrolled Courses</h2>
+            <ul class="list" id="course-list"></ul>
+        </div>
+
+        <div class="section" id="resources">
+            <h2>Course Resources</h2>
+            <ul class="list" id="resource-list"></ul>
+        </div>
+
+        <div class="section" id="certificates">
+            <h2>Your Certificates</h2>
+            <ul class="list" id="certificate-list"></ul>
+        </div>
+
+        <div class="section" id="discussions">
+            <h2>Course Discussions</h2>
+            <ul class="list" id="discussion-list"></ul>
+        </div>
+
+        <div class="section" id="events">
+            <h2>Upcoming Events</h2>
+            <ul class="list" id="event-list"></ul>
+        </div>
+
+        <div class="section" id="assessments">
+            <h2>Your Assessments</h2>
+            <ul class="list" id="assessment-list"></ul>
+        </div>
+
+        <div class="section" id="notifications">
+            <h2>Notifications</h2>
+            <ul class="list" id="notification-list"></ul>
+        </div>
+
+        <div class="section" id="profile">
+            <h2>Your Profile</h2>
+            <ul class="list" id="profile-list"></ul>
+        </div>
+
+        <div id="error"></div>
+    </div>
+
+    <!-- Post Discussion Modal -->
+    <div id="postDiscussionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('postDiscussionModal')">×</span>
+            <h2>Post to Discussion</h2>
+            <input type="hidden" id="discussion-forum-id">
+            <div class="form-group">
+                <label for="discussion-content">Your Post</label>
+                <textarea id="discussion-content" placeholder="Share your thoughts..." required></textarea>
+            </div>
+            <button class="btn" onclick="postDiscussion()">Submit Post</button>
+        </div>
+    </div>
+
+    <!-- Submit Assessment Modal -->
+    <div id="submitAssessmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('submitAssessmentModal')">×</span>
+            <h2>Submit Assessment</h2>
+            <input type="hidden" id="assessment-id">
+            <div class="form-group">
+                <label for="assessment-score">Score (out of max score)</label>
+                <input type="number" id="assessment-score" required>
+            </div>
+            <button class="btn" onclick="submitAssessment()">Submit Attempt</button>
+        </div>
+    </div>
+
+    <!-- Update Profile Modal -->
+    <div id="updateProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('updateProfileModal')">×</span>
+            <h2>Update Profile</h2>
+            <input type="hidden" id="profile-user-id">
+            <div class="form-group">
+                <label for="profile-name">Name</label>
+                <input type="text" id="profile-name" required>
+            </div>
+            <div class="form-group">
+                <label for="profile-bio">Bio</label>
+                <textarea id="profile-bio"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="profile-expertise">Expertise</label>
+                <input type="text" id="profile-expertise">
+            </div>
+            <button class="btn" onclick="updateProfile()">Update Profile</button>
+        </div>
+    </div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/studentdash.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

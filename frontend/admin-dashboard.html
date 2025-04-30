@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Elora Tech Institute | Admin Dashboard">
+    <meta name="description" content="Command the Elora Tech Institute platform with powerful tools and analytics.">
+    <title>Admin Dashboard - Elora Tech Institute</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #4b0082, #007bff);
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: white;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .dashboard-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+        }
+
+        .logout-btn {
+            background: #fff;
+            color: #4b0082;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .logout-btn:hover {
+            transform: scale(1.1);
+            background: #f0f0f0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: #4b0082;
+            margin-bottom: 0.8rem;
+        }
+
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.6rem;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1.5rem;
+            color: #4b0082;
+        }
+
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list li {
+            padding: 1.2rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .list li:hover {
+            background: #f0f0f0;
+        }
+
+        .list li button {
+            background: #4b0082;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 0.6rem;
+            transition: background 0.2s;
+        }
+
+        .list li button:hover {
+            background: #6a0dad;
+        }
+
+        .list li button.delete {
+            background: #dc3545;
+        }
+
+        .list li button.delete:hover {
+            background: #c82333;
+        }
+
+        .list li button.reject {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .list li button.reject:hover {
+            background: #e0a800;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 95%;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        .modal-content .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .analytics-chart {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .financials {
+            background: linear-gradient(135deg, #007bff, #8a2be2);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        #error {
+            margin-top: 1rem;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background: #333;
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group input {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <h1 id="logo">
+            <img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo">
+        </h1>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul id="nav-link" role="menu">
+            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
+            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
+            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
+                    href="#">Courses</a>
+                <div class="dropdown1">
+                    <ul class="dropdown" role="menuitem">
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="web-development.html">Web Development</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="web-development-html.html">HTML</a></li>
+                                    <li><a href="web-development-css.html">CSS</a></li>
+                                    <li><a href="web-development-javascript.html">JavaScript</a></li>
+                                    <li><a href="web-development-php.html">PHP & Laravel</a></li>
+                                    <li><a href="web-development-wordpress.html">WordPress</a></li>
+                                    <li><a href="web-development-frontend.html">Frontend Development</a></li>
+                                    <li><a href="web-development-backend.html">Backend Development</a></li>
+                                    <li><a href="web-development-fullstack.html">Full-Stack Development</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="mobile-apps.html">Mobile App Development</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="mobile-react-native.html">React Native</a></li>
+                                    <li><a href="mobile-flutter.html">Flutter</a></li>
+                                    <li><a href="mobile-android.html">Android Development (Kotlin)</a></li>
+                                    <li><a href="mobile-ios.html">iOS Development (Swift)</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="data-science.html">Data Science & Machine Learning</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="data-python.html">Python for Data Science</a></li>
+                                    <li><a href="data-machine-learning.html">Machine Learning</a></li>
+                                    <li><a href="data-deep-learning.html">Deep Learning & AI</a></li>
+                                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="cyber-ethical-hacking.html">Ethical Hacking</a></li>
+                                    <li><a href="cyber-network-security.html">Network Security</a></li>
+                                    <li><a href="cyber-threat-intelligence.html">Threat Intelligence</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="cloud-computing.html">Cloud Computing & DevOps</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
+                                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
+                                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="blockchain.html">Blockchain & Web3</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="blockchain-solidity.html">Solidity & Smart Contracts</a></li>
+                                    <li><a href="blockchain-dapps.html">Decentralized Apps (dApps)</a></li>
+                                    <li><a href="blockchain-nfts.html">NFT & Crypto Development</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="game-development.html">Game Development</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="game-unity.html">Unity Game Development</a></li>
+                                    <li><a href="game-unreal.html">Unreal Engine</a></li>
+                                    <li><a href="game-mobile.html">Mobile Game Development</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="robotics.html">Robotics & IoT</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="robotics-arduino.html">Arduino & Raspberry Pi</a></li>
+                                    <li><a href="robotics-automation.html">Automation & AI in IoT</a></li>
+                                    <li><a href="robotics-smart-home.html">Smart Home Devices</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="ui-ux.html">UI/UX Design</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
+                                    <li><a href="ui-wireframing.html">Wireframing & Prototyping</a></li>
+                                    <li><a href="ui-user-research.html">User Research & UX Strategy</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
+                                href="digital-marketing.html">Digital Marketing & Tech Business</a>
+                            <div class="dropdown2">
+                                <ul class="dropdown-sub" role="menu">
+                                    <li><a href="marketing-seo.html">SEO & Content Marketing</a></li>
+                                    <li><a href="marketing-social-media.html">Social Media Growth</a></li>
+                                    <li><a href="marketing-tech-startup.html">Tech Startup Strategies</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
+            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
+            <li role="menuitem" class="enroll-btn">
+                <button class="logout-btn btn" onclick="logout()">Logout</button>
+            </li>
+        </ul>
+        <button class="logout-btn btn big" onclick="logout()">Logout</button>
+        <div id="toggle"><i class="fa-solid fa-moon"></i></div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h2>Command the Platform with Confidence, <span id="userName"></span>! 🌍</h2>
+
+        </div>
+
+        <div class="financials">
+            <p>Total Platform Revenue: $<span id="totalRevenue">0.00</span></p>
+        </div>
+
+        <div class="card-grid">
+            <div class="card" onclick="scrollToSection('courses')">
+                <i class="fas fa-book"></i>
+                <h3>Steer Courses</h3>
+                <p>Approve, reject, or delete courses.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('submissions')">
+                <i class="fas fa-file-alt"></i>
+                <h3>Review Submissions</h3>
+                <p>Evaluate course outlines.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('users')">
+                <i class="fas fa-users"></i>
+                <h3>Manage Users</h3>
+                <p>Promote or remove users.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('reports')">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Drive Insights</h3>
+                <p>Analyze platform metrics.</p>
+            </div>
+            <div class="card" onclick="openModal('notificationModal')">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Broadcast News</h3>
+                <p>Send platform announcements.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('content')">
+                <i class="fas fa-file-video"></i>
+                <h3>Oversee Content</h3>
+                <p>Review course materials.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('certificates')">
+                <i class="fas fa-certificate"></i>
+                <h3>Issue Certificates</h3>
+                <p>Manage learner achievements.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('events')">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Monitor Events</h3>
+                <p>Oversee live course schedules.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('forums')">
+                <i class="fas fa-comments"></i>
+                <h3>Moderate Forums</h3>
+                <p>Manage discussions.</p>
+            </div>
+            <div class="card" onclick="scrollToSection('assessments')">
+                <i class="fas fa-clipboard-check"></i>
+                <h3>Review Assessments</h3>
+                <p>Monitor student performance.</p>
+            </div>
+        </div>
+
+        <div class="section" id="reports">
+            <h2>Drive Platform Success with Insights</h2>
+            <div class="analytics-chart">
+                <canvas id="analyticsChart"></canvas>
+            </div>
+            <ul class="list" id="reports-list"></ul>
+        </div>
+
+        <div class="section" id="courses">
+            <h2>Steer Courses to Excellence</h2>
+            <ul class="list" id="course-list"></ul>
+        </div>
+
+        <div class="section" id="submissions">
+            <h2>Review Course Submissions</h2>
+            <ul class="list" id="submission-list"></ul>
+        </div>
+
+        <div class="section" id="users">
+            <h2>Empower Your Community</h2>
+            <ul class="list" id="user-list"></ul>
+        </div>
+
+        <div class="section" id="content">
+            <h2>Ensure Content Quality</h2>
+            <ul class="list" id="content-list"></ul>
+        </div>
+
+        <div class="section" id="certificates">
+            <h2>Celebrate Achievements</h2>
+            <div class="filter-group">
+                <input type="text" id="certificate-user-filter" placeholder="Filter by student name">
+                <input type="text" id="certificate-course-filter" placeholder="Filter by course title">
+            </div>
+            <ul class="list" id="certificate-list"></ul>
+        </div>
+
+        <div class="section" id="events">
+            <h2>Coordinate Live Events</h2>
+            <ul class="list" id="event-list"></ul>
+        </div>
+
+        <div class="section" id="forums">
+            <h2>Foster Community Discussions</h2>
+            <ul class="list" id="forum-list"></ul>
+        </div>
+
+        <div class="section" id="assessments">
+            <h2>Track Academic Progress</h2>
+            <ul class="list" id="assessment-list"></ul>
+        </div>
+
+        <div class="section" id="notifications">
+            <h2>Notification Logs</h2>
+            <ul class="list" id="notification-list"></ul>
+        </div>
+
+        <div id="error"></div>
+    </div>
+
+    <!-- Send Notification Modal -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('notificationModal')">×</span>
+            <h2>Broadcast Platform Announcement</h2>
+            <div class="form-group">
+                <label for="notification-target">Target Audience</label>
+                <select id="notification-target">
+                    <option value="">All Users</option>
+                    <option value="student">Students</option>
+                    <option value="instructor">Instructors</option>
+                    <option value="admin">Admins</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="notification-message">Message</label>
+                <textarea id="notification-message" placeholder="Enter your message" required></textarea>
+            </div>
+            <button class="btn" onclick="sendNotification()">Send Announcement</button>
+        </div>
+    </div>
+
+    <!-- Promote User Modal -->
+    <div id="promoteUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('promoteUserModal')">×</span>
+            <h2>Promote User</h2>
+            <input type="hidden" id="promote-user-id">
+            <div class="form-group">
+                <label for="promote-role">New Role</label>
+                <select id="promote-role" required>
+                    <option value="student">Student</option>
+                    <option value="instructor">Instructor</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <button class="btn" onclick="promoteUser()">Promote User</button>
+        </div>
+    </div>
+
+    <!-- Update User Modal -->
+    <div id="updateUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('updateUserModal')">×</span>
+            <h2>Update User Profile</h2>
+            <input type="hidden" id="update-user-id">
+            <div class="form-group">
+                <label for="update-user-name">Name</label>
+                <input type="text" id="update-user-name" required>
+            </div>
+            <div class="form-group">
+                <label for="update-user-bio">Bio</label>
+                <textarea id="update-user-bio"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="update-user-expertise">Expertise</label>
+                <input type="text" id="update-user-expertise">
+            </div>
+            <button class="btn" onclick="updateUser()">Update Profile</button>
+        </div>
+    </div>
+
+    <!-- Review Submission Modal -->
+    <div id="reviewSubmissionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('reviewSubmissionModal')">×</span>
+            <h2>Review Course Submission</h2>
+            <input type="hidden" id="submission-id">
+            <div class="form-group">
+                <label for="submission-status">Status</label>
+                <select id="submission-status" required>
+                    <option value="approved">Approve</option>
+                    <option value="rejected">Reject</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="submission-comments">Comments</label>
+                <textarea id="submission-comments" placeholder="Provide feedback"></textarea>
+            </div>
+            <button class="btn" onclick="reviewSubmission()">Submit Review</button>
+        </div>
+    </div>
+
+    <!-- Issue Certificate Modal -->
+    <div id="issueCertificateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('issueCertificateModal')">×</span>
+            <h2>Issue Certificate</h2>
+            <input type="hidden" id="certificate-user-id">
+            <input type="hidden" id="certificate-course-id">
+            <div class="form-group">
+                <label for="certificate-user-name">Student Name</label>
+                <input type="text" id="certificate-user-name" disabled>
+            </div>
+            <div class="form-group">
+                <label for="certificate-course-title">Course Title</label>
+                <input type="text" id="certificate-course-title" disabled>
+            </div>
+            <button class="btn" onclick="issueCertificate()">Issue Certificate</button>
+        </div>
+    </div>
+
+    <script src="js/admindash.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

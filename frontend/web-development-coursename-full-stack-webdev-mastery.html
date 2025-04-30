@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
     <title>Full-Stack Web Development Mastery - ETI</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -432,7 +432,7 @@
                             </p>
                         </div>
                         <p class="refund-policy">7-Day Refund Option</p>
-                        <a href="pay.html" class="btn">Register Now</a>
+                        <a href="#" class="btn" onclick="handleRegisterClick()">Register Now</a>
                     </section>
                 </div>
             </aside>
@@ -588,10 +588,29 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
     </a>
 
+
+    <script>
+        function handleRegisterClick() {
+          const user = JSON.parse(localStorage.getItem('user'));
+          const token = localStorage.getItem('token');
+          const COURSE_ID = 1; // Replace with actual course ID (you may need to dynamically set this)
+      
+          if (user && token) {
+            // User is logged in, redirect to pay.html with user info
+            window.location.href = `pay.html?course_id=${COURSE_ID}&user_id=${user.id}&email=${encodeURIComponent(
+              user.email
+            )}&name=${encodeURIComponent(user.name)}`;
+          } else {
+            // User is not logged in, redirect to login-signup.html
+            window.location.href = `login-signup.html?redirect=pay.html&course_id=${COURSE_ID}`;
+          }
+        }
+      </script>
     <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-functions.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
