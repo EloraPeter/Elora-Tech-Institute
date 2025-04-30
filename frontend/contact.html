@@ -11,47 +11,118 @@
 </head>
 
 <body>
-
-    <header>
-        <h1>Contact Elora Tech Institute (ETI)</h1>
-        <p>We'd love to hear from you!</p>
-    </header>
-
-    <section>
-        <h2>Send Us a Message</h2>
-        <p>If you have any questions, inquiries about our programs, or partnership opportunities, feel free to reach
-            out. We'll respond as soon as possible!</p>
-
-        <form action="#" method="POST">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+    <main id="contact-page">
+        <!-- Hero Section -->
+        <section id="contact-hero" class="hero">
+            <div class="hero-text">
+                <h1>Contact ETI</h1>
+                <p>We'd love to hear from you!</p>
+                <a href="#contact-form" class="btn">Send a Message</a>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <!-- Contact Form & Info -->
+        <section class="content-section contact-main">
+            <h2><span>|</span> Get in Touch <span>|</span></h2>
+            <div class="contact-container">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <p>If you have questions, inquiries about our programs, or partnership opportunities, we’ll respond as soon as possible!</p>
+                    <form action="#" method="POST" class="payment-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Other Ways to Reach Us</h3>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <i class="fa-solid fa-envelope"></i>
+                            <p><strong>Email</strong><br><a href="mailto:support@elorainstitute.com">support@elorainstitute.com</a></p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <p><strong>Phone/WhatsApp</strong><br><a href="https://wa.me/+2348105769233" target="_blank">+234 810 576 9233</a></p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fa-brands fa-github"></i>
+                            <p><strong>GitHub</strong><br><a href="https://github.com/EloraPeter" target="_blank">github.com/EloraPeter</a></p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fa-brands fa-instagram"></i>
+                            <p><strong>Instagram</strong><br><a href="https://instagram.com/elorainstitute" target="_blank">@elorainstitute</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+        <!-- CTA -->
+        <section class="content-section cta">
+            <h2>Ready to Join ETI?</h2>
+            <p>Start your tech journey with us today!</p>
+            <a href="admissions.html" class="btn">Apply Now</a>
+        </section>
+    </main>
+
+    <!-- Footer (Copied from index.html) -->
+    <footer>
+        <div class="info">
+            <div class="about">
+                <h2>Elora Tech Institute</h2>
+                <p>Elora Tech Institute equips individuals with in-demand tech skills through hands-on training in web development, cybersecurity, Web3, IoT, and more...</p>
+                <ul class="sm">
+                    <li><a href="https://web.facebook.com/profile.php?id=61574697245670"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://instagram.com/elorainstitute"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a></li>
+                </ul>
             </div>
-
-            <button type="submit">Send Message</button>
-        </form>
-
-        <div class="contact-info">
-            <h2>Other Ways to Reach Us</h2>
-            <p><strong>Email:</strong> <a href="mailto:info@eloratechinstitute.com">info@eloratechinstitute.com</a></p>
-            <p><strong>Phone/WhatsApp:</strong> <a href="https://wa.me/yourwhatsappnumber" target="_blank">+234 your
-                    phone number</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/your-github-username"
-                    target="_blank">github.com/your-github-username</a></p>
-            <p><strong>Instagram:</strong> <a href="https://instagram.com/your-instagram-handle"
-                    target="_blank">@your-instagram-handle</a></p>
+            <div class="quick-links">
+                <h2>Discover ETI</h2>
+                <ul id="links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="teach-online.html">Teach on ETI</a></li>
+                    <li><a href="#">Help & Support</a></li>
+                </ul>
+            </div>
+            <div class="apply">
+                <h2>How to Apply</h2>
+                <ol>
+                    <li>Visit our website and check out the programs.</li>
+                    <li>Fill out the registration form.</li>
+                    <li>Make payment and confirm your enrollment.</li>
+                    <li>Start your tech journey with us!</li>
+                </ol>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing" class="apply-button" target="_blank">Register Now</a>
+            </div>
         </div>
-    </section>
+        <hr />
+        <p id="copyright">© Elora Tech Institute 2023 - 2025. All rights reserved.</p>
+        <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
+    </footer>
+
+    <!-- WhatsApp Bubble -->
+    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank" class="whatsapp-bubble">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
 
     <footer>
         <div class="info">
