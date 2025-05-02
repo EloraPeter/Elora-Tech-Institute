@@ -2,7 +2,7 @@
         // Authentication check
         const user = JSON.parse(localStorage.getItem('user'));
         if (!user || user.role !== 'admin') {
-            window.location.href = 'login.html';
+            window.location.href = 'admin-signup-login.html';
         }
         document.getElementById('userName').textContent = user.name;
 
