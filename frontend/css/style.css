@@ -943,6 +943,265 @@ swiper-slide.swiper-slide-active {
   transform: scale(1.8);
 }
 
+/* Mobile Devices (up to 768px) */
+@media (max-width: 768px) {
+  /* Hero Section */
+  #hero {
+    flex-direction: column;
+    height: auto;
+    margin: 0 15px;
+    padding: 20px 0;
+  }
+
+  #hero .hero-text {
+    margin-left: 0;
+    text-align: center;
+    line-height: 1;
+  }
+
+  #hero .hero-text h2 {
+    font-size: 40px;
+  }
+
+  #hero .hero-text p {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  #hero .hero-text .hero-btn {
+    margin-top: 30px;
+  }
+
+  #hero .btn {
+    margin-right: 15px;
+    padding: 10px 20px;
+  }
+
+  #hero .hero-img {
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  #hero .hero-img img {
+    border-radius: 0 0 30% 30%;
+  }
+
+  /* Why Choose Us Section */
+  .wcu-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px 10px;
+  }
+
+  #wcu h2 {
+    font-size: 16px;
+  }
+
+  #wcu h2 span {
+    font-size: 20px;
+  }
+
+  #wcu p {
+    font-size: 18px;
+  }
+
+  .wcu-container .box {
+    padding: 15px;
+  }
+
+  .wcu-container h3 {
+    font-size: 16px;
+  }
+
+  .wcu-container .box p {
+    font-size: 14px;
+  }
+
+  /* Featured Courses Section */
+  #featured-courses .featured-courses-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #featured-courses .fcc-item {
+    width: 90%;
+  }
+
+  #featured-courses .fcc-item img {
+    height: 200px;
+  }
+
+  #featured-courses .fcc-item .fcc-info {
+    margin: 15px 20px;
+  }
+
+  #featured-courses .fcc-item .fcc-info h3 {
+    font-size: 18px;
+  }
+
+  #featured-courses .fcc-item .fcc-info p {
+    font-size: 14px;
+  }
+
+  #featured-courses .fcc-item .fcc-info .pd,
+  #featured-courses .fcc-item .fcc-info .sr {
+    font-size: 16px;
+  }
+
+  #featured-courses h2 {
+    font-size: 16px;
+  }
+
+  #featured-courses h2 span {
+    font-size: 20px;
+  }
+
+  #featured-courses p {
+    font-size: 18px;
+  }
+
+  /* Testimonials Section */
+  swiper-container {
+    height: auto;
+    margin: 30px 0;
+  }
+
+  .content {
+    width: 90%;
+    height: auto;
+    padding: 30px 15px;
+  }
+
+  .content img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .content h3 {
+    font-size: 20px;
+  }
+
+  .content p {
+    font-size: 15px;
+    width: 90%;
+  }
+}
+
+/* Tablet Devices (768px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Hero Section */
+  #hero {
+    height: 60vh;
+    margin: 0 20px;
+  }
+
+  #hero .hero-text {
+    margin-left: 30px;
+  }
+
+  #hero .hero-text h2 {
+    font-size: 60px;
+  }
+
+  #hero .hero-text p {
+    font-size: 20px;
+  }
+
+  #hero .hero-text .hero-btn {
+    margin-top: 40px;
+  }
+
+  #hero .hero-img {
+    width: 50%;
+  }
+
+  /* Why Choose Us Section */
+  .wcu-container {
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+    gap: 30px;
+    padding: 30px 15px;
+  }
+
+  #wcu h2 {
+    font-size: 17px;
+  }
+
+  #wcu h2 span {
+    font-size: 22px;
+  }
+
+  #wcu p {
+    font-size: 22px;
+  }
+
+  /* Featured Courses Section */
+  #featured-courses .featured-courses-container {
+    flex-wrap: wrap;
+  }
+
+  #featured-courses .fcc-item {
+    width: calc(45% - 30px);
+  }
+
+  #featured-courses .fcc-item img {
+    height: 220px;
+  }
+
+  /* Testimonials Section */
+  .content {
+    width: 60%;
+    padding: 40px 20px;
+  }
+
+  .content img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .content h3 {
+    font-size: 22px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+}
+
+/* Large Desktop (above 1024px) */
+@media (min-width: 1025px) {
+  /* Hero Section */
+  #hero {
+    margin: 0 50px;
+  }
+
+  #hero .hero-text h2 {
+    font-size: 80px;
+  }
+
+  #hero .hero-text p {
+    font-size: 25px;
+  }
+
+  #hero .hero-img {
+    width: 55%;
+  }
+
+  /* Why Choose Us Section */
+  .wcu-container {
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  }
+
+  /* Featured Courses Section */
+  #featured-courses .fcc-item {
+    width: calc(30% - 30px);
+  }
+
+  /* Testimonials Section */
+  .content {
+    width: 40%;
+  }
+}
+
 /* ========================================================================= */
 /* CTA Section */
 #cta {
@@ -1422,7 +1681,7 @@ footer hr {
 
 /* About Page */
 #about-page {
-  margin: 0 30px;
+  /* margin: 0 30px; */
   padding-top: 20px;
 }
 
@@ -1453,7 +1712,7 @@ footer hr {
 /* Hero Section */
 #about-page #about-hero {
   height: 60vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/about-hero.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/about-hero.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -1461,7 +1720,6 @@ footer hr {
   justify-content: center;
   text-align: center;
   position: relative;
-  border-radius: 15px;
   overflow: hidden;
 }
 
@@ -1478,6 +1736,7 @@ footer hr {
 #about-hero p {
   font-size: 24px;
   margin-bottom: 20px;
+  color: #fff;
 }
 
 #about-hero .btn {
@@ -1491,7 +1750,7 @@ footer hr {
   justify-content: space-between;
   align-items: center;
   gap: 40px;
-  margin: 30px 0;
+  margin: 30px 30px;
 }
 
 .story-text, .fp-text {
@@ -1519,7 +1778,7 @@ footer hr {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  margin: 30px 0;
+  margin: 30px 30px;
 }
 
 .mv-card {
@@ -1566,11 +1825,15 @@ footer hr {
 }
 
 /* Programs */
+#programs{
+  margin: 0 30px;
+}
+
 .programs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  margin: 30px 0;
+  margin: 30px 30px;
 }
 
 .program-card {
@@ -1610,7 +1873,7 @@ footer hr {
   background: url('../images/cta-bg.jpg') no-repeat center/cover;
   position: relative;
   border-radius: 15px;
-  margin: 50px 0;
+  margin: 50px 0 0;
 }
 
 #ab-cta::before {
