@@ -1,9 +1,11 @@
 const express = require('express');
 const pool = require('../db');
+const { authenticateJWT } = require('../auth');
+
 const router = express.Router();
 
 // Update user profile
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { name, bio, expertise } = req.body;
   if (req.user.id !== parseInt(id)) {
@@ -25,7 +27,7 @@ router.patch('/:id', async (req, res) => {
 });
 
 // Get all users
-router.get('/', async (req, res) => {
+router.get('/', authenticateJWT, async (req, res) => {
   if (req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
   }
@@ -39,7 +41,7 @@ router.get('/', async (req, res) => {
 });
 
 // Delete a user
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   if (req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -57,7 +59,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 // Promote a user
-router.patch('/:id/promote', async (req, res) => {
+router.patch('/:id/promote', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { role } = req.body;
   if (req.user.role !== 'admin') {
@@ -82,7 +84,7 @@ router.patch('/:id/promote', async (req, res) => {
 });
 
 // Get user profile
-router.get('/:id', async (req, res) => {
+router.get('/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   if (req.user.id !== parseInt(id) && req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -103,7 +105,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Get instructor earnings
-router.get('/:id/earnings', async (req, res) => {
+router.get('/:id/earnings', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   if (req.user.role !== 'instructor' || req.user.id !== parseInt(id)) {
     return res.status(403).json({ error: 'Unauthorized' });

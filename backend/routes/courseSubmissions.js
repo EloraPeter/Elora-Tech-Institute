@@ -1,9 +1,11 @@
 const express = require('express');
 const pool = require('../db');
+const { authenticateJWT } = require('../auth'); // Import authenticateJWT from auth.js
+
 const router = express.Router();
 
-// Get course submissions
-router.get('/', async (req, res) => {
+// Get course submissions (requires admin role)
+router.get('/', authenticateJWT, async (req, res) => {
   if (req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
   }
@@ -18,8 +20,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Approve or reject course submission
-router.patch('/:id', async (req, res) => {
+// Approve or reject course submission (requires admin role)
+router.patch('/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { status, admin_comments } = req.body;
   if (req.user.role !== 'admin') {

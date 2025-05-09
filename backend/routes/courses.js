@@ -1,8 +1,10 @@
 const express = require('express');
 const pool = require('../db');
+const { authenticateJWT } = require('../auth'); // Import authenticateJWT
+
 const router = express.Router();
 
-// Get single course by ID
+// Get single course by ID (public access, no auth required)
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -17,7 +19,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Get all courses (approved or all for admins)
+// Get all courses (public access, no auth required)
 router.get('/:filter?', async (req, res) => {
   const { filter } = req.params;
   try {
@@ -34,8 +36,8 @@ router.get('/:filter?', async (req, res) => {
   }
 });
 
-// Create a new course (for instructors)
-router.post('/', async (req, res) => {
+// Create a new course (requires instructor role)
+router.post('/', authenticateJWT, async (req, res) => {
   const { title, description, instructor_id, price, duration, course_type } = req.body;
   if (!['live', 'prerecorded', 'ebook'].includes(course_type)) {
     return res.status(400).json({ error: 'Invalid course type' });
@@ -55,8 +57,8 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Edit a course
-router.patch('/:id', async (req, res) => {
+// Edit a course (requires instructor role)
+router.patch('/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { title, description, price, duration, course_type } = req.body;
   if (course_type && !['live', 'prerecorded', 'ebook'].includes(course_type)) {
@@ -84,8 +86,8 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
-// Delete a course
-router.delete('/:id', async (req, res) => {
+// Delete a course (requires instructor role)
+router.delete('/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   try {
     const course = await pool.query('SELECT * FROM courses WHERE id = $1', [id]);
@@ -103,8 +105,8 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-// Approve a course
-router.patch('/:id/approve', async (req, res) => {
+// Approve a course (requires admin role)
+router.patch('/:id/approve', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   if (req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -128,8 +130,8 @@ router.patch('/:id/approve', async (req, res) => {
   }
 });
 
-// Reject a course
-router.patch('/:id/reject', async (req, res) => {
+// Reject a course (requires admin role)
+router.patch('/:id/reject', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   if (req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -153,8 +155,8 @@ router.patch('/:id/reject', async (req, res) => {
   }
 });
 
-// Upload course content
-router.post('/:id/content', async (req, res) => {
+// Upload course content (requires instructor role)
+router.post('/:id/content', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { title, file_type, file_url } = req.body;
   if (!['video', 'pdf', 'ebook', 'other'].includes(file_type)) {
@@ -179,8 +181,8 @@ router.post('/:id/content', async (req, res) => {
   }
 });
 
-// Get course content
-router.get('/:id/content', async (req, res) => {
+// Get course content (requires student role and enrollment)
+router.get('/:id/content', authenticateJWT, async (req, res) => {
   if (req.user.role !== 'student') {
     return res.status(403).json({ error: 'Access restricted to students' });
   }
@@ -201,8 +203,8 @@ router.get('/:id/content', async (req, res) => {
   }
 });
 
-// Delete course content
-router.delete('/:id/content/:contentId', async (req, res) => {
+// Delete course content (requires instructor role)
+router.delete('/:id/content/:contentId', authenticateJWT, async (req, res) => {
   const { id, contentId } = req.params;
   try {
     const course = await pool.query('SELECT * FROM courses WHERE id = $1', [id]);
@@ -226,8 +228,8 @@ router.delete('/:id/content/:contentId', async (req, res) => {
   }
 });
 
-// Get enrolled students and progress
-router.get('/:id/students', async (req, res) => {
+// Get enrolled students and progress (requires instructor role)
+router.get('/:id/students', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   try {
     const course = await pool.query('SELECT * FROM courses WHERE id = $1', [id]);
@@ -248,8 +250,8 @@ router.get('/:id/students', async (req, res) => {
   }
 });
 
-// Get course analytics
-router.get('/:id/analytics', async (req, res) => {
+// Get course analytics (requires instructor role)
+router.get('/:id/analytics', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   try {
     const course = await pool.query('SELECT * FROM courses WHERE id = $1', [id]);
