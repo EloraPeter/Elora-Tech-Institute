@@ -1,0 +1,63 @@
+.auth-container {
+    max-width: 400px;
+    margin: 50% auto 60px;
+    padding: 40px;
+    box-shadow: 0 8px 20px var(--shadow-light);
+    border-radius: 15px;
+    background-color: var(--background-color);
+}
+
+.auth-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.auth-container input,
+.auth-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid var(--tertiary-color);
+    border-radius: 8px;
+    font-size: 16px;
+    background: none;
+    color: var(--text-color);
+}
+
+.auth-container button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.auth-container button:hover {
+    background-color: var(--secondary-color);
+    color: black;
+}
+
+.toggle-link {
+    margin-top: 15px;
+    display: inline-block;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.form-section {
+    display: none;
+}
+
+.form-section.active {
+    display: block;
+}
+
+#loginError,
+#signupError {
+    color: #dc3545;
+    margin-top: 20px;
+}
