@@ -16,6 +16,7 @@ const courseSubmissionRoutes = require('./routes/courseSubmissions');
 const eventRoutes = require('./routes/events');
 const discussionForumRoutes = require('./routes/discussionForums');
 const assessmentRoutes = require('./routes/assessments');
+const courseCompletionRoutes = require('./routes/courseCompletions');
 
 const app = express();
 
@@ -25,8 +26,13 @@ app.use(express.json());
 app.use(express.static('../frontend'));
 
 // Apply auth and pay routes
-const { authenticateJWT } = auth(app);
-pay(app);
+try {
+  const { authenticateJWT } = auth(app);
+  pay(app);
+} catch (err) {
+  console.error('Error initializing auth or pay:', err);
+  process.exit(1);
+}
 
 // Mount route modules
 app.use('/api/courses', courseRoutes);
@@ -40,6 +46,13 @@ app.use('/api/course-submissions', courseSubmissionRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/discussion-forums', discussionForumRoutes);
 app.use('/api/assessments', assessmentRoutes);
+app.use('/api/course-completions', courseCompletionRoutes);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Server error:', err);
+  res.status(500).json({ error: 'Internal server error' });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

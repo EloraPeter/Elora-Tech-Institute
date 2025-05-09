@@ -1,10 +1,10 @@
 const express = require('express');
 const pool = require('../db');
-const { authenticateJWT } = require('../auth'); // Import authenticateJWT
+const { authenticateJWT } = require('../auth');
 
 const router = express.Router();
 
-// Get single course by ID (public access, no auth required)
+// Get single course by ID (public access)
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -14,12 +14,12 @@ router.get('/:id', async (req, res) => {
     }
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching course:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
-// Get all courses (public access, no auth required)
+// Get all courses (public or all for admins)
 router.get('/:filter?', async (req, res) => {
   const { filter } = req.params;
   try {
@@ -31,13 +31,16 @@ router.get('/:filter?', async (req, res) => {
       res.json(result.rows);
     }
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching courses:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Create a new course (requires instructor role)
 router.post('/', authenticateJWT, async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
   const { title, description, instructor_id, price, duration, course_type } = req.body;
   if (!['live', 'prerecorded', 'ebook'].includes(course_type)) {
     return res.status(400).json({ error: 'Invalid course type' });
@@ -52,13 +55,16 @@ router.post('/', authenticateJWT, async (req, res) => {
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error(err);
+    console.error('Error creating course:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Edit a course (requires instructor role)
 router.patch('/:id', authenticateJWT, async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
   const { id } = req.params;
   const { title, description, price, duration, course_type } = req.body;
   if (course_type && !['live', 'prerecorded', 'ebook'].includes(course_type)) {
@@ -81,13 +87,16 @@ router.patch('/:id', authenticateJWT, async (req, res) => {
     }
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
+    console.error('Error updating course:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Delete a course (requires instructor role)
 router.delete('/:id', authenticateJWT, async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
   const { id } = req.params;
   try {
     const course = await pool.query('SELECT * FROM courses WHERE id = $1', [id]);
@@ -100,17 +109,20 @@ router.delete('/:id', authenticateJWT, async (req, res) => {
     const result = await pool.query('DELETE FROM courses WHERE id = $1 RETURNING *', [id]);
     res.json({ message: 'Course deleted', course: result.rows[0] });
   } catch (err) {
-    console.error(err);
+    console.error('Error deleting course:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Approve a course (requires admin role)
 router.patch('/:id/approve', authenticateJWT, async (req, res) => {
-  const { id } = req.params;
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
   if (req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
   }
+  const { id } = req.params;
   try {
     const result = await pool.query(
       'UPDATE courses SET status = $1, approved_at = CURRENT_TIMESTAMP WHERE id = $2 RETURNING *',
@@ -125,17 +137,20 @@ router.patch('/:id/approve', authenticateJWT, async (req, res) => {
     );
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
+    console.error('Error approving course:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Reject a course (requires admin role)
 router.patch('/:id/reject', authenticateJWT, async (req, res) => {
-  const { id } = req.params;
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
   if (req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
   }
+  const { id } = req.params;
   try {
     const result = await pool.query(
       'UPDATE courses SET status = $1 WHERE id = $2 RETURNING *',
@@ -150,13 +165,16 @@ router.patch('/:id/reject', authenticateJWT, async (req, res) => {
     );
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
+    console.error('Error rejecting course:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Upload course content (requires instructor role)
 router.post('/:id/content', authenticateJWT, async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
   const { id } = req.params;
   const { title, file_type, file_url } = req.body;
   if (!['video', 'pdf', 'ebook', 'other'].includes(file_type)) {
@@ -176,13 +194,16 @@ router.post('/:id/content', authenticateJWT, async (req, res) => {
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error(err);
+    console.error('Error uploading course content:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Get course content (requires student role and enrollment)
 router.get('/:id/content', authenticateJWT, async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
   if (req.user.role !== 'student') {
     return res.status(403).json({ error: 'Access restricted to students' });
   }
@@ -198,13 +219,16 @@ router.get('/:id/content', authenticateJWT, async (req, res) => {
     const result = await pool.query('SELECT * FROM course_content WHERE course_id = $1', [id]);
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching course content:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Delete course content (requires instructor role)
 router.delete('/:id/content/:contentId', authenticateJWT, async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
   const { id, contentId } = req.params;
   try {
     const course = await pool.query('SELECT * FROM courses WHERE id = $1', [id]);
@@ -223,13 +247,16 @@ router.delete('/:id/content/:contentId', authenticateJWT, async (req, res) => {
     }
     res.json({ message: 'Content deleted', content: result.rows[0] });
   } catch (err) {
-    console.error(err);
+    console.error('Error deleting course content:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Get enrolled students and progress (requires instructor role)
 router.get('/:id/students', authenticateJWT, async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
   const { id } = req.params;
   try {
     const course = await pool.query('SELECT * FROM courses WHERE id = $1', [id]);
@@ -245,13 +272,16 @@ router.get('/:id/students', authenticateJWT, async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching enrolled students:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Get course analytics (requires instructor role)
 router.get('/:id/analytics', authenticateJWT, async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
   const { id } = req.params;
   try {
     const course = await pool.query('SELECT * FROM courses WHERE id = $1', [id]);
@@ -280,7 +310,7 @@ router.get('/:id/analytics', authenticateJWT, async (req, res) => {
       completion_count: parseInt(completions.rows[0].completion_count)
     });
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching course analytics:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
