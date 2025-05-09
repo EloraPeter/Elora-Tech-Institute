@@ -1,0 +1,76 @@
+/* FAQ Page */
+.faq {
+    margin: 20px 0;
+}
+
+.faq h3 {
+    margin-bottom: 20px;
+}
+
+.faq .accordion {
+    border-radius: 5px;
+}
+
+.faq .accordion .accordion-item {
+    border-bottom: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.faq .accordion .accordion-item .accordion-title {
+    font-size: 18px;
+    padding: 20px 20px 10px 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.faq .accordion .accordion-item:hover {
+    box-shadow: 3px 3px 15px var(--shadow-light);
+}
+
+.faq .accordion .accordion-item .accordion-title i.fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.faq .accordion .accordion-item.active .accordion-title i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.faq .accordion .accordion-item .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    background-color: #fff;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq .accordion .accordion-item.active .accordion-content {
+    max-height: 200px;
+    padding: 15px;
+}
+
+.faq .accordion .accordion-item .accordion-content p {
+    font-size: 16px;
+    color: var(--tertiary-color);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.faq .accordion-toggle {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq .accordion-toggle:hover {
+    background-color: #2980b9;
+}
