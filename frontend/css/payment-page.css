@@ -1,0 +1,209 @@
+/* Payment Page */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--tertiary-color);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .progress-tracker {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+  }
+  
+  .step {
+    flex: 1;
+    padding: 15px 20px;
+    color: var(--text-color);
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .step.active {
+    background: var(--primary-color);
+    color: #fff;
+  }
+  
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -28px;
+    transform: translateY(-50%);
+    width: 0px;
+    height: 2px;
+    background: var(--background-color);
+    border: none;
+    border-top: 26.5px solid transparent;
+    border-bottom: 26.5px solid transparent;
+    border-left: 40px solid var(--background-color);
+    z-index: 100;
+    display: none;
+  }
+  
+  .step.active:not(:last-child)::after {
+    border-left: 40px solid var(--primary-color);
+    display: block;
+  }
+  
+  .payment-form {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    padding: 40px;
+    background: var(--background-color);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px var(--shadow-light);
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .payment-form h1 {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .payment-form h1::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background: var(--secondary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+  
+  .payment-form:hover h1::after {
+    width: 100px;
+  }
+  
+  .payment-form .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  
+  .payment-form label {
+    display: block;
+    font-family: "poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 8px;
+  }
+  
+  .payment-form input {
+    width: 100%;
+    padding: 12px 15px;
+    font-family: "poppins", sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    background: var(--background-color);
+    border: 1px solid var(--tertiary-color);
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .payment-form input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
+  }
+  
+  .payment-form input::placeholder {
+    color: var(--p-color1);
+    opacity: 0.8;
+  }
+  
+  .payment-form .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .payment-form .btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+  
+  .payment-form .btn:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .payment-form .btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-light);
+  }
+  
+  .payment-form .btn:active {
+    transform: scale(0.95);
+  }
+  
+  #paymentError {
+    text-align: center;
+    margin: 20px 0;
+    color: #dc3545;
+  }
