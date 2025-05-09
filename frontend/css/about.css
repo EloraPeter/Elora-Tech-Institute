@@ -1,0 +1,272 @@
+/* About Page */
+#about-page {
+    /* margin: 0 30px; */
+    padding-top: 20px;
+}
+
+#about-page .content-section {
+    padding: 50px 0;
+    animation: fadeInUp 1s ease-out;
+}
+
+#about-page h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    animation: fadeInLeft 1s ease-out;
+}
+
+#about-page h2 span {
+    color: var(--tertiary-color);
+    font-size: 25px;
+}
+
+#about-page p {
+    font-size: 16px;
+    color: var(--p-color2);
+    line-height: 1.6;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* Hero Section */
+#about-page #about-hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/about-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#about-hero .hero-text {
+    color: #fff;
+    animation: fadeInDown 1s ease-out;
+}
+
+#about-hero h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+#about-hero p {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#about-hero .btn {
+    padding: 12px 30px;
+    font-size: 18px;
+}
+
+/* Our Story & Future Plans */
+.story-container,
+.fp-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin: 30px 30px;
+}
+
+.story-text,
+.fp-text {
+    flex: 1;
+    text-align: left;
+}
+
+.story-img,
+.fp-img {
+    flex: 1;
+}
+
+.story-img img,
+.fp-img img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform 0.4s ease;
+}
+
+.story-img img:hover,
+.fp-img img:hover {
+    transform: scale(1.05);
+}
+
+/* Mission, Vision, Values */
+.mv-grid,
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 30px 30px;
+}
+
+.mv-card {
+    background: var(--tertiary-color);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease;
+    color: #333;
+}
+
+.mv-card:hover {
+    transform: translateY(-10px);
+}
+
+.mv-card i {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.mv-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.value-card {
+    background: var(--background-color);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    text-align: center;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-card strong {
+    color: var(--primary-color);
+}
+
+/* Programs */
+#programs {
+    margin: 0 30px;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 30px 30px;
+}
+
+.program-card {
+    background: var(--background-color);
+    border-radius: 15px;
+    box-shadow: 10px 15px 50px var(--shadow-light);
+    transition: transform 0.4s ease;
+    overflow: hidden;
+}
+
+.program-card:hover {
+    transform: translateY(-15px);
+}
+
+.program-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.program-card h3 {
+    font-size: 18px;
+    margin: 15px 20px 10px;
+    color: var(--primary-color);
+}
+
+.program-card p {
+    font-size: 14px;
+    margin: 0 20px 15px;
+    color: var(--p-color2);
+}
+
+/* CTA */
+#about-page #ab-cta {
+    padding: 100px 20px;
+    background: url('../images/cta-bg.jpg') no-repeat center/cover;
+    position: relative;
+    border-radius: 15px;
+    margin: 50px 0 0;
+}
+
+#ab-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+}
+
+#ab-cta h2,
+#ab-cta p,
+#ab-cta .btn {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+#ab-cta h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+#ab-cta p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+#ab-cta .btn {
+    padding: 12px 30px;
+    font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #about-hero {
+        height: 50vh;
+    }
+
+    #about-hero h1 {
+        font-size: 40px;
+    }
+
+    #about-hero p {
+        font-size: 18px;
+    }
+
+    .story-container,
+    .fp-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mv-grid,
+    .values-grid,
+    .programs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #ab-cta h2 {
+        font-size: 30px;
+    }
+
+    #ab-cta p {
+        font-size: 18px;
+    }
+}
