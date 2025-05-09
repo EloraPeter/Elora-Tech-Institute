@@ -1,9 +1,11 @@
 const express = require('express');
 const pool = require('../db');
+const { authenticateJWT } = require('../auth');
+
 const router = express.Router();
 
 // Send notification
-router.post('/', async (req, res) => {
+router.post('/', authenticateJWT, async (req, res) => {
   const { course_id, message, target_role } = req.body;
   if (req.user.role !== 'admin' && !course_id) {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -52,13 +54,13 @@ router.post('/', async (req, res) => {
     }
     res.status(201).json({ message: 'Notification sent' });
   } catch (err) {
-    console.error(err);
+    console.error('Error sending notification:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Get notifications
-router.get('/', async (req, res) => {
+router.get('/', authenticateJWT, async (req, res) => {
   const { user_id } = req.query;
   if (req.user.id !== parseInt(user_id)) {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -70,13 +72,13 @@ router.get('/', async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching notifications:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Mark notification as read
-router.patch('/:id/read', async (req, res) => {
+router.patch('/:id/read', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   try {
     const notification = await pool.query('SELECT * FROM notifications WHERE id = $1', [id]);
@@ -92,7 +94,7 @@ router.patch('/:id/read', async (req, res) => {
     );
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
+    console.error('Error marking notification as read:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
