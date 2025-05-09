@@ -1,9 +1,11 @@
 const express = require('express');
 const pool = require('../db');
+const { authenticateJWT } = require('../auth');
+
 const router = express.Router();
 
 // Get discussion forums
-router.get('/', async (req, res) => {
+router.get('/', authenticateJWT, async (req, res) => {
   const { user_id } = req.query;
   if (req.user.id !== parseInt(user_id)) {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -19,13 +21,13 @@ router.get('/', async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching discussion forums:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Get discussion posts
-router.get('/:id/posts', async (req, res) => {
+router.get('/:id/posts', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   try {
     const forum = await pool.query(
@@ -41,13 +43,13 @@ router.get('/:id/posts', async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching discussion posts:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Post to discussion forum
-router.post('/:id/posts', async (req, res) => {
+router.post('/:id/posts', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { user_id, content } = req.body;
   if (req.user.id !== user_id) {
@@ -67,13 +69,13 @@ router.post('/:id/posts', async (req, res) => {
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error(err);
+    console.error('Error creating discussion post:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Delete discussion post
-router.delete('/posts/:id', async (req, res) => {
+router.delete('/posts/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   try {
     const post = await pool.query('SELECT * FROM discussion_posts WHERE id = $1', [id]);
@@ -86,7 +88,7 @@ router.delete('/posts/:id', async (req, res) => {
     const result = await pool.query('DELETE FROM discussion_posts WHERE id = $1 RETURNING *', [id]);
     res.json({ message: 'Post deleted', post: result.rows[0] });
   } catch (err) {
-    console.error(err);
+    console.error('Error deleting discussion post:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
