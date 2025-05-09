@@ -48,6 +48,10 @@
     cursor: pointer;
 }
 
+.toggle-link:focus {
+    outline: 2px solid var(--primary-color);
+}
+
 .form-section {
     display: none;
 }
@@ -60,4 +64,11 @@
 #signupError {
     color: #dc3545;
     margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+    .payment-form {
+        padding: 20px;
+        margin: 20px;
+    }
 }
