@@ -1,9 +1,11 @@
 const express = require('express');
 const pool = require('../db');
+const { authenticateJWT } = require('../auth');
+
 const router = express.Router();
 
 // Get assessments
-router.get('/', async (req, res) => {
+router.get('/', authenticateJWT, async (req, res) => {
   const { user_id } = req.query;
   if (req.user.id !== parseInt(user_id)) {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -20,13 +22,13 @@ router.get('/', async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching assessments:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Get assessment attempts
-router.get('/:id/attempts', async (req, res) => {
+router.get('/:id/attempts', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   try {
     const assessment = await pool.query(
@@ -42,13 +44,13 @@ router.get('/:id/attempts', async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching assessment attempts:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Submit assessment attempt
-router.post('/:id/attempts', async (req, res) => {
+router.post('/:id/attempts', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { user_id, score, attempt_number } = req.body;
   if (req.user.id !== user_id) {
@@ -79,7 +81,7 @@ router.post('/:id/attempts', async (req, res) => {
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error(err);
+    console.error('Error submitting assessment attempt:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
