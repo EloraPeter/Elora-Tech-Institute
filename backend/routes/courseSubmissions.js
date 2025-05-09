@@ -1,6 +1,6 @@
 const express = require('express');
 const pool = require('../db');
-const { authenticateJWT } = require('../auth');
+const { authenticateJWT } = require('../auth'); // Import directly
 
 const router = express.Router();
 
