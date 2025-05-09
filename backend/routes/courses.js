@@ -1,11 +1,11 @@
 const express = require('express');
 const pool = require('../db');
-const { authenticateJWT } = require('../auth'); // Import directly
+const { authenticateJWT } = require('../auth');
 
 const router = express.Router();
 
 // Get single course by ID (public access)
-router.get('/:id', async (req, res) => {
+router.get('/id/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const result = await pool.query('SELECT * FROM courses WHERE id = $1', [id]);
@@ -20,10 +20,10 @@ router.get('/:id', async (req, res) => {
 });
 
 // Get all courses (public or all for admins)
-router.get('/:filter?', async (req, res) => {
-  const { filter } = req.params;
+router.get('/', async (req, res) => {
+  const { filter } = req.query; // Use query parameter
   try {
-    if (filter === 'all') {
+    if (filter === 'all' && req.user?.role === 'admin') {
       const result = await pool.query('SELECT c.*, u.name AS instructor_name FROM courses c LEFT JOIN users u ON c.instructor_id = u.id');
       res.json(result.rows);
     } else {

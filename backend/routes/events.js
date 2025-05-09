@@ -1,9 +1,11 @@
 const express = require('express');
 const pool = require('../db');
+const { authenticateJWT } = require('../auth');
+
 const router = express.Router();
 
 // Get events
-router.get('/', async (req, res) => {
+router.get('/', authenticateJWT, async (req, res) => {
   const { user_id } = req.query;
   if (req.user.id !== parseInt(user_id)) {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -19,13 +21,13 @@ router.get('/', async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching events:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
 // Delete event
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   if (req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -37,7 +39,7 @@ router.delete('/:id', async (req, res) => {
     }
     res.json({ message: 'Event deleted', event: result.rows[0] });
   } catch (err) {
-    console.error(err);
+    console.error('Error deleting event:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
