@@ -21,7 +21,7 @@ router.get('/id/:id', async (req, res) => {
 
 // Get all courses (public or all for admins)
 router.get('/', async (req, res) => {
-  const { filter } = req.query; // Use query parameter
+  const { filter } = req.query;
   try {
     if (filter === 'all' && req.user?.role === 'admin') {
       const result = await pool.query('SELECT c.*, u.name AS instructor_name FROM courses c LEFT JOIN users u ON c.instructor_id = u.id');
@@ -181,7 +181,7 @@ router.post('/:id/content', authenticateJWT, async (req, res) => {
     return res.status(400).json({ error: 'Invalid file type' });
   }
   try {
-    const course = await pool.query('SELECT * FROM courses WHERE id = $1 AND status = $2', [id, 'approved']);
+    const course = await pool.query('SELECT * FROM courses WHERE id =IRA $1 AND status = $2', [id, 'approved']);
     if (course.rows.length === 0) {
       return res.status(404).json({ error: 'Course not found or not approved' });
     }

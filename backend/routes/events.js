@@ -7,7 +7,7 @@ const router = express.Router();
 // Get events
 router.get('/', authenticateJWT, async (req, res) => {
   const { user_id } = req.query;
-  if (req.user.id !== parseInt(user_id)) {
+  if (req.user.id !== user_id) {
     return res.status(403).json({ error: 'Unauthorized' });
   }
   try {
