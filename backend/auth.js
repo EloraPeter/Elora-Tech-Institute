@@ -9,6 +9,23 @@ if (!JWT_SECRET) {
   throw new Error('JWT_SECRET is not defined in environment variables');
 }
 
+// Middleware to verify JWT
+const authenticateJWT = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (authHeader) {
+    const token = authHeader.split(' ')[1];
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+      if (err) {
+        return res.status(403).json({ error: 'Invalid or expired token' });
+      }
+      req.user = user;
+      next();
+    });
+  } else {
+    res.status(401).json({ error: 'Authentication token required' });
+  }
+};
+
 module.exports = (app) => {
   // Register endpoint
   app.post('/api/register', async (req, res) => {
@@ -22,7 +39,9 @@ module.exports = (app) => {
         'INSERT INTO users (name, email, password_hash, role) VALUES ($1, $2, $3, $4) RETURNING id, name, email, role',
         [name, email, hashedPassword, role]
       );
-      res.status(201).json({ message: 'User registered', user: result.rows[0] });
+      res.status(201).json({ message: 'User registered', user: result.rows
+
+[0] });
     } catch (err) {
       console.error(err);
       res.status(400).json({ error: 'Email already exists or invalid email' });
@@ -102,22 +121,8 @@ module.exports = (app) => {
     }
   });
 
-  // Middleware to verify JWT
-  const authenticateJWT = (req, res, next) => {
-    const authHeader = req.headers.authorization;
-    if (authHeader) {
-      const token = authHeader.split(' ')[1];
-      jwt.verify(token, JWT_SECRET, (err, user) => {
-        if (err) {
-          return res.status(403).json({ error: 'Invalid or expired token' });
-        }
-        req.user = user;
-        next();
-      });
-    } else {
-      res.status(401).json({ error: 'Authentication token required' });
-    }
-  };
-
   return { authenticateJWT };
 };
+
+// Export authenticateJWT directly
+module.exports.authenticateJWT = authenticateJWT;
