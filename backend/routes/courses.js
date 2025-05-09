@@ -1,6 +1,7 @@
 const express = require('express');
 const pool = require('../db');
-const { authenticateJWT } = require('../auth');
+const auth = require('../auth');
+const { authenticateJWT } = auth(); // Invoke the function
 
 const router = express.Router();
 
