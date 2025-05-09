@@ -1,11 +1,13 @@
 const express = require('express');
 const pool = require('../db');
+const { authenticateJWT } = require('../auth');
+
 const router = express.Router();
 
 // Get course completions
-router.get('/', async (req, res) => {
+router.get('/', authenticateJWT, async (req, res) => {
   const { user_id } = req.query;
-  if (req.user.id !== parseInt(user_id) && req.user.role !== 'admin') {
+  if (req.user.id !== user_id && req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
   }
   try {
@@ -19,7 +21,7 @@ router.get('/', async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching course completions:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });
