@@ -1,9 +1,11 @@
 const express = require('express');
 const pool = require('../db');
+const { authenticateJWT } = require('../auth'); // Import authenticateJWT
+
 const router = express.Router();
 
 // Issue certificate
-router.post('/', async (req, res) => {
+router.post('/', authenticateJWT, async (req, res) => {
   const { user_id, course_id } = req.body;
   if (req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -37,7 +39,7 @@ router.post('/', async (req, res) => {
 });
 
 // Revoke certificate
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   if (req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -64,7 +66,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 // Get certificates
-router.get('/', async (req, res) => {
+router.get('/', authenticateJWT, async (req, res) => {
   const { user_id } = req.query;
   if (req.user.id !== parseInt(user_id) && req.user.role !== 'admin') {
     return res.status(403).json({ error: 'Unauthorized' });
@@ -86,7 +88,7 @@ router.get('/', async (req, res) => {
 });
 
 // Placeholder for certificate download
-router.get('/:id/download', async (req, res) => {
+router.get('/:id/download', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   try {
     const certificate = await pool.query(
