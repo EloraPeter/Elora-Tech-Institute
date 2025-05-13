@@ -551,7 +551,7 @@
     </div>
 
     <!-- Send Notification Modal -->
-    <div id="notificationModal" class="modal">
+    <!-- <div id="notificationModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('notificationModal')">×</span>
             <h2>Broadcast Platform Announcement</h2>
@@ -570,7 +570,27 @@
             </div>
             <button class="btn" onclick="sendNotification()">Send Announcement</button>
         </div>
+    </div> -->
+
+    <div id="notificationModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('notificationModal')">&times;</span>
+        <h2>Send Announcement</h2>
+        <select id="notification-recipient" multiple>
+            <option value="students">Students</option>
+            <option value="tutors">Tutors</option>
+            <option value="admins">Admins</option>
+            <option value="all">All Users</option>
+        </select>
+        <select id="notification-type">
+            <option value="general">General</option>
+            <option value="admin_notification">Admin Notification</option>
+            <option value="system_alert">System Alert</option>
+        </select>
+        <textarea id="notification-message" placeholder="Enter announcement"></textarea>
+        <button onclick="sendNotification()">Send</button>
     </div>
+</div>
 
     <!-- Promote User Modal -->
     <div id="promoteUserModal" class="modal">
