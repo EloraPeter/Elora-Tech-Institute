@@ -31,7 +31,7 @@ async function fetchWithAuth(url, options = {}) {
             localStorage.removeItem('user');
             setTimeout(() => {
                 window.location.href = 'admin-signup-login.html';
-            }, 2000);
+            }, 1000);
             throw new Error('Unauthorized');
         }
         if (response.status === 403) {
@@ -257,7 +257,7 @@ async function sendNotification() {
         });
         closeModal('notificationModal');
         fetchNotifications();
-        showError('Announcement sent successfully! 📣', '#28a745');
+        alert('Announcement sent successfully! 📣', '#28a745');
     } catch (err) {
         console.error('Error sending notification:', err);
         showError('Failed to send announcement: ' + err.message);
