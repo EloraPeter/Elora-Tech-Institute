@@ -1,5 +1,6 @@
 // Check if user is logged in and is instructor
 const user = JSON.parse(localStorage.getItem('user'));
+console.log('User from localStorage:', user);
 if (!user || user.role !== 'instructor') {
     window.location.href = 'tutor-signup-login.html';
 }
