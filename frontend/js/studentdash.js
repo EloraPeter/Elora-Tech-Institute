@@ -1,4 +1,3 @@
-
 // Authentication check
 const user = JSON.parse(localStorage.getItem('user'));
 if (!user || user.role !== 'student') {
