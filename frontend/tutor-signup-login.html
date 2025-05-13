@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
@@ -21,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
@@ -150,12 +152,10 @@
             <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
             <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
             <li role="menuitem" class="enroll-btn">
-                <a href="login-signup.html"
-                    class="btn">Enroll Now</a>
+                <a href="login-signup.html" class="btn">Enroll Now</a>
             </li>
         </ul>
-        <a href="login-signup.html"
-            class="btn big">Enroll Now</a>
+        <a href="login-signup.html" class="btn big">Enroll Now</a>
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
 
@@ -164,35 +164,29 @@
             <h2>Tutor Login</h2>
             <div class="form-group">
                 <label for="loginEmail">Email</label>
-                <input type="email" id="loginEmail" placeholder="Enter your email" required aria-label="Email address" />
+                <input type="email" id="loginEmail" placeholder="Enter your email" required
+                    aria-label="Email address" />
             </div>
             <div class="form-group">
                 <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" placeholder="Enter your password" required aria-label="Password" />
+                <input type="password" id="loginPassword" placeholder="Enter your password" required
+                    aria-label="Password" />
             </div>
             <button class="btn" onclick="login()">Login</button>
             <div class="toggle-link" onclick="toggleForms()">Don't have an account? Sign up</div>
             <div id="loginError"></div>
         </div>
 
-        <div class="form-section" id="signupForm">
+        <div class="form-section signup-form" id="signupForm">
+
             <h2>Tutor Sign Up</h2>
-            <div class="form-group">
-                <label for="signupName">Full Name</label>
-                <input type="text" id="signupName" placeholder="Enter your full name" required aria-label="Full name" />
-            </div>
-            <div class="form-group">
-                <label for="signupEmail">Email</label>
-                <input type="email" id="signupEmail" placeholder="Enter your email" required aria-label="Email address" />
-            </div>
-            <div class="form-group">
-                <label for="signupPassword">Password</label>
-                <input type="password" id="signupPassword" placeholder="Enter your password" required aria-label="Password" />
-            </div>
-            <input type="hidden" id="signupRole" value="student" />
-            <button class="btn" onclick="signup()">Register</button>
-            <div class="toggle-link" onclick="toggleForms()">Already have an account? Login</div>
-            <div id="signupError"></div>
+            <input type="text" id="signupName" placeholder="Full Name" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <button onclick="signup()">Register</button>
+            <p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>
+            <p id="signupError"></p>
+
         </div>
     </div>
 
@@ -200,4 +194,5 @@
     <script src="js/nav.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>
