@@ -173,6 +173,7 @@
                 <label for="loginPassword">Password</label>
                 <input type="password" id="loginPassword" placeholder="Enter your password" required
                     aria-label="Password" />
+                    <button type="button" class="toggle-password" onclick="togglePassword('loginPassword')">Show</button>
             </div>
             <button class="btn" onclick="login()">Login</button>
             <div class="toggle-link" onclick="toggleForms()">Don't have an account? Sign up</div>
@@ -199,6 +200,8 @@
                 <label for="signupPassword">Password</label>
                 <input type="password" id="signupPassword" placeholder="Enter your password" required
                     aria-label="Password" />
+                    <input type="password" id="signupPassword" placeholder="Password" required minlength="8" oninput="checkPasswordStrength()">
+                    <button type="button" class="toggle-password" onclick="togglePassword('signupPassword')">Show</button>
             </div>
             <input type="hidden" id="signupRole" value="student" />
             <button class="btn" onclick="signup()">Register</button>
