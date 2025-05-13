@@ -5,6 +5,51 @@ function toggleForms() {
     document.getElementById("signupError").textContent = "";
 }
 
+function togglePassword(inputId) {
+    const input = document.getElementById(inputId);
+    const button = input.nextElementSibling;
+    if (input.type === 'password') {
+        input.type = 'text';
+        button.textContent = 'Hide';
+    } else {
+        input.type = 'password';
+        button.textContent = 'Show';
+    }
+}
+
+function checkPasswordStrength() {
+    const password = document.getElementById('signupPassword').value;
+    const strengthBar = document.getElementById('strengthBar');
+    const strengthText = document.getElementById('strengthText');
+    let strength = 0;
+
+    if (password.length >= 8) strength += 20;
+    if (/[A-Z]/.test(password)) strength += 20;
+    if (/[a-z]/.test(password)) strength += 20;
+    if (/[0-9]/.test(password)) strength += 20;
+    if (/[^A-Za-z0-9]/.test(password)) strength += 20;
+
+    strengthBar.style.width = `${strength}%`;
+    if (strength <= 40) {
+        strengthBar.style.backgroundColor = '#ff4d4d';
+        strengthText.textContent = 'Password Strength: Weak';
+    } else if (strength <= 80) {
+        strengthBar.style.backgroundColor = '#ffd700';
+        strengthText.textContent = 'Password Strength: Moderate';
+    } else {
+        strengthBar.style.backgroundColor = '#28a745';
+        strengthText.textContent = 'Password Strength: Strong';
+    }
+}
+
+function socialLogin(provider) {
+    window.location.href = `http://localhost:3000/api/auth/${provider}`;
+}
+
+function socialSignup(provider) {
+    window.location.href = `http://localhost:3000/api/auth/${provider}`;
+}
+
 async function signup() {
     const name = document.getElementById("signupName").value;
     const email = document.getElementById("signupEmail").value;
