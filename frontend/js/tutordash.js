@@ -1,6 +1,6 @@
 // Check if user is logged in and is instructor
 const user = JSON.parse(localStorage.getItem('user'));
-console.log('User from localStorage:', user);
+console.log('User from localStorage:', user); // Debug user object
 if (!user || user.role !== 'instructor') {
     window.location.href = 'tutor-signup-login.html';
 }
@@ -250,8 +250,10 @@ async function updateProfile() {
 // Fetch and display courses
 async function fetchCourses() {
     try {
+        console.log('Fetching courses...');
         const response = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
         const courses = await response.json();
+        console.log('Courses fetched:', courses);
         const courseList = document.getElementById('course-list');
         courseList.innerHTML = '';
         courses.forEach(course => {
@@ -277,6 +279,7 @@ async function fetchCourses() {
             courseList.appendChild(li);
         });
     } catch (err) {
+        console.error('Error fetching courses:', err);
         document.getElementById('course-list').innerHTML = '<li>Error loading courses</li>';
     }
 }
@@ -284,8 +287,10 @@ async function fetchCourses() {
 // Fetch and display students
 async function fetchStudents() {
     try {
+        console.log('Fetching students...');
         const response = await fetchWithAuth(`http://localhost:3000/api/users?role=student`);
         const students = await response.json();
+        console.log('Students fetched:', students);
         const studentList = document.getElementById('student-list');
         studentList.innerHTML = '';
         students.forEach(student => {
@@ -296,6 +301,7 @@ async function fetchStudents() {
             studentList.appendChild(li);
         });
     } catch (err) {
+        console.error('Error fetching students:', err);
         document.getElementById('student-list').innerHTML = '<li>Error loading students</li>';
     }
 }
@@ -303,6 +309,7 @@ async function fetchStudents() {
 // Fetch student progress for a course
 async function fetchStudentProgress(studentId) {
     try {
+        console.log('Fetching student progress for student:', studentId);
         const response = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
         const courses = await response.json();
         let progressHtml = `<h3>Student Progress</h3>`;
@@ -317,6 +324,7 @@ async function fetchStudentProgress(studentId) {
         }
         document.getElementById('student-list').innerHTML = progressHtml + '<button class="btn" onclick="fetchStudents()">Back to Students</button>';
     } catch (err) {
+        console.error('Error fetching student progress:', err);
         showError('Error loading student progress');
     }
 }
@@ -324,6 +332,7 @@ async function fetchStudentProgress(studentId) {
 // Fetch and display analytics
 async function fetchAnalytics() {
     try {
+        console.log('Fetching analytics...');
         const response = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
         const courses = await response.json();
         const analyticsList = document.getElementById('analytics-list');
@@ -331,6 +340,7 @@ async function fetchAnalytics() {
         for (const course of courses) {
             const analyticsResponse = await fetchWithAuth(`http://localhost:3000/api/courses/${course.id}/analytics`);
             const analytics = await analyticsResponse.json();
+            console.log(`Analytics for course ${course.id}:`, analytics);
             const li = document.createElement('li');
             li.innerHTML = `
                 <div>
@@ -343,6 +353,7 @@ async function fetchAnalytics() {
             analyticsList.appendChild(li);
         }
     } catch (err) {
+        console.error('Error fetching analytics:', err);
         document.getElementById('analytics-list').innerHTML = '<li>Error loading analytics</li>';
     }
 }
@@ -350,10 +361,13 @@ async function fetchAnalytics() {
 // Fetch and display earnings
 async function fetchEarnings() {
     try {
+        console.log('Fetching earnings...');
         const response = await fetchWithAuth(`http://localhost:3000/api/instructors/${user.id}/earnings`);
         const data = await response.json();
+        console.log('Earnings fetched:', data);
         document.getElementById('totalEarnings').textContent = data.total_earnings.toFixed(2);
     } catch (err) {
+        console.error('Error fetching earnings:', err);
         showError('Error loading earnings');
     }
 }
