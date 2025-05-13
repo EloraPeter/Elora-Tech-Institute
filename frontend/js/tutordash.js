@@ -1,7 +1,8 @@
 // Check if user is logged in and is instructor
 const user = JSON.parse(localStorage.getItem('user'));
-console.log('User from localStorage:', user); // Debug user object
+console.log('User from localStorage:', user);
 if (!user || user.role !== 'instructor') {
+    console.error('Redirecting: No user or not an instructor');
     window.location.href = 'tutor-signup-login.html';
 }
 document.getElementById('userName').textContent = user.name;
@@ -10,8 +11,11 @@ document.getElementById('userName').textContent = user.name;
 async function fetchWithAuth(url, options = {}) {
     const token = localStorage.getItem('token');
     if (!token) {
+        console.error('No token found for URL:', url);
         showError('No authentication token found. Please log in again.');
-        window.location.href = 'tutor-signup-login.html';
+        setTimeout(() => {
+            window.location.href = 'tutor-signup-login.html';
+        }, 2000);
         throw new Error('No token');
     }
     const headers = {
@@ -19,15 +23,39 @@ async function fetchWithAuth(url, options = {}) {
         'Authorization': `Bearer ${token}`,
         ...options.headers
     };
-    const response = await fetch(url, { ...options, headers });
-    if (response.status === 401) {
-        showError('Session expired. Please log in again.');
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        window.location.href = 'tutor-signup-login.html';
-        throw new Error('Unauthorized');
+    try {
+        const response = await fetch(url, { ...options, headers });
+        if (response.status === 401) {
+            console.error(`401 Unauthorized for URL: ${url}`);
+            showError('Session expired. Please log in again.');
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            setTimeout(() => {
+                window.location.href = 'tutor-signup-login.html';
+            }, 2000);
+            throw new Error('Unauthorized');
+        }
+        if (response.status === 403) {
+            console.error(`403 Forbidden for URL: ${url}`);
+            showError('Access denied. Please check your permissions.');
+            throw new Error('Forbidden');
+        }
+        if (!response.ok) {
+            let data;
+            try {
+                data = await response.json();
+            } catch (e) {
+                console.error(`Non-JSON response for URL: ${url}`, await response.text());
+                throw new Error(`HTTP error ${response.status}: Non-JSON response`);
+            }
+            console.error(`Error ${response.status} for URL: ${url}`, data);
+            throw new Error(data.error || `HTTP error ${response.status}`);
+        }
+        return response.json();
+    } catch (err) {
+        console.error(`Fetch error for URL: ${url}`, err);
+        throw err;
     }
-    return response;
 }
 
 // Modal handling
@@ -36,7 +64,6 @@ function openModal(modalId) {
 }
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
-    // Clear form fields
     if (modalId === 'createCourseModal') {
         document.getElementById('course-title').value = '';
         document.getElementById('course-description').value = '';
@@ -93,20 +120,15 @@ async function createCourse() {
     const duration = parseInt(document.getElementById('course-duration').value);
     const course_type = document.getElementById('course-type').value;
     try {
-        const response = await fetchWithAuth('http://localhost:3000/api/courses', {
+        const data = await fetchWithAuth('http://localhost:3000/api/courses', {
             method: 'POST',
             body: JSON.stringify({ title, description, instructor_id: user.id, price, duration, course_type })
         });
-        const data = await response.json();
-        if (response.ok) {
-            fetchCourses();
-            closeModal('createCourseModal');
-            showError('Course created successfully! Awaiting approval.', '#28a745');
-        } else {
-            showError(data.error || 'Failed to create course');
-        }
+        fetchCourses();
+        closeModal('createCourseModal');
+        showError('Course created successfully! Awaiting approval.', '#28a745');
     } catch (err) {
-        showError('Network error or unauthorized. Please try again.');
+        showError('Failed to create course: ' + err.message);
     }
 }
 
@@ -130,20 +152,15 @@ async function updateCourse() {
     const duration = parseInt(document.getElementById('edit-course-duration').value);
     const course_type = document.getElementById('edit-course-type').value;
     try {
-        const response = await fetchWithAuth(`http://localhost:3000/api/courses/${id}`, {
+        const data = await fetchWithAuth(`http://localhost:3000/api/courses/${id}`, {
             method: 'PATCH',
             body: JSON.stringify({ title, description, price, duration, course_type })
         });
-        const data = await response.json();
-        if (response.ok) {
-            fetchCourses();
-            closeModal('editCourseModal');
-            showError('Course updated successfully!', '#28a745');
-        } else {
-            showError(data.error || 'Failed to update course');
-        }
+        fetchCourses();
+        closeModal('editCourseModal');
+        showError('Course updated successfully!', '#28a745');
     } catch (err) {
-        showError('Network error or unauthorized. Please try again.');
+        showError('Failed to update course: ' + err.message);
     }
 }
 
@@ -151,18 +168,13 @@ async function updateCourse() {
 async function deleteCourse(courseId) {
     if (confirm('Are you sure you want to delete this course?')) {
         try {
-            const response = await fetchWithAuth(`http://localhost:3000/api/courses/${courseId}`, {
+            const data = await fetchWithAuth(`http://localhost:3000/api/courses/${courseId}`, {
                 method: 'DELETE'
             });
-            const data = await response.json();
-            if (response.ok) {
-                fetchCourses();
-                showError('Course deleted successfully!', '#28a745');
-            } else {
-                showError(data.error || 'Failed to delete course');
-            }
+            fetchCourses();
+            showError('Course deleted successfully!', '#28a745');
         } catch (err) {
-            showError('Network error or unauthorized. Please try again.');
+            showError('Failed to delete course: ' + err.message);
         }
     }
 }
@@ -180,19 +192,14 @@ async function uploadContent() {
     const file_type = document.getElementById('content-type').value;
     const file_url = document.getElementById('content-url').value;
     try {
-        const response = await fetchWithAuth(`http://localhost:3000/api/courses/${course_id}/content`, {
+        const data = await fetchWithAuth(`http://localhost:3000/api/courses/${course_id}/content`, {
             method: 'POST',
             body: JSON.stringify({ title, file_type, file_url })
         });
-        const data = await response.json();
-        if (response.ok) {
-            closeModal('uploadContentModal');
-            showError('Content uploaded successfully!', '#28a745');
-        } else {
-            showError(data.error || 'Failed to upload content');
-        }
+        closeModal('uploadContentModal');
+        showError('Content uploaded successfully!', '#28a745');
     } catch (err) {
-        showError('Network error or unauthorized. Please try again.');
+        showError('Failed to upload content: ' + err.message);
     }
 }
 
@@ -207,19 +214,14 @@ async function sendNotification() {
     const course_id = document.getElementById('notification-course-id').value;
     const message = document.getElementById('notification-message').value;
     try {
-        const response = await fetchWithAuth('http://localhost:3000/api/notifications', {
+        const data = await fetchWithAuth('http://localhost:3000/api/notifications', {
             method: 'POST',
             body: JSON.stringify({ course_id, message, notification_type: 'course_notification' })
         });
-        const data = await response.json();
-        if (response.ok) {
-            closeModal('notificationModal');
-            showError('Notification sent successfully!', '#28a745');
-        } else {
-            showError(data.error || 'Failed to send notification');
-        }
+        closeModal('notificationModal');
+        showError('Notification sent successfully!', '#28a745');
     } catch (err) {
-        showError('Network error or unauthorized. Please try again.');
+        showError('Failed to send notification: ' + err.message);
     }
 }
 
@@ -229,21 +231,16 @@ async function updateProfile() {
     const bio = document.getElementById('profile-bio').value;
     const expertise = document.getElementById('profile-expertise').value;
     try {
-        const response = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}`, {
+        const data = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}`, {
             method: 'PATCH',
             body: JSON.stringify({ name, bio, expertise })
         });
-        const data = await response.json();
-        if (response.ok) {
-            localStorage.setItem('user', JSON.stringify({ ...user, name, bio, expertise }));
-            document.getElementById('userName').textContent = name;
-            closeModal('profileModal');
-            showError('Profile updated successfully!', '#28a745');
-        } else {
-            showError(data.error || 'Failed to update profile');
-        }
+        localStorage.setItem('user', JSON.stringify({ ...user, name, bio, expertise }));
+        document.getElementById('userName').textContent = name;
+        closeModal('profileModal');
+        showError('Profile updated successfully!', '#28a745');
     } catch (err) {
-        showError('Network error or unauthorized. Please try again.');
+        showError('Failed to update profile: ' + err.message);
     }
 }
 
@@ -251,11 +248,14 @@ async function updateProfile() {
 async function fetchCourses() {
     try {
         console.log('Fetching courses...');
-        const response = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
-        const courses = await response.json();
+        const courses = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
         console.log('Courses fetched:', courses);
         const courseList = document.getElementById('course-list');
         courseList.innerHTML = '';
+        if (!Array.isArray(courses) || courses.length === 0) {
+            courseList.innerHTML = '<li>No courses found</li>';
+            return;
+        }
         courses.forEach(course => {
             const li = document.createElement('li');
             li.innerHTML = `
@@ -280,7 +280,7 @@ async function fetchCourses() {
         });
     } catch (err) {
         console.error('Error fetching courses:', err);
-        document.getElementById('course-list').innerHTML = '<li>Error loading courses</li>';
+        document.getElementById('course-list').innerHTML = '<li>Error loading courses: ' + err.message + '</li>';
     }
 }
 
@@ -288,11 +288,19 @@ async function fetchCourses() {
 async function fetchStudents() {
     try {
         console.log('Fetching students...');
-        const response = await fetchWithAuth(`http://localhost:3000/api/users?role=student`);
-        const students = await response.json();
+        const students = await fetchWithAuth(`http://localhost:3000/api/users?role=student`);
         console.log('Students fetched:', students);
         const studentList = document.getElementById('student-list');
         studentList.innerHTML = '';
+        if (!Array.isArray(students)) {
+            console.error('Students response is not an array:', students);
+            studentList.innerHTML = '<li>No students found or access denied</li>';
+            return;
+        }
+        if (students.length === 0) {
+            studentList.innerHTML = '<li>No students found</li>';
+            return;
+        }
         students.forEach(student => {
             const li = document.createElement('li');
             li.innerHTML = `<div><strong>${student.name}</strong> (${student.email})</div>`;
@@ -302,7 +310,7 @@ async function fetchStudents() {
         });
     } catch (err) {
         console.error('Error fetching students:', err);
-        document.getElementById('student-list').innerHTML = '<li>Error loading students</li>';
+        document.getElementById('student-list').innerHTML = '<li>Error loading students: ' + err.message + '</li>';
     }
 }
 
@@ -310,12 +318,10 @@ async function fetchStudents() {
 async function fetchStudentProgress(studentId) {
     try {
         console.log('Fetching student progress for student:', studentId);
-        const response = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
-        const courses = await response.json();
+        const courses = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
         let progressHtml = `<h3>Student Progress</h3>`;
         for (const course of courses) {
-            const progressResponse = await fetchWithAuth(`http://localhost:3000/api/courses/${course.id}/progress?user_id=${studentId}`);
-            const progress = await progressResponse.json();
+            const progress = await fetchWithAuth(`http://localhost:3000/api/courses/${course.id}/progress?user_id=${studentId}`);
             if (progress.progress !== undefined) {
                 progressHtml += `
                     <p><strong>${course.title}</strong>: ${progress.progress}% complete</p>
@@ -325,7 +331,7 @@ async function fetchStudentProgress(studentId) {
         document.getElementById('student-list').innerHTML = progressHtml + '<button class="btn" onclick="fetchStudents()">Back to Students</button>';
     } catch (err) {
         console.error('Error fetching student progress:', err);
-        showError('Error loading student progress');
+        showError('Error loading student progress: ' + err.message);
     }
 }
 
@@ -333,13 +339,15 @@ async function fetchStudentProgress(studentId) {
 async function fetchAnalytics() {
     try {
         console.log('Fetching analytics...');
-        const response = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
-        const courses = await response.json();
+        const courses = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
         const analyticsList = document.getElementById('analytics-list');
         analyticsList.innerHTML = '';
+        if (!Array.isArray(courses) || courses.length === 0) {
+            analyticsList.innerHTML = '<li>No analytics available</li>';
+            return;
+        }
         for (const course of courses) {
-            const analyticsResponse = await fetchWithAuth(`http://localhost:3000/api/courses/${course.id}/analytics`);
-            const analytics = await analyticsResponse.json();
+            const analytics = await fetchWithAuth(`http://localhost:3000/api/courses/${course.id}/analytics`);
             console.log(`Analytics for course ${course.id}:`, analytics);
             const li = document.createElement('li');
             li.innerHTML = `
@@ -354,7 +362,7 @@ async function fetchAnalytics() {
         }
     } catch (err) {
         console.error('Error fetching analytics:', err);
-        document.getElementById('analytics-list').innerHTML = '<li>Error loading analytics</li>';
+        document.getElementById('analytics-list').innerHTML = '<li>Error loading analytics: ' + err.message + '</li>';
     }
 }
 
@@ -362,13 +370,13 @@ async function fetchAnalytics() {
 async function fetchEarnings() {
     try {
         console.log('Fetching earnings...');
-        const response = await fetchWithAuth(`http://localhost:3000/api/instructors/${user.id}/earnings`);
-        const data = await response.json();
+        const data = await fetchWithAuth(`http://localhost:3000/api/instructors/${user.id}/earnings`);
         console.log('Earnings fetched:', data);
         document.getElementById('totalEarnings').textContent = data.total_earnings.toFixed(2);
     } catch (err) {
         console.error('Error fetching earnings:', err);
-        showError('Error loading earnings');
+        document.getElementById('totalEarnings').textContent = 'N/A';
+        showError('Error loading earnings: ' + err.message);
     }
 }
 
