@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,6 +23,7 @@
             margin: 2rem auto;
             padding: 0 1rem;
         }
+
         .dashboard-header {
             display: flex;
             justify-content: space-between;
@@ -31,12 +33,14 @@
             padding: 1.5rem;
             border-radius: 12px;
             color: white;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
+
         .dashboard-header h2 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2rem;
         }
+
         .logout-btn {
             background: #fff;
             color: #4b0082;
@@ -47,59 +51,70 @@
             font-family: 'Inter', sans-serif;
             transition: transform 0.2s, background 0.2s;
         }
+
         .logout-btn:hover {
             transform: scale(1.1);
             background: #f0f0f0;
         }
+
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2.5rem;
         }
+
         .card {
             background: #fff;
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
+
         .card i {
             font-size: 2.5rem;
             color: #4b0082;
             margin-bottom: 0.8rem;
         }
+
         .card h3 {
             font-family: 'Montserrat', sans-serif;
             margin-bottom: 0.6rem;
             color: #333;
         }
+
         .card p {
             font-size: 0.95rem;
             color: #666;
         }
+
         .section {
             margin-bottom: 3rem;
             padding: 2rem;
             background: #f8f9fa;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
+
         .section h2 {
             font-family: 'Montserrat', sans-serif;
             margin-bottom: 1.5rem;
             color: #4b0082;
         }
+
         .list {
             list-style: none;
             padding: 0;
         }
+
         .list li {
             padding: 1.2rem;
             border-bottom: 1px solid #eee;
@@ -111,9 +126,11 @@
             border-radius: 8px;
             transition: background 0.2s;
         }
+
         .list li:hover {
             background: #f0f0f0;
         }
+
         .list li button {
             background: #4b0082;
             color: white;
@@ -124,9 +141,11 @@
             margin-left: 0.6rem;
             transition: background 0.2s;
         }
+
         .list li button:hover {
             background: #6a0dad;
         }
+
         .modal {
             display: none;
             position: fixed;
@@ -134,11 +153,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             justify-content: center;
             align-items: center;
             z-index: 1000;
         }
+
         .modal-content {
             background: #fff;
             padding: 2.5rem;
@@ -148,6 +168,7 @@
             position: relative;
             animation: slideIn 0.3s ease;
         }
+
         .modal-content .close {
             position: absolute;
             top: 15px;
@@ -156,45 +177,62 @@
             cursor: pointer;
             color: #333;
         }
+
         @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
+
         .form-group {
             margin-bottom: 1.2rem;
         }
+
         .form-group label {
             display: block;
             margin-bottom: 0.6rem;
             font-family: 'Inter', sans-serif;
             font-weight: 500;
         }
-        .form-group input, .form-group textarea, .form-group select {
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 0.8rem;
             border: 1px solid #ddd;
             border-radius: 6px;
             font-family: 'Inter', sans-serif;
         }
+
         .analytics-chart {
             background: #fff;
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
         }
+
         #error {
             margin-top: 1rem;
             font-family: 'Inter', sans-serif;
             text-align: center;
             font-size: 1.1rem;
         }
+
         .progress-bar {
             background: #ddd;
             border-radius: 6px;
             height: 10px;
             margin-top: 0.5rem;
         }
+
         .progress-bar div {
             background: #4b0082;
             height: 100%;
@@ -203,6 +241,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
@@ -214,7 +253,8 @@
         <ul id="nav-link" role="menu">
             <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
             <li class="nb" role="menuitem"><a href="about.html">About</a></li>
-            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a href="#">Courses</a>
+            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
+                    href="#">Courses</a>
                 <!-- Dropdown menu as in admin-dashboard.html -->
                 <div class="dropdown1">
                     <ul class="dropdown" role="menuitem">
@@ -401,4 +441,5 @@
     <script src="js/studentdash.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>
