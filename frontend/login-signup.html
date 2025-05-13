@@ -152,12 +152,10 @@
             <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
             <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
             <li role="menuitem" class="enroll-btn">
-                <a href="login-signup.html"
-                    class="btn">Enroll Now</a>
+                <a href="login-signup.html" class="btn">Enroll Now</a>
             </li>
         </ul>
-        <a href="login-signup.html"
-            class="btn big">Enroll Now</a>
+        <a href="login-signup.html" class="btn big">Enroll Now</a>
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
 
@@ -173,15 +171,15 @@
                 <label for="loginPassword">Password</label>
                 <input type="password" id="loginPassword" placeholder="Enter your password" required
                     aria-label="Password" />
-                    <button type="button" class="toggle-password" onclick="togglePassword('loginPassword')">Show</button>
+                <button type="button" class="toggle-password" onclick="togglePassword('loginPassword')">Show</button>
             </div>
             <button class="btn" onclick="login()">Login</button>
             <div class="toggle-link" onclick="toggleForms()">Don't have an account? Sign up</div>
             <div class="social-login">
-                    <p>Or login with:</p>
-                    <button class="social-btn google" onclick="socialLogin('google')">Google</button>
-                    <button class="social-btn github" onclick="socialLogin('github')">GitHub</button>
-                </div>
+                <p>Or login with:</p>
+                <button class="social-btn google" onclick="socialLogin('google')">Google</button>
+                <button class="social-btn github" onclick="socialLogin('github')">GitHub</button>
+            </div>
             <div id="loginError"></div>
         </div>
 
@@ -198,19 +196,23 @@
             </div>
             <div class="form-group">
                 <label for="signupPassword">Password</label>
+
                 <input type="password" id="signupPassword" placeholder="Enter your password" required
-                    aria-label="Password" />
-                    <input type="password" id="signupPassword" placeholder="Password" required minlength="8" oninput="checkPasswordStrength()">
-                    <button type="button" class="toggle-password" onclick="togglePassword('signupPassword')">Show</button>
+                    aria-label="Password" minlength="8" oninput="checkPasswordStrength()">
+                <button type="button" class="toggle-password" onclick="togglePassword('signupPassword')">Show</button>
+            </div>
+            <div class="password-strength" id="passwordStrength">
+                <div class="strength-bar" id="strengthBar"></div>
+                <p id="strengthText">Password Strength: Weak</p>
             </div>
             <input type="hidden" id="signupRole" value="student" />
             <button class="btn" onclick="signup()">Register</button>
             <div class="toggle-link" onclick="toggleForms()">Already have an account? Login</div>
             <div class="social-login">
-                    <p>Or sign up with:</p>
-                    <button class="social-btn google" onclick="socialSignup('google')">Google</button>
-                    <button class="social-btn github" onclick="socialSignup('github')">GitHub</button>
-                </div>
+                <p>Or sign up with:</p>
+                <button class="social-btn google" onclick="socialSignup('google')">Google</button>
+                <button class="social-btn github" onclick="socialSignup('github')">GitHub</button>
+            </div>
             <div id="signupError"></div>
         </div>
     </div>
