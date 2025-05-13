@@ -172,6 +172,11 @@
             </div>
             <button class="btn" onclick="login()">Login</button>
             <div class="toggle-link" onclick="toggleForms()">Don't have an account? Sign up</div>
+            <div class="social-login">
+                    <p>Or login with:</p>
+                    <button class="social-btn google" onclick="socialLogin('google')">Google</button>
+                    <button class="social-btn github" onclick="socialLogin('github')">GitHub</button>
+                </div>
             <div id="loginError"></div>
         </div>
 
@@ -192,6 +197,11 @@
             <input type="hidden" id="signupRole" value="admin" />
             <button class="btn" onclick="signup()">Register</button>
             <div class="toggle-link" onclick="toggleForms()">Already have an account? Login</div>
+            <div class="social-login">
+                    <p>Or sign up with:</p>
+                    <button class="social-btn google" onclick="socialSignup('google')">Google</button>
+                    <button class="social-btn github" onclick="socialSignup('github')">GitHub</button>
+                </div>
             <div id="signupError"></div>
         </div>
     </div>
