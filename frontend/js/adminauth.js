@@ -57,6 +57,11 @@ async function signup() {
     const role = document.getElementById("signupRole").value;
     const signupError = document.getElementById("signupError");
 
+    if (password.length < 8) {
+        signupError.textContent = 'Password must be at least 8 characters long';
+        return;
+    }
+
     try {
         const res = await fetch('http://localhost:3000/api/register', {
             method: 'POST',
