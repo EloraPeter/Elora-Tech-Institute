@@ -41,15 +41,16 @@ async function fetchWithAuth(url, options = {}) {
             throw new Error('Forbidden');
         }
         if (!response.ok) {
-            let data;
-            try {
-                data = await response.json();
-            } catch (e) {
-                console.error(`Non-JSON response for URL: ${url}`, await response.text());
-                throw new Error(`HTTP error ${response.status}: Non-JSON response`);
+            let errorData = { error: `HTTP error ${response.status}` };
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                errorData = await response.json();
+            } else {
+                const text = await response.text();
+                console.error(`Non-JSON response for URL: ${url}`, text);
             }
-            console.error(`Error ${response.status} for URL: ${url}`, data);
-            throw new Error(data.error || `HTTP error ${response.status}`);
+            console.error(`Error ${response.status} for URL: ${url}`, errorData);
+            throw new Error(errorData.error || `HTTP error ${response.status}`);
         }
         return response.json();
     } catch (err) {
@@ -370,7 +371,7 @@ async function fetchAnalytics() {
 async function fetchEarnings() {
     try {
         console.log('Fetching earnings...');
-        const data = await fetchWithAuth(`http://localhost:3000/api/instructors/${user.id}/earnings`);
+        const data = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}/earnings`);
         console.log('Earnings fetched:', data);
         document.getElementById('totalEarnings').textContent = data.total_earnings.toFixed(2);
     } catch (err) {
