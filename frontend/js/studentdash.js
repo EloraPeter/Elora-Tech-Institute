@@ -518,7 +518,14 @@ async function fetchProgress() {
 
 // Initialize dashboard
 async function initializeDashboard() {
-    await Promise.all([
+    
+
+
+
+     try {
+        const profile = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}`);
+        document.getElementById('dashboard-profile-picture').src = profile.profile_picture_url || '/assets/avatars/default.png';
+        await Promise.all([
         fetchCourses(),
         fetchCertificates(),
         fetchDiscussions(),
@@ -528,6 +535,9 @@ async function initializeDashboard() {
         fetchProfile(),
         fetchProgress()
     ]);
+    } catch (err) {
+        showError('Failed to initialize dashboard: ' + err.message);
+    }
 }
 
 // Run initialization
