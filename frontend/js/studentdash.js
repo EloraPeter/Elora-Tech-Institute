@@ -402,6 +402,8 @@ async function fetchNotifications() {
     }
 }
 
+
+
 // Mark notification as read
 async function markNotificationRead(notificationId) {
     try {
