@@ -21,7 +21,6 @@ async function fetchProfile() {
         const profile = await response.json();
         document.getElementById('profile-name').textContent = profile.name;
         document.getElementById('profile-email').textContent = profile.email;
-        document.getElementById('profile-role').textContent = profile.role;
         document.getElementById('profile-bio').textContent = profile.bio || 'No bio yet';
         document.getElementById('profile-expertise').textContent = profile.expertise || 'No expertise listed';
         document.getElementById('profile-picture').src = profile.profile_picture_url || '/assets/avatars/default.png';
