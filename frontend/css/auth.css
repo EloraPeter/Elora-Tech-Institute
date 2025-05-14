@@ -41,19 +41,20 @@
     color: black;
 }
 
-.password-groupinput[type=password] {
+.password-group {
     position: relative;
 }
 
 .toggle-password {
     position: absolute;
-    /* right: 10px;
-    top: 50%; */
-    transform: translateY(-50%);
+    /* right: 10px; */
+    /* top: 10%; */
+    /* transform: translateY(-50%); */
     background: none;
     border: none;
     cursor: pointer;
     color: #007bff;
+    font-size: 20px;
 }
 
 .password-strength {
