@@ -848,7 +848,7 @@ async function fetchFinancials() {
 async function initializeDashboard() {
     try {
         const profile = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}`);
-        document.getElementById('dashboard-profile-picture').src = profile.profile_picture_url || 'images/avatars/default.png';
+        document.getElementById('dashboard-profile-picture').src = profile.profile_picture_url || 'images/avatars/default.jpg';
         await Promise.all([
             fetchCourses(),
             fetchSubmissions(),
