@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path'); // Add path module for file resolution
 const auth = require('./auth');
 const pay = require('./pay');
 
@@ -23,7 +24,12 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('../frontend'));
+app.use(express.static(path.join(__dirname, '../frontend'))); // Use path.join for robust file resolution
+
+// Explicit route for auth-callback to ensure it’s served
+app.get('/auth/callback', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend', 'auth-callback.html'));
+});
 
 // Apply auth and pay routes
 try {
