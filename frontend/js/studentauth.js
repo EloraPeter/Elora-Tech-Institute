@@ -10,7 +10,7 @@ function togglePassword(inputId) {
   const button = input.nextElementSibling;
   if (input.type === 'password') {
     input.type = 'text';
-    button.textContent = 'Hide';
+    button.innerHTML = '';
   } else {
     input.type = 'password';
     button.textContent = 'Show';
