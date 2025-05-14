@@ -41,6 +41,40 @@
     color: black;
 }
 
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.password-strength {
+    margin-bottom: 1rem;
+}
+
+.strength-bar {
+    height: 5px;
+    width: 0;
+    background-color: #ff4d4d;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+.strength-text {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.error {
+    color: #ff4d4d;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
 .toggle-link {
     margin-top: 15px;
     display: inline-block;
