@@ -10,10 +10,10 @@ function togglePassword(inputId) {
   const button = input.nextElementSibling;
   if (input.type === 'password') {
     input.type = 'text';
-    button.innerHTML = '';
+    button.innerHTML = '<i class="fa-solid fa-eye"></i>';
   } else {
     input.type = 'password';
-    button.textContent = 'Show';
+    button.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
   }
 }
 
