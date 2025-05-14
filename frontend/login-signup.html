@@ -166,19 +166,20 @@
                 <input type="email" id="loginEmail" placeholder="Enter your email" required
                     aria-label="Email address" />
             </div>
-            <div class="form-group">
+            <div class="form-group password-group">
                 <label for="loginPassword">Password</label>
                 <input type="password" id="loginPassword" placeholder="Enter your password" required
                     aria-label="Password" />
-               
+                <button type="button" class="toggle-password" onclick="togglePassword('loginPassword')"><i
+                        class="fa-solid fa-eye"></i></button>
             </div>
             <button class="btn" onclick="login()">Login</button>
             <div class="toggle-link" onclick="toggleForms()">Don't have an account? Sign up</div>
             <div class="social-login">
                 <p>Or login with:</p>
-                <button class="social-btn google" onclick="socialLogin('google')">Google</button>
-                <button class="social-btn github" onclick="socialLogin('github')">GitHub</button>
-            </div>
+                <button class="social-btn google" onclick="socialSignup('google')"><i class="fa-brands fa-google"></i></button>
+                <button class="social-btn github" onclick="socialSignup('github')"><i class="fa-brands fa-github"></i></button>
+                        </div>
             <div id="loginError"></div>
         </div>
 
@@ -193,7 +194,7 @@
                 <input type="email" id="signupEmail" placeholder="Enter your email" required
                     aria-label="Email address" />
             </div>
-            <div class="form-group">
+            <div class="form-group password-group">
                 <label for="signupPassword">Password</label>
 
                 <input type="password" id="signupPassword" placeholder="Enter your password" required
@@ -210,8 +211,8 @@
             <div class="toggle-link" onclick="toggleForms()">Already have an account? Login</div>
             <div class="social-login">
                 <p>Or sign up with:</p>
-                <button class="social-btn google" onclick="socialSignup('google')">Google</button>
-                <button class="social-btn github" onclick="socialSignup('github')">GitHub</button>
+                <button class="social-btn google" onclick="socialSignup('google')"><i class="fa-brands fa-google"></i></button>
+                <button class="social-btn github" onclick="socialSignup('github')"><i class="fa-brands fa-github"></i></button>
             </div>
             <div id="signupError"></div>
         </div>
