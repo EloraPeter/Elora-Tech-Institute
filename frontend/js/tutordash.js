@@ -101,7 +101,8 @@ function scrollToSection(sectionId) {
 // Logout
 function logout() {
     localStorage.removeItem('user');
-    localStorage.removeItem('token');
+   localStorage.removeItem("token");
+    localStorage.removeItem("refreshToken")
     window.location.href = 'tutor-signup-login.html';
 }
 
