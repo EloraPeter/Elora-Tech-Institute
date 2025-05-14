@@ -1,22 +1,22 @@
-.auth-container {
-    max-width: 400px;
-    margin: 50% auto 60px;
-    padding: 40px;
+#auth-container {
+    max-width: 600px;
+    margin: 10% auto 60px;
+    padding: 50px;
     box-shadow: 0 8px 20px var(--shadow-light);
     border-radius: 15px;
     background-color: var(--background-color);
 }
 
-.auth-container h2 {
+#auth-container h2 {
     color: var(--primary-color);
     margin-bottom: 20px;
 }
 
-.auth-container input,
-.auth-container select {
-    width: 100%;
+#auth-container input,
+#auth-container select {
+    width: 95%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px auto;
     border: 2px solid var(--tertiary-color);
     border-radius: 8px;
     font-size: 16px;
@@ -24,7 +24,7 @@
     color: var(--text-color);
 }
 
-.auth-container button {
+#auth-container .btn {
     background-color: var(--primary-color);
     color: white;
     padding: 12px;
@@ -36,15 +36,19 @@
     margin-top: 10px;
 }
 
-.auth-container button:hover {
+#auth-container .btn:hover {
     background-color: var(--secondary-color);
     color: black;
 }
 
+.password-groupinput[type=password] {
+    position: relative;
+}
+
 .toggle-password {
     position: absolute;
-    right: 10px;
-    top: 50%;
+    /* right: 10px;
+    top: 50%; */
     transform: translateY(-50%);
     background: none;
     border: none;
