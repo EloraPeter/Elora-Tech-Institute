@@ -421,68 +421,68 @@ async function markNotificationRead(notificationId) {
     }
 }
 
-// Fetch profile
-async function fetchProfile() {
-    try {
-        const response = await fetch(`http://localhost:3000/api/users/${user.id}`);
-        const profile = await response.json();
-        const profileList = document.getElementById('profile-list');
-        profileList.innerHTML = '';
-        const li = document.createElement('li');
-        li.innerHTML = `
-                    <div>
-                        <strong>${profile.name}</strong> (${profile.email})<br>
-                        Role: ${profile.role}<br>
-                        ${profile.bio ? `Bio: ${profile.bio.slice(0, 100)}...` : 'No bio'}<br>
-                        ${profile.expertise ? `Expertise: ${profile.expertise}` : 'No expertise listed'}
-                    </div>
-                    <div>
-                        <button onclick="openUpdateProfile(${JSON.stringify(profile)})">Update Profile</button>
-                    </div>
-                `;
-        profileList.appendChild(li);
-    } catch (err) {
-        document.getElementById('profile-list').innerHTML = '<li>Error loading profile</li>';
-        showError('Failed to load profile. Please try again.');
-    }
-}
+// // Fetch profile
+// async function fetchProfile() {
+//     try {
+//         const response = await fetch(`http://localhost:3000/api/users/${user.id}`);
+//         const profile = await response.json();
+//         const profileList = document.getElementById('profile-list');
+//         profileList.innerHTML = '';
+//         const li = document.createElement('li');
+//         li.innerHTML = `
+//                     <div>
+//                         <strong>${profile.name}</strong> (${profile.email})<br>
+//                         Role: ${profile.role}<br>
+//                         ${profile.bio ? `Bio: ${profile.bio.slice(0, 100)}...` : 'No bio'}<br>
+//                         ${profile.expertise ? `Expertise: ${profile.expertise}` : 'No expertise listed'}
+//                     </div>
+//                     <div>
+//                         <button onclick="openUpdateProfile(${JSON.stringify(profile)})">Update Profile</button>
+//                     </div>
+//                 `;
+//         profileList.appendChild(li);
+//     } catch (err) {
+//         document.getElementById('profile-list').innerHTML = '<li>Error loading profile</li>';
+//         showError('Failed to load profile. Please try again.');
+//     }
+// }
 
-// Open update profile modal
-function openUpdateProfile(profile) {
-    document.getElementById('profile-user-id').value = profile.id;
-    document.getElementById('profile-name').value = profile.name;
-    document.getElementById('profile-bio').value = profile.bio || '';
-    document.getElementById('profile-expertise').value = profile.expertise || '';
-    openModal('updateProfileModal');
-}
+// // Open update profile modal
+// function openUpdateProfile(profile) {
+//     document.getElementById('profile-user-id').value = profile.id;
+//     document.getElementById('profile-name').value = profile.name;
+//     document.getElementById('profile-bio').value = profile.bio || '';
+//     document.getElementById('profile-expertise').value = profile.expertise || '';
+//     openModal('updateProfileModal');
+// }
 
-// Update profile
-async function updateProfile() {
-    const id = document.getElementById('profile-user-id').value;
-    const name = document.getElementById('profile-name').value;
-    const bio = document.getElementById('profile-bio').value;
-    const expertise = document.getElementById('profile-expertise').value;
-    try {
-        const response = await fetch(`http://localhost:3000/api/users/${id}`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, bio, expertise })
-        });
-        const data = await response.json();
-        if (response.ok) {
-            fetchProfile();
-            closeModal('updateProfileModal');
-            showError('Profile updated successfully! 😎', '#28a745');
-            // Update localStorage
-            localStorage.setItem('user', JSON.stringify({ ...user, name }));
-            document.getElementById('userName').textContent = name;
-        } else {
-            showError(data.error || 'Failed to update profile');
-        }
-    } catch (err) {
-        showError('Network error. Please try again.');
-    }
-}
+// // Update profile
+// async function updateProfile() {
+//     const id = document.getElementById('profile-user-id').value;
+//     const name = document.getElementById('profile-name').value;
+//     const bio = document.getElementById('profile-bio').value;
+//     const expertise = document.getElementById('profile-expertise').value;
+//     try {
+//         const response = await fetch(`http://localhost:3000/api/users/${id}`, {
+//             method: 'PATCH',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({ name, bio, expertise })
+//         });
+//         const data = await response.json();
+//         if (response.ok) {
+//             fetchProfile();
+//             closeModal('updateProfileModal');
+//             showError('Profile updated successfully! 😎', '#28a745');
+//             // Update localStorage
+//             localStorage.setItem('user', JSON.stringify({ ...user, name }));
+//             document.getElementById('userName').textContent = name;
+//         } else {
+//             showError(data.error || 'Failed to update profile');
+//         }
+//     } catch (err) {
+//         showError('Network error. Please try again.');
+//     }
+// }
 
 // Fetch progress and render chart
 async function fetchProgress() {
