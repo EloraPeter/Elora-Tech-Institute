@@ -6,15 +6,15 @@ function toggleForms() {
 }
 
 function togglePassword(inputId) {
-    const input = document.getElementById(inputId);
-    const button = input.nextElementSibling;
-    if (input.type === 'password') {
-        input.type = 'text';
-        button.textContent = 'Hide';
-    } else {
-        input.type = 'password';
-        button.textContent = 'Show';
-    }
+  const input = document.getElementById(inputId);
+  const button = input.nextElementSibling;
+  if (input.type === 'password') {
+    input.type = 'text';
+    button.innerHTML = '<i class="fa-solid fa-eye"></i>';
+  } else {
+    input.type = 'password';
+    button.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+  }
 }
 
 function checkPasswordStrength() {
