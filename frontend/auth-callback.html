@@ -37,7 +37,7 @@
                 callbackError.textContent = 'Authentication failed. Please try again.';
                 callbackMessage.textContent = 'Redirecting to login page...';
                 setTimeout(() => {
-                    window.location.href = '/login-signup.html'; // Default to student login
+                    window.location.href = '/login-signup.html';
                 }, 3000);
                 return;
             }
@@ -58,15 +58,25 @@
 
             // Redirect to appropriate dashboard based on role
             callbackMessage.textContent = 'Authentication successful! Redirecting...';
+            console.log(`Redirecting user with role ${user.role} to dashboard`);
             setTimeout(() => {
-                if (user.role === 'student') {
-                    window.location.href = 'student-dashboard.html';
-                } else if (user.role === 'admin') {
-                    window.location.href = 'admin-dashboard.html';
-                } else if (user.role === 'instructor') {
-                    window.location.href = 'tutor-dashboard.html';
-                } else {
-                    window.location.href = '/login-signup.html'; // Fallback
+                try {
+                    if (user.role === 'student') {
+                        window.location.href = '/student-dashboard.html';
+                    } else if (user.role === 'admin') {
+                        window.location.href = '/admin-dashboard.html';
+                    } else if (user.role === 'instructor') {
+                        window.location.href = '/tutor-dashboard.html';
+                    } else {
+                        throw new Error('Invalid role');
+                    }
+                } catch (err) {
+                    console.error('Redirect error:', err);
+                    callbackError.textContent = 'Failed to redirect to dashboard.';
+                    callbackMessage.textContent = 'Redirecting to login page...';
+                    setTimeout(() => {
+                        window.location.href = '/login-signup.html';
+                    }, 3000);
                 }
             }, 1000);
         });
