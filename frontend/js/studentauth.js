@@ -30,7 +30,7 @@ function checkPasswordStrength() {
   if (/[^A-Za-z0-9]/.test(password)) strength += 20;
 
   strengthBar.style.width = `${strength}%`;
-  if (strength <= 40) {
+  if (strength <= 30) {
     strengthBar.style.backgroundColor = '#ff4d4d';
     strengthText.textContent = 'Password Strength: Weak';
   } else if (strength <= 80) {
