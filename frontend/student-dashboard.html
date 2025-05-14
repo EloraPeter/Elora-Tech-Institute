@@ -108,7 +108,7 @@
                 <h3>Notifications</h3>
                 <p>Stay informed with updates.</p>
             </div>
-            <div class="card" onclick="scrollToSection('profile')">
+            <div class="card" onclick="window.location.href='student-profile.html'">
                 <i class="fas fa-user"></i>
                 <h3>Profile</h3>
                 <p>Update your personal details.</p>
@@ -193,27 +193,7 @@
         </div>
     </div>
 
-    <!-- Update Profile Modal -->
-    <div id="updateProfileModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('updateProfileModal')">×</span>
-            <h2>Update Profile</h2>
-            <input type="hidden" id="profile-user-id">
-            <div class="form-group">
-                <label for="profile-name">Name</label>
-                <input type="text" id="profile-name" required>
-            </div>
-            <div class="form-group">
-                <label for="profile-bio">Bio</label>
-                <textarea id="profile-bio"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="profile-expertise">Expertise</label>
-                <input type="text" id="profile-expertise">
-            </div>
-            <button class="btn" onclick="updateProfile()">Update Profile</button>
-        </div>
-    </div>
+    
 
     <script src="js/nav.js"></script>
     <script src="js/studentdash.js"></script>
