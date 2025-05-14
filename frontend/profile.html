@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Elora</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Your Profile</h1>
+            <div id="error"></div>
+            <div class="profile-container">
+                <div class="profile-picture">
+                    <img id="profile-picture" src="/assets/avatars/default.png" alt="Profile Picture" onclick="openPictureModal()">
+                    <p>Click to view or change picture</p>
+                </div>
+                <div class="profile-details">
+                    <h2 id="profile-name">Loading...</h2>
+                    <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                    <p><strong>Role:</strong> <span id="profile-role"></span></p>
+                    <p><strong>Bio:</strong> <span id="profile-bio">No bio yet</span></p>
+                    <p><strong>Expertise:</strong> <span id="profile-expertise">No expertise listed</span></p>
+                </div>
+            </div>
+            <form id="profile-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+                <label for="bio">Bio</label>
+                <textarea id="bio"></textarea>
+                <label for="expertise">Expertise</label>
+                <input type="text" id="expertise">
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Profile Picture Modal -->
+    <div id="pictureModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePictureModal()">&times;</span>
+            <h2>Manage Profile Picture</h2>
+            <img id="modal-profile-picture" src="/assets/avatars/default.png" alt="Profile Picture">
+            <div class="picture-options">
+                <h3>Choose an Avatar</h3>
+                <div class="avatar-grid">
+                    <img src="/assets/avatars/origami-dog.png" alt="Origami Dog" onclick="selectAvatar('/assets/avatars/origami-dog.png')">
+                    <img src="/assets/avatars/cartoon-cat.png" alt="Cartoon Cat" onclick="selectAvatar('/assets/avatars/cartoon-cat.png')">
+                    <img src="/assets/avatars/robot.png" alt="Robot" onclick="selectAvatar('/assets/avatars/robot.png')">
+                    <img src="/assets/avatars/pixel-rocket.png" alt="Pixel Rocket" onclick="selectAvatar('/assets/avatars/pixel-rocket.png')">
+                </div>
+                <h3>Upload from Device</h3>
+                <input type="file" id="picture-upload" accept="image/*">
+                <button onclick="uploadPicture()">Upload Picture</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>
