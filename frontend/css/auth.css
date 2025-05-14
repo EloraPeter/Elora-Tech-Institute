@@ -1,7 +1,7 @@
 #auth-container {
     max-width: 600px;
-    margin: 10% auto 60px;
-    padding: 50px;
+    margin: 7% auto 60px;
+    padding: 40px;
     box-shadow: 0 8px 20px var(--shadow-light);
     border-radius: 15px;
     background-color: var(--background-color);
@@ -9,14 +9,14 @@
 
 #auth-container h2 {
     color: var(--primary-color);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #auth-container input,
 #auth-container select {
     width: 95%;
     padding: 10px;
-    margin: 10px auto;
+    margin: 5px auto;
     border: 2px solid var(--tertiary-color);
     border-radius: 8px;
     font-size: 16px;
@@ -86,6 +86,10 @@
     cursor: pointer;
 }
 
+.toggle-link:hover{
+     color: var(--tertiary-color);
+}
+
 .toggle-link:focus {
     outline: 2px solid var(--primary-color);
 }
@@ -112,7 +116,7 @@
 .social-btn {
     display: inline-block;
     /* padding: 0.75rem 1.5rem; */
-    /* margin: 0.5rem; */
+    margin: 0 20px;
     border: none;
     cursor: pointer;  
     background: none;
