@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Callback</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <section class="auth-section">
+            <div class="auth-container">
+                <h2>Processing Authentication...</h2>
+                <p id="callbackMessage">Please wait while we log you in.</p>
+                <div class="error" id="callbackError"></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            const refreshToken = urlParams.get('refreshToken');
+            const error = urlParams.get('error');
+            const user = {
+                id: urlParams.get('id'),
+                name: decodeURIComponent(urlParams.get('name') || ''),
+                email: decodeURIComponent(urlParams.get('email') || ''),
+                role: urlParams.get('role')
+            };
+
+            const callbackError = document.getElementById('callbackError');
+            const callbackMessage = document.getElementById('callbackMessage');
+
+            if (error) {
+                callbackError.textContent = 'Authentication failed. Please try again.';
+                callbackMessage.textContent = 'Redirecting to login page...';
+                setTimeout(() => {
+                    window.location.href = '/login-signup.html'; // Default to student login
+                }, 3000);
+                return;
+            }
+
+            if (!token || !user.id || !user.role) {
+                callbackError.textContent = 'Invalid authentication data.';
+                callbackMessage.textContent = 'Redirecting to login page...';
+                setTimeout(() => {
+                    window.location.href = '/login-signup.html';
+                }, 3000);
+                return;
+            }
+
+            // Store authentication data
+            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('token', token);
+            localStorage.setItem('refreshToken', refreshToken);
+
+            // Redirect to appropriate dashboard based on role
+            callbackMessage.textContent = 'Authentication successful! Redirecting...';
+            setTimeout(() => {
+                if (user.role === 'student') {
+                    window.location.href = 'student-dashboard.html';
+                } else if (user.role === 'admin') {
+                    window.location.href = 'admin-dashboard.html';
+                } else if (user.role === 'instructor') {
+                    window.location.href = 'tutor-dashboard.html';
+                } else {
+                    window.location.href = '/login-signup.html'; // Fallback
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
