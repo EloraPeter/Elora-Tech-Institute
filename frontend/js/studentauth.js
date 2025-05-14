@@ -106,22 +106,3 @@ async function login() {
   }
 }
 
-// In studentauth.js, add this to handle callback
-window.addEventListener('load', () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const token = urlParams.get('token');
-  const refreshToken = urlParams.get('refreshToken');
-  const user = {
-    id: urlParams.get('id'),
-    name: decodeURIComponent(urlParams.get('name')),
-    email: decodeURIComponent(urlParams.get('email')),
-    role: urlParams.get('role')
-  };
-
-  if (token && user.id) {
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('token', token);
-    localStorage.setItem('refreshToken', refreshToken);
-    window.location.href = 'student-dashboard.html'; // Adjust based on role
-  }
-});
