@@ -71,11 +71,6 @@ function closeModal(modalId) {
     } else if (modalId === 'promoteUserModal') {
         document.getElementById('promote-user-id').value = '';
         document.getElementById('promote-role').value = 'student';
-    } else if (modalId === 'updateUserModal') {
-        document.getElementById('update-user-id').value = '';
-        document.getElementById('update-user-name').value = '';
-        document.getElementById('update-user-bio').value = '';
-        document.getElementById('update-user-expertise').value = '';
     } else if (modalId === 'reviewSubmissionModal') {
         document.getElementById('submission-id').value = '';
         document.getElementById('submission-status').value = 'approved';
@@ -96,8 +91,8 @@ function scrollToSection(sectionId) {
 // Logout
 function logout() {
     localStorage.removeItem('user');
-   localStorage.removeItem("token");
-    localStorage.removeItem("refreshToken")
+    localStorage.removeItem("token");
+    localStorage.removeItem("refreshToken");
     window.location.href = 'admin-signup-login.html';
 }
 
@@ -210,35 +205,6 @@ async function promoteUser() {
     } catch (err) {
         console.error('Error promoting user:', err);
         showError('Failed to update user role: ' + err.message);
-    }
-}
-
-// Open update user modal
-function openUpdateUser(user) {
-    document.getElementById('update-user-id').value = user.id;
-    document.getElementById('update-user-name').value = user.name;
-    document.getElementById('update-user-bio').value = user.bio || '';
-    document.getElementById('update-user-expertise').value = user.expertise || '';
-    openModal('updateUserModal');
-}
-
-// Update user profile
-async function updateUser() {
-    const id = document.getElementById('update-user-id').value;
-    const name = document.getElementById('update-user-name').value;
-    const bio = document.getElementById('update-user-bio').value;
-    const expertise = document.getElementById('update-user-expertise').value;
-    try {
-        const data = await fetchWithAuth(`http://localhost:3000/api/users/${id}`, {
-            method: 'PATCH',
-            body: JSON.stringify({ name, bio, expertise })
-        });
-        fetchUsers();
-        closeModal('updateUserModal');
-        showError('User profile updated successfully!', '#28a745');
-    } catch (err) {
-        console.error('Error updating user:', err);
-        showError('Failed to update profile: ' + err.message);
     }
 }
 
@@ -483,7 +449,6 @@ async function fetchUsers() {
                     Role: ${u.role} ${u.bio ? `<br>Bio: ${u.bio.slice(0, 50)}...` : ''}
                 </div>
                 <div>
-                    <button onclick="openUpdateUser(${JSON.stringify(u)})">Update</button>
                     <button onclick="openPromoteUser('${u.id}', '${u.role}')">Promote</button>
                     <button class="delete" onclick="deleteUser('${u.id}')">Delete</button>
                 </div>
@@ -882,6 +847,8 @@ async function fetchFinancials() {
 // Initialize dashboard
 async function initializeDashboard() {
     try {
+        const profile = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}`);
+        document.getElementById('dashboard-profile-picture').src = profile.profile_picture_url || '/assets/avatars/default.png';
         await Promise.all([
             fetchCourses(),
             fetchSubmissions(),
