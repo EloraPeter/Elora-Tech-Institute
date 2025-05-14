@@ -33,7 +33,7 @@ function checkPasswordStrength() {
   if (strength <= 30) {
     strengthBar.style.backgroundColor = '#ff4d4d';
     strengthText.textContent = 'Password Strength: Weak';
-  } else if (strength <= 80) {
+  } else if (strength <= 70) {
     strengthBar.style.backgroundColor = '#ffd700';
     strengthText.textContent = 'Password Strength: Moderate';
   } else {
