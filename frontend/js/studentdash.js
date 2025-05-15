@@ -534,6 +534,7 @@ async function initializeDashboard() {
             fetchProgress()
         ]);
     } catch (err) {
+         console.error('Error initializing dashboard:', err);
         showError('Failed to initialize dashboard: ' + err.message);
     }
 }
