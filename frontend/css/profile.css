@@ -1,3 +1,4 @@
+/* Profile Page Styles */
 .profile-container {
     display: flex;
     gap: 20px;
@@ -52,4 +53,14 @@
     width: 200px;
     height: 200px;
     margin-bottom: 20px;
+}
+
+/* Dashboard Profile Picture */
+#dashboard-profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    vertical-align: middle;
 }
