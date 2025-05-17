@@ -7,3 +7,5 @@
     <p>If you are not redirected, <a href="frontend/index.html">click here</a>.</p>
   </body>
 </html>
+
+https://elorapeter.github.io/Elora-Tech-Institute/
