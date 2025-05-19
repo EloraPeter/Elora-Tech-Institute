@@ -101,7 +101,7 @@ function scrollToSection(sectionId) {
 // Logout
 function logout() {
     localStorage.removeItem('user');
-   localStorage.removeItem("token");
+    localStorage.removeItem("token");
     localStorage.removeItem("refreshToken")
     window.location.href = 'tutor-signup-login.html';
 }
@@ -112,6 +112,25 @@ function showError(message, color = '#dc3545') {
     errorDiv.textContent = message;
     errorDiv.style.color = color;
     setTimeout(() => { errorDiv.textContent = ''; }, 3000);
+}
+
+// Upload profile picture
+async function uploadProfilePicture(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const formData = new FormData();
+    formData.append('profile_picture', file);
+    try {
+        const data = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}/profile-picture`, {
+            method: 'POST',
+            body: formData,
+            headers: {} // Remove Content-Type to let FormData set it
+        });
+        document.getElementById('dashboard-profile-picture').src = data.profile_picture_url;
+        showError('Profile picture updated successfully! 📸', '#28a745');
+    } catch (err) {
+        showError('Failed to upload profile picture: ' + err.message);
+    }
 }
 
 // Create a course
@@ -382,8 +401,28 @@ async function fetchEarnings() {
     }
 }
 
-// Load data on page load
-fetchCourses();
-fetchStudents();
-fetchAnalytics();
-fetchEarnings();
+
+
+
+
+
+async function initializeDashboard() {
+    try {
+        const profile = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}`);
+        document.getElementById('dashboard-profile-picture').src = profile.profile_picture_url || 'images/avatars/default.jpg';
+        await Promise.all([
+            // Load data on page load
+            fetchCourses(),
+            fetchStudents(),
+            fetchAnalytics(),
+            fetchEarnings(),
+
+        ]);
+    } catch (err) {
+        console.error('Error initializing dashboard:', err);
+        showError('Failed to initialize dashboard: ' + err.message);
+    }
+}
+
+// Run initialization
+initializeDashboard();

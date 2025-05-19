@@ -8,21 +8,23 @@
     <meta name="description" content="Master your learning journey with Elora Tech Institute's student dashboard.">
     <title>Student Dashboard - Elora Tech Institute</title>
     <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/studentdash.css" />
+    <link rel="stylesheet" href="css/studentdash.css" />
+    <link rel="stylesheet" href="css/profile.css" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   
+
 </head>
 
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
-            <img src="/frontend/images/eti logo main.jfif" alt="Elora Tech Institute Logo">
+            <img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo">
         </h1>
         <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
@@ -63,7 +65,8 @@
     <div class="dashboard-container">
         <div class="dashboard-header">
             <h2>Master Your Journey, <span id="userName"></span>! 🚀</h2>
-            <img id="dashboard-profile-picture" src="images/avatars/default.jpg" alt="Profile Picture" onclick="window.location.href='student-profile.html'">
+            <img id="dashboard-profile-picture" src="images/avatars/default.jpg" alt="Profile Picture"
+                onclick="window.location.href='profile.html'">
             <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
 
@@ -157,7 +160,7 @@
             <ul class="list" id="notification-list"></ul>
         </div>
 
-       
+
 
         <div id="error"></div>
     </div>
@@ -190,7 +193,7 @@
         </div>
     </div>
 
-    
+
 
     <script src="js/nav.js"></script>
     <script src="js/studentdash.js"></script>
