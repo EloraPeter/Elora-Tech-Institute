@@ -174,13 +174,29 @@
                         class="fa-solid fa-eye"></i></button>
             </div>
             <button class="btn" onclick="login()">Login</button>
+            <p><a href="/forgot-password">Forgot Password?</a></p>
             <div class="toggle-link" onclick="toggleForms()">Don't have an account? Sign up</div>
             <div class="social-login">
                 <p>Or login with:</p>
-                <button class="social-btn google" onclick="socialSignup('google')"><i class="fa-brands fa-google"></i></button>
-                <button class="social-btn github" onclick="socialSignup('github')"><i class="fa-brands fa-github"></i></button>
-                        </div>
+                <button class="social-btn google" onclick="socialLogin('google')"><i
+                        class="fa-brands fa-google"></i></button>
+                <button class="social-btn github" onclick="socialLogin('github')"><i
+                        class="fa-brands fa-github"></i></button>
+            </div>
             <div id="loginError"></div>
+        </div>
+
+        <div class="container form-section" id="forgot-password-section">
+            <h2>Reset Password</h2>
+
+            <form id="forgot-password-form" method="POST">
+                <input type="email" id="forgotPasswordEmail" name="email" placeholder="Enter your email" required>
+                <button class="btn" type="submit">Submit</button>
+                <p id="forgotPasswordError" style="color: red;"></p>
+            </form>
+            <div id="loading-overlay" class="loading-overlay">
+                <div class="spinner"></div>
+            </div>
         </div>
 
         <div class="form-section" id="signupForm">
@@ -211,8 +227,10 @@
             <div class="toggle-link" onclick="toggleForms()">Already have an account? Login</div>
             <div class="social-login">
                 <p>Or sign up with:</p>
-                <button class="social-btn google" onclick="socialSignup('google')"><i class="fa-brands fa-google"></i></button>
-                <button class="social-btn github" onclick="socialSignup('github')"><i class="fa-brands fa-github"></i></button>
+                <button class="social-btn google" onclick="socialSignup('google')"><i
+                        class="fa-brands fa-google"></i></button>
+                <button class="social-btn github" onclick="socialSignup('github')"><i
+                        class="fa-brands fa-github"></i></button>
             </div>
             <div id="signupError"></div>
         </div>

@@ -1,6 +1,6 @@
 /* About Page */
 #about-page {
-    /* margin: 0 30px; */
+    margin: 0 30px;
     padding-top: 20px;
 }
 
@@ -16,88 +16,252 @@
     animation: fadeInLeft 1s ease-out;
 }
 
-#about-page h2 span {
-    color: var(--tertiary-color);
-    font-size: 25px;
-}
-
 #about-page p {
-    font-size: 16px;
+    font-size: 20px;
     color: var(--p-color2);
     line-height: 1.6;
     animation: fadeInUp 1.2s ease-out;
 }
 
 /* Hero Section */
-#about-page #about-hero {
-    height: 60vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/about-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#about-page .hero-text {
+    width: 60%;
+    margin: 0 10px 10px;
+}
+
+#about-page .hero-text h2 {
+    font-size: 55px;
+}
+
+.about-hero .hero-text {
+    animation: fadeInDown 1s ease-out;
+}
+
+.about-hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* General Section Styling */
+.content-section {
+    padding: 60px 20px;
+    margin: 0 auto;
+    /* background: #f9fafb; */
+    /* Light neutral background for a clean look */
+}
+
+/* Section Headings */
+.content-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
     text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* Our Story Section */
+#our-story {
+    background: var(--background-gradient);
+    /* Subtle gradient for depth */
+}
+
+.story-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.story-text {
+    font-size: 2rem;
+    line-height: 1.7;
+    color: var(--p-color2);
+    text-align: left;
+}
+
+.story-text .highlight {
+    font-weight: 600;
+    color: var(--primary-color);
+    /* Bold blue to match decor */
+    transition: color 0.3s ease;
+}
+
+.story-text .highlight:hover {
+    color: var(--tertiary-color);
+    /* Darker blue on hover for interactivity */
+}
+
+.story-img img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.story-img img:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Future Plans Section */
+#future-plans {
+    padding: 80px 20px;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    /* background: #f8fafc; */
+    /* Light, clean background */
+    border-top: 1px solid #e5e7eb;
+    /* Subtle divider for separation */
     position: relative;
     overflow: hidden;
 }
 
-#about-hero .hero-text {
-    color: #fff;
-    animation: fadeInDown 1s ease-out;
+/* Section Heading */
+#future-plans h2 {
+    /* font-size: 2.8rem;
+    font-weight: 800;
+    color: #111827; */
+    /* Deep gray for sophistication */
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: -0.025em;
+    position: relative;
 }
 
-#about-hero h1 {
-    font-size: 60px;
-    margin-bottom: 10px;
-}
 
-#about-hero p {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-#about-hero .btn {
-    padding: 12px 30px;
-    font-size: 18px;
-}
-
-/* Our Story & Future Plans */
-.story-container,
+/* Container Layout */
 .fp-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    margin: 30px 30px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    /* Slightly wider text column for balance */
+    gap: 60px;
+    align-items: start;
+    padding: 0 30px;
 }
 
-.story-text,
+/* Text Styling */
 .fp-text {
-    flex: 1;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #374151;
+    /* Soft charcoal for readability */
+}
+
+.fp-text p {
+    margin-bottom: 18px;
     text-align: left;
 }
 
-.story-img,
-.fp-img {
-    flex: 1;
+.fp-text .values-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    text-align: left;
 }
 
-.story-img img,
+.fp-text .values-list li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: var(--p-color1);
+    /* Darker shade for emphasis */
+    transition: transform 0.3s ease;
+}
+
+.fp-text .values-list li:hover {
+    transform: translateX(10px);
+    /* Gentle slide effect on hover */
+}
+
+.fp-text .values-list li::before {
+    content: "▹";
+    /* Modern triangle bullet for a sleek look */
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    /* Matching emerald green */
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.fp-text .values-list li strong {
+    color: var(--p-color2);
+    font-weight: 700;
+}
+
+/* Image Styling */
 .fp-img img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    transition: transform 0.4s ease;
+    width: 80%;
+    border-radius: 20px;
+    border: 3px solid var(--secondary-color);
+    /* Green border for vibrancy */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s ease;
 }
 
-.story-img img:hover,
 .fp-img img:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    border-color: #059669;
+    /* Darker green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fp-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    #future-plans h2 {
+        font-size: 2.2rem;
+    }
+
+    #future-plans .decor {
+        font-size: 2.2rem;
+    }
+
+    .fp-img img {
+        max-width: 100%;
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+
+    .fp-img img,
+    .fp-text .values-list li,
+    #future-plans .decor {
+        transition: none;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .story-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .content-section h2 {
+        font-size: 2rem;
+    }
+
+    .story-img img,
+    .fp-img img {
+        max-width: 100%;
+    }
 }
 
 /* Mission, Vision, Values */
+#mission-vision-values {
+    background: var(--background-gradient);
+}
+
 .mv-grid,
 .values-grid {
     display: grid;
@@ -107,7 +271,9 @@
 }
 
 .mv-card {
-    background: var(--tertiary-color);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px var(--shadow-light);
@@ -129,6 +295,7 @@
 .mv-card h3 {
     font-size: 18px;
     margin-bottom: 10px;
+    color: var(--p-color2);
 }
 
 .value-card {
@@ -150,90 +317,173 @@
 }
 
 /* Programs */
+
 #programs {
-    margin: 0 30px;
-}
-
-.programs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin: 30px 30px;
-}
-
-.program-card {
-    background: var(--background-color);
-    border-radius: 15px;
-    box-shadow: 10px 15px 50px var(--shadow-light);
-    transition: transform 0.4s ease;
+    padding: 100px 20px;
+    /* Increased padding for a more spacious feel */
+    margin: 0 auto;
+    position: relative;
     overflow: hidden;
 }
 
-.program-card:hover {
-    transform: translateY(-15px);
-}
-
-.program-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 15px 15px 0 0;
-}
-
-.program-card h3 {
-    font-size: 18px;
-    margin: 15px 20px 10px;
-    color: var(--primary-color);
-}
-
-.program-card p {
-    font-size: 14px;
-    margin: 0 20px 15px;
-    color: var(--p-color2);
-}
-
-/* CTA */
-#about-page #ab-cta {
-    padding: 100px 20px;
-    background: url('../images/cta-bg.jpg') no-repeat center/cover;
-    position: relative;
-    border-radius: 15px;
-    margin: 50px 0 0;
-}
-
-#ab-cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px);
-    z-index: 1;
-}
-
-#ab-cta h2,
-#ab-cta p,
-#ab-cta .btn {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-}
-
-#ab-cta h2 {
-    font-size: 40px;
+/* Section Header */
+#programs .section-title {
+    font-size: 3rem;
+    /* Slightly larger for emphasis */
+    font-weight: 800;
+    color: #0f172a;
+    /* Darker slate for sophistication */
+    text-align: center;
     margin-bottom: 20px;
+    letter-spacing: -0.03em;
+    position: relative;
 }
 
-#ab-cta p {
-    font-size: 22px;
+#programs .section-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--p-color2);
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 50px;
+    font-weight: 400;
+}
+
+/* Programs Grid */
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Slightly larger min-width for cards */
+    gap: 35px;
+    padding: 0 20px;
     margin-bottom: 30px;
 }
 
-#ab-cta .btn {
-    padding: 12px 30px;
-    font-size: 18px;
+/* Program Card */
+.program-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    /* Softer, modern corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    /* Softer, deeper shadow */
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+    /* For hover effect */
+}
+
+.program-card:hover {
+    transform: translateY(-12px);
+    /* Slightly refined lift */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color);
+    /* Green border on hover */
+}
+
+.program-image {
+    width: 100%;
+    height: 160px;
+    /* Slightly taller for better image presence */
+    object-fit: cover;
+    border-bottom: 4px solid var(--primary-color);
+    /* Thicker green accent */
+    transition: transform 0.4s ease;
+}
+
+.program-card:hover .program-image {
+    transform: scale(1.05);
+    /* Subtle zoom on image hover */
+}
+
+.program-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.program-title {
+    font-size: 1.4rem;
+    /* Slightly larger for impact */
+    font-weight: 700;
+    /* color: #0f172a; */
+    margin: 0 0 8px;
+    transition: color 0.3s ease;
+}
+
+.program-card:hover .program-title {
+    color: var(--primary-color);
+    /* Green title on hover for flair */
+}
+
+.program-description {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--p-color2);
+    margin: 0 0 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #programs {
+        padding: 60px 15px;
+        margin: 0 15px;
+    }
+
+    #programs .section-title {
+        font-size: 2.3rem;
+    }
+
+    #programs .decor {
+        font-size: 2.3rem;
+    }
+
+    #programs .section-subtitle {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+
+    .programs-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .program-image {
+        height: 150px;
+    }
+
+    .program-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+
+    .program-card,
+    .program-image,
+    .program-title,
+    .btn,
+    #programs .decor {
+        transition: none;
+    }
+}
+
+/* -----------------CTA----------------------- */
+#about-page #cta {
+    background: var(--background-gradient);
+
+}
+
+#cta h2 span {
+    color: var(--secondary-color);
+    display: inline-block;
+    transition: transform 0.3s ease;
 }
 
 /* Responsive Design */

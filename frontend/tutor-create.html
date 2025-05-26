@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutor - Create Course</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="tutor-dashboard.html">Dashboard</a>
+      <a href="tutor-courses.html">My Courses</a>
+      <a href="tutor-create.html">Create</a>
+      <a href="tutor-earnings.html">Earnings</a>
+      <a href="tutor-resources.html">Resources</a>
+      <a href="tutor-site-settings.html">Site Settings</a>
+      <a href="help-support.html">Help/Support</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="tutor-profile.html">Profile</a>
+          <a href="tutor-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Create New Course</h1>
+    <div class="create-course-form">
+      <form id="createCourseForm">
+        <label for="title">Course Title:</label>
+        <input type="text" id="title" required placeholder="Enter course title"><br><br>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" required placeholder="Describe your course"></textarea><br><br>
+        
+        <label for="objectives">Objectives:</label>
+        <textarea id="objectives" required placeholder="List course objectives"></textarea><br><br>
+        
+        <label for="category">Category:</label>
+        <select id="category" required>
+          <option value="">Select Category</option>
+          <option value="blockchain">Blockchain</option>
+          <option value="data-science">Data Science</option>
+          <option value="cybersecurity">Cybersecurity</option>
+        </select><br><br>
+        
+        <label for="price">Price ($):</label>
+        <input type="number" id="price" required placeholder="Enter price"><br><br>
+        
+        <label for="passcode">Course Passcode:</label>
+        <input type="text" id="passcode" placeholder="Optional passcode"><br><br>
+        
+        <label for="video">Upload Video Lesson:</label>
+        <input type="file" id="video" accept="video/*"><br><br>
+        
+        <label for="document">Upload Document/PDF:</label>
+        <input type="file" id="document" accept=".pdf"><br><br>
+        
+        <label for="live-class">Schedule Live Class:</label>
+        <input type="datetime-local" id="live-class"><br><br>
+        
+        <label for="quiz">Quiz/Assignment:</label>
+        <textarea id="quiz" placeholder="Enter quiz or assignment details"></textarea><br><br>
+        
+        <button type="button" onclick="previewCourse()">Preview</button>
+        <button type="submit" onclick="submitCourse()">Submit for Approval</button>
+      </form>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function previewCourse() {
+      alert('Previewing course...');
+      // Logic to display course preview
+    }
+    function submitCourse() {
+      const form = document.getElementById('createCourseForm');
+      if (form.checkValidity()) {
+        alert('Course submitted for approval');
+        // Logic to submit form data to server
+      } else {
+        alert('Please fill all required fields');
+      }
+    }
+  </script>
+</body>
+</html>

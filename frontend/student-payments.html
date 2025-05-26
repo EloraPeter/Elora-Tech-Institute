@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student - Payments</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="student-dashboard.html">Dashboard</a>
+      <a href="student-courses.html">My Courses</a>
+      <a href="explore.html">Explore</a>
+      <a href="student-certifications.html">Certifications</a>
+      <a href="student-progress-report.html">Progress Reports</a>
+      <a href="student-payments.html">Payments</a>
+      <a href="help-support.html">Support/Help</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="student-profile.html">Profile</a>
+          <a href="student-settings.html">Settings</a>
+          <a href="student-calendar.html">Calendar</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Payment History</h1>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Transaction ID</th>
+            <th>Course/Subscription</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TX12345</td>
+            <td>Blockchain Basics</td>
+            <td>$99.99</td>
+            <td>2025-05-10</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <td>TX12346</td>
+            <td>Monthly Subscription</td>
+            <td>$19.99</td>
+            <td>2025-05-15</td>
+            <td>Completed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Manage Payments</h2>
+    <div>
+      <button onclick="viewReceipt('TX12345')">View Receipt</button>
+      <button onclick="downloadReceipt('TX12345')">Download Receipt</button>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function viewReceipt(id) {
+      alert(`Viewing receipt for transaction ID: ${id}`);
+      // Logic to display receipt
+    }
+    function downloadReceipt(id) {
+      alert(`Downloading receipt for transaction ID: ${id}`);
+      // Logic to download receipt
+    }
+  </script>
+</body>
+</html>

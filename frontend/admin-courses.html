@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Courses</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-courses.html">Courses</a>
+      <a href="blog-management.html">Blog</a>
+      <a href="admin-users.html">Users</a>
+      <a href="admin-reports.html">Reports</a>
+      <a href="admin-certificates.html">Certificates</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-resources.html">Resources</a>
+      <a href="admin-support-tickets.html">Support Tickets</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="admin-profile.html">Profile</a>
+          <a href="admin-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Manage Courses</h1>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Course Title</th>
+            <th>Status</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Blockchain Basics</td>
+            <td>Pending Approval</td>
+            <td>Blockchain</td>
+            <td>
+              <button onclick="approveCourse('1')">Approve</button>
+              <button onclick="rejectCourse('1')">Reject</button>
+              <button onclick="viewCourse('1')">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Data Science 101</td>
+            <td>Draft</td>
+            <td>Data Science</td>
+            <td>
+              <button onclick="approveCourse('2')">Approve</button>
+              <button onclick="rejectCourse('2')">Reject</button>
+              <button onclick="viewCourse('2')">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Manage Categories</h2>
+    <div>
+      <input type="text" id="newCategory" placeholder="Add new category">
+      <button onclick="addCategory()">Add</button>
+    </div>
+    <h2>Monitor Live Classes</h2>
+    <div>
+      <p>Upcoming Session: Blockchain Basics - May 26, 2025, 10:00 AM</p>
+      <button onclick="joinSession('1')">Join to Supervise</button>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function approveCourse(id) {
+      alert(`Course ${id} approved`);
+    }
+    function rejectCourse(id) {
+      alert(`Course ${id} rejected`);
+    }
+    function viewCourse(id) {
+      alert(`Viewing course ${id}`);
+    }
+    function addCategory() {
+      const category = document.getElementById('newCategory').value;
+      if (category) {
+        alert(`Category ${category} added`);
+      }
+    }
+    function joinSession(id) {
+      alert(`Joining session ${id}`);
+    }
+  </script>
+</body>
+</html>

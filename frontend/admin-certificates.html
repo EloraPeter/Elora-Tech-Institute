@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Certificates</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-courses.html">Courses</a>
+      <a href="blog-management.html">Blog</a>
+      <a href="admin-users.html">Users</a>
+      <a href="admin-reports.html">Reports</a>
+      <a href="admin-certificates.html">Certificates</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-resources.html">Resources</a>
+      <a href="admin-support-tickets.html">Support Tickets</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="admin-profile.html">Profile</a>
+          <a href="admin-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Manage Certificates</h1>
+    <h2>Pending Certificate Approvals</h2>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Certificate</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>Blockchain Basics</td>
+            <td>Certificate in Blockchain</td>
+            <td>
+              <button onclick="approveCertificate('1')">Approve</button>
+              <button onclick="rejectCertificate('1')">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>Cybersecurity Fundamentals</td>
+            <td>Certificate in Cybersecurity</td>
+            <td>
+              <button onclick="approveCertificate('2')">Approve</button>
+              <button onclick="rejectCertificate('2')">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Customize Certificate Template</h2>
+    <div class="create-course-form">
+      <form id="certificateTemplateForm">
+        <label for="templateName">Template Name:</label>
+        <input type="text" id="templateName" required placeholder="Enter template name"><br><br>
+        <label for="templateContent">Template Content:</label>
+        <textarea id="templateContent" required placeholder="Enter certificate text (e.g., {StudentName}, {CourseName})"></textarea><br><br>
+        <button type="submit" onclick="saveTemplate()">Save Template</button>
+      </form>
+    </div>
+    <h2>Certificate Recipients</h2>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Certificate</th>
+            <th>Issue Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alice Johnson</td>
+            <td>Blockchain Basics</td>
+            <td>Certificate in Blockchain</td>
+            <td>2025-05-10</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function approveCertificate(id) {
+      alert(`Certificate ${id} approved`);
+      // Logic to approve certificate
+    }
+    function rejectCertificate(id) {
+      alert(`Certificate ${id} rejected`);
+      // Logic to reject certificate
+    }
+    function saveTemplate() {
+      const form = document.getElementById('certificateTemplateForm');
+      if (form.checkValidity()) {
+        alert('Certificate template saved');
+        // Logic to save template
+      } else {
+        alert('Please fill all required fields');
+      }
+    }
+  </script>
+</body>
+</html>

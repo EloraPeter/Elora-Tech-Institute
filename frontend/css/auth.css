@@ -12,6 +12,13 @@
     margin-bottom: 15px;
 }
 
+#auth-container label {
+    color: var(--text-color);
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+}
+
 #auth-container input,
 #auth-container select {
     width: 95%;
@@ -136,6 +143,32 @@
 
 .social-btn.github:hover {
    color: var(--primary-color);
+}
+
+#forgot-password-section {
+    position: relative;
+}
+
+.otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.otp-digit {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  outline: none;
+}
+
+.otp-digit:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 @media (max-width: 480px) {

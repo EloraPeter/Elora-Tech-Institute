@@ -1,549 +1,605 @@
-
 /*------------- Admissions Page---------------- */
 #admissions-page {
-    margin: 0 30px;
-    padding-top: 20px;
-  }
-  
-  #admissions-page .content-section {
-    padding: 50px 0;
-    animation: fadeInUp 1s ease-out;
-  }
-  
-  #admissions-page h2 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    animation: fadeInLeft 1s ease-out;
-  }
-  
-  #admissions-page h2 span {
-    color: var(--tertiary-color);
-    font-size: 25px;
-  }
-  
-  #admissions-page p {
-    font-size: 16px;
-    color: var(--p-color2);
-    line-height: 1.6;
-    animation: fadeInUp 1.2s ease-out;
-  }
-  
-  /* Hero Section */
-  #admissions-page #admissions-hero {
-    height: 60vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/admissions-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-  }
-  
-  #admissions-hero .hero-text {
-    color: #fff;
-    animation: fadeInDown 1s ease-out;
-  }
-  
-  #admissions-hero h1 {
-    font-size: 60px;
-    margin-bottom: 10px;
-  }
-  
-  #admissions-hero p {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  #admissions-hero .btn {
-    padding: 12px 30px;
-    font-size: 18px;
-  }
-  
-  /* Welcome Section */
+  margin: 0 30px;
+  padding-top: 20px;
+}
+
+#admissions-page .content-section {
+  padding: 50px 0;
+  animation: fadeInUp 1s ease-out;
+}
+
+#admissions-page h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  animation: fadeInLeft 1s ease-out;
+}
+
+#admissions-page p {
+  font-size: 16px;
+  color: var(--p-color2);
+  line-height: 1.6;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* Hero Section */
+#admissions-page #hero .hero-text h2 {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+#admissions-page #hero .hero-text p {
+  font-size: 20px;
+}
+
+/*-------------------------------------- Welcome Section ---------------------------------------------*/
+.info-container {
+  margin: 0;
+  padding: 80px 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--background-gradient);
+}
+
+/* Info Text */
+.info-text {
+  /* font-size: 1.15rem; */
+
+  color: var(--text-secondary);
+  padding: 20px;
+}
+
+.info-text p {
+  margin: 0;
+  /* max-width: 65%; */
+  font-size: 20px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* Info Image */
+.info-img img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: var(--shadow-light);
+  border: 3px solid var(--primary-color);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.info-img img:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  border-color: var(--tertiary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .info-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    margin: 30px 0;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 60px 15px;
   }
-  
+
   .info-text {
-    flex: 1;
-    text-align: left;
+    font-size: 1.1rem;
+    padding: 15px;
+    text-align: center;
+    /* Center text for mobile */
   }
-  
-  .info-img {
-    flex: 1;
-  }
-  
+
   .info-img img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    transition: transform 0.4s ease;
+    max-width: 100%;
   }
-  
-  .info-img img:hover {
-    transform: scale(1.05);
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .info-img img {
+    transition: none;
   }
-  
-  /* Who Can Apply */
-  .apply-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin: 30px 0;
+}
+
+/* Who Can Apply */
+.apply-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.apply-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-light);
+  text-align: center;
+  transition: transform 0.3s ease;
+  color: #333;
+}
+
+.apply-card:hover {
+  transform: translateY(-10px);
+}
+
+.apply-card i {
+  font-size: 40px;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.apply-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--p-color2);
+}
+
+.apply-card p {
+  font-size: 14px;
+  color: var(--p-color1);
+}
+
+/* Important Dates Section */
+.important-dates {
+  background: var(--background-gradient);
+}
+
+.dates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  margin: 40px 0;
+  padding: 0 20px;
+}
+
+.date-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px var(--shadow-light);
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.date-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-light);
+  border-color: var(--primary-color);
+}
+
+.date-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.date-card:hover h3 {
+  color: var(--primary-color);
+}
+
+.date-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--p-color2);
+  margin: 0 0 10px;
+}
+
+.date-card p strong {
+  font-weight: 600;
+  color: var(--p-color1);
+}
+
+/* ---------------tuition section---------------------------------------- */
+
+.tuition-container {
+  margin: 40px auto 60px;
+
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Balanced image and text */
+  gap: 40px;
+  align-items: center;
+}
+
+.tuition-container p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--p-color1);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Tuition Image */
+.tuition-container .img img {
+  width: 80%;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px var(--shadow-light);
+  border: 3px solid var(--primary-color);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.tuition-container .img img:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  border-color: var(--tertiary-color);
+}
+
+/* Tuition Text */
+.tui-text {
+  padding: 20px;
+}
+
+.tui-text p {
+  font-size: 1.9rem;
+  line-height: 1.7;
+  color: var(--p-color1);
+  margin: 0 0 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-section {
+    padding: 60px 15px;
   }
-  
-  .apply-card {
-    background: var(--tertiary-color);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    text-align: center;
-    transition: transform 0.3s ease;
-    color: #333;
+
+  .content-section h2 {
+    font-size: 2.3rem;
   }
-  
-  .apply-card:hover {
-    transform: translateY(-10px);
+
+  .content-section .decor {
+    font-size: 2.3rem;
   }
-  
-  .apply-card i {
-    font-size: 40px;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-  }
-  
-  .apply-card h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .apply-card p {
-    font-size: 14px;
-  }
-  
-  /* Important Dates */
+
   .dates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 25px;
     margin: 30px 0;
   }
-  
+
   .date-card {
-    background: var(--background-color);
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    text-align: center;
-    transition: transform 0.3s ease;
   }
-  
-  .date-card:hover {
-    transform: translateY(-10px);
-  }
-  
+
   .date-card h3 {
-    font-size: 18px;
-    color: var(--primary-color);
-    margin-bottom: 10px;
+    font-size: 1.4rem;
   }
-  
+
   .date-card p {
-    font-size: 16px;
+    font-size: 0.95rem;
   }
-  
-  /* Tuition Information */
+
   .tuition-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 15px;
+    margin: 30px auto;
+  }
+
+  .tui-text {
+    padding: 15px;
     text-align: center;
-    margin: 30px 0;
+    /* Center text for mobile */
   }
-  
-  .tuition-container .btn {
-    margin-top: 20px;
-    padding: 12px 30px;
+
+  .tui-text p {
+    font-size: 1.1rem;
+    max-width: 100%;
   }
-  
-  /* How to Apply */
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin: 30px 0;
+
+  .tuition-container .img img {
+    max-width: 100%;
   }
-  
-  .step-card {
-    background: var(--background-color);
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+
+  .date-card,
+  .tuition-container .btn,
+  .content-section .decor,
+  .date-card h3 {
+    transition: none;
+  }
+
+  .tuition-container .img img,
+  .tui-text .btn {
+    transition: none;
+  }
+}
+
+/* How to Apply */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.step-card {
+  background: var(--background-color);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-light);
+  text-align: center;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+}
+
+.step-card .step-number {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  font-size: 14px;
+}
+
+/*----------------------------------------- Admission Form Section---------------------- */
+.admission-form {
+  padding: 80px 20px;
+  /* margin: 0 auto; */
+  background: var(--background-gradient);
+}
+
+/* Section Heading */
+.admission-form h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: -0.025em;
+}
+
+.admission-form>p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--p-color2);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+/* Form Styling */
+.payment-form {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px var(--shadow-light);
+}
+
+/* Form Group and Input Wrapper */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  color: var(--p-color1);
+  background: var(--shadow-light);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-wrapper input::placeholder,
+.input-wrapper textarea::placeholder {
+  color: transparent; /* Hide default placeholders */
+}
+
+.input-wrapper textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus,
+.input-wrapper textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+}
+
+/* Floating Label */
+.input-wrapper label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--p-color1); /* Use --p-color1 for placeholder-like state */
+  /* background: rgba(255, 255, 255, 0.1); */
+  padding: 0 5px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus + label,
+.input-wrapper input:not(:placeholder-shown) + label,
+.input-wrapper select:focus + label,
+.input-wrapper select:not(:invalid) + label,
+.input-wrapper textarea:focus + label,
+.input-wrapper textarea:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 0.85rem;
+  color: var(--p-color2);
+  transform: translateY(-100%);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Select-specific adjustments */
+.input-wrapper select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2310b981' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admission-form {
+    padding: 60px 15px;
+  }
+
+  .admission-form h2 {
+    font-size: 2.3rem;
+  }
+
+  .admission-form .decor {
+    font-size: 2.3rem;
+  }
+
+  .admission-form > p {
+    font-size: 1.1rem;
+    padding: 0 15px;
+  }
+
+  .payment-form {
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    text-align: center;
-    transition: transform 0.3s ease;
-    position: relative;
   }
-  
-  .step-card:hover {
-    transform: translateY(-10px);
+
+  .input-wrapper input,
+  .input-wrapper select,
+  .input-wrapper textarea {
+    font-size: 0.95rem;
   }
-  
-  .step-card .step-number {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    background: var(--primary-color);
-    color: #fff;
-    border-radius: 50%;
-    font-size: 20px;
-    margin-bottom: 10px;
+
+  .input-wrapper label {
+    font-size: 0.95rem;
   }
-  
-  .step-card p {
-    font-size: 14px;
+
+  .input-wrapper input:focus + label,
+  .input-wrapper input:not(:placeholder-shown) + label,
+  .input-wrapper select:focus + label,
+  .input-wrapper select:not(:invalid) + label,
+  .input-wrapper textarea:focus + label,
+  .input-wrapper textarea:not(:placeholder-shown) + label {
+    font-size: 0.8rem;
   }
-  
-  /* Admission Form */
-  .admission-form .payment-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 40px;
-    background: var(--background-color);
-    border-radius: 15px;
-    box-shadow: 0 8px 32px var(--shadow-light);
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .input-wrapper input,
+  .input-wrapper select,
+  .input-wrapper textarea,
+  .input-wrapper label,
+  .payment-form .btn {
+    transition: none;
   }
-  
-  .admission-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    font-family: "poppins", sans-serif;
-    font-size: 16px;
-    color: var(--text-color);
-    background: var(--background-color);
-    border: 1px solid var(--tertiary-color);
-    border-radius: 8px;
-    outline: none;
-    resize: vertical;
-    min-height: 100px;
+}
+/* CTA */
+#admissions-page .cta {
+  padding: 100px 20px;
+  background: url("../images/cta-bg.jpg") no-repeat center/cover;
+  position: relative;
+  border-radius: 15px;
+  margin: 50px 0;
+  text-align: center;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+.cta h2,
+.cta p,
+.cta .btn {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.cta h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.cta .btn {
+  padding: 12px 30px;
+  font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #admissions-hero {
+    height: 50vh;
   }
-  
-  .admission-form textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
-  }
-  
-  /* CTA */
-  #admissions-page .cta {
-    padding: 100px 20px;
-    background: url('../images/cta-bg.jpg') no-repeat center/cover;
-    position: relative;
-    border-radius: 15px;
-    margin: 50px 0;
-    text-align: center;
-  }
-  
-  .cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px);
-    z-index: 1;
-  }
-  
-  .cta h2, .cta p, .cta .btn {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-  }
-  
-  .cta h2 {
+
+  #admissions-hero h1 {
     font-size: 40px;
-    margin-bottom: 20px;
   }
-  
-  .cta p {
-    font-size: 22px;
-    margin-bottom: 30px;
-  }
-  
-  .cta .btn {
-    padding: 12px 30px;
+
+  #admissions-hero p {
     font-size: 18px;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    #admissions-hero {
-      height: 50vh;
-    }
-    #admissions-hero h1 {
-      font-size: 40px;
-    }
-    #admissions-hero p {
-      font-size: 18px;
-    }
-    .info-container {
-      flex-direction: column;
-      gap: 20px;
-    }
-    .apply-grid, .dates-grid, .steps-grid {
-      grid-template-columns: 1fr;
-    }
-    .admission-form .payment-form {
-      padding: 20px;
-    }
-    .cta h2 {
-      font-size: 30px;
-    }
-    .cta p {
-      font-size: 18px;
-    }
-  }
-  
-  /* Contact Page */
-  #contact-page {
-    margin: 0 30px;
-    padding-top: 20px;
-  }
-  
-  #contact-page .content-section {
-    padding: 50px 0;
-    animation: fadeInUp 1s ease-out;
-  }
-  
-  #contact-page h2 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    animation: fadeInLeft 1s ease-out;
-  }
-  
-  #contact-page h2 span {
-    color: var(--tertiary-color);
-    font-size: 25px;
-  }
-  
-  #contact-page h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-  }
-  
-  #contact-page p {
-    font-size: 16px;
-    color: var(--p-color2);
-    line-height: 1.6;
-    animation: fadeInUp 1.2s ease-out;
-  }
-  
-  /* Hero Section */
-  #contact-page #contact-hero {
-    height: 60vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/contact-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-  }
-  
-  #contact-hero .hero-text {
-    color: #fff;
-    animation: fadeInDown 1s ease-out;
-  }
-  
-  #contact-hero h1 {
-    font-size: 60px;
-    margin-bottom: 10px;
-  }
-  
-  #contact-hero p {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  #contact-hero .btn {
-    padding: 12px 30px;
-    font-size: 18px;
-  }
-  
-  /* Contact Form & Info */
-  .contact-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    margin: 30px 0;
-  }
-  
-  .contact-form {
-    flex: 1;
-    background: var(--background-color);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px var(--shadow-light);
-  }
-  
-  .contact-form .payment-form {
-    display: flex;
+
+  .info-container {
     flex-direction: column;
     gap: 20px;
   }
-  
-  .contact-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    font-family: "poppins", sans-serif;
-    font-size: 16px;
-    color: var(--text-color);
-    background: var(--background-color);
-    border: 1px solid var(--tertiary-color);
-    border-radius: 8px;
-    outline: none;
-    resize: vertical;
-    min-height: 150px;
+
+  .apply-grid,
+  .dates-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .contact-form textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 5px rgba(65, 105, 225, 0.5);
-  }
-  
-  .contact-form .btn {
-    padding: 12px 30px;
-    font-size: 18px;
-    align-self: flex-start;
-  }
-  
-  .contact-info {
-    flex: 1;
-  }
-  
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .info-card {
-    background: var(--tertiary-color);
+
+  .admission-form .payment-form {
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    text-align: center;
-    transition: transform 0.3s ease;
-    color: #333;
   }
-  
-  .info-card:hover {
-    transform: translateY(-10px);
-  }
-  
-  .info-card i {
-    font-size: 30px;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-  }
-  
-  .info-card p {
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  .info-card a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-  
-  .info-card a:hover {
-    text-decoration: underline;
-  }
-  
-  /* CTA */
-  #contact-page .cta {
-    padding: 100px 20px;
-    background: url('../images/cta-bg.jpg') no-repeat center/cover;
-    position: relative;
-    border-radius: 15px;
-    margin: 50px 0;
-    text-align: center;
-  }
-  
-  .cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px);
-    z-index: 1;
-  }
-  
-  .cta h2, .cta p, .cta .btn {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-  }
-  
+
   .cta h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 30px;
   }
-  
+
   .cta p {
-    font-size: 22px;
-    margin-bottom: 30px;
-  }
-  
-  .cta .btn {
-    padding: 12px 30px;
     font-size: 18px;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    #contact-hero {
-      height: 50vh;
-    }
-    #contact-hero h1 {
-      font-size: 40px;
-    }
-    #contact-hero p {
-      font-size: 18px;
-    }
-    .contact-container {
-      flex-direction: column;
-      gap: 30px;
-    }
-    .contact-form {
-      padding: 20px;
-    }
-    .info-grid {
-      grid-template-columns: 1fr;
-    }
-    .cta h2 {
-      font-size: 30px;
-    }
-    .cta p {
-      font-size: 18px;
-    }
-  }
-  
+}
+

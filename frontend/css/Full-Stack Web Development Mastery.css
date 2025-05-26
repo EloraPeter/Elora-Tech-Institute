@@ -1,0 +1,321 @@
+/* Full-Stack Web Development Mastery Page */
+#full-stack-mastery .hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../images/webdev.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  color: #f8f8f8;
+  padding-top: 8%;
+  text-align: center;
+}
+
+.grid-lines.global {
+  display: flex;
+  mix-blend-mode: soft-light;
+}
+
+.grid-lines {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  box-sizing: border-box;
+  user-select: none;
+  pointer-events: none;
+  transition: all 0.8s ease-out;
+}
+
+.grid-lines.gray .line-25,
+.grid-lines.grey .line-50 {
+  border-color: var(--tertiary-color);
+}
+
+.line-25 {
+  width: 20vw;
+  border-right: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.line-25:last-child {
+  border-right: none;
+}
+
+.line-50 {
+  width: 60vw;
+  border-right: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+#full-stack-mastery .hero h1 {
+  padding: 2%;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 70px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#full-stack-mastery .hero h2 {
+  width: 80%;
+  padding-bottom: 10px;
+  margin: 0 auto;
+  font-size: 45px;
+}
+
+#full-stack-mastery .hero p {
+  width: 60%;
+  margin: 20px auto;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+#full-stack-mastery #content {
+  display: flex;
+  justify-content: space-between;
+}
+
+aside {
+  max-width: 360px;
+  margin: 0 0 30px;
+  padding: 10px 20px 25px;
+  background: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-light);
+  text-align: left;
+  position: sticky;
+  top: 20px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+aside .feedback h2 {
+  font-size: 16.5px;
+  font-weight: 1000;
+}
+
+aside .feedback .score {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+aside .feedback .top-rated {
+  display: inline-block;
+  background: var(--secondary-color);
+  color: var(--background-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+aside #course-over h2 {
+  font-size: 19px;
+  font-weight: 1000;
+  margin-bottom: 5px;
+  color: var(--p-color2);
+}
+
+aside #course-over p {
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: var(--p-color1);
+}
+
+aside #course-over .language-options {
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: var(--p-color2);
+}
+
+aside .instructors h2 {
+  font-size: 19px;
+  font-weight: 1000;
+  margin-bottom: 5px;
+  color: var(--p-color2);
+}
+
+.enrollment,
+.instructors {
+  font-size: 15px;
+  color: var(--p-color1);
+  margin: 5px 0;
+}
+
+aside .last-update {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.cost {
+  margin-top: 20px;
+}
+
+.pricing-info {
+  margin-bottom: 15px;
+}
+
+.current-cost {
+  font-family: "inter", sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.initial-cost {
+  font-family: "inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: line-through;
+  color: rgb(158, 0, 0);
+}
+
+.savings {
+  font-family: "inter", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #28a745;
+}
+
+.deal-timer {
+  font-size: 16px;
+  color: #dc3545;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.refund-policy {
+  font-size: 14px;
+  color: var(--tertiary-color);
+  margin: 10px 0 20px;
+}
+
+#coursedes {
+  text-align: left;
+  margin-left: 10%;
+}
+
+.course-features,
+.feedback,
+.learning-goals,
+.corporate-trust,
+.practice-tasks,
+.group-training,
+.course-outline {
+  margin: 40px 0;
+  animation: fadeInUp 1s ease-out;
+}
+
+#coursedes h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#coursedes h2::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background: var(--secondary-color);
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.course-features:hover h2::after,
+.learning-goals:hover h2::after,
+.corporate-trust:hover h2::after,
+.practice-tasks:hover h2::after,
+.group-training:hover h2::after,
+.course-outline:hover h2::after {
+  width: 100px;
+}
+
+#coursedes ul {
+  list-style: none;
+  padding: 0;
+}
+
+#coursedes ul li {
+  font-size: 16px;
+  padding: 10px 0;
+  position: relative;
+  padding-left: 25px;
+  color: var(--text-color);
+}
+
+#coursedes ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+#coursedes .practice-tasks p {
+  font-size: 16px;
+  color: var(--p-color2);
+  margin-bottom: 20px;
+}
+
+#coursedes .practice-tasks img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-light);
+  transition: transform 0.4s ease;
+}
+
+#coursedes body.dark .practice-tasks img {
+  box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+#coursedes .practice-tasks img:hover {
+  transform: scale(1.05);
+}
+
+#coursedes .group-training p {
+  font-size: 16px;
+  color: var(--p-color2);
+  margin-bottom: 20px;
+}
+
+#coursedes .course-outline p {
+  font-size: 16px;
+  color: var(--p-color2);
+}
+
+/* Full-Stack Mastery: Responsive Design */
+@media (max-width: 768px) {
+
+  aside,
+  #coursedes {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  ul li {
+    font-size: 14px;
+  }
+
+  .company-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .discount-code input {
+    width: 60%;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

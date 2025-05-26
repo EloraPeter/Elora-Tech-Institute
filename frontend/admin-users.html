@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Users</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-courses.html">Courses</a>
+      <a href="blog-management.html">Blog</a>
+      <a href="admin-users.html">Users</a>
+      <a href="admin-reports.html">Reports</a>
+      <a href="admin-certificates.html">Certificates</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-resources.html">Resources</a>
+      <a href="admin-support-tickets.html">Support Tickets</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="admin-profile.html">Profile</a>
+          <a href="admin-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Manage Users</h1>
+    <h2>Search Users</h2>
+    <div class="create-course-form">
+      <input type="text" id="searchUser" placeholder="Search by name or email">
+      <button onclick="searchUsers()">Search</button>
+    </div>
+    <h2>User List</h2>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>john.doe@example.com</td>
+            <td>Student</td>
+            <td>
+              <button onclick="viewUser('1')">View</button>
+              <button onclick="editUser('1')">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Alice Johnson</td>
+            <td>alice.j@example.com</td>
+            <td>Tutor (Pending Approval)</td>
+            <td>
+              <button onclick="approveTutor('2')">Approve</button>
+              <button onclick="rejectTutor('2')">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Manage Admin/Staff Roles</h2>
+    <div class="create-course-form">
+      <form id="roleForm">
+        <label for="userEmail">User Email:</label>
+        <input type="email" id="userEmail" required placeholder="Enter user email"><br><br>
+        <label for="role">Assign Role:</label>
+        <select id="role" required>
+          <option value="">Select Role</option>
+          <option value="admin">Admin</option>
+          <option value="staff">Staff</option>
+        </select><br><br>
+        <button type="submit" onclick="assignRole()">Assign Role</button>
+      </form>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function searchUsers() {
+      const query = document.getElementById('searchUser').value;
+      alert(`Searching for users with query: ${query}`);
+      // Logic to search users
+    }
+    function viewUser(id) {
+      alert(`Viewing user ID: ${id}`);
+      // Logic to view user details
+    }
+    function editUser(id) {
+      alert(`Editing user ID: ${id}`);
+      // Logic to edit user
+    }
+    function approveTutor(id) {
+      alert(`Tutor ID: ${id} approved`);
+      // Logic to approve tutor
+    }
+    function rejectTutor(id) {
+      alert(`Tutor ID: ${id} rejected`);
+      // Logic to reject tutor
+    }
+    function assignRole() {
+      const form = document.getElementById('roleForm');
+      if (form.checkValidity()) {
+        alert('Role assigned successfully');
+        // Logic to assign role
+      } else {
+        alert('Please fill all required fields');
+      }
+    }
+  </script>
+</body>
+</html>

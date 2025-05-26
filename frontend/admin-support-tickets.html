@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Support Tickets</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-courses.html">Courses</a>
+      <a href="blog-management.html">Blog</a>
+      <a href="admin-users.html">Users</a>
+      <a href="admin-reports.html">Reports</a>
+      <a href="admin-certificates.html">Certificates</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-resources.html">Resources</a>
+      <a href="admin-support-tickets.html">Support Tickets</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="admin-profile.html">Profile</a>
+          <a href="admin-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Support Tickets</h1>
+    <h2>Open Tickets</h2>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Ticket ID</th>
+            <th>User</th>
+            <th>Issue</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TICKET123</td>
+            <td>John Doe</td>
+            <td>Unable to access course</td>
+            <td>Open</td>
+            <td>
+              <button onclick="resolveTicket('TICKET123')">Resolve</button>
+              <button onclick="viewTicket('TICKET123')">View</button>
+            </td>
+          </tr>
+          <tr>
+            <td>TICKET124</td>
+            <td>Jane Smith</td>
+            <td>Payment issue</td>
+            <td>Open</td>
+            <td>
+              <button onclick="resolveTicket('TICKET124')">Resolve</button>
+              <button onclick="viewTicket('TICKET124')">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Resolved Tickets</h2>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Ticket ID</th>
+            <th>User</th>
+            <th>Issue</th>
+            <th>Resolution Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TICKET122</td>
+            <td>Alice Johnson</td>
+            <td>Login error</td>
+            <td>2025-05-20</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function resolveTicket(id) {
+      if (confirm(`Resolve ticket ${id}?`)) {
+        alert(`Ticket ${id} resolved`);
+        // Logic to update ticket status
+      }
+    }
+    function viewTicket(id) {
+      alert(`Viewing ticket ${id}`);
+      // Logic to display ticket details
+    }
+  </script>
+</body>
+</html>

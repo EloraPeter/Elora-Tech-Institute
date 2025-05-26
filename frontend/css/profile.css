@@ -57,8 +57,17 @@
 
 /* Dashboard Profile Picture */
 #dashboard-profile-picture {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 40px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.dashboard-profile-picture {
+    width: 80px;
+    /* height: 80px; */
     border-radius: 50%;
     margin-right: 10px;
     cursor: pointer;

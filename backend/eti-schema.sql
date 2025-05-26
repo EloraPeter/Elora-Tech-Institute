@@ -33,7 +33,27 @@ CREATE TABLE users (
     expertise VARCHAR(255)
 );
 
--- COURSES
+CREATE TABLE password_reset_tokens (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  token VARCHAR(255) NOT NULL UNIQUE,
+  expires_at TIMESTAMP NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE password_reset_tokens
+ADD COLUMN otp VARCHAR(6),
+ALTER COLUMN expires_at SET DEFAULT NOW() + INTERVAL '30 minutes';
+
+ALTER TABLE password_reset_tokens
+ADD COLUMN IF NOT EXISTS email VARCHAR(255),
+ALTER COLUMN expires_at SET DEFAULT NOW() + INTERVAL '30 minutes';
+
+ALTER TABLE password_reset_tokens ADD COLUMN verified BOOLEAN DEFAULT FALSE;
+
+SELECT * FROM password_reset_tokens WHERE token = 'ac97f9e65493d390db9c843de280f8743a0fac0df0adb8b19fd6a225e278d2e8';
+
+SELECT * FROM password_reset_tokens WHERE token = '59f37a4d4974509ddc94ec86242dc9e1052fab6be629374c612c8d31ef858293' AND verified = TRUE AND expires_at > NOW();-- COURSES
 CREATE TABLE courses (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     title VARCHAR(255) NOT NULL,

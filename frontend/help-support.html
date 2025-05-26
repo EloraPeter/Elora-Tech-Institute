@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & Support</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="student-dashboard.html">Dashboard</a>
+      <a href="student-courses.html">My Courses</a>
+      <a href="explore.html">Explore</a>
+      <a href="student-certifications.html">Certifications</a>
+      <a href="student-progress-report.html">Progress Reports</a>
+      <a href="student-payments.html">Payments</a>
+      <a href="help-support.html">Support/Help</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="student-profile.html">Profile</a>
+          <a href="student-settings.html">Settings</a>
+          <a href="student-calendar.html">Calendar</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Help & Support</h1>
+    <h2>Frequently Asked Questions</h2>
+    <div class="course-list">
+      <div class="course-item">
+        <h3>How do I enroll in a course?</h3>
+        <p>Navigate to the Explore page, select a course, and click "Enroll Now."</p>
+      </div>
+      <div class="course-item">
+        <h3>How can I contact support?</h3>
+        <p>Use the contact form below or email support@eduplatform.com.</p>
+      </div>
+    </div>
+    <h2>Contact Support</h2>
+    <div class="create-course-form">
+      <form id="contactForm">
+        <label for="contactSubject">Subject:</label>
+        <input type="text" id="contactSubject" required placeholder="Enter subject"><br><br>
+        <label for="contactMessage">Message:</label>
+        <textarea id="contactMessage" required placeholder="Describe your issue"></textarea><br><br>
+        <button type="submit" onclick="submitContactForm()">Submit</button>
+      </form>
+    </div>
+    <h2>Documentation</h2>
+    <div class="course-list">
+      <div class="course-item">
+        <h3>Getting Started Guide</h3>
+        <button onclick="downloadDoc('1')">Download</button>
+      </div>
+      <div class="course-item">
+        <h3>Tutor Guide</h3>
+        <button onclick="downloadDoc('2')">Download</button>
+      </div>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function submitContactForm() {
+      const form = document.getElementById('contactForm');
+      if (form.checkValidity()) {
+        alert('Support request submitted');
+        // Logic to submit form
+      } else {
+        alert('Please fill all required fields');
+      }
+    }
+    function downloadDoc(id) {
+      alert(`Downloading documentation ID: ${id}`);
+      // Logic to download documentation
+    }
+  </script>
+</body>
+</html>

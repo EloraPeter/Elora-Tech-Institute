@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutor - Site Settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="tutor-dashboard.html">Dashboard</a>
+      <a href="tutor-courses.html">My Courses</a>
+      <a href="tutor-create.html">Create</a>
+      <a href="tutor-earnings.html">Earnings</a>
+      <a href="tutor-resources.html">Resources</a>
+      <a href="tutor-site-settings.html">Site Settings</a>
+      <a href="help-support.html">Help/Support</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="tutor-profile.html">Profile</a>
+          <a href="tutor-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Site Settings</h1>
+    <h2>Theme Selection</h2>
+    <div class="create-course-form">
+      <label for="theme">Select Theme:</label>
+      <select id="theme">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+      </select>
+      <button onclick="applyTheme()">Apply Theme</button>
+    </div>
+    <h2>Active Devices/Sessions</h2>
+    <div class="course-list">
+      <div class="course-item">
+        <p>Device: Laptop (Chrome)</p>
+        <p>Last Active: 2025-05-24, 10:00 AM</p>
+        <button onclick="logoutSession('1')">Logout Session</button>
+      </div>
+      <div class="course-item">
+        <p>Device: Mobile (Safari)</p>
+        <p>Last Active: 2025-05-23, 3:00 PM</p>
+        <button onclick="logoutSession('2')">Logout Session</button>
+      </div>
+    </div>
+    <h2>Two-Factor Authentication (2FA)</h2>
+    <div class="create-course-form">
+      <label for="twoFA">Enable 2FA:</label>
+      <input type="checkbox" id="twoFA">
+      <button onclick="configure2FA()">Configure 2FA</button>
+    </div>
+    <h2>Danger Zone</h2>
+    <div>
+      <button onclick="logoutAllSessions()">Logout All Sessions</button>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function applyTheme() {
+      const theme = document.getElementById('theme').value;
+      alert(`Applying ${theme} theme`);
+      // Logic to apply theme (e.g., update CSS variables)
+    }
+    function logoutSession(id) {
+      if (confirm(`Logout session ID: ${id}?`)) {
+        alert(`Session ${id} logged out`);
+        // Logic to terminate session
+      }
+    }
+    function configure2FA() {
+      const twoFA = document.getElementById('twoFA').checked;
+      alert(`2FA ${twoFA ? 'enabled' : 'disabled'}`);
+      // Logic to configure 2FA
+    }
+    function logoutAllSessions() {
+      if (confirm('Logout all sessions?')) {
+        alert('All sessions logged out');
+        // Logic to logout all sessions
+      }
+    }
+  </script>
+</body>
+</html>

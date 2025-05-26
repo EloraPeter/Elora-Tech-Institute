@@ -3,44 +3,935 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="test.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dynamic Navbar - Elora Tech Institute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #ff6f61;
+            --tertiary-color: #ddd;
+            --text-color: #333;
+            --background-color: #fff;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark {
+            --primary-color: #66b0ff;
+            --secondary-color: #ff8f81;
+            --tertiary-color: #555;
+            --text-color: #e0e0e0;
+            --background-color: #1a1a1a;
+            --shadow-light: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Your provided CSS */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-shadow: 2px 5px 15px var(--shadow-light);
+            position: sticky;
+            top: 0;
+            background: var(--background-color);
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        nav.hidden {
+            transform: translateY(-100%);
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+            padding: 10px;
+        }
+
+        #nav-link li a:focus,
+        .dropdown li a:focus,
+        .menu-toggle:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        #logo {
+            height: 70px;
+            width: 70px;
+            transition: transform 0.3s ease;
+        }
+
+        #logo img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        #logo:hover {
+            transform: scale(1.1);
+        }
+
+        #nav-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #nav-link li {
+            list-style-type: none;
+            padding: 0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        #nav-link li.nb {
+            margin: 20px;
+        }
+
+        #nav-link li a {
+            text-decoration: none;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        #nav-link li a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--secondary-color);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        #nav-link li:hover a::after {
+            width: 100%;
+        }
+
+        .dropdown-parent.main {
+            position: relative;
+        }
+
+        .dropdown li a::after {
+            display: none;
+        }
+
+        .dropdown1 {
+            position: absolute;
+            border-radius: 5px;
+            border: 1px solid var(--tertiary-color);
+            padding: 8px 0;
+            display: none;
+            z-index: 1000;
+            min-width: 300px;
+            height: 500px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            margin: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        #nav-link li:hover .dropdown1,
+        #nav-link li.active .dropdown1 {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ul.dropdown {
+            padding-inline-start: 0;
+        }
+
+        #nav-link ul.dropdown li {
+            font-size: 15px;
+            font-weight: 600;
+            padding: 10px 20px;
+        }
+
+        .dropdown ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown li {
+            padding: 15px 0;
+            font-size: 17px;
+            font-weight: 300;
+            margin: 5px 0;
+            text-align: left;
+            transition: background 0.3s ease, padding-left 0.2s ease;
+        }
+
+        .dropdown li:hover {
+            background: var(--tertiary-color);
+        }
+
+        .dropdown li:hover::before {
+            opacity: 0;
+            display: none;
+        }
+
+        .dropdown li::before {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            opacity: 0;
+            transform: translateY(-50%);
+            transition: opacity 0.2s ease;
+            display: none;
+        }
+
+        .dropdown li a {
+            text-decoration: none;
+            color: var(--text-color);
+            display: block;
+            width: 100%;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown li:hover a {
+            color: var(--primary-color);
+        }
+
+        .dropdown2 {
+            position: absolute;
+            left: 98%;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            border: 1px solid var(--tertiary-color);
+            padding: 8px 0;
+            display: none;
+            min-width: 280px;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            backdrop-filter: blur(15px);
+            min-height: 500px;
+        }
+
+        .dropdown li:hover .dropdown2,
+        .dropdown li.active .dropdown2 {
+            display: block;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .dropdown1,
+        .dropdown2 {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .enroll-btn {
+            margin: 0 20px;
+            display: none;
+        }
+
+        .enroll-btn .btn {
+            display: inline-block;
+            margin: 0;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        nav .btn {
+            margin: 10px 20px 10px 10px;
+        }
+
+        #toggle {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+        }
+
+        #toggle i {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        #toggle i:hover {
+            color: var(--secondary-color);
+            transform: rotate(-80deg);
+        }
+
+        .dropdown-back {
+            display: block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: var(--text-color);
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .dropdown-back:hover {
+            background: var(--tertiary-color);
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                margin-right: 25px;
+                position: absolute;
+                right: 10px;
+                top: 20px;
+                z-index: 1001;
+            }
+
+            #nav-link {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background-color);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 2px 5px 15px var(--shadow-light);
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            #nav-link.active {
+                display: flex;
+            }
+
+            #nav-link li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: left;
+                padding: 0 20px;
+            }
+
+            .dropdown-parent>a {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .dropdown-parent>a i.fa-chevron-down {
+                font-size: 16px;
+                margin-left: 10px;
+                transition: transform 0.3s ease;
+            }
+
+            .dropdown-parent.active>a i.fa-chevron-down {
+                transform: rotate(180deg);
+            }
+
+            .dropdown1,
+            .dropdown2 {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background: rgba(0, 0, 0, 0.05);
+                padding: 0;
+            }
+
+            .dropdown-parent.active .dropdown1,
+            .dropdown-parent.active .dropdown2 {
+                max-height: 1000px;
+                padding: 10px 20px;
+            }
+
+            .dropdown li {
+                padding: 10px 15px;
+                font-size: 16px;
+            }
+
+            .enroll-btn {
+                margin: 20px 0;
+                padding: 0 20px;
+                display: block;
+                text-align: center;
+            }
+
+            .enroll-btn .btn {
+                display: block;
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .btn.big {
+                margin: 20px auto;
+                display: none;
+            }
+
+            #toggle {
+                top: 43px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #nav-link li {
+                font-size: 16px;
+                padding: 8px 15px;
+            }
+
+            .dropdown li {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+
+            #logo {
+                height: 50px;
+                width: 50px;
+            }
+
+            .menu-toggle {
+                font-size: 20px;
+                padding: 8px;
+            }
+
+            .enroll-btn .btn {
+                font-size: 16px;
+                padding: 8px 20px;
+            }
+
+            .dropdown-parent>a i.fa-chevron-down {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
-
-
-
-
 <body>
-    <div class="progress-tracker">
-        <div class="step active" data-step="1">Step 1: Enter Details</div>
-        <div class="step" data-step="2">Step 2: Payment</div>
-        <div class="step" data-step="3">Step 3: Confirmation</div>
-    </div>
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <h1 id="logo">
+            <img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo">
+        </h1>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul id="nav-link" role="menu">
+            <!-- Navbar links will be injected here -->
+        </ul>
+        <a href="../frontend/login-signup.html" target="_blank" class="btn big">Enroll Now</a>
+        <div id="toggle"><i class="fa-solid fa-moon"></i></div>
+    </nav>
 
-    <section class="payment-form">
-        <h1>Enter Your Details</h1>
-        <form id="paymentDetailsForm">
-            <div>
-                <label for="userName">Full Name:</label>
-                <input type="text" id="userName" required placeholder="e.g., John Doe" />
-            </div>
-            <div>
-                <label for="userEmail">Email:</label>
-                <input type="email" id="userEmail" required placeholder="e.g., john@example.com" />
-            </div>
-            <a href="#" class="btn" onclick="initiatePayment()">Proceed to Payment</a>
-        </form>
-    </section>
-    
-    <div id="paymentError" class="hidden">
-        <p>Payment failed. Please try again.</p>
-        <button id="retryPayment" class="btn">Retry</button>
-    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const navbar = document.getElementById("navbar");
+            const navLink = document.querySelector("#nav-link");
+            const toggleButton = document.querySelector(".menu-toggle");
+
+            // Debugging: Verify core elements
+            if (!navbar) console.error("Navbar not found");
+            if (!navLink) console.error("Nav-link not found");
+            if (!toggleButton) console.error("Menu toggle button not found");
+
+            let inactivityTimeout;
+            let isInteracting = false;
+            let isAnimating = false;
+
+            // Navbar configurations
+            const navConfigs = {
+                guest: [
+                    { text: 'Home', href: 'index.html', role: 'menuitem' },
+                    { text: 'About', href: 'about.html', role: 'menuitem' },
+                    {
+                        text: 'Courses',
+                        href: 'courses.html',
+                        role: 'menuitem',
+                        ariaHaspopup: true,
+                        ariaExpanded: false,
+                        class: 'dropdown-parent main nb',
+                        submenu: [
+                            {
+                                text: 'Web Development',
+                                href: 'web-development.html',
+                                role: 'menuitem',
+                                ariaHaspopup: true,
+                                ariaExpanded: false,
+                                class: 'dropdown-parent',
+                                submenu: [
+                                    { text: 'HTML', href: 'web-development-html.html' },
+                                    { text: 'CSS', href: 'web-development-css.html' },
+                                    { text: 'JavaScript', href: 'web-development-javascript.html' },
+                                    { text: 'PHP & Laravel', href: 'web-development-php.html' },
+                                    { text: 'WordPress', href: 'web-development-wordpress.html' },
+                                    { text: 'Frontend Development', href: 'web-development-frontend.html' },
+                                    { text: 'Backend Development', href: 'web-development-backend.html' },
+                                    { text: 'Full-Stack Development', href: 'web-development-fullstack.html' }
+                                ]
+                            },
+                            {
+                                text: 'Mobile App Development',
+                                href: 'mobile-apps.html',
+                                role: 'menuitem',
+                                ariaHaspopup: true,
+                                ariaExpanded: false,
+                                class: 'dropdown-parent',
+                                submenu: [
+                                    { text: 'React Native', href: 'mobile-react-native.html' },
+                                    { text: 'Flutter', href: 'mobile-flutter.html' },
+                                    { text: 'Android Development (Kotlin)', href: 'mobile-android.html' },
+                                    { text: 'iOS Development (Swift)', href: 'mobile-ios.html' }
+                                ]
+                            },
+                            {
+                                text: 'Data Science & Machine Learning',
+                                href: 'data-science.html',
+                                role: 'menuitem',
+                                ariaHaspopup: true,
+                                ariaExpanded: false,
+                                class: 'dropdown-parent',
+                                submenu: [
+                                    { text: 'Python for Data Science', href: 'data-python.html' },
+                                    { text: 'Machine Learning', href: 'data-machine-learning.html' },
+                                    { text: 'Deep Learning & AI', href: 'data-deep-learning.html' },
+                                    { text: 'Big Data Analytics', href: 'data-big-data.html' }
+                                ]
+                            },
+                            // Add other course submenus as needed
+                        ]
+                    },
+                    { text: 'Admissions', href: 'admissions.html', role: 'menuitem' },
+                    { text: 'Contact', href: 'contact.html', role: 'menuitem' },
+                    { text: 'Enroll Now', href: 'login-signup.html', role: 'menuitem', class: 'enroll-btn', isButton: true }
+                ],
+                student: [
+                    { text: 'Dashboard', href: 'student-dashboard.html', role: 'menuitem' },
+                    { text: 'My Courses', href: 'student-courses.html', role: 'menuitem' },
+                    { text: 'Profile', href: 'student-profile.html', role: 'menuitem' },
+                    { text: 'Logout', href: '#', role: 'menuitem', class: 'enroll-btn', isButton: true, onclick: 'logout()' }
+                ],
+                instructor: [
+                    { text: 'Dashboard', href: 'instructor-dashboard.html', role: 'menuitem' },
+                    { text: 'Manage Courses', href: 'instructor-courses.html', role: 'menuitem' },
+                    { text: 'Profile', href: 'instructor-profile.html', role: 'menuitem' },
+                    { text: 'Logout', href: '#', role: 'menuitem', class: 'enroll-btn', isButton: true, onclick: 'logout()' }
+                ],
+                admin: [
+                    { text: 'Dashboard', href: 'admin-dashboard.html', role: 'menuitem' },
+                    { text: 'Manage Users', href: 'admin-users.html', role: 'menuitem' },
+                    { text: 'Manage Courses', href: 'admin-courses.html', role: 'menuitem' },
+                    { text: 'Profile', href: 'admin-profile.html', role: 'menuitem' },
+                    { text: 'Logout', href: '#', role: 'menuitem', class: 'enroll-btn', isButton: true, onclick: 'logout()' }
+                ]
+            };
+
+            // Create a menu item
+            function createMenuItem(item) {
+                const li = document.createElement('li');
+                li.setAttribute('role', item.role);
+                if (item.class) li.className = item.class;
+                const a = document.createElement('a');
+                a.href = item.href;
+                a.textContent = item.text;
+                if (item.isButton) a.className = 'btn';
+                if (item.onclick) a.setAttribute('onclick', item.onclick);
+                li.appendChild(a);
+
+                if (item.submenu) {
+                    li.setAttribute('aria-haspopup', 'true');
+                    li.setAttribute('aria-expanded', 'false');
+                    li.classList.add('dropdown-parent');
+                    const i = document.createElement('i');
+                    i.className = 'fa-solid fa-chevron-down';
+                    a.appendChild(i);
+                    const div = document.createElement('div');
+                    div.className = item.class.includes('main') ? 'dropdown1' : 'dropdown2';
+                    const ul = document.createElement('ul');
+                    ul.className = item.class.includes('main') ? 'dropdown' : 'dropdown-sub';
+                    ul.setAttribute('role', 'menu');
+                    item.submenu.forEach(subItem => ul.appendChild(createMenuItem(subItem)));
+                    div.appendChild(ul);
+                    li.appendChild(div);
+                }
+
+                return li;
+            }
+
+            // Decode JWT
+            function parseJWT(token) {
+                try {
+                    const base64Url = token.split('.')[1];
+                    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                    const jsonPayload = decodeURIComponent(
+                        atob(base64)
+                            .split('')
+                            .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+                            .join('')
+                    );
+                    return JSON.parse(jsonPayload);
+                } catch (e) {
+                    console.error('Error parsing JWT:', e);
+                    return null;
+                }
+            }
+
+            // Get user role
+            async function getUserRole() {
+                const token = localStorage.getItem('token');
+                if (!token) return 'guest';
+
+                const decoded = parseJWT(token);
+                if (!decoded || !decoded.role || !['student', 'instructor', 'admin'].includes(decoded.role)) {
+                    localStorage.removeItem('token');
+                    return 'guest';
+                }
+
+                try {
+                    const response = await fetch(`http://localhost:3000/api/users/${decoded.id}`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    if (response.ok) {
+                        const user = await response.json();
+                        return user.role;
+                    } else {
+                        localStorage.removeItem('token');
+                        return 'guest';
+                    }
+                } catch (err) {
+                    console.error('Error verifying token:', err);
+                    localStorage.removeItem('token');
+                    return 'guest';
+                }
+            }
+
+            // Logout function
+            async function logout() {
+                const token = localStorage.getItem('token');
+                localStorage.removeItem('token');
+                localStorage.removeItem('refreshToken');
+                try {
+                    await fetch('http://localhost:3000/api/logout', {
+                        method: 'POST',
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                } catch (err) {
+                    console.error('Logout error:', err);
+                }
+                renderNavbar();
+                window.location.href = 'login-signup.html';
+            }
+
+            // Render navbar
+            async function renderNavbar() {
+                const role = await getUserRole();
+                navLink.innerHTML = '';
+                const config = navConfigs[role] || navConfigs.guest;
+                config.forEach(item => navLink.appendChild(createMenuItem(item)));
+
+                // Show/hide Enroll Now button
+                document.querySelector('.btn.big').style.display = role === 'guest' ? 'inline-block' : 'none';
+
+                // Add dropdown event listeners
+                document.querySelectorAll(".dropdown-parent.main").forEach((parent) => {
+                    const link = parent.querySelector("a");
+                    if (link) {
+                        link.addEventListener("click", (e) => {
+                            if (window.innerWidth <= 768) {
+                                e.preventDefault();
+                                console.log("Main dropdown clicked:", link.textContent);
+                                navLink.classList.add("slide-left");
+                                const dropdown1 = parent.querySelector(".dropdown1");
+                                if (dropdown1) {
+                                    dropdown1.classList.add("active");
+                                    parent.classList.add("active");
+                                    parent.setAttribute("aria-expanded", "true");
+                                    dropdown1.offsetHeight;
+                                    addBackButton(dropdown1, () => {
+                                        navLink.classList.remove("slide-left");
+                                        dropdown1.classList.remove("active");
+                                        parent.classList.remove("active");
+                                        parent.setAttribute("aria-expanded", "false");
+                                        console.log("Back to main menu");
+                                    });
+                                }
+                            }
+                        });
+                    }
+                });
+
+                document.querySelectorAll(".dropdown1 .dropdown-parent").forEach((subParent) => {
+                    const link = subParent.querySelector("a");
+                    if (link) {
+                        link.addEventListener("click", (e) => {
+                            if (window.innerWidth <= 768) {
+                                if (link.querySelector("i.fa-chevron-down")) {
+                                    e.preventDefault();
+                                    console.log("Sub-dropdown clicked:", link.textContent);
+                                    const dropdown1 = subParent.closest(".dropdown1");
+                                    const dropdown2 = subParent.querySelector(".dropdown2");
+                                    if (dropdown1 && dropdown2) {
+                                        dropdown1.classList.remove("active");
+                                        dropdown2.classList.add("active");
+                                        subParent.classList.add("active");
+                                        subParent.setAttribute("aria-expanded", "true");
+                                        dropdown2.offsetHeight;
+                                        addBackButton(dropdown2, () => {
+                                            dropdown1.classList.add("active");
+                                            dropdown2.classList.remove("active");
+                                            subParent.classList.remove("active");
+                                            subParent.setAttribute("aria-expanded", "false");
+                                            console.log("Back to dropdown1");
+                                        });
+                                    }
+                                }
+                            }
+                        });
+                    }
+                });
+
+                document.querySelectorAll("#nav-link > li:not(.dropdown-parent) a, .dropdown-sub li a").forEach((link) => {
+                    link.addEventListener("click", () => {
+                        if (window.innerWidth <= 768) {
+                            console.log("Non-dropdown link clicked:", link.textContent);
+                            navLink.classList.remove("active");
+                            navLink.classList.remove("slide-left");
+                            document.querySelectorAll(".dropdown-parent").forEach((parent) => {
+                                parent.classList.remove("active");
+                                parent.setAttribute("aria-expanded", "false");
+                            });
+                            document.querySelectorAll(".dropdown1, .dropdown2").forEach((dropdown) => {
+                                dropdown.classList.remove("active");
+                            });
+                            toggleButton.setAttribute("aria-expanded", "false");
+                            toggleButton.querySelector("i").classList.add("fa-bars");
+                            toggleButton.querySelector("i").classList.remove("fa-times");
+                        }
+                    });
+                });
+            }
+
+            // Throttle function
+            function throttle(func, wait) {
+                let lastCall = 0;
+                return function (...args) {
+                    const now = Date.now();
+                    if (now - lastCall >= wait) {
+                        lastCall = now;
+                        func.apply(this, args);
+                    }
+                };
+            }
+
+            // Hide navbar
+            const hideNavbar = () => {
+                if (window.scrollY > 0 && !isInteracting && !isAnimating) {
+                    isAnimating = true;
+                    navbar.classList.add("hidden");
+                    console.log("Navbar hidden");
+                    setTimeout(() => {
+                        isAnimating = false;
+                    }, 500);
+                }
+            };
+
+            // Show navbar
+            const showNavbar = () => {
+                if (!navbar.classList.contains("hidden")) return;
+                isAnimating = true;
+                navbar.classList.remove("hidden");
+                updateNavbarTransparency();
+                console.log("Navbar shown");
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 500);
+            };
+
+            // Update navbar transparency
+            const updateNavbarTransparency = () => {
+                if (window.scrollY === 0) {
+                    navbar.classList.remove("scrolled");
+                } else {
+                    navbar.classList.add("scrolled");
+                }
+            };
+
+            // Event handlers
+            const handleScroll = throttle(() => {
+                showNavbar();
+                clearTimeout(inactivityTimeout);
+                inactivityTimeout = setTimeout(hideNavbar, 2000);
+            }, 200);
+
+            const handleInteraction = throttle(() => {
+                showNavbar();
+                clearTimeout(inactivityTimeout);
+                inactivityTimeout = setTimeout(hideNavbar, 4000);
+            }, 200);
+
+            window.addEventListener("scroll", handleScroll);
+            document.addEventListener("mousemove", handleInteraction);
+            document.addEventListener("keydown", handleInteraction);
+
+            navbar.addEventListener("mouseenter", () => {
+                isInteracting = true;
+                showNavbar();
+                clearTimeout(inactivityTimeout);
+            });
+
+            navbar.addEventListener("mouseleave", () => {
+                isInteracting = false;
+                inactivityTimeout = setTimeout(hideNavbar, 4000);
+            });
+
+            navbar.addEventListener("touchstart", () => {
+                isInteracting = true;
+                showNavbar();
+                clearTimeout(inactivityTimeout);
+            });
+
+            document.addEventListener("touchend", () => {
+                isInteracting = false;
+                inactivityTimeout = setTimeout(hideNavbar, 4000);
+            });
+
+            // Disable auto-hide on mobile
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                showNavbar();
+                clearTimeout(inactivityTimeout);
+                window.removeEventListener("scroll", handleScroll);
+                console.log("Mobile device detected: Navbar always visible");
+            }
+
+            // Menu toggle
+            if (toggleButton && navLink) {
+                toggleButton.addEventListener("click", () => {
+                    navLink.classList.toggle("active");
+                    const isExpanded = navLink.classList.contains("active");
+                    toggleButton.setAttribute("aria-expanded", isExpanded);
+                    toggleButton.querySelector("i").classList.toggle("fa-bars");
+                    toggleButton.querySelector("i").classList.toggle("fa-times");
+                    if (!isExpanded) {
+                        navLink.classList.remove("slide-left");
+                        document.querySelectorAll(".dropdown-parent").forEach((parent) => {
+                            parent.classList.remove("active");
+                            parent.setAttribute("aria-expanded", "false");
+                        });
+                        document.querySelectorAll(".dropdown1, .dropdown2").forEach((dropdown) => {
+                            dropdown.classList.remove("active");
+                        });
+                    }
+                    console.log("Menu toggled:", isExpanded ? "Open" : "Closed");
+                });
+            }
+
+            // Add back button
+            function addBackButton(dropdown, onClick) {
+                if (!dropdown || window.innerWidth > 768) return;
+                const existingBack = dropdown.querySelector(".dropdown-back");
+                if (existingBack) existingBack.remove();
+                const backButton = document.createElement("a");
+                backButton.href = "#";
+                backButton.className = "dropdown-back";
+                backButton.innerHTML = '<i class="fa-solid fa-arrow-left"></i> Back';
+                backButton.setAttribute("aria-label", "Back to previous menu");
+                backButton.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    console.log("Back button clicked");
+                    onClick();
+                });
+                dropdown.insertBefore(backButton, dropdown.firstChild);
+                console.log("Back button added to", dropdown);
+            }
+
+            // Dark mode toggle
+            const toggleDark = document.querySelector("#toggle");
+            if (toggleDark) {
+                function updateDarkMode(isDark) {
+                    document.body.classList.toggle("dark", isDark);
+                    toggleDark.innerHTML = isDark
+                        ? '<i class="fa-solid fa-sun"></i>'
+                        : '<i class="fa-solid fa-moon"></i>';
+                    localStorage.setItem("darkMode", isDark);
+                }
+                const savedMode = localStorage.getItem("darkMode");
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                updateDarkMode(savedMode === "true" || (savedMode === null && prefersDark));
+                toggleDark.addEventListener("click", () =>
+                    updateDarkMode(!document.body.classList.contains("dark"))
+                );
+            }
+
+            // Handle auth callback
+            window.addEventListener("load", () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const token = urlParams.get('token');
+                const refreshToken = urlParams.get('refreshToken');
+                if (token && refreshToken) {
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('refreshToken', refreshToken);
+                    renderNavbar();
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                } else {
+                    renderNavbar();
+                }
+            });
+
+            // Initial setup
+            updateNavbarTransparency();
+        });
+    </script>
 </body>
 </html>
-
-
-the daily structure is 2hrs 30mins and the discount is for people who pay before the start of the class

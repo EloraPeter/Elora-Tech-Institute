@@ -403,3 +403,106 @@
     </script>
 </body>
 </html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Blog Management</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-courses.html">Courses</a>
+      <a href="blog-management.html">Blog</a>
+      <a href="admin-users.html">Users</a>
+      <a href="admin-reports.html">Reports</a>
+      <a href="admin-certificates.html">Certificates</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-resources.html">Resources</a>
+      <a href="admin-support-tickets.html">Support Tickets</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="admin-profile.html">Profile</a>
+          <a href="admin-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Blog Management</h1>
+    <h2>Create New Blog Post</h2>
+    <div class="create-course-form">
+      <form id="blogPostForm">
+        <label for="blogTitle">Title:</label>
+        <input type="text" id="blogTitle" required placeholder="Enter blog title"><br><br>
+        <label for="blogContent">Content:</label>
+        <textarea id="blogContent" required placeholder="Write your blog post"></textarea><br><br>
+        <label for="blogImage">Upload Image:</label>
+        <input type="file" id="blogImage" accept="image/*"><br><br>
+        <button type="button" onclick="previewBlog()">Preview</button>
+        <button type="submit" onclick="publishBlog()">Publish</button>
+      </form>
+    </div>
+    <h2>Published Posts</h2>
+    <div class="course-list">
+      <div class="course-item">
+        <h3>Introduction to Blockchain</h3>
+        <p>Published: 2025-05-15</p>
+        <button onclick="viewBlog('1')">View</button>
+        <button onclick="editBlog('1')">Edit</button>
+        <button onclick="deleteBlog('1')">Delete</button>
+      </div>
+      <div class="course-item">
+        <h3>Data Science Trends 2025</h3>
+        <p>Published: 2025-05-20</p>
+        <button onclick="viewBlog('2')">View</button>
+        <button onclick="editBlog('2')">Edit</button>
+        <button onclick="deleteBlog('2')">Delete</button>
+      </div>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function previewBlog() {
+      alert('Previewing blog post...');
+      // Logic to display blog preview
+    }
+    function publishBlog() {
+      const form = document.getElementById('blogPostForm');
+      if (form.checkValidity()) {
+        alert('Blog post published');
+        // Logic to publish blog
+      } else {
+        alert('Please fill all required fields');
+      }
+    }
+    function viewBlog(id) {
+      alert(`Viewing blog ID: ${id}`);
+      // Logic to view blog
+    }
+    function editBlog(id) {
+      alert(`Editing blog ID: ${id}`);
+      // Logic to edit blog
+    }
+    function deleteBlog(id) {
+      if (confirm(`Delete blog ID: ${id}?`)) {
+        alert(`Blog ${id} deleted`);
+        // Logic to delete blog
+      }
+    }
+  </script>
+</body>
+</html> -->

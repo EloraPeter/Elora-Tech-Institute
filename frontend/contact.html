@@ -9,8 +9,9 @@
         content="Elora Tech Institute offers top-tier tech education, helping students master web development, cybersecurity, AI, and more. Join us and build your future in tech.">
     <meta name="keywords"
         content="Elora Tech Institute, tech academy, web development, cybersecurity, programming, coding school, AI, robotics, IT training">
-        <title>Contact Us | Elora Tech Institute</title>
+    <title>Contact Us | Elora Tech Institute</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/contact.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -20,215 +21,116 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
 
-    
+
 </head>
 
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
-            <img src="images/eti logo main.jfif" alt="">
+            <a href="index.html">
+                <img src="images/eti logo main.jfif" alt="">
+            </a>
         </h1>
         <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
         </button>
-        <ul id="nav-link" role="menu">
-            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
-            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
-            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
-                    href="#">Courses</a>
-                <div class="dropdown1">
-                    <ul class="dropdown" role="menuitem">
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="web-development.html">Web Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="web-development-html.html">HTML</a></li>
-                                    <li><a href="web-development-css.html">CSS</a></li>
-                                    <li><a href="web-development-javascript.html">JavaScript</a></li>
-                                    <li><a href="web-development-php.html">PHP & Laravel</a></li>
-                                    <li><a href="web-development-wordpress.html">WordPress</a></li>
-                                    <li><a href="web-development-frontend.html">Frontend Development</a></li>
-                                    <li><a href="web-development-backend.html">Backend Development</a></li>
-                                    <li><a href="web-development-fullstack.html">Full-Stack Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="mobile-apps.html">Mobile App Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="mobile-react-native.html">React Native</a></li>
-                                    <li><a href="mobile-flutter.html">Flutter</a></li>
-                                    <li><a href="mobile-android.html">Android Development (Kotlin)</a></li>
-                                    <li><a href="mobile-ios.html">iOS Development (Swift)</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="data-science.html">Data Science & Machine Learning</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="data-python.html">Python for Data Science</a></li>
-                                    <li><a href="data-machine-learning.html">Machine Learning</a></li>
-                                    <li><a href="data-deep-learning.html">Deep Learning & AI</a></li>
-                                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cyber-ethical-hacking.html">Ethical Hacking</a></li>
-                                    <li><a href="cyber-network-security.html">Network Security</a></li>
-                                    <li><a href="cyber-threat-intelligence.html">Threat Intelligence</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cloud-computing.html">Cloud Computing & DevOps</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
-                                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
-                                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="blockchain.html">Blockchain & Web3</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="blockchain-solidity.html">Solidity & Smart Contracts</a></li>
-                                    <li><a href="blockchain-dapps.html">Decentralized Apps (dApps)</a></li>
-                                    <li><a href="blockchain-nfts.html">NFT & Crypto Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="game-development.html">Game Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="game-unity.html">Unity Game Development</a></li>
-                                    <li><a href="game-unreal.html">Unreal Engine</a></li>
-                                    <li><a href="game-mobile.html">Mobile Game Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="robotics.html">Robotics & IoT</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="robotics-arduino.html">Arduino & Raspberry Pi</a></li>
-                                    <li><a href="robotics-automation.html">Automation & AI in IoT</a></li>
-                                    <li><a href="robotics-smart-home.html">Smart Home Devices</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="ui-ux.html">UI/UX Design</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
-                                    <li><a href="ui-wireframing.html">Wireframing & Prototyping</a></li>
-                                    <li><a href="ui-user-research.html">User Research & UX Strategy</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="digital-marketing.html">Digital Marketing & Tech Business</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="marketing-seo.html">SEO & Content Marketing</a></li>
-                                    <li><a href="marketing-social-media.html">Social Media Growth</a></li>
-                                    <li><a href="marketing-tech-startup.html">Tech Startup Strategies</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
-            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
-            <li role="menuitem" class="enroll-btn">
-                <a href="login-signup.html"
-                    class="btn">Enroll Now</a>
-            </li>
-        </ul>
-        <a href="login-signup.html"
-            class="btn big">Enroll Now</a>
+        <ul ul id="nav-link" role="menu"></ul>
+        <!-- <a href="login-signup.html" class="btn big">Enroll Now</a> -->
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
+    <!-- <button class="sidebar-toggle" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button> -->
+    <aside id="sidebar-nav">
+        <ul class="links"></ul>
+    </aside>
     <main id="contact-page">
         <!-- Hero Section -->
-        <section id="contact-hero" class="hero">
+        <section id="hero">
+            <div class="hero-img">
+                <img src="images/contact-hero.png" alt="" />
+            </div>
             <div class="hero-text">
-                <h1>Contact ETI</h1>
-                <p>We'd love to hear from you!</p>
-                <a href="#contact-form" class="btn">Send a Message</a>
+                <h2>Let’s Hear From <span>You</span>!</h2>
+                <p>We'd love to hear from you! Whether you have questions about admissions, courses, or anything else,
+                    feel free to reach out.</p>
+                <div class="hero-btn">
+                    <a href="#contact-form" class="btn">Send a Message</a>
+                </div>
             </div>
         </section>
 
         <!-- Contact Form & Info -->
         <section class="content-section contact-main">
-            <h2><span>|</span> Get in Touch <span>|</span></h2>
+            <h2><span class="decor">|</span> Get in Touch <span class="decor">|</span></h2>
             <div class="contact-container">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <i class="fa-solid fa-envelope"></i>
+                            <p><strong>Email</strong><br><a
+                                    href="mailto:support@elorainstitute.com">support@elorainstitute.com</a></p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <p><strong>Phone/WhatsApp</strong><br><a href="https://wa.me/+2348105769233"
+                                    target="_blank">+234 810 576 9233</a></p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fa-brands fa-github"></i>
+                            <p><strong>GitHub</strong><br><a href="https://github.com/EloraPeter"
+                                    target="_blank">github.com/EloraPeter</a></p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fa-brands fa-instagram"></i>
+                            <p><strong>Instagram</strong><br><a href="https://instagram.com/elorainstitute"
+                                    target="_blank">@elorainstitute</a></p>
+                        </div>
+                    </div>
+                </div>
                 <!-- Contact Form -->
-                <div class="contact-form">
+                <div id="contact-form">
                     <h3>Send Us a Message</h3>
-                    <p>If you have questions, inquiries about our programs, or partnership opportunities, we’ll respond as soon as possible!</p>
+                    <p>If you have questions, inquiries about our programs, or partnership opportunities, we’ll respond
+                        as soon as possible!</p>
                     <form action="#" method="POST" class="payment-form">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                            <div class="input-wrapper">
+                                <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                                <label for="name">Full Name</label>
+
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            <div class="input-wrapper">
+                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                                <label for="email">Email Address</label>
+
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                            <div class="input-wrapper">
+                                <textarea id="message" name="message" placeholder="Type your message here..."
+                                    required></textarea>
+                                <label for="message">Your Message</label>
+
+                            </div>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <h3>Other Ways to Reach Us</h3>
-                    <div class="info-grid">
-                        <div class="info-card">
-                            <i class="fa-solid fa-envelope"></i>
-                            <p><strong>Email</strong><br><a href="mailto:support@elorainstitute.com">support@elorainstitute.com</a></p>
-                        </div>
-                        <div class="info-card">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            <p><strong>Phone/WhatsApp</strong><br><a href="https://wa.me/+2348105769233" target="_blank">+234 810 576 9233</a></p>
-                        </div>
-                        <div class="info-card">
-                            <i class="fa-brands fa-github"></i>
-                            <p><strong>GitHub</strong><br><a href="https://github.com/EloraPeter" target="_blank">github.com/EloraPeter</a></p>
-                        </div>
-                        <div class="info-card">
-                            <i class="fa-brands fa-instagram"></i>
-                            <p><strong>Instagram</strong><br><a href="https://instagram.com/elorainstitute" target="_blank">@elorainstitute</a></p>
-                        </div>
-                    </div>
-                </div>
+
+
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="content-section cta">
-            <h2>Ready to Join ETI?</h2>
-            <p>Start your tech journey with us today!</p>
-            <a href="admissions.html" class="btn">Apply Now</a>
-        </section>
+
     </main>
 
     <!-- WhatsApp Bubble -->
-    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank" class="whatsapp-bubble">
+    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
+        class="whatsapp-bubble">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
     </a>
 
@@ -272,7 +174,7 @@
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="about.html#faq">FAQ</a></li>
                     <li><a href="teach-online.html">Teach on ETI</a></li>
-                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="help-support.html">Help & Support</a></li>
                 </ul>
             </div>
             <div class="apply">
@@ -298,6 +200,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="js/navConfig.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/script.js"></script>
 </body>

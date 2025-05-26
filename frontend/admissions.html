@@ -2,239 +2,222 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admissions | Elora Tech Institute</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/admission.css">
-
-    
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/admission.css" />
+    <link rel="stylesheet" href="css/faq.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
-            <img src="images/eti logo main.jfif" alt="">
+            <a href="index.html">
+                <img src="images/eti logo main.jfif" alt="" />
+            </a>
         </h1>
         <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
         </button>
-        <ul id="nav-link" role="menu">
-            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
-            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
-            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
-                    href="#">Courses</a>
-                <div class="dropdown1">
-                    <ul class="dropdown" role="menuitem">
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="web-development.html">Web Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="web-development-html.html">HTML</a></li>
-                                    <li><a href="web-development-css.html">CSS</a></li>
-                                    <li><a href="web-development-javascript.html">JavaScript</a></li>
-                                    <li><a href="web-development-php.html">PHP & Laravel</a></li>
-                                    <li><a href="web-development-wordpress.html">WordPress</a></li>
-                                    <li><a href="web-development-frontend.html">Frontend Development</a></li>
-                                    <li><a href="web-development-backend.html">Backend Development</a></li>
-                                    <li><a href="web-development-fullstack.html">Full-Stack Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="mobile-apps.html">Mobile App Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="mobile-react-native.html">React Native</a></li>
-                                    <li><a href="mobile-flutter.html">Flutter</a></li>
-                                    <li><a href="mobile-android.html">Android Development (Kotlin)</a></li>
-                                    <li><a href="mobile-ios.html">iOS Development (Swift)</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="data-science.html">Data Science & Machine Learning</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="data-python.html">Python for Data Science</a></li>
-                                    <li><a href="data-machine-learning.html">Machine Learning</a></li>
-                                    <li><a href="data-deep-learning.html">Deep Learning & AI</a></li>
-                                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cyber-ethical-hacking.html">Ethical Hacking</a></li>
-                                    <li><a href="cyber-network-security.html">Network Security</a></li>
-                                    <li><a href="cyber-threat-intelligence.html">Threat Intelligence</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cloud-computing.html">Cloud Computing & DevOps</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
-                                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
-                                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="blockchain.html">Blockchain & Web3</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="blockchain-solidity.html">Solidity & Smart Contracts</a></li>
-                                    <li><a href="blockchain-dapps.html">Decentralized Apps (dApps)</a></li>
-                                    <li><a href="blockchain-nfts.html">NFT & Crypto Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="game-development.html">Game Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="game-unity.html">Unity Game Development</a></li>
-                                    <li><a href="game-unreal.html">Unreal Engine</a></li>
-                                    <li><a href="game-mobile.html">Mobile Game Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="robotics.html">Robotics & IoT</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="robotics-arduino.html">Arduino & Raspberry Pi</a></li>
-                                    <li><a href="robotics-automation.html">Automation & AI in IoT</a></li>
-                                    <li><a href="robotics-smart-home.html">Smart Home Devices</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="ui-ux.html">UI/UX Design</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
-                                    <li><a href="ui-wireframing.html">Wireframing & Prototyping</a></li>
-                                    <li><a href="ui-user-research.html">User Research & UX Strategy</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="digital-marketing.html">Digital Marketing & Tech Business</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="marketing-seo.html">SEO & Content Marketing</a></li>
-                                    <li><a href="marketing-social-media.html">Social Media Growth</a></li>
-                                    <li><a href="marketing-tech-startup.html">Tech Startup Strategies</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
-            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
-            <li role="menuitem" class="enroll-btn">
-                <a href="login-signup.html"
-                    class="btn">Enroll Now</a>
-            </li>
-        </ul>
-        <a href="login-signup.html"
-            class="btn big">Enroll Now</a>
+        <ul ul id="nav-link" role="menu"></ul>
+        <!-- <a href="login-signup.html" class="btn big">Enroll Now</a> -->
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
+    <!-- <button class="sidebar-toggle" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button> -->
+    <aside id="sidebar-nav">
+        <ul class="links"></ul>
+    </aside>
 
     <main id="admissions-page">
         <!-- Hero Section -->
-        <section id="admissions-hero" class="hero">
+        <section id="hero">
+            <div class="hero-img">
+                <img src="images/admission-hero.jpg" alt="" />
+            </div>
             <div class="hero-text">
-                <h1>Admissions at ETI</h1>
-                <p>Empowering the next generation of tech leaders</p>
-                <a href="#admission-form" class="btn">Apply Now</a>
+                <h2>Where <span>Innovation</span> Begins</h2>
+                <p>
+                    Join a vibrant community of innovators, creators, and
+                    problem-solvers. At ETI, we are committed to equipping the next
+                    generation of tech leaders with the knowledge, skills, and hands-on
+                    experience needed to thrive in the global tech industry. Whether
+                    you're just starting out or advancing your career, our programs are
+                    designed to meet you at your level and elevate you to the top.
+                </p>
+                <div class="hero-btn">
+                    <a href="#admission-form" class="btn btn-primary">Start Your Application</a>
+                </div>
             </div>
         </section>
 
         <!-- Welcome Section -->
         <section class="content-section admission-info">
-            <h2><span>|</span> Welcome to ETI Admissions <span>|</span></h2>
+            <h2>
+                <span class="decor">|</span> Begin Your Journey with ETI
+                <span class="decor">|</span>
+            </h2>
             <div class="info-container">
                 <div class="info-text">
-                    <p>We are excited to welcome future innovators, developers, and tech enthusiasts into our community! Whether you are a beginner, IT student, or passionate about learning a tech skill, there's a place for you at ETI.</p>
+                    <p>
+                        At Elora Tech Institute, we believe that every individual has the
+                        potential to excel in the digital age when given the right tools,
+                        guidance, and opportunities. Our mission is to nurture talent,
+                        spark innovation, and empower aspiring minds to confidently step
+                        into the world of technology. Whether you’re a curious beginner
+                        taking your first steps, a student pursuing a degree in IT, or a
+                        working professional seeking to refine your skills and stay ahead
+                        of the curve, ETI provides a dynamic and inclusive learning
+                        environment tailored to your journey. With hands-on training,
+                        expert mentorship, and real-world projects, we help transform
+                        passion into purpose — guiding you from where you are to where
+                        you’re meant to be in the tech industry.
+                    </p>
                 </div>
                 <div class="info-img">
-                    <img src="images/admissions-welcome.jpg" alt="Students at ETI">
+                    <img src="images/admission-welcome.png" alt="Excited students learning at ETI" />
                 </div>
             </div>
         </section>
 
         <!-- Who Can Apply -->
         <section class="content-section who-can-apply">
-            <h2><span>|</span> Who Can Apply? <span>|</span></h2>
+            <h2>
+                <span class="decor">|</span> Who Can Apply?
+                <span class="decor">|</span>
+            </h2>
             <div class="apply-grid">
                 <div class="apply-card">
                     <i class="fa-solid fa-child"></i>
                     <h3>Children</h3>
-                    <p>Crèche to SS3 students</p>
+                    <p>
+                        We welcome young learners from Crèche to SS3, providing them with
+                        early exposure to digital literacy, coding, and creative tech
+                        thinking — preparing them for the future from an early age.
+                    </p>
                 </div>
                 <div class="apply-card">
                     <i class="fa-solid fa-user-graduate"></i>
                     <h3>IT Students</h3>
-                    <p>University Industrial Training</p>
+                    <p>
+                        Our programs are ideal for university and polytechnic students
+                        undergoing Industrial Training (IT), offering hands-on experience,
+                        mentorship, and real-world project exposure to bridge the
+                        academic-industry gap.
+                    </p>
                 </div>
                 <div class="apply-card">
                     <i class="fa-solid fa-briefcase"></i>
                     <h3>Graduates</h3>
-                    <p>Post-degree tech skills</p>
+                    <p>
+                        We support recent graduates with specialized tech training
+                        designed to build job-ready skills and enhance employability,
+                        ensuring a smooth transition from academic life to a thriving tech
+                        career.
+                    </p>
                 </div>
                 <div class="apply-card">
                     <i class="fa-solid fa-sync-alt"></i>
                     <h3>Adults</h3>
-                    <p>Pivoting to tech careers</p>
+                    <p>
+                        Whether you're switching careers or entering the tech field for
+                        the first time, our flexible learning paths help adults develop
+                        new skills and confidently pivot into high-demand tech roles.
+                    </p>
                 </div>
                 <div class="apply-card">
                     <i class="fa-solid fa-globe"></i>
-                    <h3>International</h3>
-                    <p>Coming soon!</p>
+                    <h3>International Learners</h3>
+                    <p>
+                        We’re expanding globally! Our international programs — launching
+                        soon — will offer virtual and in-person learning experiences
+                        tailored for students across borders seeking world-class tech
+                        education.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- Important Dates -->
         <section class="content-section important-dates">
-            <h2><span>|</span> Important Dates <span>|</span></h2>
+            <h2>
+                <span class="decor">|</span> Important Dates
+                <span class="decor">|</span>
+            </h2>
             <div class="dates-grid">
                 <div class="date-card">
-                    <h3>Next Batch</h3>
+                    <h3>Next Academic Batch</h3>
                     <p><strong>June 2025</strong></p>
+                    <p>
+                        Our next cohort kicks off in June 2025, offering both online and
+                        physical learning opportunities. Secure your spot early to begin
+                        your transformative tech journey.
+                    </p>
                 </div>
                 <div class="date-card">
                     <h3>Registration Deadline</h3>
                     <p><strong>May 25, 2025</strong></p>
+                    <p>
+                        All interested candidates are advised to complete their
+                        registration on or before this date. Late entries may not be
+                        considered for the June intake.
+                    </p>
                 </div>
                 <div class="date-card">
-                    <h3>Physical Center Launch</h3>
-                    <p><strong>Coming soon in Delta State!</strong></p>
+                    <h3>Physical Campus Launch</h3>
+                    <p><strong>Coming Soon – Delta State, Nigeria</strong></p>
+                    <p>
+                        We’re excited to announce the launch of our first physical
+                        learning center in Delta State — designed to provide in-person
+                        training and foster deeper collaboration.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- Tuition Information -->
         <section class="content-section tuition-info">
-            <h2><span>|</span> Tuition Information <span>|</span></h2>
+            <h2>
+                <span class="decor">|</span> Tuition Information
+                <span class="decor">|</span>
+            </h2>
             <div class="tuition-container">
-                <p>We offer flexible payment plans to make tech education accessible for all. Contact us for full pricing and available scholarships!</p>
-                <a href="contact.html" class="btn">Inquire About Tuition</a>
+                <div class="img">
+                    <img src="images/tuition-sec.jpeg" alt="Excited students learning at ETI" />
+                </div>
+                <div class="tui-text">
+                    <p>
+                        At Elora Tech Institute, we believe quality tech education should
+                        be within reach. That’s why we offer flexible and affordable
+                        tuition plans tailored to your financial needs. Our payment
+                        options are designed to support students at all stages — whether
+                        you’re paying upfront or prefer installment plans. Scholarships
+                        and financial aid opportunities are also available for eligible
+                        applicants. To learn more about detailed pricing, payment
+                        schedules, or to discuss custom plans, kindly reach out to our
+                        support team.
+                    </p>
+
+                    <a href="contact.html" class="btn">Inquire</a>
+                </div>
             </div>
         </section>
 
         <!-- How to Apply -->
         <section class="content-section how-to-apply">
-            <h2><span>|</span> How to Apply <span>|</span></h2>
+            <h2>
+                <span class="decor">|</span> How to Apply <span class="decor">|</span>
+            </h2>
             <div class="steps-grid">
                 <div class="step-card">
                     <span class="step-number">1</span>
@@ -257,77 +240,173 @@
 
         <!-- Admission Form -->
         <section class="content-section admission-form" id="admission-form">
-            <h2><span>|</span> Admission Form <span>|</span></h2>
+            <h2>
+                <span class="decor">|</span> Admission Form
+                <span class="decor">|</span>
+            </h2>
+            <p>
+                Please complete the form below to begin your journey with Elora Tech
+                Institute. Our team will review your application and contact you with
+                the next steps.
+            </p>
+
             <form action="#" method="POST" class="payment-form">
                 <div class="form-group">
-                    <label for="fullname">Full Name</label>
-                    <input type="text" id="fullname" name="fullname" placeholder="Your Full Name" required>
+                    <div class="input-wrapper">
+                        <input type="text" id="fullname" name="fullname" placeholder="Fullname" required />
+                        <label for="fullname">Full Name</label>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" placeholder="Email" required />
+                        <label for="email">Email Address</label>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+234 123 456 7890" required>
+                    <div class="input-wrapper">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone" required />
+                        <label for="phone">Phone Number</label>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="program">Program of Interest</label>
-                    <select id="program" name="program" required>
-                        <option value="">-- Select Program --</option>
-                        <option value="Web Development">Web Development</option>
-                        <option value="Cybersecurity">Cybersecurity</option>
-                        <option value="Robotics">Robotics</option>
-                        <option value="IoT (Internet of Things)">IoT (Internet of Things)</option>
-                        <option value="AI and Machine Learning">AI and Machine Learning</option>
-                    </select>
+                    <div class="input-wrapper">
+                        <select id="category" name="category" required>
+                            <option value="" disabled selected></option>
+                            <option value="Creche to SS3">Children (Crèche to SS3)</option>
+                            <option value="IT Student">
+                                University Students (Industrial Training)
+                            </option>
+                            <option value="Graduate">Postgraduates</option>
+                            <option value="Adult Learner">
+                                Adults Switching to Tech Careers
+                            </option>
+                            <option value="Professional">
+                                Working Professionals Advancing Skills
+                            </option>
+                            <option value="International">International Applicants</option>
+                        </select>
+                        <label for="category">Student Category</label>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="message">Additional Information (Optional)</label>
-                    <textarea id="message" name="message" placeholder="Tell us more..."></textarea>
+                    <div class="input-wrapper">
+                        <textarea id="message" name="message" placeholder="message"></textarea>
+                        <label for="message">Additional Information (Optional)</label>
+                    </div>
                 </div>
+
                 <button type="submit" class="btn">Submit Application</button>
             </form>
         </section>
 
         <!-- FAQ -->
         <section class="content-section faq">
-            <h2><span>|</span> Frequently Asked Questions <span>|</span></h2>
+            <h2>
+                <span class="decor">|</span> Frequently Asked Questions
+                <span class="decor">|</span>
+            </h2>
             <div class="accordion">
                 <div class="accordion-item">
                     <div class="accordion-title">
-                        Is there an age limit? <i class="fa-solid fa-chevron-down"></i>
+                        <span>Is there an age limit to enroll at ETI?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>No, ETI is open to children, teenagers, young adults, and professionals.</p>
+                        <p>
+                            Absolutely not! ETI warmly welcomes learners of all ages—from young children starting their
+                            first steps in coding, to teenagers exploring tech fields, to young adults and seasoned
+                            professionals seeking to upgrade their skills. Our programs are carefully designed to cater
+                            to varying learning needs and levels, ensuring that everyone has an opportunity to thrive in
+                            technology.
+                        </p>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-title">
-                        Can I join if I'm outside Nigeria? <i class="fa-solid fa-chevron-down"></i>
+                        <span>Can I join ETI if I live outside Nigeria?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>Yes! Our online programs are available worldwide, with international structures coming soon.</p>
+                        <p>
+                            Definitely! Our online learning platform is accessible globally, allowing students from any
+                            country to enroll and benefit from our expertly crafted courses. While we currently offer
+                            robust online programs, we are excited to soon introduce international physical campuses and
+                            hybrid learning options to serve a wider community worldwide.
+                        </p>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-title">
-                        Do I need a tech background? <i class="fa-solid fa-chevron-down"></i>
+                        <span>Do I need any prior tech background to join ETI?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>No prior experience needed. We teach you from beginner to expert!</p>
+                        <p>
+                            No prior experience or technical background is required! Our curriculum is designed to take
+                            you from absolute beginner to expert level through hands-on learning, practical projects,
+                            and guided mentorship. Whether you’re starting fresh or looking to sharpen your existing
+                            skills, ETI supports your growth every step of the way.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        <span>What are the admission requirements for ETI’s physical campus?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            Admission to our physical campus requires completion of the application form, submission of
+                            academic transcripts or certificates relevant to your desired program, and an entrance
+                            interview or assessment to gauge your readiness. Additionally, for younger students (crèche
+                            to SS3), parental consent and guardianship details are required. Our team is happy to guide
+                            you through each step to make your enrollment smooth.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        <span>How do I apply for online courses at ETI?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            Applying for online courses is simple! Just visit our website, select the course or
+                            certification you’re interested in, and complete the online registration form. Once your
+                            registration is confirmed, you will receive login credentials to access the learning
+                            platform immediately. Support is available if you need help with course selection or
+                            technical setup.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        <span>Are there scholarships or financial aid options for ETI students?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            Yes! ETI is committed to making technology education accessible. We offer a variety of
+                            scholarships, grants, and flexible payment plans for both physical and online students.
+                            Eligibility criteria and application details are available on our website. We encourage
+                            prospective students to apply early to take advantage of these opportunities.
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- CTA -->
-        <section class="content-section cta">
-            <h2>Ready to Start Your Tech Journey?</h2>
-            <p>Join ETI and unlock your potential in the world of technology.</p>
-            <a href="#admission-form" class="btn">Apply Today</a>
         </section>
     </main>
+
+    <!-- WhatsApp Bubble -->
+    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank" class="whatsapp-bubble">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
 
     <footer>
         <div class="info">
@@ -382,17 +461,20 @@
                 </ol>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
                     class="apply-button" target="_blank">Register Now</a>
-
-
             </div>
         </div>
         <hr />
         <p id="copyright">
             &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
         </p>
-        <p id="designer">created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
+        <p id="designer">
+            created by
+            <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a>
+            with ❤
+        </p>
     </footer>
 
+    <script src="js/navConfig.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/script.js"></script>
 </body>

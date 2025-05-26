@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student - Progress Report</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="student-dashboard.html">Dashboard</a>
+      <a href="student-courses.html">My Courses</a>
+      <a href="explore.html">Explore</a>
+      <a href="student-certifications.html">Certifications</a>
+      <a href="student-progress-report.html">Progress Reports</a>
+      <a href="student-payments.html">Payments</a>
+      <a href="help-support.html">Support/Help</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="student-profile.html">Profile</a>
+          <a href="student-settings.html">Settings</a>
+          <a href="student-calendar.html">Calendar</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Progress Report</h1>
+    <div class="course-list">
+      <div class="course-item">
+        <h3>Blockchain Basics</h3>
+        <p>Completion Rate: 75%</p>
+        <p>Quiz Scores: 85/100 (Quiz 1), 90/100 (Quiz 2)</p>
+        <p>Modules Completed: 6/8</p>
+        <p>Assignments Submitted: 2/3</p>
+      </div>
+      <div class="course-item">
+        <h3>Data Science 101</h3>
+        <p>Completion Rate: 20%</p>
+        <p>Quiz Scores: 70/100 (Quiz 1)</p>
+        <p>Modules Completed: 2/10</p>
+        <p>Assignments Submitted: 0/2</p>
+      </div>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>

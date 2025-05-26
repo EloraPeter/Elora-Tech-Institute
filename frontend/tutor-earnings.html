@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutor - Earnings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="tutor-dashboard.html">Dashboard</a>
+      <a href="tutor-courses.html">My Courses</a>
+      <a href="tutor-create.html">Create</a>
+      <a href="tutor-earnings.html">Earnings</a>
+      <a href="tutor-resources.html">Resources</a>
+      <a href="tutor-site-settings.html">Site Settings</a>
+      <a href="help-support.html">Help/Support</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="tutor-profile.html">Profile</a>
+          <a href="tutor-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Earnings</h1>
+    <h2>Earnings Overview</h2>
+    <div class="course-list">
+      <div class="course-item">
+        <h3>Blockchain Basics</h3>
+        <p>Total Earnings: $1,500.00</p>
+        <p>Students Enrolled: 150</p>
+      </div>
+      <div class="course-item">
+        <h3>Data Science 101</h3>
+        <p>Total Earnings: $300.00</p>
+        <p>Students Enrolled: 20</p>
+      </div>
+    </div>
+    <h2>Withdraw Funds</h2>
+    <div>
+      <input type="number" id="withdrawAmount" placeholder="Enter amount to withdraw">
+      <button onclick="withdrawFunds()">Withdraw</button>
+    </div>
+    <h2>Payment History</h2>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Course</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025-05-15</td>
+            <td>$500.00</td>
+            <td>Blockchain Basics</td>
+            <td>Paid</td>
+          </tr>
+          <tr>
+            <td>2025-05-20</td>
+            <td>$200.00</td>
+            <td>Data Science 101</td>
+            <td>Pending</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Download Reports</h2>
+    <div>
+      <button onclick="downloadReport('csv')">Download CSV</button>
+      <button onclick="downloadReport('pdf')">Download PDF</button>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function withdrawFunds() {
+      const amount = document.getElementById('withdrawAmount').value;
+      if (amount && amount > 0) {
+        alert(`Withdrawing $${amount}`);
+        // Logic to process withdrawal
+      } else {
+        alert('Please enter a valid amount');
+      }
+    }
+    function downloadReport(format) {
+      alert(`Downloading earnings report in ${format.toUpperCase()} format`);
+      // Logic to generate and download report
+    }
+  </script>
+</body>
+</html>

@@ -7,9 +7,11 @@
     <meta name="title" content="Elora Tech Institute | Student Dashboard">
     <meta name="description" content="Master your learning journey with Elora Tech Institute's student dashboard.">
     <title>Student Dashboard - Elora Tech Institute</title>
+    <link rel="stylesheet" href="../tests/test.css">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/studentdash.css" />
     <link rel="stylesheet" href="css/profile.css" />
+    
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -23,50 +25,43 @@
 
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
-        <h1 id="logo">
-            <img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo">
-        </h1>
+        <a href="index.html">
+            <h1 id="logo">
+                <img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo">
+            </h1>
+        </a>
         <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
         </button>
-        <ul id="nav-link" role="menu">
-            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
-            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
-            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
-                    href="#">Courses</a>
-                <!-- Dropdown menu as in admin-dashboard.html -->
+        <ul id="nav-link" role="menu"></ul>
+        <ul class="nav-link">
+            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><img
+                    id="dashboard-profile-picture" class="dashboard-profile-picture" src="images/avatars/default.jpg"
+                    alt="Profile Picture" onclick="window.location.href='profile.html'">
                 <div class="dropdown1">
                     <ul class="dropdown" role="menuitem">
-                        <li role="menuitem"><a href="web-development.html">Web Development</a></li>
-                        <li role="menuitem"><a href="mobile-apps.html">Mobile App Development</a></li>
-                        <li role="menuitem"><a href="data-science.html">Data Science & Machine Learning</a></li>
-                        <li role="menuitem"><a href="cybersecurity.html">Cybersecurity & Ethical Hacking</a></li>
-                        <li role="menuitem"><a href="cloud-computing.html">Cloud Computing & DevOps</a></li>
-                        <li role="menuitem"><a href="blockchain.html">Blockchain & Web3</a></li>
-                        <li role="menuitem"><a href="game-development.html">Game Development</a></li>
-                        <li role="menuitem"><a href="robotics.html">Robotics & IoT</a></li>
-                        <li role="menuitem"><a href="ui-ux.html">UI/UX Design</a></li>
-                        <li role="menuitem"><a href="digital-marketing.html">Digital Marketing & Tech Business</a></li>
+                        <li role="menuitem"><a href="profile.html"></a>Profile</li>
+                        <li role="menuitem"><a href=".html"></a>Settings</li>
+                        <li role="menuitem" class="logout-btn" onclick="logout()"><a href="#"></a>logout</li>
+
                     </ul>
                 </div>
             </li>
-            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
-            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
-            <li role="menuitem" class="enroll-btn">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
-                    class="btn">Enroll Now</a>
-            </li>
         </ul>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
-            class="btn big">Enroll Now</a>
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
+    <button class="sidebar-toggle" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <aside id="sidebar-nav">
+        <ul class="links"></ul>
+    </aside>
 
     <div class="dashboard-container">
         <div class="dashboard-header">
             <h2>Master Your Journey, <span id="userName"></span>! 🚀</h2>
-            <img id="dashboard-profile-picture" src="images/avatars/default.jpg" alt="Profile Picture"
-                onclick="window.location.href='profile.html'">
+            <!-- <img id="dashboard-profile-picture" class="dashboard-profile-picture" src="images/avatars/default.jpg"
+                alt="Profile Picture" onclick="window.location.href='profile.html'"> -->
             <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
 
@@ -195,6 +190,7 @@
 
 
 
+    <script src="js/navConfig.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/studentdash.js"></script>
     <script src="js/script.js"></script>

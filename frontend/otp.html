@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter OTP - ETI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Enter OTP</h2>
+    <p>Enter the 6-digit OTP sent to your email.</p>
+    <form id="otp-form" action="/api/verify-otp" method="POST">
+      <div class="otp-inputs">
+        <input type="text" name="otp1" maxlength="1" class="otp-digit" required>
+        <input type="text" name="otp2" maxlength="1" class="otp-digit" required>
+        <input type="text" name="otp3" maxlength="1" class="otp-digit" required>
+        <input type="text" name="otp4" maxlength="1" class="otp-digit" required>
+        <input type="text" name="otp5" maxlength="1" class="otp-digit" required>
+        <input type="text" name="otp6" maxlength="1" class="otp-digit" required>
+      </div>
+      <input type="hidden" name="otp" id="otp">
+      <input type="hidden" name="email" id="email">
+      <button type="submit">Verify OTP</button>
+    </form>
+    <p><button id="resend-otp">Resend OTP</button></p>
+  </div>
+
+  <script src="js/otp.js"></script>
+</body>
+</html>

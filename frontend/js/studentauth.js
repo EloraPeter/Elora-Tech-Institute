@@ -1,6 +1,65 @@
+// Forgot Password Toggle
+document.querySelector('a[href="/forgot-password"]').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.querySelector('#loginForm').style.display = 'none';
+  document.querySelector('#forgot-password-section').style.display = 'block';
+});
+
+
+// Forgot Password Form Submission
+document.getElementById('forgot-password-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('forgotPasswordEmail').value;
+    const errorElement = document.getElementById('forgotPasswordError');
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const submitButton = document.querySelector('#forgot-password-form button[type="submit"]');
+
+    // Clear previous error
+    errorElement.textContent = '';
+
+    // Validate email (basic check)
+    if (!email) {
+        errorElement.textContent = 'Please enter a valid email address.';
+        return;
+    }
+
+    // Show loading animation and disable submit button
+    loadingOverlay.style.display = 'flex';
+    submitButton.disabled = true;
+
+    try {
+        const response = await fetch('http://localhost:3000/api/forgot-password', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        const result = await response.json();
+
+        if (result.redirect) {
+            // Redirect to OTP page
+            window.location.href = result.redirect;
+            // Spinner will disappear automatically due to page redirect
+        } else {
+            // Display error and hide loading animation
+            errorElement.textContent = result.message || 'An error occurred.';
+            loadingOverlay.style.display = 'none';
+            submitButton.disabled = false;
+        }
+    } catch (err) {
+        // Handle network or other errors
+        errorElement.textContent = 'Network error. Please try again.';
+        loadingOverlay.style.display = 'none';
+        submitButton.disabled = false;
+    }
+});
+
+// Toggle between login and signup forms
 function toggleForms() {
   document.getElementById('loginForm').classList.toggle('active');
   document.getElementById('signupForm').classList.toggle('active');
+  document.getElementById('newPassword').classList.toggle('active');
+  document.getElementById('confirmPassword').classList.toggle('active');
   document.getElementById('loginError').textContent = '';
   document.getElementById('signupError').textContent = '';
 }

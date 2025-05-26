@@ -7,6 +7,8 @@ const multer = require('multer');
 const path = require('path');
 require('dotenv').config();
 const pool = require('./db');
+const crypto = require('crypto');
+const { sendResetEmail } = require('./utils/email');
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
@@ -184,6 +186,261 @@ module.exports = (app) => {
         }
     });
 
+    // Forgot Password endpoint
+    app.post('/api/forgot-password', async (req, res) => {
+        const { email } = req.body;
+        console.log('Received email:', email);
+        try {
+            const userResult = await pool.query('SELECT * FROM users WHERE LOWER(email) = LOWER($1)', [email]);
+            if (userResult.rows.length === 0) {
+                console.log('No user found for email:', email);
+                return res.status(404).json({ message: 'Email not found' });
+            }
+            const user = userResult.rows[0];
+            const token = crypto.randomBytes(32).toString('hex');
+            const otp = crypto.randomInt(100000, 999999).toString();
+            const expiresAt = new Date(Date.now() + 30 * 60 * 1000);
+            console.log('Generated OTP:', otp);
+
+            await pool.query('DELETE FROM password_reset_tokens WHERE user_id = $1', [user.id]);
+            await pool.query(
+                'INSERT INTO password_reset_tokens (user_id, token, otp, expires_at, email) VALUES ($1, $2, $3, $4, $5)',
+                [user.id, token, otp, expiresAt, email]
+            );
+
+            // Verify token was saved
+            const savedToken = await pool.query('SELECT * FROM password_reset_tokens WHERE otp = $1 AND email = $2', [otp, email]);
+            console.log('Saved token:', savedToken.rows);
+
+            await sendResetEmail(email, token, otp, expiresAt);
+            res.json({ message: 'Password reset link and OTP sent to your email', redirect: `/otp.html?email=${encodeURIComponent(email)}` });
+        } catch (error) {
+            console.error('Error in forgot-password:', error);
+            res.status(500).json({ message: 'Server error' });
+        }
+    });
+
+    // Resend OTP endpoint
+    app.post('/api/resend-otp', async (req, res) => {
+        const { email } = req.body;
+        console.log('Resend OTP for email:', email);
+        try {
+            const userResult = await pool.query('SELECT * FROM users WHERE LOWER(email) = LOWER($1)', [email]);
+            if (userResult.rows.length === 0) {
+                console.log('No user found for email:', email);
+                return res.status(404).json({ message: 'Email not found' });
+            }
+            const user = userResult.rows[0];
+            const token = crypto.randomBytes(32).toString('hex');
+            const otp = crypto.randomInt(100000, 999999).toString();
+            const expiresAt = new Date(Date.now() + 30 * 60 * 1000);
+            console.log('Generated OTP (resend):', otp);
+
+            await pool.query('DELETE FROM password_reset_tokens WHERE user_id = $1', [user.id]);
+            await pool.query(
+                'INSERT INTO password_reset_tokens (user_id, token, otp, expires_at, email) VALUES ($1, $2, $3, $4, $5)',
+                [user.id, token, otp, expiresAt, email]
+            );
+
+            // Verify token was saved
+            const savedToken = await pool.query('SELECT * FROM password_reset_tokens WHERE otp = $1 AND email = $2', [otp, email]);
+            console.log('Saved token (resend):', savedToken.rows);
+
+            await sendResetEmail(email, token, otp, expiresAt);
+            res.json({ message: 'New OTP and reset link sent to your email', redirect: `/otp.html?email=${encodeURIComponent(email)}` });
+        } catch (error) {
+            console.error('Error in resend-otp:', error);
+            res.status(500).json({ message: 'Server error' });
+        }
+    });
+
+    // Verify OTP Endpoint
+    app.post('/api/verify-otp', upload.none(), async (req, res) => {
+        const { otp, email } = req.body;
+        console.log('Received OTP for verification:', otp, 'for email:', email);
+        try {
+            // Log all tokens for debugging
+            const allTokens = await pool.query('SELECT * FROM password_reset_tokens WHERE LOWER(email) = LOWER($1)', [email]);
+            console.log('All tokens for email:', allTokens.rows);
+
+            const tokenResult = await pool.query(
+                'SELECT * FROM password_reset_tokens WHERE otp = $1 AND LOWER(email) = LOWER($2) AND expires_at > NOW()',
+                [otp, email]
+            );
+
+            if (tokenResult.rows.length === 0) {
+                console.log('No valid token found for OTP:', otp, 'and email:', email);
+                return res.status(400).json({ message: 'Invalid or expired OTP' });
+            }
+
+            const resetToken = tokenResult.rows[0];
+            console.log('Found valid token:', resetToken);
+
+            // Update the verified status to true
+            await pool.query(
+                'UPDATE password_reset_tokens SET verified = TRUE WHERE id = $1',
+                [resetToken.id]
+            );
+
+            // Verify the update
+            const updatedToken = await pool.query(
+                'SELECT * FROM password_reset_tokens WHERE id = $1',
+                [resetToken.id]
+            );
+            console.log('Updated token:', updatedToken.rows[0]);
+
+            res.json({ message: 'OTP verified', redirect: `/resetpass.html?token=${resetToken.token}`, email: resetToken.email });
+        } catch (error) {
+            console.error('Error in verify-otp:', error);
+            res.status(500).json({ message: 'Server error' });
+        }
+    });
+
+    /// Reset Password Endpoint
+    // app.post('/api/reset-password', upload.none(), async (req, res) => {
+    //     const { token, password, confirmPassword } = req.body;
+    //     console.log('Received reset password request:', { token, password, confirmPassword });
+
+    //     if (!token || !password || !confirmPassword) {
+    //         console.log('Missing fields in request');
+    //         return res.status(400).json({ message: 'All fields are required' });
+    //     }
+
+    //     if (password !== confirmPassword) {
+    //         console.log('Passwords do not match');
+    //         return res.status(400).json({ message: 'Passwords do not match' });
+    //     }
+
+    //     try {
+    //         // Log all tokens for debugging
+    //         const allTokens = await pool.query('SELECT * FROM password_reset_tokens WHERE token = $1', [token]);
+    //         console.log('All tokens for token:', allTokens.rows);
+
+    //         const tokenResult = await pool.query(
+    //             'SELECT * FROM password_reset_tokens WHERE token = $1 AND verified = TRUE AND expires_at > NOW()',
+    //             [token]
+    //         );
+
+    //         if (tokenResult.rows.length === 0) {
+    //             console.log('No valid token found for token:', token);
+    //             return res.status(400).json({ message: 'Invalid, expired, or unverified token' });
+    //         }
+
+    //         const resetToken = tokenResult.rows[0];
+    //         console.log('Found valid token:', resetToken);
+
+    //         // Fetch user role from the users table
+    //         const userResult = await pool.query('SELECT role FROM users WHERE id = $1', [resetToken.user_id]);
+    //         if (userResult.rows.length === 0) {
+    //             console.log('No user found for user_id:', resetToken.user_id);
+    //             return res.json({ message: 'Password reset successfully', redirect: '/login-signup.html' });
+    //         }
+
+    //         const user = userResult.rows[0];
+    //         console.log('User role:', user.role);
+
+    //         // Determine redirect URL based on user role
+    //         let redirectUrl;
+    //         switch (user.role) {
+    //             case 'student':
+    //                 redirectUrl = '/login-signup.html';
+    //                 break;
+    //             case 'admin':
+    //                 redirectUrl = '/admin-signup-login.html';
+    //                 break;
+    //             case 'instructor':
+    //                 redirectUrl = '/tutor-signup-login.html';
+    //                 break;
+    //             default:
+    //                 redirectUrl = '/index.html'; // Fallback for invalid roles
+    //         }
+
+    //         const hashedPassword = await bcrypt.hash(password, 10);
+    //         await pool.query('UPDATE users SET password_hash = $1 WHERE id = $2', [hashedPassword, resetToken.user_id]);
+    //         await pool.query('DELETE FROM password_reset_tokens WHERE id = $1', [resetToken.id]);
+
+    //         console.log('Password reset successfully for user_id:', resetToken.user_id, 'Redirecting to:', redirectUrl);
+    //         res.json({ message: 'Password reset successfully', redirect: redirectUrl });
+    //     } catch (error) {
+    //         console.error('Error in reset-password:', error.stack);
+    //         res.status(500).json({ message: 'Server error', error: error.message });
+    //     }
+    // });
+
+    // Reset Password Endpoint
+    app.post('/api/reset-password', upload.none(), async (req, res) => {
+        const { token, password, confirmPassword } = req.body;
+        console.log('Received reset password request:', { token, password, confirmPassword });
+
+        if (!token || !password || !confirmPassword) {
+            console.log('Missing fields in request');
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+
+        if (password !== confirmPassword) {
+            console.log('Passwords do not match');
+            return res.status(400).json({ message: 'Passwords do not match' });
+        }
+
+        try {
+            // Log all tokens for debugging
+            const allTokens = await pool.query('SELECT * FROM password_reset_tokens WHERE token = $1', [token]);
+            console.log('All tokens for token:', allTokens.rows);
+
+            // Allow unverified tokens for link-based resets, but still check expiration
+            const tokenResult = await pool.query(
+                'SELECT * FROM password_reset_tokens WHERE token = $1 AND expires_at > NOW()',
+                [token]
+            );
+
+            if (tokenResult.rows.length === 0) {
+                console.log('No valid token found for token:', token);
+                return res.status(400).json({ message: 'Invalid or expired token' });
+            }
+
+            const resetToken = tokenResult.rows[0];
+            console.log('Found valid token:', resetToken);
+
+            // Fetch user role from the users table
+            const userResult = await pool.query('SELECT role FROM users WHERE id = $1', [resetToken.user_id]);
+            if (userResult.rows.length === 0) {
+                console.log('No user found for user_id:', resetToken.user_id);
+                return res.json({ message: 'Password reset successfully', redirect: '/login-signup.html' });
+            }
+
+            const user = userResult.rows[0];
+            console.log('User role:', user.role);
+
+            // Determine redirect URL based on user role
+            let redirectUrl;
+            switch (user.role) {
+                case 'student':
+                    redirectUrl = '/login-signup.html';
+                    break;
+                case 'admin':
+                    redirectUrl = '/admin-signup-login.html';
+                    break;
+                case 'instructor':
+                    redirectUrl = '/tutor-signup-login.html';
+                    break;
+                default:
+                    redirectUrl = '/index.html'; // Fallback for invalid roles
+            }
+
+
+            const hashedPassword = await bcrypt.hash(password, 10);
+            await pool.query('UPDATE users SET password_hash = $1 WHERE id = $2', [hashedPassword, resetToken.user_id]);
+            await pool.query('DELETE FROM password_reset_tokens WHERE id = $1', [resetToken.id]);
+
+            console.log('Password reset successfully for user_id:', resetToken.user_id, 'Redirecting to:', redirectUrl);
+            res.json({ message: 'Password reset successfully', redirect: redirectUrl });
+        } catch (error) {
+            console.error('Error in reset-password:', error.stack);
+            res.status(500).json({ message: 'Server error', error: error.message });
+        }
+    });
+
+
     // Profile picture upload endpoint
     app.post('/api/users/:id/profile-picture', authenticateJWT, upload.single('profile_picture'), async (req, res) => {
         try {
@@ -279,6 +536,15 @@ module.exports = (app) => {
             res.redirect(`http://localhost:3000/auth/callback?token=${token}&refreshToken=${refreshToken}&id=${user.id}&name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}&role=${user.role}&profile_picture_url=${encodeURIComponent(user.profile_picture_url || '')}`);
         } catch (err) {
             res.redirect('http://localhost:3000/login?error=auth_failed');
+        }
+    });
+
+    app.post('/api/logout', authenticateJWT, async (req, res) => {
+        try {
+            await pool.query('DELETE FROM refresh_tokens WHERE user_id = $1', [req.user.id]);
+            res.json({ message: 'Logged out successfully' });
+        } catch (err) {
+            res.status(500).json({ error: 'Server error' });
         }
     });
 

@@ -1,175 +1,366 @@
-/*---------------------------------------- Courses Page---------------------------- */
-#courses-page {
-    margin: 0 30px;
-    padding-top: 20px;
-  }
+/* Hero Section */
+#courses-page #hero .hero-text h2 {
+  font-size: 60px;
+}
+
+/* Explore Courses */
+.explore-courses h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: -0.02em;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 50px 20px;
+  padding: 0 10px;
+  margin: 0 70px;
+}
+
+.program-card {
+  position: relative;
+  background: var(--shadow-light);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5px;
+}
+
+.program-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.program-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.program-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: var(--shadow-light);
+  z-index: 2;
+}
+
+.program-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--p-color2);
+  padding: 10px 10px 5px;
+  z-index: 3;
+  position: relative;
+}
+
+.program-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--p-color1);
+  padding: 0 15px 5px;
+  flex-grow: 1;
+  z-index: 3;
+  position: relative;
+  text-align: left;
+}
+
+.program-card .btn {
+  margin: 0 auto;
+  width: 80%;
+}
+
+/* Learning Pathways */
+.learning-pathways h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-color);
+  text-align: center;
+  margin: 50px 0 20px;
+}
+
+.learning-pathways > p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--p-color1);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 0 15px;
+  margin: 0 70px;
+}
+
+.pathway-card {
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  text-align: left;
+}
+
+.pathway-card:hover {
+  transform: translateY(-3px);
+}
+
+.pathway-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--p-color2);
+  margin-bottom: 8px;
+}
+
+.pathway-card h3 i {
+  color: var(--secondary-color);
+  margin-right: 10px;
+}
+
+.pathway-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--p-color1);
+  text-align: left;
+}
+
+/* Why Choose ETI */
+.why-eti h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-color);
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 0 15px;
+  margin: 0 70px;
+}
+
+.feature-card {
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  text-align: left;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+}
+
+.feature-card i {
+  color: var(--secondary-color);
+  margin-right: 10px;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--p-color2);
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--p-color1);
+  text-align: left;
+}
+
+/* Flexible Learning Options */
+.learning-options {
+  display: flex;
+  /* align-items: center; */
+  margin: 30px 70px;
+  animation: fadeInLeft 2.1s ease-out;
+}
+.learning-options h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-color);
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.learning-options .intro p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--p-color1);
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 30px;
+  text-align: left;
+}
+
+.learning-options .intro img {
+  max-width: 500px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 0 15px;
+  margin-top: 70px;
+}
+
+.option-card {
+  padding: 0 15px;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.option-card:hover {
+  transform: translateY(-3px);
+}
+
+.option-card i {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+.option-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--p-color2);
+  margin-bottom: 8px;
+}
+
+.option-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--p-color1);
+  text-align: left;
+}
+
+/* Career Support Services */
+.career-support h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--p-color2);
+  margin: 50px auto 20px;
+}
+
+.career-support > p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--p-color1);
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.support-grid {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.support-card {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid var(--tertiary-color);
+}
+
+.support-card:last-child {
+  border-bottom: 1px solid var(--tertiary-color);
+}
+
+.support-card .icon{
+  width: 300px;
+  margin-right: 25px;
+  margin-top: 5px;
+}
+
+.support-card i {
+  font-size: 80px;
+  color: var(--primary-color);
   
-  #courses-page .content-section {
-    padding: 50px 0;
-    animation: fadeInUp 1s ease-out;
+}
+
+.support-card .content {
+  flex: 1;
+}
+
+.support-card .info{
+  text-align: left;
+}
+
+.support-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--p-color2);
+  margin-bottom: 8px;
+}
+
+.support-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--p-color1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-section {
+    padding: 60px 15px;
   }
-  
-  #courses-page h2 {
+
+  .explore-courses h2,
+  .learning-pathways h2,
+  .why-eti h2,
+  .learning-options h2,
+  .career-support h2,
+  .faq h2 {
     font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    animation: fadeInLeft 1s ease-out;
   }
-  
-  #courses-page h2 span {
-    color: var(--tertiary-color);
-    font-size: 25px;
+
+  .programs-grid,
+  .pathways-grid,
+  .options-grid,
+  .support-grid,
+  .features-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
   }
-  
-  #courses-page h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-  }
-  
-  #courses-page p {
-    font-size: 16px;
-    color: var(--p-color2);
-    line-height: 1.6;
-    animation: fadeInUp 1.2s ease-out;
-  }
-  
-  /* Hero Section */
-  #courses-page #courses-hero {
-    height: 60vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/courses-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-  }
-  
-  #courses-hero .hero-text {
-    color: #fff;
-    animation: fadeInDown 1s ease-out;
-  }
-  
-  #courses-hero h1 {
-    font-size: 60px;
-    margin-bottom: 10px;
-  }
-  
-  #courses-hero p {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  #courses-hero .btn {
-    padding: 12px 30px;
-    font-size: 18px;
-  }
-  
-  /* Explore Courses */
-  .programs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin: 30px 0;
-  }
-  
-  .program-card {
-    background: var(--background-color);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-light);
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-  
-  .program-card:hover {
-    transform: translateY(-10px);
-  }
-  
+
   .program-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    height: 140px;
   }
-  
-  .program-card p {
-    font-size: 14px;
-    margin-bottom: 20px;
+
+  .story-card img {
+    width: 80px;
+    height: 80px;
   }
-  
-  .program-card .btn {
-    padding: 10px 20px;
-    font-size: 16px;
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .program-card,
+  .pathway-card,
+  .option-card,
+  .support-card,
+  .feature-card,
+  .faq-card {
+    transition: none;
   }
-  
-  /* CTA */
-  #courses-page .cta {
-    padding: 100px 20px;
-    background: url('../images/cta-bg.jpg') no-repeat center/cover;
-    position: relative;
-    border-radius: 15px;
-    margin: 50px 0;
-    text-align: center;
-  }
-  
-  .cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px);
-    z-index: 1;
-  }
-  
-  .cta h2, .cta p, .cta .btn {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-  }
-  
-  .cta h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-  }
-  
-  .cta p {
-    font-size: 22px;
-    margin-bottom: 30px;
-  }
-  
-  .cta .btn {
-    padding: 12px 30px;
-    font-size: 18px;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    #courses-hero {
-      height: 50vh;
-    }
-    #courses-hero h1 {
-      font-size: 40px;
-    }
-    #courses-hero p {
-      font-size: 18px;
-    }
-    .programs-grid {
-      grid-template-columns: 1fr;
-    }
-    .cta h2 {
-      font-size: 30px;
-    }
-    .cta p {
-      font-size: 18px;
-    }
-  }
-  
+}

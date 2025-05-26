@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Reports</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-courses.html">Courses</a>
+      <a href="blog-management.html">Blog</a>
+      <a href="admin-users.html">Users</a>
+      <a href="admin-reports.html">Reports</a>
+      <a href="admin-certificates.html">Certificates</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-resources.html">Resources</a>
+      <a href="admin-support-tickets.html">Support Tickets</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="admin-profile.html">Profile</a>
+          <a href="admin-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Reports</h1>
+    <h2>Course Performance</h2>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Enrollments</th>
+            <th>Completion Rate</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Blockchain Basics</td>
+            <td>150</td>
+            <td>75%</td>
+            <td>4.5/5</td>
+          </tr>
+          <tr>
+            <td>Data Science 101</td>
+            <td>50</td>
+            <td>20%</td>
+            <td>4.0/5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Instructor Performance</h2>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Instructor</th>
+            <th>Courses</th>
+            <th>Average Rating</th>
+            <th>Earnings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alice Johnson</td>
+            <td>2</td>
+            <td>4.3/5</td>
+            <td>$1,800.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Student Progress Reports</h2>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Completion Rate</th>
+            <th>Quiz Scores</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>Blockchain Basics</td>
+            <td>75%</td>
+            <td>85/100, 90/100</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Download Summaries</h2>
+    <div>
+      <button onclick="downloadReport('csv')">Download CSV</button>
+      <button onclick="downloadReport('excel')">Download Excel</button>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function downloadReport(format) {
+      alert(`Downloading report in ${format.toUpperCase()} format`);
+      // Logic to generate and download report
+    }
+  </script>
+</body>
+</html>

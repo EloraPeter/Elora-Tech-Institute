@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1">
@@ -7,177 +8,75 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/teach-online.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSS7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
-            <img src="images/eti logo main.jfif" alt="">
+            <a href="index.html">
+                <img src="images/eti logo main.jfif" alt="">
+            </a>
         </h1>
         <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
         </button>
-        <ul id="nav-link" role="menu">
-            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
-            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
-            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
-                    href="#">Courses</a>
-                <div class="dropdown1">
-                    <ul class="dropdown" role="menuitem">
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="web-development.html">Web Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="web-development-html.html">HTML</a></li>
-                                    <li><a href="web-development-css.html">CSS</a></li>
-                                    <li><a href="web-development-javascript.html">JavaScript</a></li>
-                                    <li><a href="web-development-php.html">PHP & Laravel</a></li>
-                                    <li><a href="web-development-wordpress.html">WordPress</a></li>
-                                    <li><a href="web-development-frontend.html">Frontend Development</a></li>
-                                    <li><a href="web-development-backend.html">Backend Development</a></li>
-                                    <li><a href="web-development-fullstack.html">Full-Stack Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="mobile-apps.html">Mobile App Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="mobile-react-native.html">React Native</a></li>
-                                    <li><a href="mobile-flutter.html">Flutter</a></li>
-                                    <li><a href="mobile-android.html">Android Development (Kotlin)</a></li>
-                                    <li><a href="mobile-ios.html">iOS Development (Swift)</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="data-science.html">Data Science & Machine Learning</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="data-python.html">Python for Data Science</a></li>
-                                    <li><a href="data-machine-learning.html">Machine Learning</a></li>
-                                    <li><a href="data-deep-learning.html">Deep Learning & AI</a></li>
-                                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cyber-ethical-hacking.html">Ethical Hacking</a></li>
-                                    <li><a href="cyber-network-security.html">Network Security</a></li>
-                                    <li><a href="cyber-threat-intelligence.html">Threat Intelligence</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cloud-computing.html">Cloud Computing & DevOps</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
-                                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
-                                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="blockchain.html">Blockchain & Web3</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="blockchain-solidity.html">Solidity & Smart Contracts</a></li>
-                                    <li><a href="blockchain-dapps.html">Decentralized Apps (dApps)</a></li>
-                                    <li><a href="blockchain-nfts.html">NFT & Crypto Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="game-development.html">Game Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="game-unity.html">Unity Game Development</a></li>
-                                    <li><a href="game-unreal.html">Unreal Engine</a></li>
-                                    <li><a href="game-mobile.html">Mobile Game Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="robotics.html">Robotics & IoT</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="robotics-arduino.html">Arduino & Raspberry Pi</a></li>
-                                    <li><a href="robotics-automation.html">Automation & AI in IoT</a></li>
-                                    <li><a href="robotics-smart-home.html">Smart Home Devices</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="ui-ux.html">UI/UX Design</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
-                                    <li><a href="ui-wireframing.html">Wireframing & Prototyping</a></li>
-                                    <li><a href="ui-user-research.html">User Research & UX Strategy</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="digital-marketing.html">Digital Marketing & Tech Business</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="marketing-seo.html">SEO & Content Marketing</a></li>
-                                    <li><a href="marketing-social-media.html">Social Media Growth</a></li>
-                                    <li><a href="marketing-tech-startup.html">Tech Startup Strategies</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
-            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
-            <li role="menuitem" class="enroll-btn">
-                <a href="login-signup.html"
-                    class="btn">Enroll Now</a>
-            </li>
-        </ul>
-        <a href="login-signup.html"
-            class="btn big">Enroll Now</a>
+        <ul ul id="nav-link" role="menu"></ul>
+        <!-- <a href="login-signup.html" class="btn big">Enroll Now</a> -->
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
+    <!-- <button class="sidebar-toggle" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button> -->
+    <aside id="sidebar-nav">
+        <ul class="links"></ul>
+    </aside>
 
     <main id="teach-online-page">
         <!-- Hero Section -->
-        <section id="teach-hero" class="hero">
+        <section id="hero">
+            <div class="hero-img">
+                <img src="images/teach-hero.jpg" alt="" />
+            </div>
             <div class="hero-text">
-                <h1>Join ETI as a Tutor</h1>
-                <p>Shape futures by teaching — and enrich your own life along the way</p>
-                <a href="#join-now" class="btn">Start Teaching</a>
+                <h2>Share Your <span>Expertise</span></h2>
+                <p>
+                    Make a meaningful impact by joining ETI as a tutor. Share your knowledge, mentor the next generation
+                    of tech professionals, and grow both personally and professionally in a supportive,
+                    innovation-driven environment.
+                </p>
+                <div class="enroll-btn">
+                    <a href="#join-now" class="btn">Start Teaching</a>
+                </div>
             </div>
         </section>
 
         <!-- Why Join -->
         <section class="content-section why-join">
-            <h2><span>|</span> Why You Should Begin <span>|</span></h2>
+            <h2><span class="decor">|</span> Why You Should Begin <span class="decor">|</span></h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <i class="fa-solid fa-palette"></i>
                     <h3>Craft Lessons Your Way</h3>
-                    <p>Design tutorials that reflect your vision, delivered in your unique style, with full ownership of your work.</p>
+                    <p>Design tutorials that reflect your vision, delivered in your unique style, with full ownership of
+                        your work.</p>
                 </div>
                 <div class="benefit-card">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <h3>Empower Students</h3>
-                    <p>Pass on your knowledge to spark curiosity, build skills, and boost career paths for learners everywhere.</p>
+                    <p>Pass on your knowledge to spark curiosity, build skills, and boost career paths for learners
+                        everywhere.</p>
                 </div>
                 <div class="benefit-card">
                     <i class="fa-solid fa-money-bill-wave"></i>
                     <h3>Earn Benefits</h3>
-                    <p>Strengthen your professional circle, sharpen your abilities, and gain income from every student signup.</p>
+                    <p>Strengthen your professional circle, sharpen your abilities, and gain income from every student
+                        signup.</p>
                 </div>
             </div>
             <div class="metrics-grid">
@@ -190,13 +89,15 @@
 
         <!-- Getting Started -->
         <section class="content-section getting-started">
-            <h2><span>|</span> Steps to Get Going <span>|</span></h2>
+            <h2><span class="decor">|</span> Steps to Get Going <span class="decor">|</span></h2>
             <div class="steps-container">
                 <div class="steps-text">
-                    <p>Begin with your expertise and enthusiasm. Select a subject that resonates with you and our audience’s interests.</p>
+                    <p>Begin with your expertise and enthusiasm. Select a subject that resonates with you and our
+                        audience’s interests.</p>
                     <p>Your teaching approach — and the energy you bring — is yours to define.</p>
                     <h3>Our Assistance</h3>
-                    <p>We provide guides to develop your initial tutorial, along with a Tutor Hub to streamline your planning.</p>
+                    <p>We provide guides to develop your initial tutorial, along with a Tutor Hub to streamline your
+                        planning.</p>
                 </div>
                 <div class="steps-img">
                     <img src="images/tutor-workshop.jpg" alt="Tutor preparing lessons">
@@ -206,21 +107,24 @@
 
         <!-- Tutor Stories -->
         <section class="content-section tutor-stories">
-            <h2><span>|</span> Voices from Our Tutors <span>|</span></h2>
+            <h2><span class="decor">|</span> Voices from Our Tutors <span class="decor">|</span></h2>
             <div class="stories-grid">
                 <div class="story-card">
                     <img src="images/tutor-lina.jpg" alt="Lina Mwangi">
-                    <p>“I wake up excited knowing my lessons help people worldwide advance their tech skills. Teaching on ETI fits my schedule and lets me contribute flexibly.”</p>
+                    <p>“I wake up excited knowing my lessons help people worldwide advance their tech skills. Teaching
+                        on ETI fits my schedule and lets me contribute flexibly.”</p>
                     <p><strong>Lina Mwangi</strong> - Software Development Tutor</p>
                 </div>
                 <div class="story-card">
                     <img src="images/tutor-ethan.jpg" alt="Ethan Kim">
-                    <p>“ETI opened doors for me to pursue my love for teaching. Watching students grasp cybersecurity concepts faster than in traditional settings is incredibly rewarding.”</p>
+                    <p>“ETI opened doors for me to pursue my love for teaching. Watching students grasp cybersecurity
+                        concepts faster than in traditional settings is incredibly rewarding.”</p>
                     <p><strong>Ethan Kim</strong> - Cybersecurity Tutor</p>
                 </div>
                 <div class="story-card">
                     <img src="images/tutor-sofia.jpg" alt="Sofia Almeida">
-                    <p>“Sharing my marketing insights on ETI lets me connect with a global audience while providing a reliable income boost. It’s a win-win!”</p>
+                    <p>“Sharing my marketing insights on ETI lets me connect with a global audience while providing a
+                        reliable income boost. It’s a win-win!”</p>
                     <p><strong>Sofia Almeida</strong> - Marketing Strategies Tutor</p>
                 </div>
             </div>
@@ -228,16 +132,17 @@
 
         <!-- Team Support -->
         <section class="content-section team-support">
-            <h2><span>|</span> You’re Not on Your Own <span>|</span></h2>
+            <h2><span class="decor">|</span> You’re Not on Your Own <span class="decor">|</span></h2>
             <div class="support-container">
-                <p>Our Tutor Assistance Crew is ready to assist with queries and review your sample videos. Tap into our Learning Portal for resources and network with seasoned tutors in our community.</p>
+                <p>Our Tutor Assistance Crew is ready to assist with queries and review your sample videos. Tap into our
+                    Learning Portal for resources and network with seasoned tutors in our community.</p>
                 <a href="contact.html" class="btn">Contact Support</a>
             </div>
         </section>
 
         <!-- Join Now -->
         <section class="content-section join-now">
-            <h2><span>|</span> Start Teaching on ETI Today <span>|</span></h2>
+            <h2><span class="decor">|</span> Start Teaching on ETI Today <span class="decor">|</span></h2>
             <div class="join-container">
                 <p>Be part of a top-tier educational platform reaching learners globally.</p>
                 <a href="tutor-signup-login.html" class="btn">Register Now</a>
@@ -247,14 +152,15 @@
 
         <!-- FAQ -->
         <section class="content-section faq" id="faq">
-            <h2><span>|</span> Frequently Asked Questions <span>|</span></h2>
+            <h2><span class="decor">|</span> Frequently Asked Questions <span class="decor">|</span></h2>
             <div class="accordion">
                 <div class="accordion-item">
                     <div class="accordion-title">
                         Who can become a tutor on ETI? <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>Anyone with valuable skills and a passion for teaching can become a tutor on ETI. Whether you're a professional, freelancer, or enthusiast, your expertise is welcome.</p>
+                        <p>Anyone with valuable skills and a passion for teaching can become a tutor on ETI. Whether
+                            you're a professional, freelancer, or enthusiast, your expertise is welcome.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -262,7 +168,8 @@
                         Do I need prior teaching experience? <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>No prior teaching experience is required. ETI provides guidance and tools to help you structure your lessons, so you can focus on sharing your knowledge with confidence.</p>
+                        <p>No prior teaching experience is required. ETI provides guidance and tools to help you
+                            structure your lessons, so you can focus on sharing your knowledge with confidence.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -270,7 +177,8 @@
                         How do I get paid as a tutor? <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>Tutors earn income for every student signup. Earnings are sent directly to your preferred payment method on a regular schedule.</p>
+                        <p>Tutors earn income for every student signup. Earnings are sent directly to your preferred
+                            payment method on a regular schedule.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -278,7 +186,9 @@
                         What support does ETI provide for new tutors? <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>We offer starter guides, planning tools, a Tutor Hub, and dedicated Tutor Assistance Crew to help you through every step — from creating your first tutorial to engaging with students.</p>
+                        <p>We offer starter guides, planning tools, a Tutor Hub, and dedicated Tutor Assistance Crew to
+                            help you through every step — from creating your first tutorial to engaging with students.
+                        </p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -286,24 +196,43 @@
                         Can I teach in my own language? <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>Yes! ETI supports over 60 languages, allowing you to connect with learners in your native or preferred language.</p>
+                        <p>Yes! ETI supports over 60 languages, allowing you to connect with learners in your native or
+                            preferred language.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer (Unchanged from original) -->
     <footer>
         <div class="info">
             <div class="about">
                 <h2>Elora Tech Institute</h2>
-                <p>Elora Tech Institute equips individuals with in-demand tech skills through hands-on training in web development, cybersecurity, Web3, IoT, and more...</p>
+                <p>
+                    Elora Tech Institute equips individuals with in-demand tech skills
+                    through hands-on training in web development, cybersecurity, Web3,
+                    IoT, and more. Our vision is to be a leading tech institution,
+                    shaping the future of tech education through innovation and
+                    excellence. With a comprehensive curriculum, hands-on projects,
+                    flexible online learning, and career support, Elora Tech Institute
+                    is more than an academy—it’s a movement to create the next
+                    generation of tech innovators.
+                </p>
                 <ul class="sm">
-                    <li><a href="https://web.facebook.com/profile.php?id=61574697245670"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://instagram.com/elorainstitute"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a></li>
+                    <li>
+                        <a href="https://web.facebook.com/profile.php?id=61574697245670"><i
+                                class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i
+                                class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a>
+                    </li>
                 </ul>
             </div>
             <div class="quick-links">
@@ -315,7 +244,7 @@
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="teach-online.html">Teach on ETI</a></li>
-                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="help-support.html">Help & Support</a></li>
                 </ul>
             </div>
             <div class="apply">
@@ -326,21 +255,29 @@
                     <li>Make payment and confirm your enrollment.</li>
                     <li>Start your tech journey with us!</li>
                 </ol>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing" class="apply-button" target="_blank">Register Now</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+                    class="apply-button" target="_blank">Register Now</a>
+
+
             </div>
         </div>
         <hr />
-        <p id="copyright">© Elora Tech Institute 2023 - 2025. All rights reserved.</p>
+        <p id="copyright">
+            &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
+        </p>
         <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
     </footer>
 
     <!-- WhatsApp Bubble -->
-    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank" class="whatsapp-bubble">
+    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
+        class="whatsapp-bubble">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="js/navConfig.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>

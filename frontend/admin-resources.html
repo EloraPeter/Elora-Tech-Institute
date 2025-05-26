@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Resources</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-courses.html">Courses</a>
+      <a href="blog-management.html">Blog</a>
+      <a href="admin-users.html">Users</a>
+      <a href="admin-reports.html">Reports</a>
+      <a href="admin-certificates.html">Certificates</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-resources.html">Resources</a>
+      <a href="admin-support-tickets.html">Support Tickets</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="admin-profile.html">Profile</a>
+          <a href="admin-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Manage Resources</h1>
+    <h2>Upload Resource</h2>
+    <div class="create-course-form">
+      <form id="uploadResourceForm">
+        <label for="resourceFile">Upload File (PDF, Doc):</label>
+        <input type="file" id="resourceFile" accept=".pdf,.doc,.docx" required><br><br>
+        <label for="resourceTitle">Resource Title:</label>
+        <input type="text" id="resourceTitle" required placeholder="Enter resource title"><br><br>
+        <label for="resourceCategory">Category:</label>
+        <select id="resourceCategory" required>
+          <option value="">Select Category</option>
+          <option value="tutor">Tutor Materials</option>
+          <option value="student">Student Resources</option>
+        </select><br><br>
+        <button type="submit" onclick="uploadResource()">Upload</button>
+      </form>
+    </div>
+    <h2>Available Resources</h2>
+    <div class="course-list">
+      <div class="course-item">
+        <h3>Course Template - Syllabus</h3>
+        <p>Category: Tutor Materials</p>
+        <button onclick="downloadResource('1')">Download</button>
+        <button onclick="deleteResource('1')">Delete</button>
+      </div>
+      <div class="course-item">
+        <h3>Student Guide - Blockchain</h3>
+        <p>Category: Student Resources</p>
+        <button onclick="downloadResource('2')">Download</button>
+        <button onclick="deleteResource('2')">Delete</button>
+      </div>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function uploadResource() {
+      const form = document.getElementById('uploadResourceForm');
+      if (form.checkValidity()) {
+        alert('Resource uploaded successfully');
+        // Logic to handle file upload
+      } else {
+        alert('Please fill all required fields');
+      }
+    }
+    function downloadResource(id) {
+      alert(`Downloading resource ID: ${id}`);
+      // Logic to download resource
+    }
+    function deleteResource(id) {
+      if (confirm(`Delete resource ID: ${id}?`)) {
+        alert(`Resource ${id} deleted`);
+        // Logic to delete resource
+      }
+    }
+  </script>
+</body>
+</html>

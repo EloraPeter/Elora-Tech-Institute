@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Payments</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="hamburger">☰</div>
+    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
+    <div class="nav-menu">
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-courses.html">Courses</a>
+      <a href="blog-management.html">Blog</a>
+      <a href="admin-users.html">Users</a>
+      <a href="admin-reports.html">Reports</a>
+      <a href="admin-certificates.html">Certificates</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-resources.html">Resources</a>
+      <a href="admin-support-tickets.html">Support Tickets</a>
+      <div class="profile-dropdown">
+        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+        <div class="profile-dropdown-content">
+          <a href="admin-profile.html">Profile</a>
+          <a href="admin-settings.html">Settings</a>
+          <a href="logout.html">Logout</a>
+        </div>
+      </div>
+      <div class="notification-dropdown">
+        <span>🔔</span>
+        <div class="notification-dropdown-content"></div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h1>Manage Payments</h1>
+    <h2>Transactions</h2>
+    <div class="admin-course-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Transaction ID</th>
+            <th>User</th>
+            <th>Course</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TX12345</td>
+            <td>John Doe</td>
+            <td>Blockchain Basics</td>
+            <td>$99.99</td>
+            <td>2025-05-20</td>
+          </tr>
+          <tr>
+            <td>TX12346</td>
+            <td>Jane Smith</td>
+            <td>Data Science 101</td>
+            <td>$149.99</td>
+            <td>2025-05-22</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Instructor Payouts</h2>
+    <div>
+      <p>Instructor: Alice Johnson</p>
+      <p>Earnings: $500.00</p>
+      <button onclick="processPayout('1')">Process Payout</button>
+    </div>
+    <h2>Generate Invoice/Receipt</h2>
+    <div>
+      <select id="template">
+        <option value="invoice">Invoice</option>
+        <option value="receipt">Receipt</option>
+      </select>
+      <button onclick="generateDocument()">Generate</button>
+    </div>
+    <h2>Discounts & Coupons</h2>
+    <div>
+      <input type="text" id="couponCode" placeholder="Enter coupon code">
+      <input type="number" id="discount" placeholder="Discount (%)">
+      <button onclick="addCoupon()">Add Coupon</button>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+  <script>
+    function processPayout(id) {
+      alert(`Processing payout for instructor ID: ${id}`);
+    }
+    function generateDocument() {
+      const template = document.getElementById('template').value;
+      alert(`Generating ${template}...`);
+      // Logic to generate invoice/receipt
+    }
+    function addCoupon() {
+      const code = document.getElementById('couponCode').value;
+      const discount = document.getElementById('discount').value;
+      if (code && discount) {
+        alert(`Coupon ${code} with ${discount}% discount added`);
+      } else {
+        alert('Please enter coupon code and discount');
+      }
+    }
+  </script>
+</body>
+</html>

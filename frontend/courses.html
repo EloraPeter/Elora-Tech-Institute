@@ -1,237 +1,503 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Courses | Elora Tech Institute</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSS7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/faq.css" />
+    <link rel="stylesheet" href="css/courses.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
-            <img src="images/eti logo main.jfif" alt="">
+            <a href="index.html">
+                <img src="images/eti logo main.jfif" alt="" />
+            </a>
         </h1>
         <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
         </button>
-        <ul id="nav-link" role="menu">
-            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
-            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
-            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
-                    href="#">Courses</a>
-                <div class="dropdown1">
-                    <ul class="dropdown" role="menuitem">
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="web-development.html">Web Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="web-development-html.html">HTML</a></li>
-                                    <li><a href="web-development-css.html">CSS</a></li>
-                                    <li><a href="web-development-javascript.html">JavaScript</a></li>
-                                    <li><a href="web-development-php.html">PHP & Laravel</a></li>
-                                    <li><a href="web-development-wordpress.html">WordPress</a></li>
-                                    <li><a href="web-development-frontend.html">Frontend Development</a></li>
-                                    <li><a href="web-development-backend.html">Backend Development</a></li>
-                                    <li><a href="web-development-fullstack.html">Full-Stack Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="mobile-apps.html">Mobile App Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="mobile-react-native.html">React Native</a></li>
-                                    <li><a href="mobile-flutter.html">Flutter</a></li>
-                                    <li><a href="mobile-android.html">Android Development (Kotlin)</a></li>
-                                    <li><a href="mobile-ios.html">iOS Development (Swift)</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="data-science.html">Data Science & Machine Learning</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="data-python.html">Python for Data Science</a></li>
-                                    <li><a href="data-machine-learning.html">Machine Learning</a></li>
-                                    <li><a href="data-deep-learning.html">Deep Learning & AI</a></li>
-                                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cyber-ethical-hacking.html">Ethical Hacking</a></li>
-                                    <li><a href="cyber-network-security.html">Network Security</a></li>
-                                    <li><a href="cyber-threat-intelligence.html">Threat Intelligence</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cloud-computing.html">Cloud Computing & DevOps</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
-                                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
-                                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="blockchain.html">Blockchain & Web3</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="blockchain-solidity.html">Solidity & Smart Contracts</a></li>
-                                    <li><a href="blockchain-dapps.html">Decentralized Apps (dApps)</a></li>
-                                    <li><a href="blockchain-nfts.html">NFT & Crypto Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="game-development.html">Game Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="game-unity.html">Unity Game Development</a></li>
-                                    <li><a href="game-unreal.html">Unreal Engine</a></li>
-                                    <li><a href="game-mobile.html">Mobile Game Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="robotics.html">Robotics & IoT</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="robotics-arduino.html">Arduino & Raspberry Pi</a></li>
-                                    <li><a href="robotics-automation.html">Automation & AI in IoT</a></li>
-                                    <li><a href="robotics-smart-home.html">Smart Home Devices</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="ui-ux.html">UI/UX Design</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
-                                    <li><a href="ui-wireframing.html">Wireframing & Prototyping</a></li>
-                                    <li><a href="ui-user-research.html">User Research & UX Strategy</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="digital-marketing.html">Digital Marketing & Tech Business</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="marketing-seo.html">SEO & Content Marketing</a></li>
-                                    <li><a href="marketing-social-media.html">Social Media Growth</a></li>
-                                    <li><a href="marketing-tech-startup.html">Tech Startup Strategies</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
-            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
-            <li role="menuitem" class="enroll-btn">
-                <a href="login-signup.html"
-                    class="btn">Enroll Now</a>
-            </li>
-        </ul>
-        <a href="login-signup.html"
-            class="btn big">Enroll Now</a>
+        <ul ul id="nav-link" role="menu"></ul>
+        <!-- <a href="login-signup.html" class="btn big">Enroll Now</a> -->
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
+    <!-- <button class="sidebar-toggle" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button> -->
+    <aside id="sidebar-nav">
+        <ul class="links"></ul>
+    </aside>
 
     <main id="courses-page">
         <!-- Hero Section -->
-        <section id="courses-hero" class="hero">
+        <section id="hero">
             <div class="hero-text">
-                <h1>Our Programs</h1>
-                <p>Empowering you from beginner to expert — in every tech field</p>
-                <a href="admissions.html" class="btn">Enroll Now</a>
+                <h2>Discover the <span>Right</span> Program for You</h2>
+                <p>
+                    Find a diverse range of industry-relevant programs designed to take
+                    you from a complete beginner to an accomplished expert. Whether
+                    you're starting your tech journey or advancing your current skills,
+                    our carefully structured curriculum, hands-on projects, and
+                    real-world mentorship ensure you're fully equipped to thrive in
+                    today’s dynamic technology landscape.
+                </p>
+                <div class="hero-btn">
+                    <a href="admissions.html" class="btn">Enroll Now</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="images/course-hero.jpeg" alt="" />
             </div>
         </section>
 
         <!-- Explore Courses -->
         <section class="content-section explore-courses">
-            <h2><span>|</span> Explore Our Courses <span>|</span></h2>
+            <h2>
+                <span class="decor">|</span> Explore Our Courses
+                <span class="decor">|</span>
+            </h2>
             <div class="programs-grid">
                 <div class="program-card">
-                    <img src="images/web-dev.jpg" alt="Web Development">
-                    <h3>Web Development (Frontend & Backend)</h3>
-                    <p>Learn HTML, CSS, JavaScript, React, Node.js, and full-stack development with hands-on projects and mentorship.</p>
+                    <img src="images/webdev.jpeg" alt="Web Development" />
+                    <h3>
+                        Web Development <br />
+                        (Frontend & Backend)
+                    </h3>
+                    <p>
+                        Learn HTML, CSS, JavaScript, React, Node.js, and full-stack
+                        development with hands-on projects and mentorship.
+                    </p>
                     <a href="web-development.html" class="btn">Learn More</a>
                 </div>
                 <div class="program-card">
-                    <img src="images/ui-ux.jpg" alt="UI/UX Design">
+                    <img src="images/ui-ux.jpeg" alt="UI/UX Design" />
                     <h3>UI/UX Design</h3>
-                    <p>Master Figma, design principles, wireframing, and user-centered thinking to build beautiful, user-friendly products.</p>
+                    <p>
+                        Master Figma, design principles, wireframing, and user-centered
+                        thinking to build beautiful, user-friendly products.
+                    </p>
                     <a href="ui-ux.html" class="btn">Learn More</a>
                 </div>
                 <div class="program-card">
-                    <img src="images/cybersecurity.jpg" alt="Cybersecurity">
+                    <img src="images/cybersecurity.jpg" alt="Cybersecurity" />
                     <h3>Cybersecurity</h3>
-                    <p>Understand how to secure networks, data, and systems with industry tools and techniques, including ethical hacking.</p>
+                    <p>
+                        Understand how to secure networks, data, and systems with industry
+                        tools and techniques, including ethical hacking.
+                    </p>
                     <a href="cybersecurity.html" class="btn">Learn More</a>
                 </div>
                 <div class="program-card">
-                    <img src="images/mobile-app.jpg" alt="Mobile App Development">
+                    <img src="images/mobile-app.png" alt="Mobile App Development" />
                     <h3>Mobile App Development</h3>
-                    <p>Build Android and iOS apps using Flutter, React Native, and learn the full app lifecycle — from design to deployment.</p>
+                    <p>
+                        Build Android and iOS apps using Flutter, React Native, and learn
+                        the full app lifecycle — from design to deployment.
+                    </p>
                     <a href="mobile-apps.html" class="btn">Learn More</a>
                 </div>
                 <div class="program-card">
-                    <img src="images/robotics-iot.jpg" alt="Robotics & IoT">
+                    <img src="images/robotics.jpg" alt="Robotics & IoT" />
                     <h3>Robotics & IoT</h3>
-                    <p>Explore smart devices and automation using sensors, microcontrollers, and real-world robotics applications.</p>
+                    <p>
+                        Explore smart devices and automation using sensors,
+                        microcontrollers, and real-world robotics applications.
+                    </p>
                     <a href="robotics.html" class="btn">Learn More</a>
                 </div>
                 <div class="program-card">
-                    <img src="images/tech-kids.jpg" alt="Tech for Kids">
+                    <img src="images/tech-kids.jpg" alt="Tech for Kids" />
                     <h3>Tech for Kids (Crèche to SS3)</h3>
-                    <p>Ages 4–17. Coding, robotics, digital literacy, and creativity programs tailored for every stage of growth and learning.</p>
+                    <p>
+                        Ages 4–17. Coding, robotics, digital literacy, and creativity
+                        programs tailored for every stage of growth and learning.
+                    </p>
                     <a href="admissions.html" class="btn">Learn More</a>
                 </div>
                 <div class="program-card">
-                    <img src="images/post-grad.jpg" alt="Post-Graduate & IT Students">
+                    <img src="images/post-grad.png" style="object-position: top center"
+                        alt="Post-Graduate & IT Students" />
                     <h3>Post-Graduate & IT Students</h3>
-                    <p>Upskill after university or during SIWES/IT with real projects, certifications, and guided career-building programs.</p>
+                    <p>
+                        Upskill after university or during SIWES/IT with real projects,
+                        certifications, and guided career-building programs.
+                    </p>
                     <a href="admissions.html" class="btn">Learn More</a>
                 </div>
                 <div class="program-card">
-                    <img src="images/certifications.jpg" alt="Global Tech Certifications">
+                    <img src="images/certifications1.png" style="object-position: bottom center"
+                        alt="Global Tech Certifications" />
                     <h3>Global Tech Certifications</h3>
-                    <p>Prepare for international exams and certifications like CompTIA, AWS, Google, Meta, Cisco, and more.</p>
+                    <p>
+                        Prepare for international exams and certifications like CompTIA,
+                        AWS, Google, Meta, Cisco, and more.
+                    </p>
                     <a href="admissions.html" class="btn">Learn More</a>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="content-section cta">
-            <h2>Ready to Start Your Tech Journey?</h2>
-            <p>Join ETI and unlock your potential in the world of technology.</p>
-            <a href="admissions.html" class="btn">Enroll Today</a>
+        <!-- Learning Pathways -->
+        <section class="content-section learning-pathways">
+            <h2>
+                <span class="decor">|</span> Your Learning Pathway
+                <span class="decor">|</span>
+            </h2>
+            <p>
+                Choose a track tailored to your goals and skill level, designed to
+                guide you from novice to professional.
+            </p>
+            <div class="pathways-grid">
+                <div class="pathway-card">
+                    <h3><i class="fa-solid fa-seedling"></i>Beginner Track</h3>
+                    <p>
+                        Start with no experience! Learn coding basics, design
+                        fundamentals, or tech literacy with step-by-step guidance.
+                    </p>
+                </div>
+                <div class="pathway-card">
+                    <h3><i class="fa-solid fa-layer-group"></i>Intermediate Track</h3>
+                    <p>
+                        Build on your skills with advanced tools, frameworks, and projects
+                        to create professional-grade applications.
+                    </p>
+                </div>
+                <div class="pathway-card">
+                    <h3><i class="fa-solid fa-award"></i>Professional Track</h3>
+                    <p>
+                        Master industry standards, earn certifications, and prepare for
+                        high-demand tech careers with expert mentorship.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose ETI -->
+        <section class="content-section why-eti">
+            <h2>
+                <span class="decor">|</span> Why Choose ETI?
+                <span class="decor">|</span>
+            </h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>
+                        <i class="fa-solid fa-chalkboard-teacher"></i>Expert Mentors
+                    </h3>
+                    <p>
+                        Learn from industry professionals with years of experience in
+                        tech, guiding you every step of the way.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fa-solid fa-laptop-code"></i>Hands-On Learning</h3>
+                    <p>
+                        Build real-world projects, from websites to IoT devices, to gain
+                        practical skills employers value.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3>
+                        <i class="fa-solid fa-certificate"></i>Global Certifications
+                    </h3>
+                    <p>
+                        Earn internationally recognized credentials to boost your career
+                        and stand out in the job market.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3>
+                        <i class="fa-solid fa-hand-holding-heart"></i>Supportive Community
+                    </h3>
+                    <p>
+                        Join a vibrant community of learners, with peer support,
+                        networking, and career guidance.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flexible Learning Options -->
+        <section class="content-section learning-options">
+            <div class="intro">
+                <h2>
+                    <span class="decor">|</span> Flexible Learning Options
+                    <span class="decor">|</span>
+                </h2>
+
+                <img src="images/flexop.png" alt="" loading="lazy" />
+                <p>
+                    We understand that everyone learns differently. That’s why our
+                    programs are designed with flexibility in mind so you can study at
+                    your own pace, on your own schedule, and in a way that aligns with
+                    your lifestyle and long-term goals.
+                </p>
+            </div>
+            <div class="options-grid">
+                <div class="option-card">
+                    <h3><i class="fa-solid fa-globe"></i>Online Learning</h3>
+                    <p>
+                        Join classes from anywhere in the world through our robust online
+                        platform. You’ll have access to live instructor-led sessions,
+                        recorded replays, downloadable resources, and interactive
+                        assignments—allowing you to learn on your terms without
+                        compromising quality.
+                    </p>
+                </div>
+                <div class="option-card">
+                    <h3><i class="fa-solid fa-building"></i>In-Person Classes</h3>
+                    <p>
+                        Our upcoming Delta State campus will offer immersive, hands-on
+                        classroom experiences. Engage in collaborative projects, access
+                        on-site mentorship, and benefit from real-world labs designed to
+                        give you practical, job-ready skills.
+                    </p>
+                </div>
+                <div class="option-card">
+                    <h3><i class="fa-solid fa-laptop"></i>Hybrid Model</h3>
+                    <p>
+                        Prefer a mix of both? Our hybrid option combines the convenience
+                        of online learning with the structure of in-person support. Attend
+                        virtual lectures and supplement them with physical workshops,
+                        bootcamps, and campus activities for a truly personalized
+                        approach.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Support Services -->
+        <section class="content-section career-support">
+            <h2>
+                <span class="decor">|</span> Career Support Services
+                <span class="decor">|</span>
+            </h2>
+            <p>
+                At ETI, our mission goes beyond just teaching—we’re committed to
+                launching careers. From your first lesson to your first job (and
+                beyond), we provide the guidance, resources, and industry connections
+                you need to succeed in the tech workforce.
+            </p>
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="icon">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Job Placement Assistance</h3>
+                        <p>
+                            Gain direct access to our partner companies and hiring networks.
+                            Our career team works with you one-on-one to identify job
+                            opportunities, prepare for interviews, and navigate the hiring
+                            process until you secure a position that matches your skills and
+                            passion.
+                        </p>
+                    </div>
+                </div>
+                <div class="support-card">
+                    <div class="icon">
+                        <i class="fa-solid fa-file-alt"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Resume & Portfolio Building</h3>
+                        <p>
+                            Create compelling resumes, LinkedIn profiles, and project
+                            portfolios that reflect your true capabilities. With expert
+                            feedback and templates tailored for the tech industry, you’ll have
+                            everything you need to make a memorable impression on recruiters.
+                        </p>
+                    </div>
+                </div>
+                <div class="support-card">
+                    <div class="icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Networking Events</h3>
+                        <p>
+                            Build your professional network through curated events such as
+                            tech meetups, bootcamps, hackathons, and virtual info sessions.
+                            You’ll meet industry leaders, fellow learners, alumni, and hiring
+                            managers who can open doors to exciting opportunities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frequently Asked Questions -->
+        <section class="faq" aria-label="Frequently Asked Questions">
+            <h2>
+                <span class="decor">|</span> Frequently Asked Questions
+                <span class="decor">|</span>
+            </h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-title" aria-expanded="false">
+                        <span>What are the prerequisites for enrolling?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            Most of our beginner-level courses require no prior tech
+                            experience. We designed them to be friendly to absolute
+                            beginners, guiding you through foundational concepts
+                            step-by-step. However, intermediate and advanced tracks may
+                            require basic familiarity with tools like HTML, Git, or general
+                            computer usage. For each course, you'll find a clear outline of
+                            prerequisites to help you choose the right level.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-title" aria-expanded="false">
+                        <span>How long are the programs?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            Our program durations vary depending on the course and
+                            intensity. Short courses typically last 6 to 8 weeks, perfect
+                            for focused skill development. Full tracks or diplomas can range
+                            from 3 to 12 months and are designed to help you transition into
+                            the tech industry or upskill significantly. All courses are
+                            structured to be flexible, allowing you to learn at your own
+                            pace with both live and recorded sessions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-title" aria-expanded="false">
+                        <span>Are there payment plans available?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            Absolutely. We understand that finances can be a challenge,
+                            especially for students. That’s why we offer flexible payment
+                            plans, including monthly or bi-weekly installments. We also
+                            offer early bird discounts, group enrollment discounts, and
+                            limited scholarships for students with financial needs. To
+                            explore payment options, please reach out to our support team or
+                            check the course page.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-title" aria-expanded="false">
+                        <span>Do you offer certifications?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            Yes. Every student who completes a course or program will
+                            receive a digital certificate of completion that is verifiable
+                            and shareable on LinkedIn. In addition, many of our programs are
+                            designed to prepare you for globally recognized certifications
+                            such as AWS Certified Cloud Practitioner, CompTIA A+, Google IT
+                            Support, and more. We also offer guidance and practice exams to
+                            help you prepare effectively.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-title" aria-expanded="false">
+                        <span>Can I learn while working or schooling full-time?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            Yes, our programs are designed with flexibility in mind. You can
+                            access live classes in the evenings or weekends, and we record
+                            every session so you can catch up anytime. You’ll also have
+                            lifetime access to course content and a self-paced study option
+                            if live sessions don't work for you. Whether you’re a full-time
+                            student or working professional, you can learn comfortably on
+                            your schedule.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-title" aria-expanded="false">
+                        <span>Is there mentorship or support during the course?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            Yes. Every student gets access to a dedicated mentor or course
+                            facilitator who provides weekly check-ins, project feedback, and
+                            career guidance. We also have active community support groups on
+                            WhatsApp and Discord, where you can ask questions, share wins,
+                            and connect with fellow learners. You're never alone at ETI — we
+                            support you from start to finish.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-title" aria-expanded="false">
+                        <span>What kind of projects will I work on?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            You’ll work on real-world projects that reflect current industry
+                            standards. For example, web development students might build
+                            responsive websites, portfolios, and client dashboards. Mobile
+                            app students might build a complete app prototype with user
+                            authentication. You'll also participate in capstone projects and
+                            hackathons, giving you strong, portfolio-ready work to showcase
+                            to future employers or clients.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <!-- Footer (Updated to match other pages) -->
     <footer>
         <div class="info">
             <div class="about">
                 <h2>Elora Tech Institute</h2>
-                <p>Elora Tech Institute equips individuals with in-demand tech skills through hands-on training in web development, cybersecurity, Web3, IoT, and more...</p>
+                <p>
+                    Elora Tech Institute equips individuals with in-demand tech skills
+                    through hands-on training in web development, cybersecurity, Web3,
+                    IoT, and more. Our vision is to be a leading tech institution,
+                    shaping the future of tech education through innovation and
+                    excellence. With a comprehensive curriculum, hands-on projects,
+                    flexible online learning, and career support, Elora Tech Institute
+                    is more than an academy—it’s a movement to create the next
+                    generation of tech innovators.
+                </p>
                 <ul class="sm">
-                    <li><a href="https://web.facebook.com/profile.php?id=61574697245670"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://instagram.com/elorainstitute"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a></li>
+                    <li>
+                        <a href="https://web.facebook.com/profile.php?id=61574697245670"><i
+                                class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i
+                                class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a>
+                    </li>
                 </ul>
             </div>
             <div class="quick-links">
@@ -243,8 +509,7 @@
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="teach-online.html">Teach on ETI</a></li>
-                    <li><a href="blog&updates.html">Blog</a></li>
-                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="help-support.html">Help & Support</a></li>
                 </ul>
             </div>
             <div class="apply">
@@ -255,21 +520,30 @@
                     <li>Make payment and confirm your enrollment.</li>
                     <li>Start your tech journey with us!</li>
                 </ol>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing" class="apply-button" target="_blank">Register Now</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+                    class="apply-button" target="_blank">Register Now</a>
             </div>
         </div>
         <hr />
-        <p id="copyright">© Elora Tech Institute 2023 - 2025. All rights reserved.</p>
-        <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
+        <p id="copyright">
+            &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
+        </p>
+        <p id="designer">
+            Created by
+            <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a>
+            with ❤
+        </p>
     </footer>
 
     <!-- WhatsApp Bubble -->
-    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank" class="whatsapp-bubble">
+    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
+        class="whatsapp-bubble">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
     </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="js/navConfig.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>

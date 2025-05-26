@@ -1,6 +1,6 @@
 /* FAQ Page */
 .faq {
-    margin: 20px 0;
+    margin: 20px 0 0;
 }
 
 .faq h3 {
@@ -9,10 +9,12 @@
 
 .faq .accordion {
     border-radius: 5px;
+    margin: 0 30px;
+    background: var(--background-gradient);
 }
 
 .faq .accordion .accordion-item {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--p-color1);
     transition: all 0.3s ease;
 }
 
@@ -42,7 +44,7 @@
     max-height: 0;
     overflow: hidden;
     padding: 0 15px;
-    background-color: #fff;
+    background: var(--shadow-light);
     transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
@@ -53,24 +55,9 @@
 
 .faq .accordion .accordion-item .accordion-content p {
     font-size: 16px;
-    color: var(--tertiary-color);
+    color: var(--p-color2);
     line-height: 1.5;
     margin: 0;
+    text-align: left;
 }
 
-.faq .accordion-toggle {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #3498db;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.faq .accordion-toggle:hover {
-    background-color: #2980b9;
-}
