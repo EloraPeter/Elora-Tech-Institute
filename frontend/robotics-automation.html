@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Automation Courses | Elora Tech Institute</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--background-color);
+        }
+
+        /* Header and Navigation */
+        header {
+            background: var(--background-color2);
+            color: var(--text-color);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px var(--shadow-light);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: #00cc00; /* Automation green */
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--background-gradient);
+            color: var(--text-color);
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--p-color2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            color: var(--p-color1);
+        }
+
+        .hero .cta-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .hero .cta-button:hover {
+            background: #2b6cb0;
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 2rem;
+            max-height: 300px;
+            border-radius: 10px;
+        }
+
+        /* Learning Paths Section */
+        .learning-paths {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--background-color);
+        }
+
+        .learning-paths h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--p-color2);
+        }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .path-card {
+            background: var(--background-color2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px var(--shadow-light);
+            text-align: left;
+            border-left: 4px solid #00cc00;
+        }
+
+        .path-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--p-color3);
+        }
+
+        .path-card p {
+            font-size: 0.9rem;
+            color: var(--p-color1);
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 4rem 2rem;
+            background: var(--background-color2);
+            text-align: center;
+        }
+
+        .courses h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--p-color2);
+        }
+
+        .search-filter {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-filter input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid var(--tertiary-color);
+            border-radius: 5px;
+            width: 300px;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .search-filter select {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid var(--tertiary-color);
+            border-radius: 5px;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px var(--shadow-light);
+            text-align: left;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .course-card h3 {
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+            color: var(--p-color3);
+        }
+
+        .course-card p {
+            font-size: 0.9rem;
+            color: var(--p-color1);
+            margin-bottom: 0.5rem;
+        }
+
+        .course-card .price {
+            font-weight: bold;
+            color: #00cc00;
+            margin-bottom: 1rem;
+        }
+
+        .course-card .enroll-btn {
+            display: block;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .course-card .enroll-btn:hover {
+            background: #2b6cb0;
+        }
+
+        /* Instructor Spotlight */
+        .instructors {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--background-color);
+        }
+
+        .instructors h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--p-color2);
+        }
+
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .instructor-card {
+            background: var(--background-color2);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px var(--shadow-light);
+        }
+
+        .instructor-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .instructor-card h3 {
+            font-size: 1.2rem;
+            color: var(--p-color3);
+        }
+
+        .instructor-card p {
+            font-size: 0.9rem;
+            color: var(--p-color1);
+        }
+
+        /* Related Courses */
+        .related-courses {
+            padding: 4rem 2rem;
+            background: var(--background-color2);
+            text-align: center;
+        }
+
+        .related-courses h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--p-color2);
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 1rem;
+        }
+
+        .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--background-color);
+        }
+
+        .faq h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--p-color2);
+        }
+
+        .faq-item {
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            text-align: left;
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            font-weight: bold;
+            padding: 1rem;
+            background: var(--background-color2);
+            border-radius: 5px;
+            color: var(--p-color3);
+        }
+
+        .faq-item p {
+            padding: 1rem;
+            background: var(--background-color);
+            border-radius: 5px;
+            color: var(--p-color1);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--background-color2);
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--p-color2);
+        }
+
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            max-width: 400px;
+            font-style: italic;
+            box-shadow: 0 2px 5px var(--shadow-light);
+        }
+
+        .testimonial-card p {
+            margin-bottom: 1rem;
+            color: var(--p-color1);
+        }
+
+        .testimonial-card cite {
+            font-weight: bold;
+            color: #00cc00;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--background-color2);
+            color: var(--text-color);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: var(--background-color);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1rem;
+            color: var(--p-color2);
+        }
+
+        .modal-content p {
+            margin-bottom: 1rem;
+            color: var(--p-color1);
+        }
+
+        .modal-content .enroll-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .modal-content .enroll-btn:hover {
+            background: #2b6cb0;
+        }
+
+        .close-button {
+            cursor: pointer;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: var(--p-color1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul li {
+                margin-left: 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .search-filter {
+                flex-direction: column;
+            }
+
+            .search-filter input, .search-filter select {
+                width: 100%;
+            }
+
+            .course-grid, .path-grid, .instructor-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Elora Tech Institute</div>
+            <ul>
+                <li><a href="robotics.html" class="nav-link">Robotics</a></li>
+                <li><a href="cloud-computing.html" class="nav-link">Cloud Computing</a></li>
+                <li><a href="data-science.html" class="nav-link">Data Science</a></li>
+                <li><a href="student-courses.html" class="nav-link">My Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Master Robotics Automation</h1>
+        <p>Learn to automate processes with advanced robotics technologies.</p>
+        <a href="#courses" class="cta-button">Explore Automation Courses</a>
+        <img src="https://via.placeholder.com/300x300?text=Robotics+Automation" alt="Robotics Automation Course Preview">
+    </section>
+
+    <section class="learning-paths">
+        <h2>Automation Learning Paths</h2>
+        <div class="path-grid">
+            <div class="path-card">
+                <h3>Automation Basics</h3>
+                <p>Understand the fundamentals of robotic process automation.</p>
+            </div>
+            <div class="path-card">
+                <h3>Industrial Robotics</h3>
+                <p>Master automation in manufacturing and industrial settings.</p>
+            </div>
+            <div class="path-card">
+                <h3>AI-Driven Automation</h3>
+                <p>Integrate AI with robotics for intelligent automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="courses">
+        <h2>Robotics Automation Courses</h2>
+        <div class="search-filter">
+            <input type="text" id="search-input" placeholder="Search courses...">
+            <select id="level-filter">
+                <option value="">All Levels</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+        </div>
+        <div class="course-grid" id="course-grid">
+            <div class="course-card" data-level="beginner">
+                <img src="https://via.placeholder.com/250x150?text=Automation+Basics" alt="Course Thumbnail">
+                <h3>Introduction to Automation</h3>
+                <p>Instructor: Noah Kim</p>
+                <p class="price">$29.99</p>
+                <a href="#" class="enroll-btn" data-title="Introduction to Automation">Enroll Now</a>
+            </div>
+            <div class="course-card" data-level="intermediate">
+                <img src="https://via.placeholder.com/250x150?text=Industrial+Robotics" alt="Course Thumbnail">
+                <h3>Industrial Robotics</h3>
+                <p>Instructor: Olivia Chen</p>
+                <p class="price">$49.99</p>
+                <a href="#" class="enroll-btn" data-title="Industrial Robotics">Enroll Now</a>
+            </div>
+            <div class="course-card" data-level="advanced">
+                <img src="https://via.placeholder.com/250x150?text=AI+Automation" alt="Course Thumbnail">
+                <h3>AI-Driven Robotics</h3>
+                <p>Instructor: Ethan Li</p>
+                <p class="price">$69.99</p>
+                <a href="#" class="enroll-btn" data-title="AI-Driven Robotics">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="instructors">
+        <h2>Meet Our Automation Instructors</h2>
+        <div class="instructor-grid">
+            <div class="instructor-card">
+                <img src="https://via.placeholder.com/100x100?text=Noah+K" alt="Noah Kim">
+                <h3>Noah Kim</h3>
+                <p>Automation expert with 10+ years in industrial robotics.</p>
+            </div>
+            <div class="instructor-card">
+                <img src="https://via.placeholder.com/100x100?text=Olivia+C" alt="Olivia Chen">
+                <h3>Olivia Chen</h3>
+                <p>Specialist in AI and robotic process automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-courses">
+        <h2>Explore Related Courses</h2>
+        <div class="carousel">
+            <div class="course-card">
+                <img src="https://via.placeholder.com/250x150?text=Arduino" alt="Arduino Course">
+                <h3>Arduino Robotics</h3>
+                <p>Instructor: Emma Carter</p>
+                <p class="price">$24.99</p>
+                <a href="robotics-arduino.html" class="enroll-btn">View Course</a>
+            </div>
+            <div class="course-card">
+                <img src="https://via.placeholder.com/250x150?text=Smart+Home" alt="Smart Home Course">
+                <h3>Smart Home Robotics</h3>
+                <p>Instructor: Ava Lee</p>
+                <p class="price">$29.99</p>
+                <a href="robotics-smart-home.html" class="enroll-btn">View Course</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <details class="faq-item">
+            <summary>What is robotics automation?</summary>
+            <p>It involves using robots to automate repetitive tasks in industries like manufacturing and logistics.</p>
+        </details>
+        <details class="faq-item">
+            <summary>Do I need programming skills?</summary>
+            <p>Beginner courses require no coding; advanced courses assume basic programming knowledge.</p>
+        </details>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Learners Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"The automation course transformed my workflow!"</p>
+                <cite>Mia Patel, Engineer</cite>
+            </div>
+            <div class="testimonial-card">
+                <p>"AI-driven robotics was a game-changer."</p>
+                <cite>Lucas Brown, Technician</cite>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Elora Tech Institute. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p><a href="resources.html">Resources</a> | <a href="forums.html">Community</a> | <a href="student-courses.html">My Courses</a></p>
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2 id="modal-title">Course Preview</h2>
+            <p>Enroll in this course to start learning automation today!</p>
+            <a href="#" class="enroll-btn">Enroll Now</a>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for nav links
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').split('.')[0];
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    window.location.href = this.getAttribute('href');
+                }
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const closeButton = document.querySelector('.close-button');
+        const enrollButtons = document.querySelectorAll('.enroll-btn');
+
+        enrollButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modalTitle.textContent = `Preview: ${button.dataset.title || button.textContent}`;
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Course filtering
+        const searchInput = document.getElementById('search-input');
+        const levelFilter = document.getElementById('level-filter');
+        const courseGrid = document.getElementById('course-grid');
+
+        function filterCourses() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const level = levelFilter.value;
+            const courses = courseGrid.getElementsByClassName('course-card');
+
+            Array.from(courses).forEach(course => {
+                const title = course.querySelector('h3').textContent.toLowerCase();
+                const courseLevel = course.dataset.level;
+                const matchesSearch = title.includes(searchTerm);
+                const matchesLevel = !level || courseLevel === level;
+
+                course.style.display = matchesSearch && matchesLevel ? '' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('input', filterCourses);
+        levelFilter.addEventListener('change', filterCourses);
+    </script>
+</body>
+</html>

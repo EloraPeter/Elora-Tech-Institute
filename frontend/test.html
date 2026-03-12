@@ -1,1055 +1,1310 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Navbar - Elora Tech Institute</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #ff6f61;
-            --tertiary-color: #ddd;
-            --text-color: #333;
-            --background-color: #fff;
-            --shadow-light: rgba(0, 0, 0, 0.1);
-        }
-
-        body.dark {
-            --primary-color: #66b0ff;
-            --secondary-color: #ff8f81;
-            --tertiary-color: #555;
-            --text-color: #e0e0e0;
-            --background-color: #1a1a1a;
-            --shadow-light: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Your provided CSS */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            box-shadow: 2px 5px 15px var(--shadow-light);
-            position: sticky;
-            top: 0;
-            background: var(--background-color);
-            z-index: 1000;
-            animation: slideDown 0.5s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-            }
-
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        nav.hidden {
-            transform: translateY(-100%);
-        }
-
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-color);
-            padding: 10px;
-        }
-
-        #nav-link li a:focus,
-        .dropdown li a:focus,
-        .menu-toggle:focus {
-            outline: 2px solid var(--primary-color);
-            outline-offset: 2px;
-        }
-
-        #logo {
-            height: 70px;
-            width: 70px;
-            transition: transform 0.3s ease;
-        }
-
-        #logo img {
-            height: 100%;
-            width: 100%;
-            border-radius: 50%;
-        }
-
-        #logo:hover {
-            transform: scale(1.1);
-        }
-
-        #nav-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #nav-link li {
-            list-style-type: none;
-            padding: 0;
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        #nav-link li.nb {
-            margin: 20px;
-        }
-
-        #nav-link li a {
-            text-decoration: none;
-            color: var(--text-color);
-            position: relative;
-        }
-
-        #nav-link li a::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 3px;
-            background: var(--secondary-color);
-            left: 0;
-            bottom: -5px;
-            transition: width 0.3s ease;
-        }
-
-        #nav-link li:hover a::after {
-            width: 100%;
-        }
-
-        .dropdown-parent.main {
-            position: relative;
-        }
-
-        .dropdown li a::after {
-            display: none;
-        }
-
-        .dropdown1 {
-            position: absolute;
-            border-radius: 5px;
-            border: 1px solid var(--tertiary-color);
-            padding: 8px 0;
-            display: none;
-            z-index: 1000;
-            min-width: 300px;
-            height: 500px;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            margin: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        #nav-link li:hover .dropdown1,
-        #nav-link li.active .dropdown1 {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        ul.dropdown {
-            padding-inline-start: 0;
-        }
-
-        #nav-link ul.dropdown li {
-            font-size: 15px;
-            font-weight: 600;
-            padding: 10px 20px;
-        }
-
-        .dropdown ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .dropdown li {
-            padding: 15px 0;
-            font-size: 17px;
-            font-weight: 300;
-            margin: 5px 0;
-            text-align: left;
-            transition: background 0.3s ease, padding-left 0.2s ease;
-        }
-
-        .dropdown li:hover {
-            background: var(--tertiary-color);
-        }
-
-        .dropdown li:hover::before {
-            opacity: 0;
-            display: none;
-        }
-
-        .dropdown li::before {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            opacity: 0;
-            transform: translateY(-50%);
-            transition: opacity 0.2s ease;
-            display: none;
-        }
-
-        .dropdown li a {
-            text-decoration: none;
-            color: var(--text-color);
-            display: block;
-            width: 100%;
-            transition: color 0.3s ease;
-        }
-
-        .dropdown li:hover a {
-            color: var(--primary-color);
-        }
-
-        .dropdown2 {
-            position: absolute;
-            left: 98%;
-            top: 0;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 5px;
-            border: 1px solid var(--tertiary-color);
-            padding: 8px 0;
-            display: none;
-            min-width: 280px;
-            opacity: 0;
-            transform: translateX(10px);
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            backdrop-filter: blur(15px);
-            min-height: 500px;
-        }
-
-        .dropdown li:hover .dropdown2,
-        .dropdown li.active .dropdown2 {
-            display: block;
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .dropdown1,
-        .dropdown2 {
-            transition: all 0.3s ease-in-out;
-        }
-
-        .enroll-btn {
-            margin: 0 20px;
-            display: none;
-        }
-
-        .enroll-btn .btn {
-            display: inline-block;
-            margin: 0;
-        }
-
-        .btn {
-            background-color: var(--primary-color);
-            border: none;
-            padding: 10px 25px;
-            cursor: pointer;
-            text-decoration: none;
-            color: #fff;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: 700;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-
-        .btn:active {
-            transform: scale(0.95);
-        }
-
-        nav .btn {
-            margin: 10px 20px 10px 10px;
-        }
-
-        #toggle {
-            position: absolute;
-            top: 40px;
-            right: 10px;
-        }
-
-        #toggle i {
-            font-size: 18px;
-            transition: transform 0.3s ease;
-        }
-
-        #toggle i:hover {
-            color: var(--secondary-color);
-            transform: rotate(-80deg);
-        }
-
-        .dropdown-back {
-            display: block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: var(--text-color);
-            text-decoration: none;
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        .dropdown-back:hover {
-            background: var(--tertiary-color);
-            color: var(--primary-color);
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                margin-right: 25px;
-                position: absolute;
-                right: 10px;
-                top: 20px;
-                z-index: 1001;
-            }
-
-            #nav-link {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--background-color);
-                flex-direction: column;
-                padding: 20px 0;
-                box-shadow: 2px 5px 15px var(--shadow-light);
-                max-height: 80vh;
-                overflow-y: auto;
-            }
-
-            #nav-link.active {
-                display: flex;
-            }
-
-            #nav-link li {
-                margin: 10px 0;
-                width: 100%;
-                text-align: left;
-                padding: 0 20px;
-            }
-
-            .dropdown-parent>a {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            .dropdown-parent>a i.fa-chevron-down {
-                font-size: 16px;
-                margin-left: 10px;
-                transition: transform 0.3s ease;
-            }
-
-            .dropdown-parent.active>a i.fa-chevron-down {
-                transform: rotate(180deg);
-            }
-
-            .dropdown1,
-            .dropdown2 {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease;
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                background: rgba(0, 0, 0, 0.05);
-                padding: 0;
-            }
-
-            .dropdown-parent.active .dropdown1,
-            .dropdown-parent.active .dropdown2 {
-                max-height: 1000px;
-                padding: 10px 20px;
-            }
-
-            .dropdown li {
-                padding: 10px 15px;
-                font-size: 16px;
-            }
-
-            .enroll-btn {
-                margin: 20px 0;
-                padding: 0 20px;
-                display: block;
-                text-align: center;
-            }
-
-            .enroll-btn .btn {
-                display: block;
-                width: 80%;
-                margin: 0 auto;
-            }
-
-            .btn.big {
-                margin: 20px auto;
-                display: none;
-            }
-
-            #toggle {
-                top: 43px;
-                right: 10px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            #nav-link li {
-                font-size: 16px;
-                padding: 8px 15px;
-            }
-
-            .dropdown li {
-                font-size: 14px;
-                padding: 8px 15px;
-            }
-
-            #logo {
-                height: 50px;
-                width: 50px;
-            }
-
-            .menu-toggle {
-                font-size: 20px;
-                padding: 8px;
-            }
-
-            .enroll-btn .btn {
-                font-size: 16px;
-                padding: 8px 20px;
-            }
-
-            .dropdown-parent>a i.fa-chevron-down {
-                font-size: 14px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="Elora Tech Institute | Create Course">
+  <meta name="description" content="Create and customize your course at Elora Tech Institute.">
+  <title>Create Course - Elora Tech Institute</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/studentdash.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  <style>
+    .create-course-container { max-width: 1200px; margin: 20px auto; padding: 20px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; font-weight: 500; margin-bottom: 5px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    .form-group textarea { min-height: 100px; }
+    .module-list { margin: 20px 0; }
+    .module-item { padding: 15px; border: 1px solid #ddd; margin-bottom: 10px; background: #f9f9f9; cursor: move; }
+    .module-item .module-header { display: flex; justify-content: space-between; align-items: center; }
+    .module-content { margin-top: 10px; }
+    .btn { padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .btn:hover { background: #218838; }
+    .btn-secondary { background: #6c757d; }
+    .btn-secondary:hover { background: #5a6268; }
+    .error { color: #dc3545; margin: 10px 0; }
+    .preview-mode { background: #f0f0f0; padding: 20px; border: 1px solid #ddd; }
+    .live-schedule, .quiz-settings { display: none; }
+    .accessibility-options, .interactive-elements { margin-top: 15px; }
+    .sortable-ghost { opacity: 0.4; }
+    .image-preview { max-width: 200px; margin-top: 10px; }
+    .tooltip { font-size: 0.9em; color: #666; }
+    @media (max-width: 768px) {
+      .create-course-container { padding: 10px; }
+      .module-item { font-size: 14px; }
+      .btn { width: 100%; margin-bottom: 10px; }
+    }
+    [aria-label], button, input, select, textarea { outline: none; }
+    [aria-label]:focus, button:focus, input:focus, select:focus, textarea:focus { outline: 2px solid #007bff; }
+  </style>
 </head>
-
 <body>
-    <nav id="navbar" role="navigation" aria-label="Main navigation">
-        <h1 id="logo">
-            <img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo">
-        </h1>
-        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <ul id="nav-link" role="menu">
-            <!-- Navbar links will be injected here -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html"><h1 id="logo"><img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo"></h1></a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    <ul id="nav-link" role="menu"></ul>
+    <ul class="nav-link">
+      <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false">
+        <img id="dashboard-profile-picture" class="dashboard-profile-picture" src="images/avatars/default.jpg" alt="Profile Picture" onclick="window.location.href='profile.html'">
+        <div class="dropdown1">
+          <ul class="dropdown" role="menuitem">
+            <li role="menuitem"><a href="profile.html">Profile</a></li>
+            <li role="menuitem"><a href=".html">Settings</a></li>
+            <li role="menuitem" class="logout-btn" onclick="logout()"><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div id="toggle"><i class="fa-solid fa-moon"></i></div>
+  </nav>
+
+  <div class="create-course-container">
+    <h2>Create a New Course</h2>
+    <div id="error" class="error" role="alert"></div>
+
+    <form id="create-course-form" onsubmit="event.preventDefault(); saveCourse('publish');">
+      <div class="form-group">
+        <label for="course-title">Course Title</label>
+        <input type="text" id="course-title" placeholder="Enter course title" required aria-describedby="course-title-tooltip">
+        <span id="course-title-tooltip" class="tooltip">Enter a clear and engaging title for your course.</span>
+      </div>
+      <div class="form-group">
+        <label for="course-description">Description</label>
+        <textarea id="course-description" placeholder="Enter course description" required aria-describedby="course-description-tooltip"></textarea>
+        <span id="course-description-tooltip" class="tooltip">Describe what students will learn in this course.</span>
+      </div>
+      <div class="form-group">
+        <label for="course-category">Category</label>
+        <select id="course-category" required aria-describedby="course-category-tooltip">
+          <option value="">Select Category</option>
+          <option value="web_development">Web Development</option>
+          <option value="cybersecurity">Cybersecurity</option>
+          <option value="web3">Web3</option>
+          <option value="iot">IoT</option>
+        </select>
+        <span id="course-category-tooltip" class="tooltip">Choose the category that best fits your course.</span>
+      </div>
+      <div class="form-group">
+        <label for="course-topic">Topic</label>
+        <input type="text" id="course-topic" placeholder="Enter course topic" required aria-describedby="course-topic-tooltip">
+        <span id="course-topic-tooltip" class="tooltip">Specify the main topic or focus of the course.</span>
+      </div>
+      <div class="form-group">
+        <label for="course-level">Level</label>
+        <select id="course-level" required aria-describedby="course-level-tooltip">
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+        <span id="course-level-tooltip" class="tooltip">Select the difficulty level of your course.</span>
+      </div>
+      <div class="form-group">
+        <label for="course-price">Price (USD)</label>
+        <input type="number" id="course-price" placeholder="Enter course price" step="0.01" min="0" required aria-describedby="course-price-tooltip">
+        <span id="course-price-tooltip" class="tooltip">Set the price in USD (e.g., 49.99).</span>
+      </div>
+      <div class="form-group">
+        <label for="course-duration">Duration (hours)</label>
+        <input type="number" id="course-duration" placeholder="Enter course duration" min="1" required aria-describedby="course-duration-tooltip">
+        <span id="course-duration-tooltip" class="tooltip">Estimate the total hours to complete the course.</span>
+      </div>
+      <div class="form-group">
+        <label for="course-type">Course Type</label>
+        <select id="course-type" required onchange="toggleLiveSchedule()" aria-describedby="course-type-tooltip">
+          <option value="live">Live</option>
+          <option value="prerecorded">Prerecorded</option>
+          <option value="ebook">Ebook</option>
+        </select>
+        <span id="course-type-tooltip" class="tooltip">Choose the format of your course.</span>
+      </div>
+      <div class="form-group">
+        <label for="course-image">Course Image</label>
+        <input type="file" id="course-image" accept="image/*" aria-describedby="course-image-tooltip">
+        <span id="course-image-tooltip" class="tooltip">Upload a high-quality image to represent your course.</span>
+        <div id="image-preview" class="image-preview"></div>
+      </div>
+
+      <div class="live-schedule" id="live-schedule">
+        <h3>Live Session Schedule</h3>
+        <div class="form-group">
+          <label for="live-date">Session Date & Time</label>
+          <input type="datetime-local" id="live-date" required aria-describedby="live-date-tooltip">
+          <span id="live-date-tooltip" class="tooltip">Schedule the date and time for the live session.</span>
+        </div>
+        <div class="form-group">
+          <label for="enrollment-deadline">Enrollment Deadline</label>
+          <input type="datetime-local" id="enrollment-deadline" required aria-describedby="enrollment-deadline-tooltip">
+          <span id="enrollment-deadline-tooltip" class="tooltip">Set the deadline for students to enroll.</span>
+        </div>
+        <div class="form-group">
+          <label for="calendar-sync">Enable Calendar Sync</label>
+          <input type="checkbox" id="calendar-sync" aria-describedby="calendar-sync-tooltip">
+          <span id="calendar-sync-tooltip" class="tooltip">Allow students to sync the session to their calendar.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="enrollment-limit">Enrollment Limit</label>
+        <input type="number" id="enrollment-limit" placeholder="Enter max students (optional)" min="1" aria-describedby="enrollment-limit-tooltip">
+        <span id="enrollment-limit-tooltip" class="tooltip">Limit the number of students who can enroll (optional).</span>
+      </div>
+
+      <h3>Course Modules</h3>
+      <div class="module-list" id="module-list" aria-describedby="module-list-tooltip"></div>
+      <span id="module-list-tooltip" class="tooltip">Add and reorder modules to structure your course content.</span>
+      <button type="button" class="btn btn-secondary" onclick="addModule()">Add Module</button>
+
+      <div class="accessibility-options">
+        <h3>Accessibility Options</h3>
+        <div class="form-group">
+          <label for="video-captions">Upload Video Captions (SRT/VTT)</label>
+          <input type="file" id="video-captions" accept=".srt,.vtt" multiple aria-describedby="video-captions-tooltip">
+          <span id="video-captions-tooltip" class="tooltip">Upload caption files for video accessibility.</span>
+        </div>
+        <div class="form-group">
+          <label for="audio-speed">Enable Audio Speed Controls</label>
+          <input type="checkbox" id="audio-speed" aria-describedby="audio-speed-tooltip">
+          <span id="audio-speed-tooltip" class="tooltip">Allow students to adjust audio playback speed.</span>
+        </div>
+      </div>
+
+      <div class="interactive-elements">
+        <h3>Interactive Elements</h3>
+        <div class="form-group">
+          <label for="quiz-enabled">Enable Quizzes/Assessments</label>
+          <input type="checkbox" id="quiz-enabled" onchange="toggleQuizSettings()" aria-describedby="quiz-enabled-tooltip">
+          <span id="quiz-enabled-tooltip" class="tooltip">Add quizzes to test student knowledge.</span>
+        </div>
+        <div class="quiz-settings" id="quiz-settings">
+          <div class="form-group">
+            <label for="quiz-questions">Quiz Questions (JSON)</label>
+            <textarea id="quiz-questions" placeholder='[{"question": "Example?", "options": ["A", "B"], "answer": "A"}]' aria-describedby="quiz-questions-tooltip"></textarea>
+            <span id="quiz-questions-tooltip" class="tooltip">Enter quiz questions in JSON format.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="completion-criteria">Completion Criteria</label>
+        <select id="completion-criteria" required aria-describedby="completion-criteria-tooltip">
+          <option value="all_modules">Complete All Modules</option>
+          <option value="quiz_pass">Pass Quiz (80%+)</option>
+          <option value="custom">Custom</option>
+        </select>
+        <span id="completion-criteria-tooltip" class="tooltip">Define how students complete the course.</span>
+      </div>
+
+      <div class="marketing-tools">
+        <h3>Marketing Tools</h3>
+        <div class="form-group">
+          <label for="promo-code">Promo Code</label>
+          <input type="text" id="promo-code" placeholder="Enter promo code (e.g., DISCOUNT10)" aria-describedby="promo-code-tooltip">
+          <span id="promo-code-tooltip" class="tooltip">Create a promo code for discounts.</span>
+        </div>
+        <div class="form-group">
+          <label for="discount">Discount (%)</label>
+          <input type="number" id="discount" placeholder="Enter discount percentage" step="1" min="0" max="100" aria-describedby="discount-tooltip">
+          <span id="discount-tooltip" class="tooltip">Set a discount percentage for the course.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="language">Primary Language</label>
+        <select id="language" required aria-describedby="language-tooltip">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+        </select>
+        <span id="language-tooltip" class="tooltip">Select the primary language for the course content.</span>
+      </div>
+
+      <div class="form-group">
+        <button type="button" class="btn btn-secondary" onclick="saveCourse('draft')">Save as Draft</button>
+        <button type="submit" class="btn">Publish Course</button>
+        <button type="button" class="btn btn-secondary" onclick="previewCourse()">Preview Course</button>
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="about">
+        <h2>Elora Tech Institute</h2>
+        <p>
+          Elora Tech Institute equips individuals with in-demand tech skills through hands-on training in web development, cybersecurity, Web3, IoT, and more. Our vision is to be a leading tech institution, shaping the future of tech education through innovation and excellence.
+        </p>
+        <ul class="sm">
+          <li><a href="https://web.facebook.com/profile.php?id=61574697245670"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a></li>
         </ul>
-        <a href="../frontend/login-signup.html" target="_blank" class="btn big">Enroll Now</a>
-        <div id="toggle"><i class="fa-solid fa-moon"></i></div>
-    </nav>
+      </div>
+      <div class="quick-links">
+        <h2>Discover ETI</h2>
+        <ul id="links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="teach-online.html">Teach on ETI</a></li>
+          <li><a href="help-support.html">Help & Support</a></li>
+        </ul>
+      </div>
+      <div class="apply">
+        <h2>How to Apply</h2>
+        <ol>
+          <li>Visit our website and check out the programs.</li>
+          <li>Fill out the registration form.</li>
+          <li>Make payment and confirm your enrollment.</li>
+          <li>Start your tech journey with us!</li>
+        </ol>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing" class="apply-button" target="_blank">Register Now</a>
+      </div>
+    </div>
+    <hr />
+    <p id="copyright">© Elora Tech Institute 2023 - 2025. All rights reserved.</p>
+    <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
+  </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const navbar = document.getElementById("navbar");
-            const navLink = document.querySelector("#nav-link");
-            const toggleButton = document.querySelector(".menu-toggle");
+  <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank" class="whatsapp-bubble">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
 
-            // Debugging: Verify core elements
-            if (!navbar) console.error("Navbar not found");
-            if (!navLink) console.error("Nav-link not found");
-            if (!toggleButton) console.error("Menu toggle button not found");
+  <script src="js/navConfig.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user || user.role !== 'instructor') {
+      window.location.href = 'tutor-signup-login.html';
+    }
 
-            let inactivityTimeout;
-            let isInteracting = false;
-            let isAnimating = false;
+    let modules = [];
+    let isDirty = false;
 
-            // Navbar configurations
-            const mainNavLinks = {
-                guest: [
-                    { text: 'Home', href: 'index.html', role: 'menuitem' },
-                    { text: 'About', href: 'about.html', role: 'menuitem' },
-                    {
-                        text: 'Courses',
-                        href: 'courses.html',
-                        role: 'menuitem',
-                        ariaHaspopup: true,
-                        ariaExpanded: false,
-                        class: 'dropdown-parent main nb',
-                        submenu: [
-                            {
-                                text: 'Web Development',
-                                href: 'web-development.html',
-                                role: 'menuitem',
-                                ariaHaspopup: true,
-                                ariaExpanded: false,
-                                class: 'dropdown-parent',
-                                submenu: [
-                                    { text: 'HTML', href: 'web-development-html.html' },
-                                    { text: 'CSS', href: 'web-development-css.html' },
-                                    { text: 'JavaScript', href: 'web-development-javascript.html' },
-                                    { text: 'PHP & Laravel', href: 'web-development-php.html' },
-                                    { text: 'WordPress', href: 'web-development-wordpress.html' },
-                                    { text: 'Frontend Development', href: 'web-development-frontend.html' },
-                                    { text: 'Backend Development', href: 'web-development-backend.html' },
-                                    { text: 'Full-Stack Development', href: 'web-development-fullstack.html' }
-                                ]
-                            },
-                            {
-                                text: 'Mobile App Development',
-                                href: 'mobile-apps.html',
-                                role: 'menuitem',
-                                ariaHaspopup: true,
-                                ariaExpanded: false,
-                                class: 'dropdown-parent',
-                                submenu: [
-                                    { text: 'React Native', href: 'mobile-react-native.html' },
-                                    { text: 'Flutter', href: 'mobile-flutter.html' },
-                                    { text: 'Android Development (Kotlin)', href: 'mobile-android.html' },
-                                    { text: 'iOS Development (Swift)', href: 'mobile-ios.html' }
-                                ]
-                            },
-                            {
-                                text: 'Data Science & Machine Learning',
-                                href: 'data-science.html',
-                                role: 'menuitem',
-                                ariaHaspopup: true,
-                                ariaExpanded: false,
-                                class: 'dropdown-parent',
-                                submenu: [
-                                    { text: 'Python for Data Science', href: 'data-python.html' },
-                                    { text: 'Machine Learning', href: 'data-machine-learning.html' },
-                                    { text: 'Deep Learning & AI', href: 'data-deep-learning.html' },
-                                    { text: 'Big Data Analytics', href: 'data-big-data.html' }
-                                ]
-                            },
-                            // Add other course submenus as needed
-                        ]
-                    },
-                    { text: 'Admissions', href: 'admissions.html', role: 'menuitem' },
-                    { text: 'Contact', href: 'contact.html', role: 'menuitem' },
-                    { text: 'Enroll Now', href: 'login-signup.html', role: 'menuitem', class: 'enroll-btn', isButton: true }
-                ],
-                student: [
-                    { text: 'Dashboard', href: 'student-dashboard.html', role: 'menuitem' },
-                    { text: 'My Courses', href: 'student-courses.html', role: 'menuitem' },
-                    { text: 'Profile', href: 'student-profile.html', role: 'menuitem' },
-                    { text: 'Logout', href: '#', role: 'menuitem', class: 'enroll-btn', isButton: true, onclick: 'logout()' }
-                ],
-                instructor: [
-                    { text: 'Dashboard', href: 'instructor-dashboard.html', role: 'menuitem' },
-                    { text: 'Manage Courses', href: 'instructor-courses.html', role: 'menuitem' },
-                    { text: 'Profile', href: 'instructor-profile.html', role: 'menuitem' },
-                    { text: 'Logout', href: '#', role: 'menuitem', class: 'enroll-btn', isButton: true, onclick: 'logout()' }
-                ],
-                admin: [
-                    { text: 'Dashboard', href: 'admin-dashboard.html', role: 'menuitem' },
-                    { text: 'Manage Users', href: 'admin-users.html', role: 'menuitem' },
-                    { text: 'Manage Courses', href: 'admin-courses.html', role: 'menuitem' },
-                    { text: 'Profile', href: 'admin-profile.html', role: 'menuitem' },
-                    { text: 'Logout', href: '#', role: 'menuitem', class: 'enroll-btn', isButton: true, onclick: 'logout()' }
-                ]
-            };
-            const sidebarNavLinks = {
-                guest: [], // No sidebar for Guest
-                tutor: [
-                    {
-                        group: 'Account',
-                        items: [
-                            { text: 'Dashboard', href: 'tutor-dashboard.html', role: 'menuitem', icon: 'fa-house' },
-                            { text: 'My Courses', href: 'tutor-courses.html', role: 'menuitem', icon: 'fa-book' },
-                            { text: 'Create Course', href: 'tutor-create.html', role: 'menuitem', icon: 'fa-plus' },
-                            { text: 'Earnings', href: 'tutor-earnings.html', role: 'menuitem', icon: 'fa-wallet' }
-                        ]
-                    },
-                    {
-                        group: 'Resources',
-                        items: [
-                            { text: 'Resources', href: 'tutor-resources.html', role: 'menuitem', icon: 'fa-folder' }
-                        ]
-                    },
-                    {
-                        group: 'Settings',
-                        items: [
-                            { text: 'Site Settings', href: 'tutor-site-settings.html', role: 'menuitem', icon: 'fa-cog' },
-                            { text: 'Theme Selection', href: 'tutor-theme.html', role: 'menuitem', icon: 'fa-paint-brush' },
-                            { text: 'Active Devices', href: 'tutor-devices.html', role: 'menuitem', icon: 'fa-display' },
-                            { text: '2FA', href: 'tutor-2fa.html', role: 'menuitem', icon: 'fa-shield-alt' },
-                            { text: 'Logout', href: '#', role: 'menuitem', icon: 'fa-right-from-bracket', isButton: true, onclick: 'logout()' }
-                        ]
-                    },
-                    {
-                        group: 'Support',
-                        items: [
-                            { text: 'Help/Support', href: 'tutor-help.html', role: 'menuitem', icon: 'fa-life-ring' }
-                        ]
-                    }
-                ],
-                student: [
-                    {
-                        group: 'Learning',
-                        items: [
-                            { text: 'Dashboard', href: 'student-dashboard.html', role: 'menuitem', icon: 'fa-house' },
-                            { text: 'My Courses', href: 'student-courses.html', role: 'menuitem', icon: 'fa-book' },
-                            { text: 'Explore', href: 'student-explore.html', role: 'menuitem', icon: 'fa-search' },
-                            { text: 'Certifications', href: 'student-certifications.html', role: 'menuitem', icon: 'fa-certificate' },
-                            { text: 'Progress Reports', href: 'student-progress.html', role: 'menuitem', icon: 'fa-chart-line' }
-                        ]
-                    },
-                    {
-                        group: 'Account',
-                        items: [
-                            { text: 'Profile', href: 'student-profile.html', role: 'menuitem', icon: 'fa-user' },
-                            { text: 'Payment History', href: 'student-payments.html', role: 'menuitem', icon: 'fa-wallet' },
-                            { text: 'Calendar', href: 'student-calendar.html', role: 'menuitem', icon: 'fa-calendar' }
-                        ]
-                    },
-                    {
-                        group: 'Settings',
-                        items: [
-                            { text: 'Site Settings', href: 'student-site-settings.html', role: 'menuitem', icon: 'fa-cog' },
-                            { text: 'Theme Selection', href: 'student-theme.html', role: 'menuitem', icon: 'fa-paint-brush' },
-                            { text: 'Active Devices', href: 'student-devices.html', role: 'menuitem', icon: 'fa-display' },
-                            { text: '2FA', href: 'student-2fa.html', role: 'menuitem', icon: 'fa-shield-alt' },
-                            { text: 'Logout', href: '#', role: 'menuitem', icon: 'fa-right-from-bracket', isButton: true, onclick: 'logout()' }
-                        ]
-                    },
-                    {
-                        group: 'Support',
-                        items: [
-                            { text: 'Support/Help', href: 'student-help.html', role: 'menuitem', icon: 'fa-life-ring' }
-                        ]
-                    }
-                ],
-                admin: [
-                    {
-                        group: 'Management',
-                        items: [
-                            { text: 'Dashboard', href: 'admin-dashboard.html', role: 'menuitem', icon: 'fa-house' },
-                            { text: 'Courses', href: 'admin-courses.html', role: 'menuitem', icon: 'fa-book' },
-                            { text: 'Users', href: 'admin-users.html', role: 'menuitem', icon: 'fa-users' },
-                            { text: 'Blog', href: 'admin-blog.html', role: 'menuitem', icon: 'fa-blog' }
-                        ]
-                    },
-                    {
-                        group: 'Reports',
-                        items: [
-                            { text: 'Reports', href: 'admin-reports.html', role: 'menuitem', icon: 'fa-chart-bar' },
-                            { text: 'Certificates', href: 'admin-certificates.html', role: 'menuitem', icon: 'fa-certificate' },
-                            { text: 'Payments', href: 'admin-payments.html', role: 'menuitem', icon: 'fa-wallet' }
-                        ]
-                    },
-                    {
-                        group: 'Settings',
-                        items: [
-                            { text: 'Site Settings', href: 'admin-site-settings.html', role: 'menuitem', icon: 'fa-cog' },
-                            { text: 'Maintenance Mode', href: 'admin-maintenance.html', role: 'menuitem', icon: 'fa-tools' },
-                            { text: 'Homepage Content', href: 'admin-homepage.html', role: 'menuitem', icon: 'fa-home' },
-                            { text: 'Theme Selection', href: 'admin-theme.html', role: 'menuitem', icon: 'fa-paint-brush' },
-                            { text: 'Active Devices', href: 'admin-devices.html', role: 'menuitem', icon: 'fa-display' },
-                            { text: '2FA', href: 'admin-2fa.html', role: 'menuitem', icon: 'fa-shield-alt' },
-                            { text: 'Danger Zone', href: 'admin-danger-zone.html', role: 'menuitem', icon: 'fa-exclamation-triangle' },
-                            { text: 'Logout', href: '#', role: 'menuitem', icon: 'fa-right-from-bracket', isButton: true, onclick: 'logout()' }
-                        ]
-                    },
-                    {
-                        group: 'Support',
-                        items: [
-                            { text: 'Support Tickets', href: 'admin-support.html', role: 'menuitem', icon: 'fa-life-ring' }
-                        ]
-                    }
-                ]
-            };
+    // Autosave
+    setInterval(() => {
+      if (isDirty) {
+        saveCourse('draft', true);
+      }
+    }, 30000);
 
-            // Create a menu item
-            function createMenuItem(item) {
-                const li = document.createElement('li');
-                li.setAttribute('role', item.role);
-                if (item.class) li.className = item.class;
-                const a = document.createElement('a');
-                a.href = item.href;
-                a.textContent = item.text;
-                if (item.isButton) a.className = 'btn';
-                if (item.onclick) a.setAttribute('onclick', item.onclick);
-                li.appendChild(a);
+    // Mark form as dirty on input
+    document.querySelectorAll('input, textarea, select').forEach(input => {
+      input.addEventListener('change', () => isDirty = true);
+    });
 
-                if (item.submenu) {
-                    li.setAttribute('aria-haspopup', 'true');
-                    li.setAttribute('aria-expanded', 'false');
-                    li.classList.add('dropdown-parent');
-                    const i = document.createElement('i');
-                    i.className = 'fa-solid fa-chevron-down';
-                    a.appendChild(i);
-                    const div = document.createElement('div');
-                    div.className = item.class.includes('main') ? 'dropdown1' : 'dropdown2';
-                    const ul = document.createElement('ul');
-                    ul.className = item.class.includes('main') ? 'dropdown' : 'dropdown-sub';
-                    ul.setAttribute('role', 'menu');
-                    item.submenu.forEach(subItem => ul.appendChild(createMenuItem(subItem)));
-                    div.appendChild(ul);
-                    li.appendChild(div);
-                }
+    // Image preview
+    document.getElementById('course-image').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          const img = document.createElement('img');
+          img.src = reader.result;
+          img.className = 'image-preview';
+          img.alt = 'Course image preview';
+          const previewDiv = document.getElementById('image-preview');
+          previewDiv.innerHTML = '';
+          previewDiv.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
 
-                return li;
-            }
+    // Toggle live schedule visibility
+    function toggleLiveSchedule() {
+      const courseType = document.getElementById('course-type').value;
+      document.getElementById('live-schedule').style.display = courseType === 'live' ? 'block' : 'none';
+    }
 
-            // Decode JWT
-            function parseJWT(token) {
-                try {
-                    const base64Url = token.split('.')[1];
-                    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                    const jsonPayload = decodeURIComponent(
-                        atob(base64)
-                            .split('')
-                            .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-                            .join('')
-                    );
-                    return JSON.parse(jsonPayload);
-                } catch (e) {
-                    console.error('Error parsing JWT:', e);
-                    return null;
-                }
-            }
+    // Toggle quiz settings
+    function toggleQuizSettings() {
+      const quizEnabled = document.getElementById('quiz-enabled').checked;
+      document.getElementById('quiz-settings').style.display = quizEnabled ? 'block' : 'none';
+    }
 
-            // Get user role
-            async function getUserRole() {
-                const token = localStorage.getItem('token');
-                if (!token) return 'guest';
+    // Add module
+    function addModule() {
+      const moduleId = `module-${modules.length + 1}`;
+      modules.push({ id: moduleId, title: '', description: '', type: 'video', required: true });
+      const moduleList = document.getElementById('module-list');
+      const moduleDiv = document.createElement('div');
+      moduleDiv.className = 'module-item';
+      moduleDiv.id = moduleId;
+      moduleDiv.innerHTML = `
+        <div class="module-header">
+          <input type="text" placeholder="Module Title" class="module-title" required aria-describedby="${moduleId}-title-tooltip">
+          <span id="${moduleId}-title-tooltip" class="tooltip">Enter a title for this module.</span>
+          <button type="button" class="btn btn-secondary" onclick="removeModule('${moduleId}')">Remove</button>
+        </div>
+        <div class="module-content">
+          <div class="form-group">
+            <label for="${moduleId}-description">Module Description</label>
+            <textarea id="${moduleId}-description" placeholder="Enter module description" aria-describedby="${moduleId}-description-tooltip"></textarea>
+            <span id="${moduleId}-description-tooltip" class="tooltip">Describe the content of this module.</span>
+          </div>
+          <div class="form-group">
+            <label for="${moduleId}-type">Content Type</label>
+            <select id="${moduleId}-type" class="module-type" aria-describedby="${moduleId}-type-tooltip">
+              <option value="video">Video</option>
+              <option value="pdf">PDF</option>
+              <option value="audio">Audio</option>
+              <option value="quiz">Quiz</option>
+            </select>
+            <span id="${moduleId}-type-tooltip" class="tooltip">Select the type of content for this module.</span>
+          </div>
+          <div class="form-group">
+            <label for="${moduleId}-file">Upload Content</label>
+            <input type="file" id="${moduleId}-file" class="module-file" accept="video/*,audio/*,application/pdf" aria-describedby="${moduleId}-file-tooltip">
+            <span id="${moduleId}-file-tooltip" class="tooltip">Upload a video, audio, or PDF file for this module.</span>
+          </div>
+          <div class="form-group">
+            <label for="${moduleId}-required">Required</label>
+            <input type="checkbox" id="${moduleId}-required" class="module-required" checked aria-describedby="${moduleId}-required-tooltip">
+            <span id="${moduleId}-required-tooltip" class="tooltip">Check if this module is required for course completion.</span>
+          </div>
+        </div>
+      `;
+      moduleList.appendChild(moduleDiv);
+      isDirty = true;
+    }
 
-                const decoded = parseJWT(token);
-                if (!decoded || !decoded.role || !['student', 'instructor', 'admin'].includes(decoded.role)) {
-                    localStorage.removeItem('token');
-                    return 'guest';
-                }
+    // Remove module
+    function removeModule(moduleId) {
+      modules = modules.filter(m => m.id !== moduleId);
+      document.getElementById(moduleId).remove();
+      isDirty = true;
+    }
 
-                try {
-                    const response = await fetch(`http://localhost:3000/api/users/${decoded.id}`, {
-                        headers: { 'Authorization': `Bearer ${token}` }
-                    });
-                    if (response.ok) {
-                        const user = await response.json();
-                        return user.role;
-                    } else {
-                        localStorage.removeItem('token');
-                        return 'guest';
-                    }
-                } catch (err) {
-                    console.error('Error verifying token:', err);
-                    localStorage.removeItem('token');
-                    return 'guest';
-                }
-            }
+    // Initialize Sortable.js for drag-and-drop
+    new Sortable(document.getElementById('module-list'), {
+      animation: 150,
+      ghostClass: 'sortable-ghost',
+      onEnd: () => {
+        const newOrder = Array.from(document.querySelectorAll('.module-item')).map(item => item.id);
+        modules = newOrder.map(id => modules.find(m => m.id === id));
+        isDirty = true;
+      }
+    });
 
-            // Logout function
-            async function logout() {
-                const token = localStorage.getItem('token');
-                localStorage.removeItem('token');
-                localStorage.removeItem('refreshToken');
-                try {
-                    await fetch('http://localhost:3000/api/logout', {
-                        method: 'POST',
-                        headers: { 'Authorization': `Bearer ${token}` }
-                    });
-                } catch (err) {
-                    console.error('Logout error:', err);
-                }
-                renderNavbar();
-                window.location.href = 'login-signup.html';
-            }
+    // Validate form
+    function validateForm() {
+      const form = document.getElementById('create-course-form');
+      if (!form.checkValidity()) {
+        showError('Please fill out all required fields correctly.');
+        return false;
+      }
+      if (document.getElementById('course-type').value === 'live') {
+        const liveDate = new Date(document.getElementById('live-date').value);
+        const deadline = new Date(document.getElementById('enrollment-deadline').value);
+        if (liveDate <= deadline) {
+          showError('Enrollment deadline must be before the session date.');
+          return false;
+        }
+      }
+      if (document.getElementById('quiz-enabled').checked) {
+        try {
+          JSON.parse(document.getElementById('quiz-questions').value);
+        } catch (err) {
+          showError('Invalid quiz JSON format.');
+          return false;
+        }
+      }
+      return true;
+    }
 
-            // Render navbar
-            async function renderNavbar() {
-                const role = await getUserRole();
-                navLink.innerHTML = '';
-                const config = navConfigs[role] || navConfigs.guest;
-                config.forEach(item => navLink.appendChild(createMenuItem(item)));
+    // Save course
+    async function saveCourse(status, isAutosave = false) {
+      if (!isAutosave && !validateForm()) return;
 
-                // Show/hide Enroll Now button
-                document.querySelector('.btn.big').style.display = role === 'guest' ? 'inline-block' : 'none';
+      const courseData = {
+        title: document.getElementById('course-title').value,
+        description: document.getElementById('course-description').value,
+        category: document.getElementById('course-category').value,
+        topic: document.getElementById('course-topic').value,
+        level: document.getElementById('course-level').value,
+        price: parseFloat(document.getElementById('course-price').value),
+        duration: parseInt(document.getElementById('course-duration').value),
+        course_type: document.getElementById('course-type').value,
+        instructor_id: user.id,
+        status: status === 'publish' ? 'pending' : 'draft',
+        enrollment_limit: parseInt(document.getElementById('enrollment-limit').value) || null,
+        language: document.getElementById('language').value,
+        completion_criteria: document.getElementById('completion-criteria').value,
+        promo_code: document.getElementById('promo-code').value,
+        discount: parseInt(document.getElementById('discount').value) || null,
+        audio_speed_enabled: document.getElementById('audio-speed').checked
+      };
 
-                // Add dropdown event listeners
-                document.querySelectorAll(".dropdown-parent.main").forEach((parent) => {
-                    const link = parent.querySelector("a");
-                    if (link) {
-                        link.addEventListener("click", (e) => {
-                            if (window.innerWidth <= 768) {
-                                e.preventDefault();
-                                console.log("Main dropdown clicked:", link.textContent);
-                                navLink.classList.add("slide-left");
-                                const dropdown1 = parent.querySelector(".dropdown1");
-                                if (dropdown1) {
-                                    dropdown1.classList.add("active");
-                                    parent.classList.add("active");
-                                    parent.setAttribute("aria-expanded", "true");
-                                    dropdown1.offsetHeight;
-                                    addBackButton(dropdown1, () => {
-                                        navLink.classList.remove("slide-left");
-                                        dropdown1.classList.remove("active");
-                                        parent.classList.remove("active");
-                                        parent.setAttribute("aria-expanded", "false");
-                                        console.log("Back to main menu");
-                                    });
-                                }
-                            }
-                        });
-                    }
-                });
+      if (courseData.course_type === 'live') {
+        courseData.live_schedule = {
+          date: document.getElementById('live-date').value,
+          enrollment_deadline: document.getElementById('enrollment-deadline').value,
+          calendar_sync: document.getElementById('calendar-sync').checked
+        };
+      }
 
-                document.querySelectorAll(".dropdown1 .dropdown-parent").forEach((subParent) => {
-                    const link = subParent.querySelector("a");
-                    if (link) {
-                        link.addEventListener("click", (e) => {
-                            if (window.innerWidth <= 768) {
-                                if (link.querySelector("i.fa-chevron-down")) {
-                                    e.preventDefault();
-                                    console.log("Sub-dropdown clicked:", link.textContent);
-                                    const dropdown1 = subParent.closest(".dropdown1");
-                                    const dropdown2 = subParent.querySelector(".dropdown2");
-                                    if (dropdown1 && dropdown2) {
-                                        dropdown1.classList.remove("active");
-                                        dropdown2.classList.add("active");
-                                        subParent.classList.add("active");
-                                        subParent.setAttribute("aria-expanded", "true");
-                                        dropdown2.offsetHeight;
-                                        addBackButton(dropdown2, () => {
-                                            dropdown1.classList.add("active");
-                                            dropdown2.classList.remove("active");
-                                            subParent.classList.remove("active");
-                                            subParent.setAttribute("aria-expanded", "false");
-                                            console.log("Back to dropdown1");
-                                        });
-                                    }
-                                }
-                            }
-                        });
-                    }
-                });
+      courseData.modules = modules.map((module, index) => ({
+        id: module.id,
+        title: document.querySelector(`#${module.id} .module-title`).value,
+        description: document.querySelector(`#${module.id} textarea`).value,
+        type: document.querySelector(`#${module.id} .module-type`).value,
+        required: document.querySelector(`#${module.id} .module-required`).checked,
+        order: index + 1
+      }));
 
-                document.querySelectorAll("#nav-link > li:not(.dropdown-parent) a, .dropdown-sub li a").forEach((link) => {
-                    link.addEventListener("click", () => {
-                        if (window.innerWidth <= 768) {
-                            console.log("Non-dropdown link clicked:", link.textContent);
-                            navLink.classList.remove("active");
-                            navLink.classList.remove("slide-left");
-                            document.querySelectorAll(".dropdown-parent").forEach((parent) => {
-                                parent.classList.remove("active");
-                                parent.setAttribute("aria-expanded", "false");
-                            });
-                            document.querySelectorAll(".dropdown1, .dropdown2").forEach((dropdown) => {
-                                dropdown.classList.remove("active");
-                            });
-                            toggleButton.setAttribute("aria-expanded", "false");
-                            toggleButton.querySelector("i").classList.add("fa-bars");
-                            toggleButton.querySelector("i").classList.remove("fa-times");
-                        }
-                    });
-                });
-            }
+      if (document.getElementById('quiz-enabled').checked) {
+        courseData.quiz_questions = JSON.parse(document.getElementById('quiz-questions').value);
+      }
 
-            // Throttle function
-            function throttle(func, wait) {
-                let lastCall = 0;
-                return function (...args) {
-                    const now = Date.now();
-                    if (now - lastCall >= wait) {
-                        lastCall = now;
-                        func.apply(this, args);
-                    }
-                };
-            }
+      const formData = new FormData();
+      formData.append('course', JSON.stringify(courseData));
+      const courseImage = document.getElementById('course-image').files[0];
+      if (courseImage) formData.append('course_image', courseImage);
+      const captions = document.getElementById('video-captions').files;
+      for (let i = 0; i < captions.length; i++) formData.append('captions', captions[i]);
+      document.querySelectorAll('.module-file').forEach((fileInput, i) => {
+        if (fileInput.files[0]) formData.append(`module_file_${i}`, fileInput.files[0]);
+      });
 
-            // Hide navbar
-            const hideNavbar = () => {
-                if (window.scrollY > 0 && !isInteracting && !isAnimating) {
-                    isAnimating = true;
-                    navbar.classList.add("hidden");
-                    console.log("Navbar hidden");
-                    setTimeout(() => {
-                        isAnimating = false;
-                    }, 500);
-                }
-            };
-
-            // Show navbar
-            const showNavbar = () => {
-                if (!navbar.classList.contains("hidden")) return;
-                isAnimating = true;
-                navbar.classList.remove("hidden");
-                updateNavbarTransparency();
-                console.log("Navbar shown");
-                setTimeout(() => {
-                    isAnimating = false;
-                }, 500);
-            };
-
-            // Update navbar transparency
-            const updateNavbarTransparency = () => {
-                if (window.scrollY === 0) {
-                    navbar.classList.remove("scrolled");
-                } else {
-                    navbar.classList.add("scrolled");
-                }
-            };
-
-            // Event handlers
-            const handleScroll = throttle(() => {
-                showNavbar();
-                clearTimeout(inactivityTimeout);
-                inactivityTimeout = setTimeout(hideNavbar, 2000);
-            }, 200);
-
-            const handleInteraction = throttle(() => {
-                showNavbar();
-                clearTimeout(inactivityTimeout);
-                inactivityTimeout = setTimeout(hideNavbar, 4000);
-            }, 200);
-
-            window.addEventListener("scroll", handleScroll);
-            document.addEventListener("mousemove", handleInteraction);
-            document.addEventListener("keydown", handleInteraction);
-
-            navbar.addEventListener("mouseenter", () => {
-                isInteracting = true;
-                showNavbar();
-                clearTimeout(inactivityTimeout);
-            });
-
-            navbar.addEventListener("mouseleave", () => {
-                isInteracting = false;
-                inactivityTimeout = setTimeout(hideNavbar, 4000);
-            });
-
-            navbar.addEventListener("touchstart", () => {
-                isInteracting = true;
-                showNavbar();
-                clearTimeout(inactivityTimeout);
-            });
-
-            document.addEventListener("touchend", () => {
-                isInteracting = false;
-                inactivityTimeout = setTimeout(hideNavbar, 4000);
-            });
-
-            // Disable auto-hide on mobile
-            if (/Mobi|Android/i.test(navigator.userAgent)) {
-                showNavbar();
-                clearTimeout(inactivityTimeout);
-                window.removeEventListener("scroll", handleScroll);
-                console.log("Mobile device detected: Navbar always visible");
-            }
-
-            // Menu toggle
-            if (toggleButton && navLink) {
-                toggleButton.addEventListener("click", () => {
-                    navLink.classList.toggle("active");
-                    const isExpanded = navLink.classList.contains("active");
-                    toggleButton.setAttribute("aria-expanded", isExpanded);
-                    toggleButton.querySelector("i").classList.toggle("fa-bars");
-                    toggleButton.querySelector("i").classList.toggle("fa-times");
-                    if (!isExpanded) {
-                        navLink.classList.remove("slide-left");
-                        document.querySelectorAll(".dropdown-parent").forEach((parent) => {
-                            parent.classList.remove("active");
-                            parent.setAttribute("aria-expanded", "false");
-                        });
-                        document.querySelectorAll(".dropdown1, .dropdown2").forEach((dropdown) => {
-                            dropdown.classList.remove("active");
-                        });
-                    }
-                    console.log("Menu toggled:", isExpanded ? "Open" : "Closed");
-                });
-            }
-
-            // Add back button
-            function addBackButton(dropdown, onClick) {
-                if (!dropdown || window.innerWidth > 768) return;
-                const existingBack = dropdown.querySelector(".dropdown-back");
-                if (existingBack) existingBack.remove();
-                const backButton = document.createElement("a");
-                backButton.href = "#";
-                backButton.className = "dropdown-back";
-                backButton.innerHTML = '<i class="fa-solid fa-arrow-left"></i> Back';
-                backButton.setAttribute("aria-label", "Back to previous menu");
-                backButton.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    console.log("Back button clicked");
-                    onClick();
-                });
-                dropdown.insertBefore(backButton, dropdown.firstChild);
-                console.log("Back button added to", dropdown);
-            }
-
-            // Dark mode toggle
-            const toggleDark = document.querySelector("#toggle");
-            if (toggleDark) {
-                function updateDarkMode(isDark) {
-                    document.body.classList.toggle("dark", isDark);
-                    toggleDark.innerHTML = isDark
-                        ? '<i class="fa-solid fa-sun"></i>'
-                        : '<i class="fa-solid fa-moon"></i>';
-                    localStorage.setItem("darkMode", isDark);
-                }
-                const savedMode = localStorage.getItem("darkMode");
-                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                updateDarkMode(savedMode === "true" || (savedMode === null && prefersDark));
-                toggleDark.addEventListener("click", () =>
-                    updateDarkMode(!document.body.classList.contains("dark"))
-                );
-            }
-
-            // Handle auth callback
-            window.addEventListener("load", () => {
-                const urlParams = new URLSearchParams(window.location.search);
-                const token = urlParams.get('token');
-                const refreshToken = urlParams.get('refreshToken');
-                if (token && refreshToken) {
-                    localStorage.setItem('token', token);
-                    localStorage.setItem('refreshToken', refreshToken);
-                    renderNavbar();
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                } else {
-                    renderNavbar();
-                }
-            });
-
-            // Initial setup
-            updateNavbarTransparency();
+      try {
+        const response = await fetch('http://localhost:3000/api/courses', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+          body: formData
         });
-    </script>
-</body>
+        if (!response.ok) throw new Error((await response.json()).error);
+        isDirty = false;
+        showError(`Course ${isAutosave ? 'autosaved' : 'saved'} as ${status}!`, '#28a745');
+        if (status === 'publish') window.location.href = 'tutor-dash.html';
+      } catch (err) {
+        showError('Failed to save course: ' + err.message);
+      }
+    }
 
+    // Preview course
+    function previewCourse() {
+      if (!validateForm()) return;
+      const preview = document.createElement('div');
+      preview.className = 'preview-mode';
+      preview.setAttribute('role', 'dialog');
+      preview.setAttribute('aria-label', 'Course preview');
+      preview.innerHTML = `
+        <h3>Course Preview</h3>
+        <h4>${document.getElementById('course-title').value}</h4>
+        <p>${document.getElementById('course-description').value}</p>
+        <h5>Modules</h5>
+        <ul>${modules.map(m => `<li>${document.querySelector(`#${m.id} .module-title`).value || 'Untitled'} - ${document.querySelector(`#${m.id} textarea`).value || 'No description'}</li>`).join('')}</ul>
+        <button class="btn" onclick="this.parentElement.remove()">Close Preview</button>
+      `;
+      document.querySelector('.create-course-container').appendChild(preview);
+    }
+
+    // Show error
+    function showError(message, color = '#dc3545') {
+      const errorDiv = document.getElementById('error');
+      errorDiv.textContent = message;
+      errorDiv.style.color = color;
+      errorDiv.focus();
+      setTimeout(() => errorDiv.textContent = '', 3000);
+    }
+
+    // Logout
+    function logout() {
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      localStorage.removeItem('refreshToken');
+      window.location.href = 'tutor-signup-login.html';
+    }
+  </script>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Updated Tutor Dashboard (tutor-dash.html) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="Elora Tech Institute | Instructor Dashboard">
+  <meta name="description" content="Manage your courses, students, and earnings at Elora Tech Institute.">
+  <title>Instructor Dashboard - Elora Tech Institute</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/studentdash.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html">
+      <h1 id="logo">
+        <img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo">
+      </h1>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul id="nav-link" role="menu"></ul>
+    <ul class="nav-link">
+      <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false">
+        <img id="dashboard-profile-picture" class="dashboard-profile-picture" src="images/avatars/default.jpg" alt="Profile Picture" onclick="window.location.href='profile.html'">
+        <div class="dropdown1">
+          <ul class="dropdown" role="menuitem">
+            <li role="menuitem"><a href="profile.html">Profile</a></li>
+            <li role="menuitem"><a href=".html">Settings</a></li>
+            <li role="menuitem" class="logout-btn" onclick="logout()"><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div id="toggle"><i class="fa-solid fa-moon"></i></div>
+  </nav>
+  <button class="sidebar-toggle" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <aside id="sidebar-nav">
+    <ul class="links"></ul>
+  </aside>
+
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <h2>Welcome, <span id="userName"></span>! Shape the Future with Your Courses 🚀</h2>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="earnings">
+      <p>Total Earnings: $<span id="totalEarnings">0.00</span></p>
+    </div>
+
+    <div class="card-grid">
+      <a href="tutor-create.html">
+        <div class="card">
+          <i class="fas fa-plus-circle"></i>
+          <h3>Create Course</h3>
+          <p>Build a new course with videos, ebooks, or live sessions.</p>
+        </div>
+      </a>
+      <div class="card" onclick="scrollToSection('courses')">
+        <i class="fas fa-book"></i>
+        <h3>Manage Courses</h3>
+        <p>Edit, delete, or upload content.</p>
+      </div>
+      <div class="card" onclick="scrollToSection('students')">
+        <i class="fas fa-users"></i>
+        <h3>View Students</h3>
+        <p>Monitor student progress.</p>
+      </div>
+      <div class="card" onclick="scrollToSection('analytics')">
+        <i class="fas fa-chart-line"></i>
+        <h3>Course Analytics</h3>
+        <p>Track enrollments and reviews.</p>
+      </div>
+    </div>
+
+    <div class="section" id="courses">
+      <h2>Your Courses</h2>
+      <ul class="list" id="course-list"></ul>
+    </div>
+
+    <div class="section" id="students">
+      <h2>Your Students</h2>
+      <ul class="list" id="student-list"></ul>
+    </div>
+
+    <div class="section" id="analytics">
+      <h2>Course Analytics</h2>
+      <ul class="list" id="analytics-list"></ul>
+    </div>
+
+    <div id="error" style="color: #dc3545;" role="alert"></div>
+  </div>
+
+  <!-- Edit Course Modal -->
+  <div id="editCourseModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('editCourseModal')" aria-label="Close modal">×</span>
+      <h2>Edit Course</h2>
+      <form id="edit-course-form" onsubmit="event.preventDefault(); updateCourse();">
+        <input type="hidden" id="edit-course-id">
+        <div class="form-group">
+          <label for="edit-course-title">Course Title</label>
+          <input type="text" id="edit-course-title" placeholder="Enter course title" required aria-describedby="edit-course-title-tooltip">
+          <span id="edit-course-title-tooltip" class="tooltip">Update the course title.</span>
+        </div>
+        <div class="form-group">
+          <label for="edit-course-description">Description</label>
+          <textarea id="edit-course-description" placeholder="Enter course description" required aria-describedby="edit-course-description-tooltip"></textarea>
+          <span id="edit-course-description-tooltip" class="tooltip">Update the course description.</span>
+        </div>
+        <div class="form-group">
+          <label for="edit-course-price">Price (USD)</label>
+          <input type="number" id="edit-course-price" placeholder="Enter course price" step="0.01" min="0" required aria-describedby="edit-course-price-tooltip">
+          <span id="edit-course-price-tooltip" class="tooltip">Update the price in USD.</span>
+        </div>
+        <div class="form-group">
+          <label for="edit-course-duration">Duration (hours)</label>
+          <input type="number" id="edit-course-duration" placeholder="Enter course duration" min="1" required aria-describedby="edit-course-duration-tooltip">
+          <span id="edit-course-duration-tooltip" class="tooltip">Update the course duration in hours.</span>
+        </div>
+        <div class="form-group">
+          <label for="edit-course-type">Course Type</label>
+          <select id="edit-course-type" required aria-describedby="edit-course-type-tooltip">
+            <option value="live">Live</option>
+            <option value="prerecorded">Prerecorded</option>
+            <option value="ebook">Ebook</option>
+          </select>
+          <span id="edit-course-type-tooltip" class="tooltip">Update the course format.</span>
+        </div>
+        <button type="submit" class="btn">Update Course</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Upload Content Modal -->
+  <div id="uploadContentModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('uploadContentModal')" aria-label="Close modal">×</span>
+      <h2>Upload Course Content</h2>
+      <form id="upload-content-form" onsubmit="event.preventDefault(); uploadContent();">
+        <input type="hidden" id="upload-course-id">
+        <div class="form-group">
+          <label for="content-title">Content Title</label>
+          <input type="text" id="content-title" placeholder="Enter content title" required aria-describedby="content-title-tooltip">
+          <span id="content-title-tooltip" class="tooltip">Enter a title for the content.</span>
+        </div>
+        <div class="form-group">
+          <label for="content-type">File Type</label>
+          <select id="content-type" required aria-describedby="content-type-tooltip">
+            <option value="video">Video</option>
+            <option value="pdf">PDF</option>
+            <option value="ebook">Ebook</option>
+            <option value="audio">Audio</option>
+          </select>
+          <span id="content-type-tooltip" class="tooltip">Select the type of content to upload.</span>
+        </div>
+        <div class="form-group">
+          <label for="content-file">Upload File</label>
+          <input type="file" id="content-file" accept="video/*,audio/*,application/pdf" required aria-describedby="content-file-tooltip">
+          <span id="content-file-tooltip" class="tooltip">Upload the content file.</span>
+        </div>
+        <button type="submit" class="btn">Upload Content</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Send Notification Modal -->
+  <div id="notificationModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('notificationModal')" aria-label="Close modal">×</span>
+      <h2>Send Notification</h2>
+      <form id="notification-form" onsubmit="event.preventDefault(); sendNotification();">
+        <input type="hidden" id="notification-course-id">
+        <div class="form-group">
+          <label for="notification-message">Message</label>
+          <textarea id="notification-message" placeholder="Enter your message" required aria-describedby="notification-message-tooltip"></textarea>
+          <span id="notification-message-tooltip" class="tooltip">Enter a message to send to students.</span>
+        </div>
+        <button type="submit" class="btn">Send Notification</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="about">
+        <h2>Elora Tech Institute</h2>
+        <p>
+          Elora Tech Institute equips individuals with in-demand tech skills through hands-on training in web development, cybersecurity, Web3, IoT, and more. Our vision is to be a leading tech institution, shaping the future of tech education through innovation and excellence.
+        </p>
+        <ul class="sm">
+          <li><a href="https://web.facebook.com/profile.php?id=61574697245670"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+      <div class="quick-links">
+        <h2>Discover ETI</h2>
+        <ul id="links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="teach-online.html">Teach on ETI</a></li>
+          <li><a href="help-support.html">Help & Support</a></li>
+        </ul>
+      </div>
+      <div class="apply">
+        <h2>How to Apply</h2>
+        <ol>
+          <li>Visit our website and check out the programs.</li>
+          <li>Fill out the registration form.</li>
+          <li>Make payment and confirm your enrollment.</li>
+          <li>Start your tech journey with us!</li>
+        </ol>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing" class="apply-button" target="_blank">Register Now</a>
+      </div>
+    </div>
+    <hr />
+    <p id="copyright">© Elora Tech Institute 2023 - 2025. All rights reserved.</p>
+    <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
+  </footer>
+
+  <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank" class="whatsapp-bubble">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/navConfig.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/tutordash.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Updated Tutor Dashboard JavaScript (tutordash.js) -->
+
+const user = JSON.parse(localStorage.getItem('user'));
+if (!user || user.role !== 'instructor') {
+    window.location.href = 'tutor-signup-login.html';
+}
+document.getElementById('userName').textContent = user.name;
+
+async function fetchWithAuth(url, options = {}) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        showError('No authentication token found. Please log in again.');
+        setTimeout(() => window.location.href = 'tutor-signup-login.html', 2000);
+        throw new Error('No token');
+    }
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+        ...options.headers
+    };
+    const response = await fetch(url, { ...options, headers });
+    if (response.status === 401) {
+        showError('Session expired. Please log in again.');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setTimeout(() => window.location.href = 'tutor-signup-login.html', 1000);
+        throw new Error('Unauthorized');
+    }
+    if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || `HTTP error ${response.status}`);
+    }
+    return response.json();
+}
+
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'flex';
+    modal.querySelector('input, textarea, select').focus();
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'none';
+    if (modalId === 'editCourseModal') {
+        document.getElementById('edit-course-id').value = '';
+        document.getElementById('edit-course-title').value = '';
+        document.getElementById('edit-course-description').value = '';
+        document.getElementById('edit-course-price').value = '';
+        document.getElementById('edit-course-duration').value = '';
+        document.getElementById('edit-course-type').value = 'live';
+    } else if (modalId === 'uploadContentModal') {
+        document.getElementById('upload-course-id').value = '';
+        document.getElementById('content-title').value = '';
+        document.getElementById('content-type').value = 'video';
+        document.getElementById('content-file').value = '';
+    } else if (modalId === 'notificationModal') {
+        document.getElementById('notification-course-id').value = '';
+        document.getElementById('notification-message').value = '';
+    }
+}
+
+function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+}
+
+function logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
+    window.location.href = 'tutor-signup-login.html';
+}
+
+function showError(message, color = '#dc3545') {
+    const errorDiv = document.getElementById('error');
+    errorDiv.textContent = message;
+    errorDiv.style.color = color;
+    errorDiv.focus();
+    setTimeout(() => errorDiv.textContent = '', 3000);
+}
+
+async function uploadProfilePicture(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const formData = new FormData();
+    formData.append('profile_picture', file);
+    try {
+        const data = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}/profile-picture`, {
+            method: 'POST',
+            body: formData,
+            headers: {}
+        });
+        document.getElementById('dashboard-profile-picture').src = data.profile_picture_url;
+        showError('Profile picture updated successfully! 📸', '#28a745');
+    } catch (err) {
+        showError('Failed to upload profile picture: ' + err.message);
+    }
+}
+
+function openEditCourse(course) {
+    document.getElementById('edit-course-id').value = course.id;
+    document.getElementById('edit-course-title').value = course.title;
+    document.getElementById('edit-course-description').value = course.description;
+    document.getElementById('edit-course-price').value = course.price;
+    document.getElementById('edit-course-duration').value = course.duration || '';
+    document.getElementById('edit-course-type').value = course.course_type;
+    openModal('editCourseModal');
+}
+
+async function updateCourse() {
+    const form = document.getElementById('edit-course-form');
+    if (!form.checkValidity()) {
+        showError('Please fill out all required fields correctly.');
+        return;
+    }
+    const id = document.getElementById('edit-course-id').value;
+    const title = document.getElementById('edit-course-title').value;
+    const description = document.getElementById('edit-course-description').value;
+    const price = parseFloat(document.getElementById('edit-course-price').value);
+    const duration = parseInt(document.getElementById('edit-course-duration').value);
+    const course_type = document.getElementById('edit-course-type').value;
+    try {
+        await fetchWithAuth(`http://localhost:3000/api/courses/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({ title, description, price, duration, course_type })
+        });
+        fetchCourses();
+        closeModal('editCourseModal');
+        showError('Course updated successfully!', '#28a745');
+    } catch (err) {
+        showError('Failed to update course: ' + err.message);
+    }
+}
+
+async function deleteCourse(courseId) {
+    if (confirm('Are you sure you want to delete this course?')) {
+        try {
+            await fetchWithAuth(`http://localhost:3000/api/courses/${courseId}`, {
+                method: 'DELETE'
+            });
+            fetchCourses();
+            showError('Course deleted successfully!', '#28a745');
+        } catch (err) {
+            showError('Failed to delete course: ' + err.message);
+        }
+    }
+}
+
+function openUploadContent(courseId) {
+    document.getElementById('upload-course-id').value = courseId;
+    openModal('uploadContentModal');
+}
+
+async function uploadContent() {
+    const form = document.getElementById('upload-content-form');
+    if (!form.checkValidity()) {
+        showError('Please fill out all required fields correctly.');
+        return;
+    }
+    const course_id = document.getElementById('upload-course-id').value;
+    const title = document.getElementById('content-title').value;
+    const file_type = document.getElementById('content-type').value;
+    const file = document.getElementById('content-file').files[0];
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('file_type', file_type);
+    if (file) formData.append('file', file);
+    try {
+        await fetchWithAuth(`http://localhost:3000/api/courses/${course_id}/content`, {
+            method: 'POST',
+            body: formData,
+            headers: {}
+        });
+        closeModal('uploadContentModal');
+        showError('Content uploaded successfully!', '#28a745');
+    } catch (err) {
+        showError('Failed to upload content: ' + err.message);
+    }
+}
+
+function openNotification(courseId) {
+    document.getElementById('notification-course-id').value = courseId;
+    openModal('notificationModal');
+}
+
+async function sendNotification() {
+    const form = document.getElementById('notification-form');
+    if (!form.checkValidity()) {
+        showError('Please fill out all required fields correctly.');
+        return;
+    }
+    const course_id = document.getElementById('notification-course-id').value;
+    const message = document.getElementById('notification-message').value;
+    try {
+        await fetchWithAuth('http://localhost:3000/api/notifications', {
+            method: 'POST',
+            body: JSON.stringify({ course_id, message, notification_type: 'course_notification' })
+        });
+        closeModal('notificationModal');
+        showError('Notification sent successfully!', '#28a745');
+    } catch (err) {
+        showError('Failed to send notification: ' + err.message);
+    }
+}
+
+async function downloadCalendar(courseId) {
+    try {
+        const course = await fetchWithAuth(`http://localhost:3000/api/courses/${courseId}`);
+        if (course.course_type === 'live' && course.live_schedule) {
+            const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:${course.title}
+DTSTART:${new Date(course.live_schedule.date).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'}
+DTEND:${new Date(new Date(course.live_schedule.date).getTime() + course.duration * 60 * 60 * 1000).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'}
+DESCRIPTION:${course.description}
+END:VEVENT
+END:VCALENDAR
+            `;
+            const blob = new Blob([icsContent], { type: 'text/calendar' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${course.title}.ics`;
+            a.click();
+            URL.revokeObjectURL(url);
+        } else {
+            showError('No live schedule available for this course.');
+        }
+    } catch (err) {
+        showError('Failed to download calendar: ' + err.message);
+    }
+}
+
+async function previewAudio(contentId) {
+    try {
+        const content = await fetchWithAuth(`http://localhost:3000/api/courses/content/${contentId}`);
+        if (content.file_type === 'ebook' || content.file_type === 'pdf') {
+            const text = content.text_content || 'Sample text';
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = content.language || 'en-US';
+            window.speechSynthesis.speak(utterance);
+        } else {
+            showError('Audio preview only available for ebooks or PDFs.');
+        }
+    } catch (err) {
+        showError('Failed to preview audio: ' + err.message);
+    }
+}
+
+async function fetchCommunity(courseId) {
+    try {
+        const discussions = await fetchWithAuth(`http://localhost:3000/api/courses/${courseId}/discussions`);
+        const communityList = document.createElement('div');
+        communityList.setAttribute('role', 'region');
+        communityList.setAttribute('aria-label', 'Discussion forum');
+        communityList.innerHTML = `
+            <h3>Discussion Forum for ${courseId}</h3>
+            <ul>${discussions.map(d => `<li>${d.user}: ${d.message}</li>`).join('')}</ul>
+            <form id="discussion-form" onsubmit="event.preventDefault(); postDiscussion('${courseId}');">
+              <div class="form-group">
+                <label for="new-discussion">Post a Message</label>
+                <textarea id="new-discussion" placeholder="Enter your message" required aria-describedby="new-discussion-tooltip"></textarea>
+                <span id="new-discussion-tooltip" class="tooltip">Post a message to the discussion forum.</span>
+              </div>
+              <button type="submit" class="btn">Post</button>
+            </form>
+        `;
+        document.getElementById('courses').appendChild(communityList);
+    } catch (err) {
+        showError('Failed to load discussions: ' + err.message);
+    }
+}
+
+async function postDiscussion(courseId) {
+    const form = document.getElementById('discussion-form');
+    if (!form.checkValidity()) {
+        showError('Please enter a valid message.');
+        return;
+    }
+    const message = document.getElementById('new-discussion').value;
+    try {
+        await fetchWithAuth(`http://localhost:3000/api/courses/${courseId}/discussions`, {
+            method: 'POST',
+            body: JSON.stringify({ message })
+        });
+        fetchCommunity(courseId);
+    } catch (err) {
+        showError('Failed to post discussion: ' + err.message);
+    }
+}
+
+async function fetchCourses() {
+    try {
+        const courses = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
+        const courseList = document.getElementById('course-list');
+        courseList.innerHTML = '';
+        if (!Array.isArray(courses) || courses.length === 0) {
+            courseList.innerHTML = '<li>No courses found</li>';
+            return;
+        }
+        courses.forEach(course => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <div>
+                    <strong>${course.title}</strong><br>
+                    ${course.description || 'No description'}<br>
+                    Category: ${course.category || 'N/A'} | Topic: ${course.topic || 'N/A'}<br>
+                    Level: ${course.level || 'N/A'} | Price: $${course.price} | Duration: ${course.duration || 'N/A'} hours<br>
+                    Type: ${course.course_type} | Enrollment Limit: ${course.enrollment_limit || 'Unlimited'}<br>
+                    Status: ${course.status}
+                </div>
+                <div>
+                    ${course.status === 'pending' || course.status === 'draft' ? `
+                        <button onclick='openEditCourse(${JSON.stringify(course)})'>Edit</button>
+                        <button class="delete" onclick="deleteCourse('${course.id}')">Delete</button>
+                    ` : ''}
+                    ${course.status === 'approved' ? `
+                        <button onclick="openUploadContent('${course.id}')">Upload Content</button>
+                        <button onclick="openNotification('${course.id}')">Notify Students</button>
+                        <button onclick="fetchCommunity('${course.id}')">Manage Discussions</button>
+                        ${course.course_type === 'live' ? `<button onclick="downloadCalendar('${course.id}')">Download Calendar</button>` : ''}
+                        ${course.course_type === 'ebook' ? `<button onclick="previewAudio('${course.id}')">Preview Audio</button>` : ''}
+                    ` : ''}
+                </div>
+            `;
+            courseList.appendChild(li);
+        });
+    } catch (err) {
+        document.getElementById('course-list').innerHTML = '<li>Error loading courses: ' + err.message + '</li>';
+    }
+}
+
+async function fetchStudents() {
+    try {
+        const students = await fetchWithAuth(`http://localhost:3000/api/users?role=student`);
+        const studentList = document.getElementById('student-list');
+        studentList.innerHTML = '';
+        if (!Array.isArray(students) || students.length === 0) {
+            studentList.innerHTML = '<li>No students found</li>';
+            return;
+        }
+        students.forEach(student => {
+            const li = document.createElement('li');
+            li.innerHTML = `<div><strong>${student.name}</strong> (${student.email})</div>`;
+            li.onclick = () => fetchStudentProgress(student.id);
+            li.style.cursor = 'pointer';
+            li.setAttribute('role', 'button');
+            li.setAttribute('aria-label', `View progress for ${student.name}`);
+            studentList.appendChild(li);
+        });
+    } catch (err) {
+        document.getElementById('student-list').innerHTML = '<li>Error loading students: ' + err.message + '</li>';
+    }
+}
+
+async function fetchStudentProgress(studentId) {
+    try {
+        const courses = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
+        let progressHtml = `<h3>Student Progress</h3>`;
+        for (const course of courses) {
+            const progress = await fetchWithAuth(`http://localhost:3000/api/courses/${course.id}/progress?user_id=${studentId}`);
+            if (progress.progress !== undefined) {
+                progressHtml += `
+                    <p><strong>${course.title}</strong>: ${progress.progress}% complete</p>
+                `;
+            }
+        }
+        document.getElementById('student-list').innerHTML = progressHtml + '<button class="btn" onclick="fetchStudents()">Back to Students</button>';
+    } catch (err) {
+        showError('Error loading student progress: ' + err.message);
+    }
+}
+
+async function fetchAnalytics() {
+    try {
+        const courses = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
+        const analyticsList = document.getElementById('analytics-list');
+        analyticsList.innerHTML = '';
+        if (!Array.isArray(courses) || courses.length === 0) {
+            analyticsList.innerHTML = '<li>No analytics available</li>';
+            return;
+        }
+        for (const course of courses) {
+            const analytics = await fetchWithAuth(`http://localhost:3000/api/courses/${course.id}/analytics`);
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <div>
+                    <strong>${course.title}</strong><br>
+                    Enrollments: ${analytics.enrollment_count}<br>
+                    Average Rating: ${analytics.avg_rating ? analytics.avg_rating.toFixed(1) : 'N/A'}/5 (${analytics.review_count || 0} reviews)<br>
+                    Completions: ${analytics.completion_count}<br>
+                    Drop-off Rate: ${analytics.dropoff_rate ? analytics.dropoff_rate.toFixed(1) : 'N/A'}%
+                </div>
+            `;
+            analyticsList.appendChild(li);
+        }
+        const enrollmentData = courses.map(c => ({
+            label: c.title,
+            data: (await fetchWithAuth(`http://localhost:3000/api/courses/${c.id}/analytics`)).enrollment_count
+        }));
+        displayEnrollmentChart(enrollmentData);
+    } catch (err) {
+        document.getElementById('analytics-list').innerHTML = '<li>Error loading analytics: ' + err.message + '</li>';
+    }
+}
+
+function displayEnrollmentChart(data) {
+    const chartDiv = document.createElement('div');
+    chartDiv.setAttribute('role', 'img');
+    chartDiv.setAttribute('aria-label', 'Bar chart of course enrollments');
+    chartDiv.innerHTML = `
+        <canvas id="enrollmentChart"></canvas>
+        <script>
+            const ctx = document.getElementById('enrollmentChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ${JSON.stringify(data.map(d => d.label))},
+                    datasets: [{
+                        label: 'Enrollments',
+                        data: ${JSON.stringify(data.map(d => d.data))},
+                        backgroundColor: ['#28a745', '#007bff', '#dc3545', '#ffc107'],
+                        borderColor: ['#218838', '#0056b3', '#c82333', '#e0a800'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: { beginAtZero: true }
+                    },
+                    plugins: {
+                        legend: { display: true },
+                        title: { display: true, text: 'Course Enrollments' }
+                    }
+                }
+            });
+        </script>
+    `;
+    document.getElementById('analytics-list').appendChild(chartDiv);
+}
+
+async function initializeDashboard() {
+    try {
+        const profile = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}`);
+        document.getElementById('dashboard-profile-picture').src = profile.profile_picture_url || 'images/avatars/default.jpg';
+        await Promise.all([
+            fetchCourses(),
+            fetchStudents(),
+            fetchAnalytics(),
+            fetchEarnings()
+        ]);
+    } catch (err) {
+        showError('Failed to initialize dashboard: ' + err.message);
+    }
+}
+
+async function fetchEarnings() {
+    try {
+        const data = await fetchWithAuth(`http://localhost:3000/api/users/${user.id}/earnings`);
+        document.getElementById('totalEarnings').textContent = data.total_earnings.toFixed(2);
+    } catch (err) {
+        document.getElementById('totalEarnings').textContent = 'N/A';
+        showError('Error loading earnings: ' + err.message);
+    }
+}
+
+initializeDashboard();

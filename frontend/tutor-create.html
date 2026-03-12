@@ -1,96 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tutor - Create Course</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="Elora Tech Institute | Create Course">
+  <meta name="description" content="Create and customize your course at Elora Tech Institute.">
+  <title>Create Course - Elora Tech Institute</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/studentdash.css" />
+  <!-- <link rel="stylesheet" href="css/createcourse.css" /> -->
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
 </head>
+
 <body>
-  <nav class="navbar">
-    <div class="hamburger">☰</div>
-    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
-    <div class="nav-menu">
-      <a href="tutor-dashboard.html">Dashboard</a>
-      <a href="tutor-courses.html">My Courses</a>
-      <a href="tutor-create.html">Create</a>
-      <a href="tutor-earnings.html">Earnings</a>
-      <a href="tutor-resources.html">Resources</a>
-      <a href="tutor-site-settings.html">Site Settings</a>
-      <a href="help-support.html">Help/Support</a>
-      <div class="profile-dropdown">
-        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
-        <div class="profile-dropdown-content">
-          <a href="tutor-profile.html">Profile</a>
-          <a href="tutor-settings.html">Settings</a>
-          <a href="logout.html">Logout</a>
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <h1 id="logo">
+      <a href="index.html">
+        <img src="images/eti logo main.jfif" alt="">
+      </a>
+    </h1>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul ul id="nav-link" role="menu"></ul>
+    <!-- <a href="login-signup.html" class="btn big">Enroll Now</a> -->
+    <div id="toggle"><i class="fa-solid fa-moon"></i></div>
+  </nav>
+  <!-- <button class="sidebar-toggle" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button> -->
+  <aside id="sidebar-nav">
+    <ul class="links"></ul>
+  </aside>
+
+  <div class="create-course-container">
+    <h2>Create a New Course</h2>
+    <div id="error" class="error" role="alert"></div>
+
+    <form id="create-course-form" onsubmit="event.preventDefault(); saveCourse('publish');">
+      <div class="form-group">
+        <label for="course-title">Course Title</label>
+        <input type="text" id="course-title" name="title" required aria-describedby="title-tooltip">
+        <span id="title-tooltip" class="tooltip">Enter a concise and descriptive course title.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="course-description">Description</label>
+        <textarea id="course-description" name="description" required aria-describedby="description-tooltip"></textarea>
+        <span id="description-tooltip" class="tooltip">Provide a detailed description of the course content.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="course-category">Category</label>
+        <select id="course-category" required aria-describedby="course-category-tooltip">
+          <option value="">Select Category</option>
+          <option value="web_development">Web Development</option>
+          <option value="cybersecurity">Cybersecurity</option>
+          <option value="web3">Web3</option>
+          <option value="iot">IoT</option>
+        </select>
+        <span id="course-category-tooltip" class="tooltip">Choose the category that best fits your course.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="course-topic">Topic</label>
+        <input type="text" id="course-topic" placeholder="Enter course topic" required
+          aria-describedby="course-topic-tooltip">
+        <span id="course-topic-tooltip" class="tooltip">Specify the main topic or focus of the course.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="course-level">Level</label>
+        <select id="course-level" required aria-describedby="course-level-tooltip">
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+        <span id="course-level-tooltip" class="tooltip">Select the difficulty level of your course.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="course-price">Price ($)</label>
+        <input type="number" id="course-price" name="price" step="0.01" min="0" required
+          aria-describedby="price-tooltip">
+        <span id="price-tooltip" class="tooltip">Set the course price in USD.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="course-duration">Duration (hours)</label>
+        <input type="number" id="course-duration" name="duration" step="0.1" min="0"
+          aria-describedby="duration-tooltip">
+        <span id="duration-tooltip" class="tooltip">Estimated total hours to complete the course.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="course-type">Course Type</label>
+        <select id="course-type" name="course-type" required onchange="toggleLiveSchedule()"
+          aria-describedby="course-type-tooltip">
+          <option value="live">Live</option>
+          <option value="prerecorded">Prerecorded</option>
+          <option value="ebook">Ebook</option>
+        </select>
+        <span id="course-type-tooltip" class="tooltip">Choose the format of your course.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="course-image">Course Image</label>
+        <input type="file" id="course-image" accept="image/*" aria-describedby="course-image-tooltip">
+        <span id="course-image-tooltip" class="tooltip">Upload a high-quality image to represent your course.</span>
+        <div id="image-preview" class="image-preview"></div>
+      </div>
+
+      <div class="live-schedule" id="live-schedule">
+        <h3>Live Session Schedule</h3>
+        <div class="form-group">
+          <label for="live-date">Session Date & Time</label>
+          <input type="datetime-local" id="live-date" name="live_date" required aria-describedby="live-date-tooltip">
+          <span id="live-date-tooltip" class="tooltip">Schedule the date and time for the live session.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="enrollment-deadline">Enrollment Deadline</label>
+          <input type="datetime-local" id="enrollment-deadline" name="enrollment_deadline" required
+            aria-describedby="enrollment-deadline-tooltip">
+          <span id="enrollment-deadline-tooltip" class="tooltip">Set the deadline for student enrollment.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="calendar-sync">Enable Calendar Sync</label>
+          <input type="checkbox" id="calendar-sync" aria-describedby="calendar-sync-tooltip">
+          <span id="calendar-sync-tooltip" class="tooltip">Allow students to sync the session to their calendar.</span>
         </div>
       </div>
-      <div class="notification-dropdown">
-        <span>🔔</span>
-        <div class="notification-dropdown-content"></div>
+
+      <div class="form-group">
+        <label for="enrollment-limit">Enrollment Limit</label>
+        <input type="number" id="enrollment-limit" placeholder="Enter max students (optional)" min="1"
+          aria-describedby="enrollment-limit-tooltip">
+        <span id="enrollment-limit-tooltip" class="tooltip">Limit the number of students who can enroll
+          (optional).</span>
       </div>
-    </div>
-  </nav>
-  <main>
-    <h1>Create New Course</h1>
-    <div class="create-course-form">
-      <form id="createCourseForm">
-        <label for="title">Course Title:</label>
-        <input type="text" id="title" required placeholder="Enter course title"><br><br>
-        
-        <label for="description">Description:</label>
-        <textarea id="description" required placeholder="Describe your course"></textarea><br><br>
-        
-        <label for="objectives">Objectives:</label>
-        <textarea id="objectives" required placeholder="List course objectives"></textarea><br><br>
-        
-        <label for="category">Category:</label>
-        <select id="category" required>
-          <option value="">Select Category</option>
-          <option value="blockchain">Blockchain</option>
-          <option value="data-science">Data Science</option>
-          <option value="cybersecurity">Cybersecurity</option>
-        </select><br><br>
-        
-        <label for="price">Price ($):</label>
-        <input type="number" id="price" required placeholder="Enter price"><br><br>
-        
-        <label for="passcode">Course Passcode:</label>
-        <input type="text" id="passcode" placeholder="Optional passcode"><br><br>
-        
-        <label for="video">Upload Video Lesson:</label>
-        <input type="file" id="video" accept="video/*"><br><br>
-        
-        <label for="document">Upload Document/PDF:</label>
-        <input type="file" id="document" accept=".pdf"><br><br>
-        
-        <label for="live-class">Schedule Live Class:</label>
-        <input type="datetime-local" id="live-class"><br><br>
-        
-        <label for="quiz">Quiz/Assignment:</label>
-        <textarea id="quiz" placeholder="Enter quiz or assignment details"></textarea><br><br>
-        
-        <button type="button" onclick="previewCourse()">Preview</button>
-        <button type="submit" onclick="submitCourse()">Submit for Approval</button>
-      </form>
-    </div>
-  </main>
-  <script src="scripts.js"></script>
-  <script>
-    function previewCourse() {
-      alert('Previewing course...');
-      // Logic to display course preview
-    }
-    function submitCourse() {
-      const form = document.getElementById('createCourseForm');
-      if (form.checkValidity()) {
-        alert('Course submitted for approval');
-        // Logic to submit form data to server
-      } else {
-        alert('Please fill all required fields');
-      }
-    }
-  </script>
+
+      <h3>Course Modules</h3>
+      <div class="module-list" id="module-list" aria-describedby="module-list-tooltip"></div>
+      <span id="module-list-tooltip" class="tooltip">Add and reorder modules to structure your course content.</span>
+      <button type="button" class="btn btn-secondary" onclick="addModule()">Add Module</button>
+
+      <div class="accessibility-options">
+        <h3>Accessibility Options</h3>
+        <div class="form-group">
+          <label for="video-captions">Upload Video Captions (SRT/VTT)</label>
+          <input type="file" id="video-captions" accept=".srt,.vtt" multiple aria-describedby="video-captions-tooltip">
+          <span id="video-captions-tooltip" class="tooltip">Upload caption files for video accessibility.</span>
+        </div>
+        <div class="form-group">
+          <label for="audio-speed">Enable Audio Speed Controls</label>
+          <input type="checkbox" id="audio-speed" aria-describedby="audio-speed-tooltip">
+          <span id="audio-speed-tooltip" class="tooltip">Allow students to adjust audio playback speed.</span>
+        </div>
+      </div>
+
+      <div class="interactive-elements">
+        <h3>Interactive Elements</h3>
+        <div class="form-group">
+          <label for="quiz-enabled">Enable Quizzes/Assessments</label>
+          <input type="checkbox" id="quiz-enabled" onchange="toggleQuizSettings()"
+            aria-describedby="quiz-enabled-tooltip">
+          <span id="quiz-enabled-tooltip" class="tooltip">Add quizzes to test student knowledge.</span>
+        </div>
+        <div class="quiz-settings" id="quiz-settings">
+          <div class="form-group">
+            <label for="quiz-questions">Quiz Questions (JSON)</label>
+            <textarea id="quiz-questions" placeholder='[{"question": "Example?", "options": ["A", "B"], "answer": "A"}]'
+              aria-describedby="quiz-questions-tooltip"></textarea>
+            <span id="quiz-questions-tooltip" class="tooltip">Enter quiz questions in JSON format.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="completion-criteria">Completion Criteria</label>
+        <select id="completion-criteria" required aria-describedby="completion-criteria-tooltip">
+          <option value="all_modules">Complete All Modules</option>
+          <option value="quiz_pass">Pass Quiz (80%+)</option>
+          <option value="custom">Custom</option>
+        </select>
+        <span id="completion-criteria-tooltip" class="tooltip">Define how students complete the course.</span>
+      </div>
+
+      <div class="marketing-tools">
+        <h3>Marketing Tools</h3>
+        <div class="form-group">
+          <label for="promo-code">Promo Code</label>
+          <input type="text" id="promo-code" placeholder="Enter promo code (e.g., DISCOUNT10)"
+            aria-describedby="promo-code-tooltip">
+          <span id="promo-code-tooltip" class="tooltip">Create a promo code for discounts.</span>
+        </div>
+        <div class="form-group">
+          <label for="discount">Discount (%)</label>
+          <input type="number" id="discount" placeholder="Enter discount percentage" step="1" min="0" max="100"
+            aria-describedby="discount-tooltip">
+          <span id="discount-tooltip" class="tooltip">Set a discount percentage for the course.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="language">Primary Language</label>
+        <select id="language" required aria-describedby="language-tooltip">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+        </select>
+        <span id="language-tooltip" class="tooltip">Select the primary language for the course content.</span>
+      </div>
+
+      <div class="hero-btn">
+        <button type="button" class="btn" onclick="saveCourse('draft')">Save as Draft</button>
+        <button type="submit" class="btn">Publish Course</button>
+        <button type="button" class="btn btn-secondary" onclick="previewCourse()">Preview Course</button>
+      </div>
+    </form>
+  </div>
+
+   <footer>
+        <div class="info">
+            <div class="about">
+                <h2>Elora Tech Institute</h2>
+                <p>
+                    Elora Tech Institute equips individuals with in-demand tech skills
+                    through hands-on training in web development, cybersecurity, Web3,
+                    IoT, and more. Our vision is to be a leading tech institution,
+                    shaping the future of tech education through innovation and
+                    excellence. With a comprehensive curriculum, hands-on projects,
+                    flexible online learning, and career support, Elora Tech Institute
+                    is more than an academy—it’s a movement to create the next
+                    generation of tech innovators.
+                </p>
+                <ul class="sm">
+                    <li>
+                        <a href="https://web.facebook.com/profile.php?id=61574697245670"><i
+                                class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i
+                                class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="quick-links">
+                <h2>Discover ETI</h2>
+                <ul id="links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="teach-online.html">Teach on ETI</a></li>
+                    <li><a href="blog&updates.html">Blog</a></li>
+                    <li><a href="help-support.html">Help & Support</a></li>
+                </ul>
+            </div>
+            <div class="apply">
+                <h2>How to Apply</h2>
+                <ol>
+                    <li>Visit our website and check out the programs.</li>
+                    <li>Fill out the registration form.</li>
+                    <li>Make payment and confirm your enrollment.</li>
+                    <li>Start your tech journey with us!</li>
+                </ol>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+                    class="apply-button" target="_blank">Register Now</a>
+
+
+            </div>
+        </div>
+        <hr />
+        <p id="copyright">
+            &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
+        </p>
+        <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
+    </footer>
+
+  <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
+    class="whatsapp-bubble">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+
+
+  <script src="js/navConfig.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/createcourse.js"></script>
+  <script src="js/script.js"></script>
 </body>
+
 </html>

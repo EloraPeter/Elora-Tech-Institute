@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UX Design - Eti E-Learning Platform</title>
+<style>
+  :root {
+    --color-bg: #ffffff;
+    --color-primary: #3b82f6;
+    --color-primary-dark: #2563eb;
+    --color-text-primary: #111827;
+    --color-text-secondary: #6b7280;
+    --color-card-bg: #f9fafb;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.05);
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin:0;
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: var(--color-primary-dark);
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 100;
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    letter-spacing: 2px;
+  }
+  nav {
+    display: flex;
+    gap: 24px;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px 120px;
+  }
+  .hero {
+    padding-top: 80px;
+    padding-bottom: 64px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--color-text-primary);
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 48rem;
+    margin: 0 auto 32px;
+    color: var(--color-text-secondary);
+  }
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: var(--color-primary-dark);
+  }
+  section.features,
+  section.testimonials,
+  section.instructors {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    max-width: 900px;
+    margin: 0 auto 80px;
+    text-align: center;
+  }
+  section.features h2,
+  section.testimonials h2,
+  section.instructors h2 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--color-text-primary);
+  }
+  section.features p,
+  section.testimonials p,
+  section.instructors p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto 48px;
+  }
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 40px;
+  }
+  .feature-item {
+    background: var(--color-card-bg);
+    padding: 28px 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .feature-icon {
+    font-size: 3.2rem;
+    color: var(--color-primary);
+  }
+  .feature-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+  }
+  .feature-desc {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+  }
+  blockquote {
+    background: var(--color-card-bg);
+    border-left: 6px solid var(--color-primary);
+    padding: 24px 32px;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: var(--color-text-primary);
+    font-style: italic;
+    box-shadow: var(--shadow);
+  }
+  .testimonial-author {
+    margin-top: 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-primary-dark);
+  }
+  .instructor-card {
+    background: var(--color-card-bg);
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .instructor-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    user-select: none;
+  }
+  .instructor-name {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+  }
+  .instructor-bio {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    text-align: center;
+    max-width: 320px;
+  }
+  footer {
+    border-top: 1px solid #e5e7eb;
+    padding: 32px 24px;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    header {
+      padding: 12px 24px;
+    }
+    .hero h1 {
+      font-size: 2.25rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <a href="#" class="logo" aria-label="Eti E-Learning Platform Logo">ETI</a>
+  <nav role="navigation" aria-label="Primary navigation">
+    <a href="#">Home</a>
+    <a href="#">Courses</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<main class="container" role="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">Become a UX Expert</h1>
+    <p>Master the principles and techniques of user experience design with our comprehensive course catalog.</p>
+    <button class="btn-primary" type="button" onclick="location.href='#courses'">Start Your UX Journey</button>
+  </section>
+
+  <section id="courses" aria-label="Featured UX Design Courses">
+    <div class="cards">
+      <article class="card" tabindex="0">
+        <h3>UX Design Foundations</h3>
+        <p>Learn the basics of UX design including research, wireframing, and prototyping.</p>
+        <div class="course-meta">4.8 stars • 15,000 students</div>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>User-Centered Design Process</h3>
+        <p>Dive into methods to design products with the user at the center throughout development.</p>
+        <div class="course-meta">4.7 stars • 10,200 students</div>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>Mobile UX Design Best Practices</h3>
+        <p>Create intuitive mobile experiences shaped by usability and accessibility principles.</p>
+        <div class="course-meta">4.6 stars • 8,100 students</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="features" aria-labelledby="features-title">
+    <h2 id="features-title">Why Choose UX Design at Eti?</h2>
+    <p>Empower your career with skills that drive user satisfaction and product success.</p>
+    <div class="features-list">
+      <div class="feature-item" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">🚀</div>
+        <div class="feature-title">Career Growth</div>
+        <div class="feature-desc">Join a rapidly growing field with high demand for skilled UX designers.</div>
+      </div>
+      <div class="feature-item" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">💡</div>
+        <div class="feature-title">Innovative Curriculum</div>
+        <div class="feature-desc">Our courses are regularly updated to reflect the latest UX trends.</div>
+      </div>
+      <div class="feature-item" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">👩‍🏫</div>
+        <div class="feature-title">Expert Mentors</div>
+        <div class="feature-desc">Learn directly from UX professionals working at top companies.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" aria-labelledby="testimonials-title">
+    <h2 id="testimonials-title">Student Testimonials</h2>
+    <blockquote tabindex="0">
+      "Eti’s UX courses gave me practical skills I immediately applied in my job. The content is engaging and clear."
+      <div class="testimonial-author">— Alicia H.</div>
+    </blockquote>
+    <blockquote tabindex="0" style="margin-top: 48px;">
+      "Thanks to Eti, I landed my dream role as a UX designer. The mentoring really made a difference."
+      <div class="testimonial-author">— Ryan M.</div>
+    </blockquote>
+  </section>
+
+  <section class="instructors" aria-labelledby="instructors-title">
+    <h2 id="instructors-title">Meet Our Instructors</h2>
+    <div class="cards" style="max-width: 900px; margin: 0 auto;">
+      <div class="instructor-card" tabindex="0">
+        <div class="instructor-photo" aria-label="Photo of Emily Clark">EC</div>
+        <div class="instructor-name">Emily Clark</div>
+        <div class="instructor-bio">Senior UX Designer with 8 years experience leading projects for global brands.</div>
+      </div>
+      <div class="instructor-card" tabindex="0">
+        <div class="instructor-photo" aria-label="Photo of Michael Tan">MT</div>
+        <div class="instructor-name">Michael Tan</div>
+        <div class="instructor-bio">UX Strategist and mentor passionate about teaching user-centered design.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 ETI E-Learning Platform. All rights reserved.
+</footer>
+</body>
+</html>

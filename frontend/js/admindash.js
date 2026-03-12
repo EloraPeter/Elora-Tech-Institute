@@ -104,31 +104,22 @@ function showError(message, color = '#dc3545') {
     setTimeout(() => { errorDiv.textContent = ''; }, 3000);
 }
 
-// Approve a course
-async function approveCourse(courseId) {
+/// Review course (approve or reject)
+async function reviewCourse() {
+    const id = document.getElementById('review-course-id').value;
+    const status = document.getElementById('review-course-status').value;
+    const feedback = document.getElementById('review-course-feedback').value;
     try {
-        const data = await fetchWithAuth(`http://localhost:3000/api/courses/${courseId}/approve`, {
-            method: 'PATCH'
+        await fetchWithAuth(`http://localhost:3000/api/courses/${id}/${status}`, {
+            method: 'PATCH',
+            body: JSON.stringify({ feedback })
         });
         fetchCourses();
-        showError('Course Approved! Empowering Learners! 🎉', '#28a745');
+        closeModal('reviewCourseModal');
+        showError(`Course ${status === 'approve' ? 'approved' : 'rejected'} successfully!`, '#28a745');
     } catch (err) {
-        console.error('Error approving course:', err);
-        showError('Failed to approve course: ' + err.message);
-    }
-}
-
-// Reject a course
-async function rejectCourse(courseId) {
-    try {
-        const data = await fetchWithAuth(`http://localhost:3000/api/courses/${courseId}/reject`, {
-            method: 'PATCH'
-        });
-        fetchCourses();
-        showError('Course rejected successfully!', '#28a745');
-    } catch (err) {
-        console.error('Error rejecting course:', err);
-        showError('Failed to reject course: ' + err.message);
+        console.error(`Error ${status}ing course:`, err);
+        showError(`Failed to ${status} course: ${err.message}`);
     }
 }
 
@@ -136,7 +127,7 @@ async function rejectCourse(courseId) {
 async function deleteCourse(courseId) {
     if (confirm('Are you sure you want to delete this course?')) {
         try {
-            const data = await fetchWithAuth(`http://localhost:3000/api/courses/${courseId}`, {
+            await fetchWithAuth(`http://localhost:3000/api/courses/${courseId}`, {
                 method: 'DELETE'
             });
             fetchCourses();
@@ -148,23 +139,47 @@ async function deleteCourse(courseId) {
     }
 }
 
-// Review course submission
-async function reviewSubmission() {
-    const id = document.getElementById('submission-id').value;
-    const status = document.getElementById('submission-status').value;
-    const admin_comments = document.getElementById('submission-comments').value;
+// Fetch and display pending courses
+async function fetchCourses() {
     try {
-        const data = await fetchWithAuth(`http://localhost:3000/api/course-submissions/${id}`, {
-            method: 'PATCH',
-            body: JSON.stringify({ status, admin_comments })
+        console.log('Fetching pending courses...');
+        const data = await fetchWithAuth('http://localhost:3000/api/courses/pending');
+        console.log('Courses fetched:', data);
+        const courseList = document.getElementById('course-list');
+        courseList.innerHTML = '';
+        if (!Array.isArray(data) || data.length === 0) {
+            courseList.innerHTML = '<li>No pending courses</li>';
+            return;
+        }
+        data.forEach(course => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+        <div>
+          <strong>${course.title}</strong> by ${course.instructor_name || 'Unknown'}<br>
+          ${course.description || 'No description'}<br>
+          Price: $${course.price} | Duration: ${course.duration || 'N/A'} hours | Type: ${course.course_type}<br>
+          Status: ${course.status}
+        </div>
+        <div>
+          <button onclick="openReviewCourse(${JSON.stringify(course)})">Review</button>
+          <button class="delete" onclick="deleteCourse('${course.id}')">Delete</button>
+          <button onclick="fetchCourseContent('${course.id}')">View Content</button>
+        </div>
+      `;
+            courseList.appendChild(li);
         });
-        fetchSubmissions();
-        closeModal('reviewSubmissionModal');
-        showError(`Submission ${status}! Feedback sent.`, '#28a745');
     } catch (err) {
-        console.error('Error reviewing submission:', err);
-        showError('Failed to review submission: ' + err.message);
+        console.error('Error fetching courses:', err);
+        document.getElementById('course-list').innerHTML = '<li>Error loading courses: ' + err.message + '</li>';
     }
+}
+
+// Open review course modal
+function openReviewCourse(course) {
+    document.getElementById('review-course-id').value = course.id;
+    document.getElementById('review-course-title').value = course.title;
+    document.getElementById('review-course-description').value = course.description;
+    openModal('reviewCourseModal');
 }
 
 // Delete a user

@@ -7,11 +7,10 @@
     <meta name="title" content="Elora Tech Institute | Student Dashboard">
     <meta name="description" content="Master your learning journey with Elora Tech Institute's student dashboard.">
     <title>Student Dashboard - Elora Tech Institute</title>
-    <link rel="stylesheet" href="../tests/test.css">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/studentdash.css" />
     <link rel="stylesheet" href="css/profile.css" />
-    
+
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -57,137 +56,207 @@
         <ul class="links"></ul>
     </aside>
 
-    <div class="dashboard-container">
-        <div class="dashboard-header">
-            <h2>Master Your Journey, <span id="userName"></span>! 🚀</h2>
-            <!-- <img id="dashboard-profile-picture" class="dashboard-profile-picture" src="images/avatars/default.jpg"
+    <main>
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Master Your Journey, <span id="userName"></span>! 🚀</h2>
+                <!-- <img id="dashboard-profile-picture" class="dashboard-profile-picture" src="images/avatars/default.jpg"
                 alt="Profile Picture" onclick="window.location.href='profile.html'"> -->
-            <button class="logout-btn" onclick="logout()">Logout</button>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <div class="card-grid">
+                <div class="card" onclick="scrollToSection('courses')">
+                    <i class="fas fa-book"></i>
+                    <h3>My Courses</h3>
+                    <p>Explore your enrolled courses.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('progress')">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your learning achievements.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('certificates')">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certificates</h3>
+                    <p>View and download your certificates.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('discussions')">
+                    <i class="fas fa-comments"></i>
+                    <h3>Discussions</h3>
+                    <p>Engage with peers and instructors.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('events')">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Events</h3>
+                    <p>Stay updated on live sessions.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('assessments')">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Assessments</h3>
+                    <p>Complete quizzes and assignments.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('resources')">
+                    <i class="fas fa-folder-open"></i>
+                    <h3>Resources</h3>
+                    <p>Access course materials and downloads.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('notifications')">
+                    <i class="fas fa-bell"></i>
+                    <h3>Notifications</h3>
+                    <p>Stay informed with updates.</p>
+                </div>
+                <div class="card" onclick="window.location.href='profile.html'">
+                    <i class="fas fa-user"></i>
+                    <h3>Profile</h3>
+                    <p>Update your personal details.</p>
+                </div>
+            </div>
+
+            <div class="section" id="progress">
+                <h2>Your Learning Progress</h2>
+                <div class="analytics-chart">
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+
+            <div class="section" id="courses">
+                <h2>My Enrolled Courses</h2>
+                <ul class="list" id="course-list"></ul>
+            </div>
+
+            <div class="section" id="resources">
+                <h2>Course Resources</h2>
+                <ul class="list" id="resource-list"></ul>
+            </div>
+
+            <div class="section" id="certificates">
+                <h2>Your Certificates</h2>
+                <ul class="list" id="certificate-list"></ul>
+            </div>
+
+            <div class="section" id="discussions">
+                <h2>Course Discussions</h2>
+                <ul class="list" id="discussion-list"></ul>
+            </div>
+
+            <div class="section" id="events">
+                <h2>Upcoming Events</h2>
+                <ul class="list" id="event-list"></ul>
+            </div>
+
+            <div class="section" id="assessments">
+                <h2>Your Assessments</h2>
+                <ul class="list" id="assessment-list"></ul>
+            </div>
+
+            <div class="section" id="notifications">
+                <h2>Notifications</h2>
+                <ul class="list" id="notification-list"></ul>
+            </div>
+
+
+
+            <div id="error"></div>
         </div>
 
-        <div class="card-grid">
-            <div class="card" onclick="scrollToSection('courses')">
-                <i class="fas fa-book"></i>
-                <h3>My Courses</h3>
-                <p>Explore your enrolled courses.</p>
-            </div>
-            <div class="card" onclick="scrollToSection('progress')">
-                <i class="fas fa-chart-line"></i>
-                <h3>Track Progress</h3>
-                <p>Monitor your learning achievements.</p>
-            </div>
-            <div class="card" onclick="scrollToSection('certificates')">
-                <i class="fas fa-certificate"></i>
-                <h3>Certificates</h3>
-                <p>View and download your certificates.</p>
-            </div>
-            <div class="card" onclick="scrollToSection('discussions')">
-                <i class="fas fa-comments"></i>
-                <h3>Discussions</h3>
-                <p>Engage with peers and instructors.</p>
-            </div>
-            <div class="card" onclick="scrollToSection('events')">
-                <i class="fas fa-calendar-alt"></i>
-                <h3>Events</h3>
-                <p>Stay updated on live sessions.</p>
-            </div>
-            <div class="card" onclick="scrollToSection('assessments')">
-                <i class="fas fa-clipboard-check"></i>
-                <h3>Assessments</h3>
-                <p>Complete quizzes and assignments.</p>
-            </div>
-            <div class="card" onclick="scrollToSection('resources')">
-                <i class="fas fa-folder-open"></i>
-                <h3>Resources</h3>
-                <p>Access course materials and downloads.</p>
-            </div>
-            <div class="card" onclick="scrollToSection('notifications')">
-                <i class="fas fa-bell"></i>
-                <h3>Notifications</h3>
-                <p>Stay informed with updates.</p>
-            </div>
-            <div class="card" onclick="window.location.href='profile.html'">
-                <i class="fas fa-user"></i>
-                <h3>Profile</h3>
-                <p>Update your personal details.</p>
+        <!-- Post Discussion Modal -->
+        <div id="postDiscussionModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('postDiscussionModal')">×</span>
+                <h2>Post to Discussion</h2>
+                <input type="hidden" id="discussion-forum-id">
+                <div class="form-group">
+                    <label for="discussion-content">Your Post</label>
+                    <textarea id="discussion-content" placeholder="Share your thoughts..." required></textarea>
+                </div>
+                <button class="btn" onclick="postDiscussion()">Submit Post</button>
             </div>
         </div>
 
-        <div class="section" id="progress">
-            <h2>Your Learning Progress</h2>
-            <div class="analytics-chart">
-                <canvas id="progressChart"></canvas>
+        <!-- Submit Assessment Modal -->
+        <div id="submitAssessmentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('submitAssessmentModal')">×</span>
+                <h2>Submit Assessment</h2>
+                <input type="hidden" id="assessment-id">
+                <div class="form-group">
+                    <label for="assessment-score">Score (out of max score)</label>
+                    <input type="number" id="assessment-score" required>
+                </div>
+                <button class="btn" onclick="submitAssessment()">Submit Attempt</button>
             </div>
         </div>
-
-        <div class="section" id="courses">
-            <h2>My Enrolled Courses</h2>
-            <ul class="list" id="course-list"></ul>
-        </div>
-
-        <div class="section" id="resources">
-            <h2>Course Resources</h2>
-            <ul class="list" id="resource-list"></ul>
-        </div>
-
-        <div class="section" id="certificates">
-            <h2>Your Certificates</h2>
-            <ul class="list" id="certificate-list"></ul>
-        </div>
-
-        <div class="section" id="discussions">
-            <h2>Course Discussions</h2>
-            <ul class="list" id="discussion-list"></ul>
-        </div>
-
-        <div class="section" id="events">
-            <h2>Upcoming Events</h2>
-            <ul class="list" id="event-list"></ul>
-        </div>
-
-        <div class="section" id="assessments">
-            <h2>Your Assessments</h2>
-            <ul class="list" id="assessment-list"></ul>
-        </div>
-
-        <div class="section" id="notifications">
-            <h2>Notifications</h2>
-            <ul class="list" id="notification-list"></ul>
-        </div>
-
-
-
-        <div id="error"></div>
-    </div>
-
-    <!-- Post Discussion Modal -->
-    <div id="postDiscussionModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('postDiscussionModal')">×</span>
-            <h2>Post to Discussion</h2>
-            <input type="hidden" id="discussion-forum-id">
-            <div class="form-group">
-                <label for="discussion-content">Your Post</label>
-                <textarea id="discussion-content" placeholder="Share your thoughts..." required></textarea>
+    </main>
+     <footer>
+        <div class="info">
+            <div class="about">
+                <h2>Elora Tech Institute</h2>
+                <p>
+                    Elora Tech Institute equips individuals with in-demand tech skills
+                    through hands-on training in web development, cybersecurity, Web3,
+                    IoT, and more. Our vision is to be a leading tech institution,
+                    shaping the future of tech education through innovation and
+                    excellence. With a comprehensive curriculum, hands-on projects,
+                    flexible online learning, and career support, Elora Tech Institute
+                    is more than an academy—it’s a movement to create the next
+                    generation of tech innovators.
+                </p>
+                <ul class="sm">
+                    <li>
+                        <a href="https://web.facebook.com/profile.php?id=61574697245670"><i
+                                class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i
+                                class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a>
+                    </li>
+                </ul>
             </div>
-            <button class="btn" onclick="postDiscussion()">Submit Post</button>
-        </div>
-    </div>
-
-    <!-- Submit Assessment Modal -->
-    <div id="submitAssessmentModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('submitAssessmentModal')">×</span>
-            <h2>Submit Assessment</h2>
-            <input type="hidden" id="assessment-id">
-            <div class="form-group">
-                <label for="assessment-score">Score (out of max score)</label>
-                <input type="number" id="assessment-score" required>
+            <div class="quick-links">
+                <h2>Discover ETI</h2>
+                <ul id="links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="teach-online.html">Teach on ETI</a></li>
+                    <li><a href="blog&updates.html">Blog</a></li>
+                    <li><a href="help-support.html">Help & Support</a></li>
+                </ul>
             </div>
-            <button class="btn" onclick="submitAssessment()">Submit Attempt</button>
-        </div>
-    </div>
+            <div class="apply">
+                <h2>How to Apply</h2>
+                <ol>
+                    <li>Visit our website and check out the programs.</li>
+                    <li>Fill out the registration form.</li>
+                    <li>Make payment and confirm your enrollment.</li>
+                    <li>Start your tech journey with us!</li>
+                </ol>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+                    class="apply-button" target="_blank">Register Now</a>
 
+
+            </div>
+        </div>
+        <hr />
+        <p id="copyright">
+            &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
+        </p>
+        <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
+    </footer>
+
+    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
+        class="whatsapp-bubble">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
 
 
     <script src="js/navConfig.js"></script>

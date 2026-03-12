@@ -85,7 +85,7 @@ async function getUserRole() {
     if (!token) return 'guest';
 
     const decoded = parseJWT(token);
-    if (!decoded || !decoded.role || !['student', 'tutor', 'admin'].includes(decoded.role)) {
+    if (!decoded || !decoded.role || !['student', 'instructor', 'admin'].includes(decoded.role)) {
         localStorage.removeItem('token');
         return 'guest';
     }

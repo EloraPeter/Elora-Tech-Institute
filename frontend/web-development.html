@@ -11,6 +11,8 @@
         content="Elora Tech Institute, web development, HTML, CSS, JavaScript, full-stack, coding courses, tech education">
     <title>Web Development - Elora Tech Institute</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/webdev.css" />
+    <link rel="stylesheet" href="css/faq.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -25,138 +27,23 @@
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
-            <img src="images/eti logo main.jfif" alt="">
+            <a href="index.html">
+                <img src="images/eti logo main.jfif" alt="">
+            </a>
         </h1>
         <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
         </button>
-        <ul id="nav-link" role="menu">
-            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
-            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
-            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
-                    href="#">Courses</a>
-                <div class="dropdown1">
-                    <ul class="dropdown" role="menuitem">
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="web-development.html">Web Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="web-development-html.html">HTML</a></li>
-                                    <li><a href="web-development-css.html">CSS</a></li>
-                                    <li><a href="web-development-javascript.html">JavaScript</a></li>
-                                    <li><a href="web-development-php.html">PHP & Laravel</a></li>
-                                    <li><a href="web-development-wordpress.html">WordPress</a></li>
-                                    <li><a href="web-development-frontend.html">Frontend Development</a></li>
-                                    <li><a href="web-development-backend.html">Backend Development</a></li>
-                                    <li><a href="web-development-fullstack.html">Full-Stack Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="mobile-apps.html">Mobile App Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="mobile-react-native.html">React Native</a></li>
-                                    <li><a href="mobile-flutter.html">Flutter</a></li>
-                                    <li><a href="mobile-android.html">Android Development (Kotlin)</a></li>
-                                    <li><a href="mobile-ios.html">iOS Development (Swift)</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="data-science.html">Data Science & Machine Learning</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="data-python.html">Python for Data Science</a></li>
-                                    <li><a href="data-machine-learning.html">Machine Learning</a></li>
-                                    <li><a href="data-deep-learning.html">Deep Learning & AI</a></li>
-                                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cyber-ethical-hacking.html">Ethical Hacking</a></li>
-                                    <li><a href="cyber-network-security.html">Network Security</a></li>
-                                    <li><a href="cyber-threat-intelligence.html">Threat Intelligence</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cloud-computing.html">Cloud Computing & DevOps</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
-                                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
-                                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="blockchain.html">Blockchain & Web3</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="blockchain-solidity.html">Solidity & Smart Contracts</a></li>
-                                    <li><a href="blockchain-dapps.html">Decentralized Apps (dApps)</a></li>
-                                    <li><a href="blockchain-nfts.html">NFT & Crypto Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="game-development.html">Game Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="game-unity.html">Unity Game Development</a></li>
-                                    <li><a href="game-unreal.html">Unreal Engine</a></li>
-                                    <li><a href="game-mobile.html">Mobile Game Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="robotics.html">Robotics & IoT</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="robotics-arduino.html">Arduino & Raspberry Pi</a></li>
-                                    <li><a href="robotics-automation.html">Automation & AI in IoT</a></li>
-                                    <li><a href="robotics-smart-home.html">Smart Home Devices</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="ui-ux.html">UI/UX Design</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
-                                    <li><a href="ui-wireframing.html">Wireframing & Prototyping</a></li>
-                                    <li><a href="ui-user-research.html">User Research & UX Strategy</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="digital-marketing.html">Digital Marketing & Tech Business</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="marketing-seo.html">SEO & Content Marketing</a></li>
-                                    <li><a href="marketing-social-media.html">Social Media Growth</a></li>
-                                    <li><a href="marketing-tech-startup.html">Tech Startup Strategies</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
-            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
-            <li role="menuitem" class="enroll-btn">
-                <a href="login-signup.html" class="btn">Enroll Now</a>
-            </li>
-        </ul>
-        <a href="login-signup.html" class="btn big">Enroll Now</a>
+        <ul ul id="nav-link" role="menu"></ul>
+        <!-- <a href="login-signup.html" class="btn big">Enroll Now</a> -->
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
+    <!-- <button class="sidebar-toggle" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button> -->
+    <aside id="sidebar-nav">
+        <ul class="links"></ul>
+    </aside>
 
     <main id="web-dev">
         <h1>Website Development Courses</h1>
@@ -940,14 +827,16 @@
                 </ul>
             </div>
             <div class="quick-links">
-                <h2>Quick Links</h2>
+                <h2>Discover ETI</h2>
                 <ul id="links">
-                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="courses.html">Courses</a></li>
                     <li><a href="admissions.html">Admissions</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="teach-online.html">Teach on ETI</a></li>
+                    <li><a href="blog&updates.html">Blogs</a></li>
+                    <li><a href="help-support.html">Help & Support</a></li>
                 </ul>
             </div>
             <div class="apply">
@@ -960,26 +849,258 @@
                 </ol>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
                     class="apply-button" target="_blank">Register Now</a>
+
+
             </div>
         </div>
         <hr />
         <p id="copyright">
             &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
         </p>
-        <p id="designer">
-            created by
-            <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a>
-            with ❤
-        </p>
+        <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
     </footer>
 
-    <a href="https://wa.me/+12025550123?text=Hi%20there" target="_blank" class="whatsapp-bubble">
+    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
+        class="whatsapp-bubble">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
     </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+    <script src="js/navConfig.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/webdev.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Web Development Courses - Eti E-Learning Platform</title>
+<style>
+  :root {
+    --color-bg: #ffffff;
+    --color-primary: #111111;
+    --color-primary-hover: #333333;
+    --color-text-primary: #111111;
+    --color-text-secondary: #6b7280;
+    --color-card-bg: #fafafa;
+    --radius: 0.75rem;
+    --shadow: 0 4px 10px rgba(0,0,0,0.08);
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  /* Reset & base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.5;
+  }
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: var(--color-primary-hover);
+    outline: none;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 100;
+    padding: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.125em;
+    color: var(--color-primary);
+    user-select: none;
+  }
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  nav a.cta {
+    padding: 0.5rem 1.5rem;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius);
+    transition: background-color 0.3s ease;
+  }
+  nav a.cta:hover, nav a.cta:focus {
+    background: var(--color-primary-hover);
+  }
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .hero {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+  }
+  .btn-primary {
+    background: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem;
+    padding: 0.9rem 2.5rem;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover, .btn-primary:focus {
+    background: var(--color-primary-hover);
+    outline: none;
+  }
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2.5rem;
+  }
+  .card {
+    background: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover, .card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    outline: none;
+  }
+  .card h2 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+  .card p {
+    flex-grow: 1;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin: 0;
+  }
+  footer {
+    border-top: 1px solid #e5e7eb;
+    padding: 2rem 2rem;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    header {
+      padding: 1rem 1.5rem;
+    }
+    .hero h1 {
+      font-size: 2.25rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <a href="#" class="logo" aria-label="Eti E-Learning Platform Logo">ETI</a>
+  <nav role="navigation" aria-label="Primary navigation">
+    <a href="#" aria-current="page">Home</a>
+    <a href="#">Courses</a>
+    <a href="#">About</a>
+    <a href="#" class="cta">Get Started</a>
+  </nav>
+</header>
+
+<main role="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">Master Web Development with Eti</h1>
+    <p>Explore our expert-led courses covering frontend, backend, full-stack and more. Build real projects, develop your skills, and jumpstart your career.</p>
+    <button class="btn-primary" type="button" onclick="location.href='#courses'">Browse Courses</button>
+  </section>
+
+  <section id="courses" aria-label="Popular Web Development Courses">
+    <div class="courses-grid">
+      <article class="card" tabindex="0">
+        <h2>Frontend Development</h2>
+        <p>Learn HTML, CSS, JavaScript and modern frameworks to build stunning user interfaces.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <h2>Backend Development</h2>
+        <p>Master server-side programming with Node.js, PHP, databases, and APIs.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <h2>Full Stack Web Development</h2>
+        <p>Combine frontend and backend skills to build complete web applications.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <h2>CSS Mastery</h2>
+        <p>Advanced CSS techniques, grid, flexbox, animations and responsive design.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <h2>JavaScript Deep Dive</h2>
+        <p>Dive into JavaScript fundamentals, ES6+, asynchronous programming, and frameworks.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <h2>WordPress Development</h2>
+        <p>Build dynamic websites with WordPress themes, plugins, and customization.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 ETI E-Learning Platform. All rights reserved.
+</footer>
+</body>
+</html>
+ -->
