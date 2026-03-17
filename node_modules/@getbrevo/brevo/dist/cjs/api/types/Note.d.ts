@@ -1,0 +1,19 @@
+/**
+ * Note Details
+ */
+export interface Note {
+    /** Account details of user which created the note */
+    authorId?: Record<string, unknown> | undefined;
+    /** Contact ids linked to a note */
+    contactIds?: number[] | undefined;
+    /** Note created date/time */
+    createdAt?: string | undefined;
+    /** Deal ids linked to a note */
+    dealIds?: string[] | undefined;
+    /** Unique note Id */
+    id?: string | undefined;
+    /** Text content of a note */
+    text: string;
+    /** Note updated date/time */
+    updatedAt?: string | undefined;
+}

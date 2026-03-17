@@ -1,0 +1,18 @@
+export interface CreateRewardResponse {
+    /** Timestamp when the reward was created */
+    createdAt?: string | undefined;
+    /** Unique identifier for the reward */
+    id?: string | undefined;
+    /** Id of the loyalty program to which the current reward belongs to */
+    loyaltyProgramId?: string | undefined;
+    /** Name of the reward */
+    name?: string | undefined;
+    /** Public description for the reward */
+    publicDescription?: string | undefined;
+    /** Public Image for the reward */
+    publicImage?: string | undefined;
+    /** Public name for the reward */
+    publicName?: string | undefined;
+    /** Timestamp for when this reward was last updated. */
+    updatedAt?: string | undefined;
+}

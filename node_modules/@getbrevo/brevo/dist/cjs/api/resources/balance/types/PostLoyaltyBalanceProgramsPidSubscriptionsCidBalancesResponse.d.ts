@@ -1,0 +1,20 @@
+export interface PostLoyaltyBalanceProgramsPidSubscriptionsCidBalancesResponse {
+    /** The current amount available in the balance */
+    amount?: number | undefined;
+    /** balance definition ID */
+    balanceDefinitionId?: string | undefined;
+    /** Timestamp of when the balance was last consumed */
+    consumedAt?: string | undefined;
+    /** contact ID */
+    contactId?: number | undefined;
+    /** Timestamp of when the balance was created */
+    createdAt?: string | undefined;
+    /** Expiration timestamp of the balance */
+    expiresAt?: string | undefined;
+    /** Unique identifier for the balance */
+    id?: string | undefined;
+    /** loyalty program ID */
+    loyaltyProgramId?: string | undefined;
+    /** organization ID */
+    organizationId?: number | undefined;
+}

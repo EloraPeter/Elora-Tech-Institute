@@ -1,0 +1,22 @@
+export interface BalanceLimit {
+    /** balance definition ID */
+    balanceDefinitionId?: string | undefined;
+    /** Defines the type of constraint (e.g., transaction-based or amount-based). */
+    constraintType?: string | undefined;
+    /** Timestamp of when the balance limit was created. */
+    createdAt: string;
+    /** Time unit for the balance limit (day, week, month, year). */
+    durationUnit?: string | undefined;
+    /** Number of time units the balance limit applies to. */
+    durationValue?: number | undefined;
+    /** Unique identifier for the balance limit. */
+    id?: string | undefined;
+    /** Indicates if the limit resets periodically based on a sliding schedule. */
+    slidingSchedule?: boolean | undefined;
+    /** Specifies whether the limit applies to credit or debit transactions. */
+    transactionType?: string | undefined;
+    /** Timestamp of the last update to the balance limit. */
+    updatedAt: string;
+    /** The maximum allowed value for the defined constraint. */
+    value?: number | undefined;
+}

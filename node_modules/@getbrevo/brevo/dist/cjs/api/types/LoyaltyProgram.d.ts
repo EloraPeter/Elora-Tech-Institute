@@ -1,0 +1,34 @@
+export interface LoyaltyProgram {
+    /** Loyalty Program code count */
+    codeCount?: number | undefined;
+    /** Loyalty Program creation date */
+    createdAt?: string | undefined;
+    /** Loyalty Program description */
+    description?: string | undefined;
+    /** string */
+    documentId?: string | undefined;
+    /** Loyalty Program ID */
+    id?: string | undefined;
+    /** Loyalty Program meta data */
+    meta?: Record<string, unknown> | undefined;
+    /** Loyalty Program name */
+    name?: string | undefined;
+    /** string */
+    pattern?: string | undefined;
+    /** Loyalty Program state */
+    state?: LoyaltyProgram.State | undefined;
+    /** Loyalty Program subscription generator ID */
+    subscriptionGeneratorId?: string | undefined;
+    /** Loyalty Program subscription pool ID */
+    subscriptionPoolId?: string | undefined;
+    /** Loyalty Program last modification date */
+    updatedAt?: string | undefined;
+}
+export declare namespace LoyaltyProgram {
+    /** Loyalty Program state */
+    const State: {
+        readonly Inactive: "inactive";
+        readonly Active: "active";
+    };
+    type State = (typeof State)[keyof typeof State];
+}

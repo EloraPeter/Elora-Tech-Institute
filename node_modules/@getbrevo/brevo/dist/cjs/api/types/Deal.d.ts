@@ -1,0 +1,13 @@
+/**
+ * Deal Details
+ */
+export interface Deal {
+    /** Deal attributes with values */
+    attributes?: Record<string, unknown> | undefined;
+    /** Unique deal id */
+    id?: string | undefined;
+    /** Companies ids for companies linked to this deal */
+    linkedCompaniesIds?: string[] | undefined;
+    /** Contact ids for contacts linked to this deal */
+    linkedContactsIds?: number[] | undefined;
+}

@@ -1,0 +1,17 @@
+/**
+ * Task Details
+ */
+export interface Task {
+    /** Companies ids for companies a task is linked to */
+    companiesIds?: string[] | undefined;
+    /** Contact ids for contacts linked to this task */
+    contactsIds?: number[] | undefined;
+    /** Deal ids for deals a task is linked to */
+    dealsIds?: string[] | undefined;
+    /** Unique task id */
+    id?: string | undefined;
+    /** Name of task */
+    name: string;
+    /** Id for type of task e.g Call / Email / Meeting etc. */
+    taskTypeId: string;
+}

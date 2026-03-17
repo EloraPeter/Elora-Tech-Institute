@@ -10,15 +10,25 @@ const pool = require('./db');
 const crypto = require('crypto');
 const { sendResetEmail } = require('./utils/email');
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const isProduction = process.env.NODE_ENV === 'production';
+const JWT_SECRET = process.env.JWT_SECRET || (isProduction ? undefined : 'dev-jwt-secret-change-me');
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
+const hasGoogleOAuth = Boolean(GOOGLE_CLIENT_ID && GOOGLE_CLIENT_SECRET);
+const hasGitHubOAuth = Boolean(GITHUB_CLIENT_ID && GITHUB_CLIENT_SECRET);
 
 if (!JWT_SECRET) throw new Error('JWT_SECRET is not defined');
-if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET) throw new Error('Google OAuth credentials are not defined');
-if (!GITHUB_CLIENT_ID || !GITHUB_CLIENT_SECRET) throw new Error('GitHub OAuth credentials are not defined');
+if (!process.env.JWT_SECRET && !isProduction) {
+    console.warn('[auth] JWT_SECRET is not set. Using an insecure development fallback secret.');
+}
+if (!hasGoogleOAuth) {
+    console.warn('[auth] Google OAuth credentials are missing. Google OAuth routes will be disabled.');
+}
+if (!hasGitHubOAuth) {
+    console.warn('[auth] GitHub OAuth credentials are missing. GitHub OAuth routes will be disabled.');
+}
 
 // Multer for profile picture uploads
 const storage = multer.diskStorage({
@@ -60,57 +70,61 @@ const authenticateJWT = (req, res, next) => {
 };
 
 // Passport setup for Google
-passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: '/api/auth/google/callback',
-    scope: ['profile', 'email']
-}, async (accessToken, refreshToken, profile, done) => {
-    try {
-        const result = await pool.query('SELECT * FROM users WHERE email = $1', [profile.emails[0].value]);
-        let user = result.rows[0];
-        if (!user) {
-            const result = await pool.query(
-                'INSERT INTO users (name, email, role, oauth_provider, oauth_id, profile_picture_url) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-                [profile.displayName, profile.emails[0].value, 'student', 'google', profile.id, profile.photos[0]?.value || null]
-            );
-            user = result.rows[0];
-        } else if (!user.profile_picture_url && profile.photos[0]?.value) {
-            await pool.query('UPDATE users SET profile_picture_url = $1 WHERE id = $2', [profile.photos[0].value, user.id]);
-            user.profile_picture_url = profile.photos[0].value;
+if (hasGoogleOAuth) {
+    passport.use(new GoogleStrategy({
+        clientID: GOOGLE_CLIENT_ID,
+        clientSecret: GOOGLE_CLIENT_SECRET,
+        callbackURL: '/api/auth/google/callback',
+        scope: ['profile', 'email']
+    }, async (accessToken, refreshToken, profile, done) => {
+        try {
+            const result = await pool.query('SELECT * FROM users WHERE email = $1', [profile.emails[0].value]);
+            let user = result.rows[0];
+            if (!user) {
+                const result = await pool.query(
+                    'INSERT INTO users (name, email, role, oauth_provider, oauth_id, profile_picture_url) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+                    [profile.displayName, profile.emails[0].value, 'student', 'google', profile.id, profile.photos[0]?.value || null]
+                );
+                user = result.rows[0];
+            } else if (!user.profile_picture_url && profile.photos[0]?.value) {
+                await pool.query('UPDATE users SET profile_picture_url = $1 WHERE id = $2', [profile.photos[0].value, user.id]);
+                user.profile_picture_url = profile.photos[0].value;
+            }
+            return done(null, user);
+        } catch (err) {
+            return done(err, null);
         }
-        return done(null, user);
-    } catch (err) {
-        return done(err, null);
-    }
-}));
+    }));
+}
 
 // Passport setup for GitHub
-passport.use(new GitHubStrategy({
-    clientID: GITHUB_CLIENT_ID,
-    clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: '/api/auth/github/callback',
-    scope: ['user:email']
-}, async (accessToken, refreshToken, profile, done) => {
-    try {
-        const email = profile.emails[0]?.value || `${profile.id}@github.com`;
-        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-        let user = result.rows[0];
-        if (!user) {
-            const result = await pool.query(
-                'INSERT INTO users (name, email, role, oauth_provider, oauth_id, profile_picture_url) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-                [profile.displayName || profile.username, email, 'student', 'github', profile.id, profile.photos[0]?.value || null]
-            );
-            user = result.rows[0];
-        } else if (!user.profile_picture_url && profile.photos[0]?.value) {
-            await pool.query('UPDATE users SET profile_picture_url = $1 WHERE id = $2', [profile.photos[0].value, user.id]);
-            user.profile_picture_url = profile.photos[0].value;
+if (hasGitHubOAuth) {
+    passport.use(new GitHubStrategy({
+        clientID: GITHUB_CLIENT_ID,
+        clientSecret: GITHUB_CLIENT_SECRET,
+        callbackURL: '/api/auth/github/callback',
+        scope: ['user:email']
+    }, async (accessToken, refreshToken, profile, done) => {
+        try {
+            const email = profile.emails[0]?.value || `${profile.id}@github.com`;
+            const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+            let user = result.rows[0];
+            if (!user) {
+                const result = await pool.query(
+                    'INSERT INTO users (name, email, role, oauth_provider, oauth_id, profile_picture_url) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+                    [profile.displayName || profile.username, email, 'student', 'github', profile.id, profile.photos[0]?.value || null]
+                );
+                user = result.rows[0];
+            } else if (!user.profile_picture_url && profile.photos[0]?.value) {
+                await pool.query('UPDATE users SET profile_picture_url = $1 WHERE id = $2', [profile.photos[0].value, user.id]);
+                user.profile_picture_url = profile.photos[0].value;
+            }
+            return done(null, user);
+        } catch (err) {
+            return done(err, null);
         }
-        return done(null, user);
-    } catch (err) {
-        return done(err, null);
-    }
-}));
+    }));
+}
 
 passport.serializeUser((user, done) => done(null, user.id));
 passport.deserializeUser(async (id, done) => {
@@ -512,32 +526,42 @@ module.exports = (app) => {
     });
 
     // Google OAuth endpoints
-    app.get('/api/auth/google', passport.authenticate('google', { session: false, scope: ['profile', 'email'] }));
-    app.get('/api/auth/google/callback', passport.authenticate('google', { session: false, failureRedirect: 'http://localhost:3000/login' }), async (req, res) => {
-        try {
-            const user = req.user;
-            const token = jwt.sign({ id: user.id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: '1h' });
-            const refreshToken = jwt.sign({ id: user.id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: '7d' });
-            await pool.query('INSERT INTO refresh_tokens (user_id, token) VALUES ($1, $2)', [user.id, refreshToken]);
-            res.redirect(`http://localhost:3000/auth/callback?token=${token}&refreshToken=${refreshToken}&id=${user.id}&name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}&role=${user.role}&profile_picture_url=${encodeURIComponent(user.profile_picture_url || '')}`);
-        } catch (err) {
-            res.redirect('http://localhost:3000/login?error=auth_failed');
-        }
-    });
+    if (hasGoogleOAuth) {
+        app.get('/api/auth/google', passport.authenticate('google', { session: false, scope: ['profile', 'email'] }));
+        app.get('/api/auth/google/callback', passport.authenticate('google', { session: false, failureRedirect: 'http://localhost:3000/login' }), async (req, res) => {
+            try {
+                const user = req.user;
+                const token = jwt.sign({ id: user.id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: '1h' });
+                const refreshToken = jwt.sign({ id: user.id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: '7d' });
+                await pool.query('INSERT INTO refresh_tokens (user_id, token) VALUES ($1, $2)', [user.id, refreshToken]);
+                res.redirect(`http://localhost:3000/auth/callback?token=${token}&refreshToken=${refreshToken}&id=${user.id}&name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}&role=${user.role}&profile_picture_url=${encodeURIComponent(user.profile_picture_url || '')}`);
+            } catch (err) {
+                res.redirect('http://localhost:3000/login?error=auth_failed');
+            }
+        });
+    } else {
+        app.get('/api/auth/google', (req, res) => res.status(503).json({ error: 'Google OAuth is not configured' }));
+        app.get('/api/auth/google/callback', (req, res) => res.status(503).json({ error: 'Google OAuth is not configured' }));
+    }
 
     // GitHub OAuth endpoints
-    app.get('/api/auth/github', passport.authenticate('github', { session: false, scope: ['user:email'] }));
-    app.get('/api/auth/github/callback', passport.authenticate('github', { session: false, failureRedirect: 'http://localhost:3000/login' }), async (req, res) => {
-        try {
-            const user = req.user;
-            const token = jwt.sign({ id: user.id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: '1h' });
-            const refreshToken = jwt.sign({ id: user.id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: '7d' });
-            await pool.query('INSERT INTO refresh_tokens (user_id, token) VALUES ($1, $2)', [user.id, refreshToken]);
-            res.redirect(`http://localhost:3000/auth/callback?token=${token}&refreshToken=${refreshToken}&id=${user.id}&name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}&role=${user.role}&profile_picture_url=${encodeURIComponent(user.profile_picture_url || '')}`);
-        } catch (err) {
-            res.redirect('http://localhost:3000/login?error=auth_failed');
-        }
-    });
+    if (hasGitHubOAuth) {
+        app.get('/api/auth/github', passport.authenticate('github', { session: false, scope: ['user:email'] }));
+        app.get('/api/auth/github/callback', passport.authenticate('github', { session: false, failureRedirect: 'http://localhost:3000/login' }), async (req, res) => {
+            try {
+                const user = req.user;
+                const token = jwt.sign({ id: user.id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: '1h' });
+                const refreshToken = jwt.sign({ id: user.id, email: user.email, role: user.role }, JWT_SECRET, { expiresIn: '7d' });
+                await pool.query('INSERT INTO refresh_tokens (user_id, token) VALUES ($1, $2)', [user.id, refreshToken]);
+                res.redirect(`http://localhost:3000/auth/callback?token=${token}&refreshToken=${refreshToken}&id=${user.id}&name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}&role=${user.role}&profile_picture_url=${encodeURIComponent(user.profile_picture_url || '')}`);
+            } catch (err) {
+                res.redirect('http://localhost:3000/login?error=auth_failed');
+            }
+        });
+    } else {
+        app.get('/api/auth/github', (req, res) => res.status(503).json({ error: 'GitHub OAuth is not configured' }));
+        app.get('/api/auth/github/callback', (req, res) => res.status(503).json({ error: 'GitHub OAuth is not configured' }));
+    }
 
     app.post('/api/logout', authenticateJWT, async (req, res) => {
         try {

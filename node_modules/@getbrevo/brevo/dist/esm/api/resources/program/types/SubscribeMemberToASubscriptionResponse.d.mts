@@ -1,0 +1,12 @@
+export interface SubscribeMemberToASubscriptionResponse {
+    /** Timestamp when the subscription member was created. */
+    createdAt?: string | undefined;
+    /** List of unique member contact IDs. */
+    memberContactIds?: number[] | undefined;
+    /** Unique identifier of the organization. */
+    organizationId?: number | undefined;
+    /** Unique identifier of the subscription owner. */
+    ownerContactId?: number | undefined;
+    /** Timestamp when the subscription member was last updated. */
+    updatedAt?: string | undefined;
+}

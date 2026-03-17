@@ -1,0 +1,13 @@
+/**
+ * Note data to be saved
+ */
+export interface NoteData {
+    /** Company Ids linked to a note */
+    companyIds?: string[] | undefined;
+    /** Contact Ids linked to a note */
+    contactIds?: number[] | undefined;
+    /** Deal Ids linked to a note */
+    dealIds?: string[] | undefined;
+    /** Text content of a note */
+    text: string;
+}
