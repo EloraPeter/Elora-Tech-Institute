@@ -15,7 +15,7 @@
 
 2. Global Setup & Shared Utilities
 
-- [ ] Document final decisions in README.md or docs/decision-log.md: Paystack, Cloudinary thumbnails, Brevo/Resend for email, Context API for state (Lead/Fullstack)
+- [x] Document final decisions in README.md or docs/decision-log.md: Paystack, Cloudinary thumbnails, Brevo/Resend for email, Context API for state (Lead/Fullstack)
 - [x] Create /assets/ folder structure: images/, css/, js/, fonts/ (Frontend)
 - [x] Set up backend folder: controllers/, routes/, models/, middleware/, services/, config/, utils/, server.js (Backend)
 - [ ] Initialize PostgreSQL (local + hosted e.g. Supabase/Neon) + first migration (users table at minimum) (Backend)
