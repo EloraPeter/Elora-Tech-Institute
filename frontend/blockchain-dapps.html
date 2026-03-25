@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain DApps Courses | ETI Learning Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: #1f2a44;
+            color: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: #00aaff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #00aaff, #6f42c1);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero .cta-button {
+            background: #ff5733;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .hero .cta-button:hover {
+            background: #e64a19;
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 2rem;
+            max-height: 300px;
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 4rem 2rem;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .courses h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-filter {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-filter input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        .search-filter select {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .course-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-card .price {
+            font-weight: bold;
+            color: #00aaff;
+            margin-bottom: 1rem;
+        }
+
+        .course-card .enroll-btn {
+            display: block;
+            text-align: center;
+            background: #00aaff;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .course-card .enroll-btn:hover {
+            background: #0088cc;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #f1f1f1;
+            padding: 1.5rem;
+            border-radius: 10px;
+            max-width: 400px;
+            font-style: italic;
+        }
+
+        .testimonial-card p {
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card cite {
+            font-weight: bold;
+            color: #00aaff;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2a44;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            margin-bottom: 1rem;
+        }
+
+        .modal-content .enroll-btn {
+            background: #ff5733;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .modal-content .enroll-btn:hover {
+            background: #e64a19;
+        }
+
+        .close-button {
+            cursor: pointer;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul li {
+                margin-left: 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .search-filter {
+                flex-direction: column;
+            }
+
+            .search-filter input, .search-filter select {
+                width: 100%;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ETI Learning</div>
+            <ul>
+                <li><a href="web-development.html" class="nav-link">Web Development</a></li>
+                <li><a href="data-science.html" class="nav-link">Data Science</a></li>
+                <li><a href="blockchain.html" class="nav-link">Blockchain</a></li>
+                <li><a href="student-courses.html" class="nav-link">My Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Master Blockchain DApps Development</h1>
+        <p>Learn to build decentralized applications with expert-led courses on Ethereum, Solidity, and more.</p>
+        <a href="#courses" class="cta-button">Explore DApps Courses</a>
+        <img src="https://via.placeholder.com/300x300?text=DApps+App" alt="Blockchain DApps Course Preview">
+    </section>
+
+    <section id="courses" class="courses">
+        <h2>Blockchain DApps Courses</h2>
+        <div class="search-filter">
+            <input type="text" id="search-input" placeholder="Search courses...">
+            <select id="level-filter">
+                <option value="">All Levels</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+        </div>
+        <div class="course-grid" id="course-grid">
+            <div class="course-card" data-level="beginner">
+                <img src="https://via.placeholder.com/250x150?text=Course+1" alt="Course Thumbnail">
+                <h3>Introduction to DApps with Ethereum</h3>
+                <p>Instructor: Alice Brown</p>
+                <p class="price">$39.99</p>
+                <a href="#" class="enroll-btn" data-title="Introduction to DApps with Ethereum">Enroll Now</a>
+            </div>
+            <div class="course-card" data-level="intermediate">
+                <img src="https://via.placeholder.com/250x150?text=Course+2" alt="Course Thumbnail">
+                <h3>Building DApps with Solidity</h3>
+                <p>Instructor: Bob Wilson</p>
+                <p class="price">$59.99</p>
+                <a href="#" class="enroll-btn" data-title="Building DApps with Solidity">Enroll Now</a>
+            </div>
+            <div class="course-card" data-level="advanced">
+                <img src="https://via.placeholder.com/250x150?text=Course+3" alt="Course Thumbnail">
+                <h3>Advanced DApps Security</h3>
+                <p>Instructor: Carol Lee</p>
+                <p class="price">$79.99</p>
+                <a href="#" class="enroll-btn" data-title="Advanced DApps Security">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Learners Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"The DApps course gave me the skills to build my first Ethereum app. Amazing content!"</p>
+                <cite>David Kim, Blockchain Developer</cite>
+            </div>
+            <div class="testimonial-card">
+                <p>"Solidity made easy with practical projects. I’m now confident in DApps development."</p>
+                <cite>Emma Chen, Software Engineer</cite>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 ETI Learning Platform. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p><a href="resources.html">Resources</a> | <a href="forums.html">Community</a> | <a href="student-courses.html">My Courses</a></p>
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2 id="modal-title">Course Preview</h2>
+            <p>Enroll in this course to start learning Blockchain DApps today!</p>
+            <a href="#" class="enroll-btn">Enroll Now</a>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for nav links
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').split('.')[0];
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    window.location.href = this.getAttribute('href');
+                }
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const closeButton = document.querySelector('.close-button');
+        const enrollButtons = document.querySelectorAll('.enroll-btn');
+
+        enrollButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modalTitle.textContent = `Preview: ${button.dataset.title}`;
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Course filtering
+        const searchInput = document.getElementById('search-input');
+        const levelFilter = document.getElementById('level-filter');
+        const courseGrid = document.getElementById('course-grid');
+
+        function filterCourses() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const level = levelFilter.value;
+            const courses = courseGrid.getElementsByClassName('course-card');
+
+            Array.from(courses).forEach(course => {
+                const title = course.querySelector('h3').textContent.toLowerCase();
+                const courseLevel = course.dataset.level;
+                const matchesSearch = title.includes(searchTerm);
+                const matchesLevel = !level || courseLevel === level;
+
+                course.style.display = matchesSearch && matchesLevel ? '' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('input', filterCourses);
+        levelFilter.addEventListener('change', filterCourses);
+    </script>
+</body>
+</html>

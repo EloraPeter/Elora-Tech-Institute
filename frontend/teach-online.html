@@ -7,6 +7,7 @@
     <title>Teach Online | Elora Tech Institute</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/teach-online.css">
+    <link rel="stylesheet" href="css/faq.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -80,10 +81,21 @@
                 </div>
             </div>
             <div class="metrics-grid">
-                <div class="metric-card"><span>50M+</span> Learners</div>
-                <div class="metric-card"><span>60+</span> Languages Supported</div>
-                <div class="metric-card"><span>800M+</span> Course Signups</div>
-                <div class="metric-card"><span>150+</span> Nations Reached</div>
+                <div class="metric-card" data-label="Learners" role="figure" aria-label="Over 50 million learners">
+                    <span>50M+</span>
+                </div>
+                <div class="metric-card" data-label="Languages Supported" role="figure"
+                    aria-label="Over 60 languages supported">
+                    <span>60+</span>
+                </div>
+                <div class="metric-card" data-label="Course Signups" role="figure"
+                    aria-label="Over 800 million course signups">
+                    <span>800M+</span>
+                </div>
+                <div class="metric-card" data-label="Nations Reached" role="figure"
+                    aria-label="Over 150 nations reached">
+                    <span>150+</span>
+                </div>
             </div>
         </section>
 
@@ -92,13 +104,20 @@
             <h2><span class="decor">|</span> Steps to Get Going <span class="decor">|</span></h2>
             <div class="steps-container">
                 <div class="steps-text">
-                    <p>Begin with your expertise and enthusiasm. Select a subject that resonates with you and our
-                        audience’s interests.</p>
-                    <p>Your teaching approach — and the energy you bring — is yours to define.</p>
-                    <h3>Our Assistance</h3>
-                    <p>We provide guides to develop your initial tutorial, along with a Tutor Hub to streamline your
-                        planning.</p>
+                    <p>Start by sharing your knowledge and passion. Choose a subject that aligns with your area of
+                        expertise and speaks to the interests and needs of our diverse learning community. When you
+                        teach what you love, it shows — and it makes all the difference.</p>
+
+                    <p>Your unique teaching style and the energy you bring to the table are what set you apart. Whether
+                        you prefer structured lessons or a more interactive approach, you have the freedom to shape your
+                        content in a way that feels authentic to you.</p>
+
+                    <h3>How We Support You</h3>
+                    <p>We’re here to ensure you never feel alone in the process. From comprehensive guides to help you
+                        craft your first tutorial to access to our dedicated Tutor Hub, we provide all the tools and
+                        resources you need to plan, organize, and deliver engaging lessons with confidence.</p>
                 </div>
+
                 <div class="steps-img">
                     <img src="images/tutor-workshop.jpg" alt="Tutor preparing lessons">
                 </div>
@@ -110,19 +129,19 @@
             <h2><span class="decor">|</span> Voices from Our Tutors <span class="decor">|</span></h2>
             <div class="stories-grid">
                 <div class="story-card">
-                    <img src="images/tutor-lina.jpg" alt="Lina Mwangi">
+                    <img src="images/teacher2.jpg" alt="Lina Mwangi">
                     <p>“I wake up excited knowing my lessons help people worldwide advance their tech skills. Teaching
                         on ETI fits my schedule and lets me contribute flexibly.”</p>
                     <p><strong>Lina Mwangi</strong> - Software Development Tutor</p>
                 </div>
                 <div class="story-card">
-                    <img src="images/tutor-ethan.jpg" alt="Ethan Kim">
+                    <img src="images/teacher1.jpg" alt="Ethan Kim">
                     <p>“ETI opened doors for me to pursue my love for teaching. Watching students grasp cybersecurity
                         concepts faster than in traditional settings is incredibly rewarding.”</p>
                     <p><strong>Ethan Kim</strong> - Cybersecurity Tutor</p>
                 </div>
                 <div class="story-card">
-                    <img src="images/tutor-sofia.jpg" alt="Sofia Almeida">
+                    <img src="images/teacher3.jpg" alt="Sofia Almeida">
                     <p>“Sharing my marketing insights on ETI lets me connect with a global audience while providing a
                         reliable income boost. It’s a win-win!”</p>
                     <p><strong>Sofia Almeida</strong> - Marketing Strategies Tutor</p>
@@ -134,8 +153,12 @@
         <section class="content-section team-support">
             <h2><span class="decor">|</span> You’re Not on Your Own <span class="decor">|</span></h2>
             <div class="support-container">
-                <p>Our Tutor Assistance Crew is ready to assist with queries and review your sample videos. Tap into our
-                    Learning Portal for resources and network with seasoned tutors in our community.</p>
+                <p>At ETI, we believe in empowering our tutors every step of the way. Our dedicated Tutor Assistance
+                    Crew is always on hand to provide timely support, answer your questions, and review your sample
+                    teaching videos to ensure they meet our standards of excellence.</p>
+                <p>Gain full access to our comprehensive Learning Portal — filled with valuable resources, teaching
+                    aids, and best practices. You’ll also have the opportunity to connect and collaborate with
+                    experienced educators within our growing tutor community.</p>
                 <a href="contact.html" class="btn">Contact Support</a>
             </div>
         </section>
@@ -144,14 +167,18 @@
         <section class="content-section join-now">
             <h2><span class="decor">|</span> Start Teaching on ETI Today <span class="decor">|</span></h2>
             <div class="join-container">
-                <p>Be part of a top-tier educational platform reaching learners globally.</p>
+                <p>Join a leading educational platform that connects passionate tutors with eager learners across the
+                    globe. At ETI, you have the chance to make a real impact — whether you're teaching foundational
+                    skills or advanced expertise.</p>
                 <a href="tutor-signup-login.html" class="btn">Register Now</a>
-                <p>Already with us? <a href="tutor-signup-login.html" class="login-link">Sign In</a></p>
+                <p>Already a member? <a href="tutor-signup-login.html" class="login-link">Log In</a> to continue your
+                    journey.</p>
             </div>
         </section>
 
+
         <!-- FAQ -->
-        <section class="content-section faq" id="faq">
+        <section class="faq">
             <h2><span class="decor">|</span> Frequently Asked Questions <span class="decor">|</span></h2>
             <div class="accordion">
                 <div class="accordion-item">
@@ -244,6 +271,7 @@
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="teach-online.html">Teach on ETI</a></li>
+                    <li><a href="blog&updates.html">Blog</a></li>
                     <li><a href="help-support.html">Help & Support</a></li>
                 </ul>
             </div>

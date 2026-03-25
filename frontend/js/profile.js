@@ -91,12 +91,38 @@ async function fetchProfile() {
     }
 }
 
-// Update profile
+// Clear profile form
+function clearProfileForm() {
+    const form = document.getElementById('profile-form');
+    form.reset();
+    document.getElementById('name').value = '';
+    document.getElementById('bio').value = '';
+    document.getElementById('expertise').value = '';
+}
+
+// Update profile with formatting
 document.getElementById('profile-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const bio = document.getElementById('bio').value;
-    const expertise = document.getElementById('expertise').value;
+    const nameInput = document.getElementById('name');
+    const bioInput = document.getElementById('bio');
+    const expertiseInput = document.getElementById('expertise');
+
+    // Capitalize the first letter of the name
+    let name = nameInput.value.trim();
+    name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+
+    // Capitalize the first letter of each sentence in bio
+    let bio = bioInput.value.trim().toLowerCase();
+    bio = bio.replace(/(^\s*\w|[.!?]\s*\w)/g, function (c) {
+        return c.toUpperCase();
+    });
+
+    // Capitalize the first letter of each sentence in expertise
+    let expertise = expertiseInput.value.trim().toLowerCase();
+    expertise = expertise.replace(/(^\s*\w|[.!?]\s*\w)/g, function (c) {
+        return c.toUpperCase();
+    });
+
     try {
         await fetchWithAuth(`http://localhost:3000/api/users/${user.id}`, {
             method: 'PATCH',
@@ -105,6 +131,7 @@ document.getElementById('profile-form').addEventListener('submit', async (e) => 
         // Update localStorage
         localStorage.setItem('user', JSON.stringify({ ...user, name, bio, expertise }));
         await fetchProfile();
+        clearProfileForm(); // Clear the form after successful update
         showError('Profile updated successfully!', '#28a745');
     } catch (err) {
         showError(err.message || 'Failed to update profile');

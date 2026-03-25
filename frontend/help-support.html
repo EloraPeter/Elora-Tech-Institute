@@ -1,88 +1,665 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Help & Support</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Get help and support for the Elora Tech Institute (ETI) platform. Access FAQs, contact forms, tutorials, and role-specific guidance for students, tutors, and admins." />
+  <title>Help & Support - ETI Platform</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/help.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/faq.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-  <nav class="navbar">
-    <div class="hamburger">☰</div>
-    <div class="logo" onclick="window.location.href='index.html'">EduPlatform</div>
-    <div class="nav-menu">
-      <a href="student-dashboard.html">Dashboard</a>
-      <a href="student-courses.html">My Courses</a>
-      <a href="explore.html">Explore</a>
-      <a href="student-certifications.html">Certifications</a>
-      <a href="student-progress-report.html">Progress Reports</a>
-      <a href="student-payments.html">Payments</a>
-      <a href="help-support.html">Support/Help</a>
-      <div class="profile-dropdown">
-        <img src="profile-pic.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
-        <div class="profile-dropdown-content">
-          <a href="student-profile.html">Profile</a>
-          <a href="student-settings.html">Settings</a>
-          <a href="student-calendar.html">Calendar</a>
-          <a href="logout.html">Logout</a>
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <h1 id="logo">
+      <a href="index.html">
+        <img src="images/eti logo main.jfif" alt="" />
+      </a>
+    </h1>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul ul id="nav-link" role="menu"></ul>
+    <!-- <a href="login-signup.html" class="btn big">Enroll Now</a> -->
+    <div id="toggle"><i class="fa-solid fa-moon"></i></div>
+  </nav>
+  <!-- <button class="sidebar-toggle" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button> -->
+  <aside id="sidebar-nav">
+    <ul class="links"></ul>
+  </aside>
+  <!-- <aside class="w-64 sidebar fixed h-full overflow-y-auto md:w-64">
+      <h2 class="sidebar-title">Help & Support</h2>
+      <div class="sidebar-menu">
+        <div>
+          <button
+            class="sidebar-button"
+            onclick="toggleMenu('quick-links')"
+            aria-expanded="false"
+          >
+            Quick Links
+            <span class="sidebar-icon">▾</span>
+          </button>
+          <ul id="quick-links" class="sidebar-submenu hidden">
+            <li><a href="faq.html" class="submenu-link">FAQs</a></li>
+            <li><a href="contact.html" class="submenu-link">Contact Support</a></li>
+            <li><a href="#tutorials" class="submenu-link">Tutorials & Guides</a></li>
+          </ul>
+        </div>
+        <div>
+          <button
+            class="sidebar-button"
+            onclick="toggleMenu('students')"
+            aria-expanded="false"
+          >
+            For Students
+            <span class="sidebar-icon">▾</span>
+          </button>
+          <ul id="students" class="sidebar-submenu hidden">
+            <li><a href="#enroll" class="submenu-link">How to Enroll</a></li>
+            <li><a href="#progress" class="submenu-link">Track Progress</a></li>
+            <li><a href="#certificates" class="submenu-link">Access Certificates</a></li>
+            <li><a href="#live-classes" class="submenu-link">Join Live Classes</a></li>
+          </ul>
+        </div>
+        <div>
+          <button
+            class="sidebar-button"
+            onclick="toggleMenu('tutors')"
+            aria-expanded="false"
+          >
+            For Tutors
+            <span class="sidebar-icon">▾</span>
+          </button>
+          <ul id="tutors" class="sidebar-submenu hidden">
+            <li><a href="#create-course" class="submenu-link">Create a Course</a></li>
+            <li><a href="#monitor-students" class="submenu-link">Monitor Students</a></li>
+            <li><a href="#grading" class="submenu-link">Grading</a></li>
+            <li><a href="#schedule-classes" class="submenu-link">Schedule Classes</a></li>
+          </ul>
+        </div>
+        <div>
+          <button
+            class="sidebar-button"
+            onclick="toggleMenu('admins')"
+            aria-expanded="false"
+          >
+            For Admins
+            <span class="sidebar-icon">▾</span>
+          </button>
+          <ul id="admins" class="sidebar-submenu hidden">
+            <li><a href="#manage-users" class="submenu-link">Manage Users</a></li>
+            <li><a href="#approve-courses" class="submenu-link">Approve Courses</a></li>
+            <li><a href="#analytics" class="submenu-link">Analytics</a></li>
+            <li><a href="#support-tickets" class="submenu-link">Support Tickets</a></li>
+          </ul>
+        </div>
+        <div>
+          <button
+            class="sidebar-button"
+            onclick="toggleMenu('technical')"
+            aria-expanded="false"
+          >
+            Technical Support
+            <span class="sidebar-icon">▾</span>
+          </button>
+          <ul id="technical" class="sidebar-submenu hidden">
+            <li><a href="#site-loading" class="submenu-link">Site Not Loading</a></li>
+            <li><a href="#browser-issues" class="submenu-link">Browser Issues</a></li>
+            <li><a href="#login-issues" class="submenu-link">Login Issues</a></li>
+          </ul>
+        </div>
+        <div>
+          <a href="contact.html" class="sidebar-link">Contact Us</a>
         </div>
       </div>
-      <div class="notification-dropdown">
-        <span>🔔</span>
-        <div class="notification-dropdown-content"></div>
-      </div>
-    </div>
-  </nav>
+    </aside> -->
   <main>
-    <h1>Help & Support</h1>
-    <h2>Frequently Asked Questions</h2>
-    <div class="course-list">
-      <div class="course-item">
-        <h3>How do I enroll in a course?</h3>
-        <p>Navigate to the Explore page, select a course, and click "Enroll Now."</p>
+    <section id="hero">
+      <div class="hero-text">
+        <h2>Help Center</h2>
+        <p>
+          Welcome to the Elora Tech Institute (ETI) Help Center. Browse
+          comprehensive assistance and guidance tailored for students, tutors,
+          and administrators. Whether you're facing technical challenges, need
+          clarification on how to use our learning tools, or require
+          administrative support, our resources are designed to ensure a
+          smooth and efficient experience on the ETI platform. Need further
+          assistance? Contact our support team for personalized help.
+        </p>
+        <div class="hero-btn">
+          <a href="login-signup.html" class="btn">Join Now</a>
+          <a href="courses.html" class="btn">View Courses</a>
+        </div>
       </div>
-      <div class="course-item">
-        <h3>How can I contact support?</h3>
-        <p>Use the contact form below or email support@eduplatform.com.</p>
+      <div class="hero-img">
+        <img src="images/help-hero.jpg" alt="" />
       </div>
-    </div>
-    <h2>Contact Support</h2>
-    <div class="create-course-form">
-      <form id="contactForm">
-        <label for="contactSubject">Subject:</label>
-        <input type="text" id="contactSubject" required placeholder="Enter subject"><br><br>
-        <label for="contactMessage">Message:</label>
-        <textarea id="contactMessage" required placeholder="Describe your issue"></textarea><br><br>
-        <button type="submit" onclick="submitContactForm()">Submit</button>
-      </form>
-    </div>
-    <h2>Documentation</h2>
-    <div class="course-list">
-      <div class="course-item">
-        <h3>Getting Started Guide</h3>
-        <button onclick="downloadDoc('1')">Download</button>
+    </section>
+
+    <section id="support-tickets" class="mb-6" aria-label="Support Tickets (Admins Only)">
+      <h2 class="section-title">
+        <span class="decor">|</span> Support Tickets (Admins Only)
+        <span class="decor">|</span>
+      </h2>
+
+      <div class="ticket-card border-l-red">
+        <div class="ticket-header">
+          <span class="ticket-icon text-red">!</span>
+          <div>
+            <div class="ticket-text">
+              <h3 class="ticket-title">Unable to upload course materials</h3>
+              <p class="ticket-meta">Ticket #TK-001</p>
+              <div class="ticket-details">
+                <p class="ticket-meta">Submitted by: john.doe@email.com</p>
+                <p class="ticket-meta">Submitted: 2025-05-28 10:30 AM</p>
+                <p class="ticket-meta">Category: Technical Issue</p>
+              </div>
+            </div>
+            <div class="help hero-btn">
+              <a class="btn">View Details</a>
+              <a class="btn">Update Status</a>
+            </div>
+            <div class="ticket-tags">
+              <span class="tag tag-open">open</span>
+              <span class="tag tag-high">high priority</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="course-item">
-        <h3>Tutor Guide</h3>
-        <button onclick="downloadDoc('2')">Download</button>
+      <div class="ticket-card border-l-yellow">
+        <div class="ticket-header">
+          <span class="ticket-icon text-yellow">!</span>
+          <div class="ticket-text">
+            <h3 class="ticket-title">Payment processing error</h3>
+            <p class="ticket-meta">Ticket #TK-002</p>
+            <div class="ticket-details">
+              <p class="ticket-meta">Submitted by: jane.smith@email.com</p>
+              <p class="ticket-meta">Submitted: 2025-05-28 09:15 AM</p>
+              <p class="ticket-meta">Category: Payment Issue</p>
+            </div>
+            <div class="help hero-btn">
+              <a class="btn">View Details</a>
+              <a class="btn">Update Status</a>
+            </div>
+            <div class="ticket-tags">
+              <span class="tag tag-in-progress">in progress</span>
+              <span class="tag tag-medium">medium priority</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <div class="ticket-card border-l-green">
+        <div class="ticket-header">
+          <span class="ticket-icon text-green">✔</span>
+          <div class="ticket-text">
+            <h3 class="ticket-title">Course approval request</h3>
+            <p class="ticket-meta">Ticket #TK-003</p>
+            <div class="ticket-details">
+              <p class="ticket-meta">Submitted by: tutor.mike@email.com</p>
+              <p class="ticket-meta">Submitted: 2025-05-28 03:45 PM</p>
+              <p class="ticket-meta">Category: Course-Related</p>
+            </div>
+            <div class="help hero-btn">
+              <a class="btn">View Details</a>
+              <a class="btn">Update Status</a>
+            </div>
+            <div class="ticket-tags">
+              <span class="tag tag-resolved">resolved</span>
+              <span class="tag tag-low">low priority</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="documentation" class="mb-6">
+      <h2 class="section-title"><span class="decor">|</span> Documentation <span class="decor">|</span></h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <div class="doc-card border-l-gray">
+          <div class="doc-header">
+            <span class="doc-icon">👤</span>
+            <h3 class="doc-title">Student Getting Started Guide</h3>
+          </div>
+          <p class="doc-description">
+            Complete guide for new students to navigate the platform
+          </p>
+          <div class="doc-attr">
+            <p class="doc-meta">2.5 MB</p>
+            <button class="btn doc">Download</button>
+          </div>
+        </div>
+
+        <div class="doc-card border-l-green">
+          <div class="doc-header">
+            <span class="doc-icon">📚</span>
+            <h3 class="doc-title">Tutor Getting Started Guide</h3>
+          </div>
+          <p class="doc-description">
+            Essential guide for tutors to create and manage courses
+          </p>
+          <div class="doc-attr">
+            <p class="doc-meta">3.1 MB</p>
+            <button class="btn doc">Download</button>
+          </div>
+        </div>
+
+
+        <div class="doc-card border-l-purple">
+          <div class="doc-header">
+            <span class="doc-icon">⚙️</span>
+            <h3 class="doc-title">Admin User Manual</h3>
+          </div>
+          <p class="doc-description">
+            Comprehensive manual for platform administrators
+          </p>
+          <div class="doc-attr">
+            <p class="doc-meta">4.8 MB</p>
+            <button class="btn doc">Download</button>
+          </div>
+        </div>
+
+        <div class="doc-card border-l-orange">
+          <div class="doc-header">
+            <span class="doc-icon">📋</span>
+            <h3 class="doc-title">Course Creation Tutorial</h3>
+          </div>
+          <p class="doc-description">
+            Step-by-step tutorial for creating engaging courses
+          </p>
+          <div class="doc-attr">
+            <p class="doc-meta">1.9 MB</p>
+            <button class="btn doc">Download</button>
+          </div>
+        </div>
+
+        <div class="doc-card border-l-red">
+          <div class="doc-header">
+            <span class="doc-icon">📜</span>
+
+            <h3 class="doc-title">Platform Policies</h3>
+          </div>
+          <p class="doc-description">
+            Terms of service, privacy policy, and community guidelines
+          </p>
+          <div class="doc-attr">
+
+            <p class="doc-meta">1.2 MB</p>
+            <button class="btn doc">Download</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="additional-resources" class="mb-6">
+      <h2 class="section-title"><span class="decor">|</span> Additional Resources <span class="decor">|</span></h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="resource-card">
+          <div class="resource-header">
+            <span class="resource-icon">💬</span>
+            <div>
+              <h3 class="resource-title">Live Chat Support</h3>
+              <p class="resource-description">
+                Chat with a support agent in real-time for immediate
+                assistance with your questions and issues.
+              </p>
+              <a class="btn res">Start Live Chat</a>
+            </div>
+          </div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-header">
+            <span class="resource-icon">👥</span>
+            <div>
+              <h3 class="resource-title">Community Forums</h3>
+              <p class="resource-description">
+                Join discussions with other users, share experiences, and get
+                help from the community.
+              </p>
+              <a href="forums.html" class="btn res">Visit Forums</a>
+            </div>
+          </div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-header">
+            <span class="resource-icon">📚</span>
+            <div>
+              <h3 class="resource-title">Knowledge Base</h3>
+              <p class="resource-description">
+                Browse articles, tutorials, and FAQs to find answers to common
+                questions and learn how to use our platform effectively.
+              </p>
+              <a href="resources.html" class="btn res">Browse Resources</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="contact-form">
+      <h2 id="contact">
+        <span class="decor">|</span>Contact Support<span class="decor">|</span>
+      </h2>
+      <div class="create-course-form">
+        <form action="#" method="POST" class="payment-form">
+          <div class="form-group">
+            <div class="input-wrapper">
+              <select id="contactRole" required>
+                <option value=""></option>
+                <option value="student">Student</option>
+                <option value="tutor">Tutor</option>
+                <option value="admin">Admin</option>
+              </select>
+              <label for="contactRole">Your Role:</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-wrapper">
+              <select id="contactCategory" required>
+                <option value=""></option>
+                <option value="technical">Technical Issue</option>
+                <option value="course">Course-Related</option>
+                <option value="payment">Payment Issue</option>
+                <option value="other">Other</option>
+              </select><label for="contactCategory">Category:</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-wrapper">
+              <input type="text" id="contactSubject" required placeholder="Enter subject" />
+              <label for="contactSubject">Subject:</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-wrapper">
+              <input type="email" id="contactEmail" required placeholder="Enter your email" />
+              <label for="contactEmail">Email:</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-wrapper">
+              <textarea id="contactMessage" required placeholder="Describe your issue"></textarea>
+              <label for="contactMessage">Message:</label>
+            </div>
+          </div>
+          <button type="submit" class="btn" onclick="submitContactForm(event)">
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section id="need-more-help" class="help-card mb-6">
+      <div class="need-cont">
+        <h2 class="help-title"><span class="decor">|</span> Need More Help? <span class="decor">|</span></h2>
+        <p class="help-text">
+          Our support team is available Monday to Friday, 9 AM to 6 PM WAT.
+          Response time: Within 24 hours for most inquiries.
+          If you have any questions, you can also visit our <a href="faq.html">FAQ</a> page for quick answers
+        </p>
+        <div class="help-links">
+          <a href="mailto:support@etiplatform.com" class="help-link">support@etiplatform.com</a>
+          <a href="faq.html" class="help-link">FAQ</a>
+          <a href="tel:+234-800-ETI-HELP" class="help-link">+234-800-ETI-HELP</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback" class="card p-6 mb-6">
+      <h2 class="section-title"><span class="decor">|</span> Feedback <span class="decor">|</span></h2>
+      <h3>We value your feedback</h3>
+      <div class="feedback-form">
+        <form action="#" method="POST" class="payment-form">
+          <div class="form-group">
+            <div class="input-wrapper">
+              <p class="text-gray">How would you rate your overall experience?</p>
+              <select class="input-field" id="feedbackRating" required>
+                <option value="">Select Rating</option>
+                <option value="5">5 - Excellent</option>
+                <option value="4">4 - Good</option>
+                <option value="3">3 - Average</option>
+                <option value="2">2 - Poor</option>
+                <option value="1">1 - Very Poor</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-wrapper">
+              <p class="text-gray">Additional Comments (Optional)</p>
+              <textarea id="feedbackMessage" class="input-field textarea"
+                placeholder="Share your thoughts on how we can improve..."></textarea>
+            </div>
+          </div>
+          <button class="btn" onclick="submitFeedback(event)">
+            Submit Feedback
+          </button>
+        </form>
+      </div>
+    </section>
+    <!-- <section class="faq" aria-label="Frequently Asked Questions">
+        <h3>
+          <span class="decor">|</span>Frequently Asked Questions<span
+            class="decor"
+            >|</span
+          >
+        </h3>
+        <input
+          type="text"
+          id="faqSearch"
+          placeholder="Search FAQs..."
+          oninput="searchFAQs()"
+        />
+        <div class="faq-section">
+          <h3>For Students</h3>
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-title" aria-expanded="false">
+                <span>How do I enroll in a course?</span
+                ><i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Navigate to the Explore page, select a course, and click
+                  "Enroll Now."
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-title" aria-expanded="false">
+                <span>How do I join a live class?</span
+                ><i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Check your dashboard for upcoming live classes and click
+                  "Join" when the session starts.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-title" aria-expanded="false">
+                <span>How can I chat with my instructor?</span
+                ><i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Visit the course page, go to the discussion forum, and use the
+                  private chat feature. Please keep messages professional and
+                  relevant to the course.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-title" aria-expanded="false">
+                <span>Where can I view my certificates?</span
+                ><i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Go to the Certifications page from the hamburger menu to view
+                  or download earned certificates.
+                </p>
+              </div>
+            </div>
+          </div>
+          <h3>For Tutors</h3>
+          <div class="course-list">
+            <div class="course-item">
+              <h4>How do I create a course?</h4>
+              <p>
+                Go to the Create Course page, fill in the details, upload
+                materials, and submit for approval.
+              </p>
+            </div>
+            <div class="course-item">
+              <h4>How can I withdraw my earnings?</h4>
+              <p>
+                Visit the Earnings page from the hamburger menu to withdraw
+                funds or review payment history.
+              </p>
+            </div>
+            <div class="course-item">
+              <h4>Where can I find teaching resources?</h4>
+              <p>
+                Access the Resources page to upload/download materials, lesson
+                plans, and templates.
+              </p>
+            </div>
+            <div class="course-item">
+              <h4>How do I schedule a live class?</h4>
+              <p>
+                Use the calendar on the Create Course or Resources page to
+                schedule live sessions.
+              </p>
+            </div>
+          </div>
+          <h3>For Admins</h3>
+          <div class="course-list">
+            <div class="course-item">
+              <h4>How do I approve a course?</h4>
+              <p>
+                Go to the Courses page, review pending courses, and approve or
+                reject them.
+              </p>
+            </div>
+            <div class="course-item">
+              <h4>How can I monitor live classes?</h4>
+              <p>
+                Visit the Monitor Live Classes page to view upcoming sessions
+                and join to supervise.
+              </p>
+            </div>
+            <div class="course-item">
+              <h4>Where can I manage support tickets?</h4>
+              <p>
+                Check the Support Tickets section below to manage complaints and
+                technical issues.
+              </p>
+            </div>
+            <div class="course-item">
+              <h4>How do I generate reports?</h4>
+              <p>
+                Access the Reports page from the hamburger menu to download
+                CSV/Excel summaries.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section> -->
   </main>
-  <script src="scripts.js"></script>
-  <script>
-    function submitContactForm() {
-      const form = document.getElementById('contactForm');
-      if (form.checkValidity()) {
-        alert('Support request submitted');
-        // Logic to submit form
-      } else {
-        alert('Please fill all required fields');
-      }
-    }
-    function downloadDoc(id) {
-      alert(`Downloading documentation ID: ${id}`);
-      // Logic to download documentation
-    }
-  </script>
+
+  <footer>
+    <div class="info">
+      <div class="about">
+        <h2>Elora Tech Institute</h2>
+        <p>
+          Elora Tech Institute equips individuals with in-demand tech skills
+          through hands-on training in web development, cybersecurity, Web3,
+          IoT, and more. Our vision is to be a leading tech institution,
+          shaping the future of tech education through innovation and
+          excellence. With a comprehensive curriculum, hands-on projects,
+          flexible online learning, and career support, Elora Tech Institute
+          is more than an academy—it’s a movement to create the next
+          generation of tech innovators.
+        </p>
+        <ul class="sm">
+          <li>
+            <a href="https://web.facebook.com/profile.php?id=61574697245670"><i class="fab fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i class="fab fa-linkedin"></i></a>
+          </li>
+          <li>
+            <a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="quick-links">
+        <h2>Discover ETI</h2>
+        <ul id="links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="teach-online.html">Teach on ETI</a></li>
+                              <li><a href="blog&updates.html">Blog</a></li>
+          <li><a href="help-support.html">Help & Support</a></li>
+        </ul>
+      </div>
+      <div class="apply">
+        <h2>How to Apply</h2>
+        <ol>
+          <li>Visit our website and check out the programs.</li>
+          <li>Fill out the registration form.</li>
+          <li>Make payment and confirm your enrollment.</li>
+          <li>Start your tech journey with us!</li>
+        </ol>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+          class="apply-button" target="_blank">Register Now</a>
+      </div>
+    </div>
+    <hr />
+    <p id="copyright">
+      &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
+    </p>
+    <p id="designer">
+      Created by
+      <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a>
+      with ❤
+    </p>
+  </footer>
+
+  <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
+    class="whatsapp-bubble">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+
+  <script src="js/navConfig.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/help-support.js"></script>
 </body>
+
 </html>

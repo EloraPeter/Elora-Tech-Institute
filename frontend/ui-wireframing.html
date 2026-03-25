@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wireframing Fundamentals - Eti E-Learning Platform</title>
+<style>
+  :root {
+    --color-bg: #ffffff;
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-text-primary: #111827;
+    --color-text-secondary: #6b7280;
+    --color-card-bg: #f9fafb;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.05);
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin:0;
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: var(--color-primary-dark);
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 100;
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    letter-spacing: 2px;
+  }
+  nav {
+    display: flex;
+    gap: 24px;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px 120px;
+  }
+  .hero {
+    padding-top: 80px;
+    padding-bottom: 64px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--color-text-primary);
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 48rem;
+    margin: 0 auto 32px;
+    color: var(--color-text-secondary);
+  }
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: var(--color-primary-dark);
+  }
+  section.features,
+  section.testimonials,
+  section.tools {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    max-width: 900px;
+    margin: 0 auto 80px;
+    text-align: center;
+  }
+  section.features h2,
+  section.testimonials h2,
+  section.tools h2 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--color-text-primary);
+  }
+  section.features p,
+  section.testimonials p,
+  section.tools p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto 48px;
+  }
+  .features-list,
+  .tools-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 40px;
+  }
+  .feature-item,
+  .tool-item {
+    background: var(--color-card-bg);
+    padding: 28px 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .feature-icon,
+  .tool-icon {
+    font-size: 3.2rem;
+    color: var(--color-primary);
+  }
+  .feature-title,
+  .tool-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+  }
+  .feature-desc,
+  .tool-desc {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+  }
+  blockquote {
+    background: var(--color-card-bg);
+    border-left: 6px solid var(--color-primary);
+    padding: 24px 32px;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: var(--color-text-primary);
+    font-style: italic;
+    box-shadow: var(--shadow);
+  }
+  .testimonial-author {
+    margin-top: 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-primary-dark);
+  }
+  footer {
+    border-top: 1px solid #e5e7eb;
+    padding: 32px 24px;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    header {
+      padding: 12px 24px;
+    }
+    .hero h1 {
+      font-size: 2.25rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <a href="#" class="logo" aria-label="Eti E-Learning Platform Logo">ETI</a>
+  <nav role="navigation" aria-label="Primary navigation">
+    <a href="#">Home</a>
+    <a href="#">Courses</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<main class="container" role="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">Wireframing Fundamentals</h1>
+    <p>Discover the essentials of wireframing and prototyping to create clear design blueprints.</p>
+    <button class="btn-primary" type="button" onclick="location.href='#courses'">See Wireframing Courses</button>
+  </section>
+
+  <section id="courses" aria-label="Featured Wireframing Courses">
+    <div class="cards">
+      <article class="card" tabindex="0">
+        <h3>Wireframing Basics for Beginners</h3>
+        <p>Learn how to sketch and create wireframes for web and mobile applications quickly.</p>
+        <div class="course-meta">4.7 stars • 7,800 students</div>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>Prototyping with Wireframes</h3>
+        <p>Bring your wireframes to life by creating clickable prototypes for testing.</p>
+        <div class="course-meta">4.6 stars • 5,100 students</div>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>Tools for Efficient Wireframing</h3>
+        <p>Master popular wireframing tools to boost your productivity and collaboration.</p>
+        <div class="course-meta">4.8 stars • 4,700 students</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="features" aria-labelledby="features-title">
+    <h2 id="features-title">What You Will Learn</h2>
+    <p>Gain the skills to communicate design ideas clearly and prepare for detailed design stages.</p>
+    <div class="features-list">
+      <div class="feature-item" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">✏️</div>
+        <div class="feature-title">Rapid Sketching</div>
+        <div class="feature-desc">Learn fast ways to sketch layouts and structure your ideas.</div>
+      </div>
+      <div class="feature-item" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">📐</div>
+        <div class="feature-title">Layout Structuring</div>
+        <div class="feature-desc">Understand grid systems and structuring content efficiently.</div>
+      </div>
+      <div class="feature-item" tabindex="0">
+        <div class="feature-icon" aria-hidden="true">🤖</div>
+        <div class="feature-title">Tool Mastery</div>
+        <div class="feature-desc">Use wireframing and prototyping tools to translate ideas digitally.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools" aria-labelledby="tools-title">
+    <h2 id="tools-title">Top Wireframing Tools</h2>
+    <p>Learn to use industry-standard tools that professionals trust.</p>
+    <div class="tools-list">
+      <div class="tool-item" tabindex="0">
+        <div class="tool-icon" aria-hidden="true">🅰️</div>
+        <div class="tool-title">Figma</div>
+        <div class="tool-desc">Cloud-based interface design tool with powerful prototyping features.</div>
+      </div>
+      <div class="tool-item" tabindex="0">
+        <div class="tool-icon" aria-hidden="true">🖌️</div>
+        <div class="tool-title">Adobe XD</div>
+        <div class="tool-desc">Vector-based tool for designing and prototyping user experiences.</div>
+      </div>
+      <div class="tool-item" tabindex="0">
+        <div class="tool-icon" aria-hidden="true">📝</div>
+        <div class="tool-title">Balsamiq</div>
+        <div class="tool-desc">Rapid wireframing tool for sketch-style mockups focusing on structure.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" aria-labelledby="testimonials-title">
+    <h2 id="testimonials-title">What Students Are Saying</h2>
+    <blockquote tabindex="0">
+      "Eti’s wireframing courses helped me create cleaner, more effective design plans. The lessons are concise and practical."
+      <div class="testimonial-author">— Emily T.</div>
+    </blockquote>
+    <blockquote tabindex="0" style="margin-top: 48px;">
+      "The tool tutorials boosted my confidence in prototyping. Highly recommended for anyone starting in UI design."
+      <div class="testimonial-author">— Marcus W.</div>
+    </blockquote>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 ETI E-Learning Platform. All rights reserved.
+</footer>
+</body>
+</html>

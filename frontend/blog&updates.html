@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog & Updates | Elora Tech Institute</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -14,156 +17,92 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
-            <img src="images/eti logo main.jfif" alt="">
+            <a href="index.html">
+                <img src="images/eti logo main.jfif" alt="">
+            </a>
         </h1>
         <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
         </button>
-        <ul id="nav-link" role="menu">
-            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
-            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
-            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
-                    href="#">Courses</a>
-                <div class="dropdown1">
-                    <ul class="dropdown" role="menuitem">
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="web-development.html">Web Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="web-development-html.html">HTML</a></li>
-                                    <li><a href="web-development-css.html">CSS</a></li>
-                                    <li><a href="web-development-javascript.html">JavaScript</a></li>
-                                    <li><a href="web-development-php.html">PHP & Laravel</a></li>
-                                    <li><a href="web-development-wordpress.html">WordPress</a></li>
-                                    <li><a href="web-development-frontend.html">Frontend Development</a></li>
-                                    <li><a href="web-development-backend.html">Backend Development</a></li>
-                                    <li><a href="web-development-fullstack.html">Full-Stack Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="mobile-apps.html">Mobile App Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="mobile-react-native.html">React Native</a></li>
-                                    <li><a href="mobile-flutter.html">Flutter</a></li>
-                                    <li><a href="mobile-android.html">Android Development (Kotlin)</a></li>
-                                    <li><a href="mobile-ios.html">iOS Development (Swift)</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="data-science.html">Data Science & Machine Learning</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="data-python.html">Python for Data Science</a></li>
-                                    <li><a href="data-machine-learning.html">Machine Learning</a></li>
-                                    <li><a href="data-deep-learning.html">Deep Learning & AI</a></li>
-                                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cyber-ethical-hacking.html">Ethical Hacking</a></li>
-                                    <li><a href="cyber-network-security.html">Network Security</a></li>
-                                    <li><a href="cyber-threat-intelligence.html">Threat Intelligence</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cloud-computing.html">Cloud Computing & DevOps</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
-                                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
-                                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="blockchain.html">Blockchain & Web3</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="blockchain-solidity.html">Solidity & Smart Contracts</a></li>
-                                    <li><a href="blockchain-dapps.html">Decentralized Apps (dApps)</a></li>
-                                    <li><a href="blockchain-nfts.html">NFT & Crypto Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="game-development.html">Game Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="game-unity.html">Unity Game Development</a></li>
-                                    <li><a href="game-unreal.html">Unreal Engine</a></li>
-                                    <li><a href="game-mobile.html">Mobile Game Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="robotics.html">Robotics & IoT</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="robotics-arduino.html">Arduino & Raspberry Pi</a></li>
-                                    <li><a href="robotics-automation.html">Automation & AI in IoT</a></li>
-                                    <li><a href="robotics-smart-home.html">Smart Home Devices</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="ui-ux.html">UI/UX Design</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
-                                    <li><a href="ui-wireframing.html">Wireframing & Prototyping</a></li>
-                                    <li><a href="ui-user-research.html">User Research & UX Strategy</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="digital-marketing.html">Digital Marketing & Tech Business</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="marketing-seo.html">SEO & Content Marketing</a></li>
-                                    <li><a href="marketing-social-media.html">Social Media Growth</a></li>
-                                    <li><a href="marketing-tech-startup.html">Tech Startup Strategies</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
-            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
-            <li role="menuitem" class="enroll-btn">
-                <a href="login-signup.html"
-                    class="btn">Enroll Now</a>
-            </li>
-        </ul>
-        <a href="login-signup.html"
-            class="btn big">Enroll Now</a>
+        <ul ul id="nav-link" role="menu"></ul>
+        <!-- <a href="login-signup.html" class="btn big">Enroll Now</a> -->
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
+    <!-- <button class="sidebar-toggle" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button> -->
+    <aside id="sidebar-nav">
+        <ul class="links"></ul>
+    </aside>
+    <header>
+        <div id="hero">
+            <div class="hero-text">
+                <h2>Blog & Updates</h2>
+                <p>Get the latest insights, announcements, and stories from Elora Tech Institute. From tech trends and
+                    student highlights to behind-the-scenes updates, our blog keeps you informed, inspired, and
+                    connected to everything we're building, one innovation at a time.
+                </p>
+
+                <div class="hero-btn">
+                    <a href="#blog-posts" class="btn">Explore Posts</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="images/surface-DTPY6b0RMRk-unsplash.jpg" alt="" />
+            </div>
+        </div>
+    </header>
 
     <main id="blog-page">
-        <!-- Hero Section -->
-        <section id="blog-hero" class="hero">
-            <div class="hero-text">
-                <h1>Blog & Updates</h1>
-                <p>Stay informed about the latest from Elora Tech Institute!</p>
-                <a href="#blog-posts" class="btn">Explore Posts</a>
+        <!-- Featured Post -->
+        <!-- <section class="content-section featured-post">
+            <h2><span class="decor">|</span> Highlight of the Week <span class="decor">|</span></h2>
+            <div class="featured-banner">
+                <img src="images/web-app-project.jpg" alt="Featured Post">
+                <div class="featured-content">
+                    <h3>How Our Students Built Their First Web App in Just 4 Weeks</h3>
+                    <p>Discover how our cohort of beginners turned ideas into reality with a fully functional web app,
+                        guided by expert mentors at ETI.</p>
+                    <a href="web-app-story.html" class="btn">Read the Story</a>
+                </div>
+            </div>
+        </section> -->
+        <section class="content-section featured-post">
+            <h2><span class="decor">|</span> Highlight of the Week <span class="decor">|</span></h2>
+            <div class="featured-banner" id="featured-post"></div>
+        </section>
+
+        <!-- Filters -->
+        <section class="content-section filters">
+            <h2><span class="decor">|</span> Filter Posts <span class="decor">|</span></h2>
+            <div class="filter-container">
+                <form class="search-form" onsubmit="searchPosts(event)">
+                    <input type="text" id="search-input" placeholder="Search blog posts...">
+                    <button type="submit" class="btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                </form>
+                <select id="category-filter" onchange="filterPosts()">
+                    <option value="">All Categories</option>
+                    <option value="Student Stories">Student Stories</option>
+                    <option value="Tech Tutorials">Tech Tutorials</option>
+                    <option value="Institute News">Institute News</option>
+                    <option value="Events & Workshops">Events & Workshops</option>
+                    <option value="Career & Industry Insights">Career & Industry Insights</option>
+                    <option value="Founder’s Note">Founder’s Note</option>
+                    <option value="Community Highlights">Community Highlights</option>
+                    <option value="Learning Resources">Learning Resources</option>
+                    <option value="Insights & Reports">Insights & Reports</option>
+                    <option value="Video Spotlight">Video Spotlight</option>
+                </select>
+                <div class="tags" id="tags"></div>
             </div>
         </section>
 
         <!-- Blog Posts -->
-        <section class="content-section blog-posts">
+        <section class="content-section blog-posts" id="blog-posts">
             <h2><span class="decor">|</span> Latest News & Updates <span class="decor">|</span></h2>
             <div class="blog-grid">
                 <div class="blog-card">
@@ -174,7 +113,9 @@
                             <span><i class="fa-solid fa-calendar"></i> April 28, 2025</span>
                             <span><i class="fa-solid fa-user"></i> ETI Team</span>
                         </div>
-                        <p>We are excited to announce that applications for the next batch of students are now open. Join our dynamic tech programs and start your career journey with ETI. Limited slots available!</p>
+                        <p>We are excited to announce that applications for the next batch of students are now open.
+                            Join our dynamic tech programs and start your career journey with ETI. Limited slots
+                            available!</p>
                         <a href="admissions.html" class="btn">Read More</a>
                     </div>
                 </div>
@@ -186,7 +127,9 @@
                             <span><i class="fa-solid fa-calendar"></i> April 25, 2025</span>
                             <span><i class="fa-solid fa-user"></i> ETI Team</span>
                         </div>
-                        <p>Big things are coming! ETI is preparing to launch our physical campus with programs from Crèche to SS3, IT internships, and tech skills training for all levels. Get ready for a new era of learning!</p>
+                        <p>Big things are coming! ETI is preparing to launch our physical campus with programs from
+                            Crèche to SS3, IT internships, and tech skills training for all levels. Get ready for a new
+                            era of learning!</p>
                         <a href="#" class="btn">Read More</a>
                     </div>
                 </div>
@@ -198,9 +141,104 @@
                             <span><i class="fa-solid fa-calendar"></i> April 20, 2025</span>
                             <span><i class="fa-solid fa-user"></i> ETI Team</span>
                         </div>
-                        <p>We are taking Elora Tech Institute to the world! Plans are in motion to open branches across Nigeria and internationally. Stay tuned for updates and opportunities to grow with us.</p>
+                        <p>We are taking Elora Tech Institute to the world! Plans are in motion to open branches across
+                            Nigeria and internationally. Stay tuned for updates and opportunities to grow with us.</p>
                         <a href="#" class="btn">Read More</a>
                     </div>
+                </div>
+            </div>
+            <div id="load-more" style="text-align: center; margin: 20px 0;">
+                <button class="btn" onclick="loadMorePosts()">Load More</button>
+            </div>
+        </section>
+
+        <!-- Upcoming Events -->
+        <section class="content-section upcoming-events">
+            <h2><span class="decor">|</span> Upcoming Events <span class="decor">|</span></h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <h3>Web Development Webinar</h3>
+                    <p><i class="fa-solid fa-calendar"></i> May 10, 2025</p>
+                    <p>Join our free webinar to learn the basics of web development from our expert instructors.</p>
+                    <a href="events.html" class="btn">Register Now</a>
+                </div>
+                <div class="event-card">
+                    <h3>Coding Challenge 2025</h3>
+                    <p><i class="fa-solid fa-calendar"></i> May 15, 2025</p>
+                    <p>Test your skills in our annual coding challenge and win exciting prizes!</p>
+                    <a href="events.html" class="btn">Join the Challenge</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video/Podcast Spotlight -->
+        <section class="content-section video-spotlight">
+            <h2><span class="decor">|</span> Video Spotlight <span class="decor">|</span></h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/sample-video" frameborder="0" allowfullscreen></iframe>
+                <p>Watch our latest founder’s update, where we discuss the future of tech education at ETI.</p>
+            </div>
+        </section>
+
+        <!-- Community Highlights -->
+        <section class="content-section community-highlights">
+            <h2><span class="decor">|</span> Community Highlights <span class="decor">|</span></h2>
+            <div class="community-grid">
+                <div class="community-card">
+                    <h3>Student Achievement: Jane’s App Launch</h3>
+                    <p>ETI student Jane launched her first mobile app on the Play Store, built during our summer
+                        bootcamp.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+                <div class="community-card">
+                    <h3>Alumni Testimonial</h3>
+                    <p>“ETI gave me the skills and confidence to land my dream job in tech!” – John, 2024 Graduate</p>
+                    <a href="#" class="btn">See More Testimonials</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Resources -->
+        <section class="content-section learning-resources">
+            <h2><span class="decor">|</span> Learning Resources <span class="decor">|</span></h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>Free JavaScript Guide</h3>
+                    <p>Download our beginner-friendly guide to mastering JavaScript fundamentals.</p>
+                    <a href="resources/javascript-guide.pdf" class="btn">Download Now</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Career Toolkit</h3>
+                    <p>Get our free toolkit with resume templates and interview tips for tech jobs.</p>
+                    <a href="resources/career-toolkit.pdf" class="btn">Get the Toolkit</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights & Reports -->
+        <section class="content-section insights-reports">
+            <h2><span class="decor">|</span> Insights & Reports <span class="decor">|</span></h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>Tech Adoption Trends 2025</h3>
+                    <p>Explore our latest report on emerging technologies shaping the future of industries.</p>
+                    <a href="reports/tech-trends-2025.pdf" class="btn">Read Report</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search & Tag Navigation -->
+        <section class="content-section search-tags">
+            <h2><span class="decor">|</span> Search & Explore <span class="decor">|</span></h2>
+            <div class="search-container">
+                <form class="search-form" action="#" method="GET">
+                    <input type="text" name="search" placeholder="Search blog posts..." required>
+                    <button type="submit" class="btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                </form>
+                <div class="tags">
+                    <a href="#javascript" class="tag">#javascript</a>
+                    <a href="#career" class="tag">#career</a>
+                    <a href="#studentproject" class="tag">#studentproject</a>
                 </div>
             </div>
         </section>
@@ -208,7 +246,7 @@
         <!-- CTA -->
         <section class="content-section cta">
             <h2>Stay Updated with ETI</h2>
-            <p>Subscribe to our newsletter for the latest news, course updates, and tech tips!</p>
+            <p>Subscribe to our newsletter for weekly insights, job tips, and free resources!</p>
             <form class="newsletter-form" action="#" method="POST">
                 <input type="email" name="email" placeholder="Enter your email" required>
                 <button type="submit" class="btn">Subscribe</button>
@@ -216,17 +254,36 @@
         </section>
     </main>
 
-    
+
     <footer>
         <div class="info">
             <div class="about">
                 <h2>Elora Tech Institute</h2>
-                <p>Elora Tech Institute equips individuals with in-demand tech skills through hands-on training in web development, cybersecurity, Web3, IoT, and more...</p>
+                <p>
+                    Elora Tech Institute equips individuals with in-demand tech skills
+                    through hands-on training in web development, cybersecurity, Web3,
+                    IoT, and more. Our vision is to be a leading tech institution,
+                    shaping the future of tech education through innovation and
+                    excellence. With a comprehensive curriculum, hands-on projects,
+                    flexible online learning, and career support, Elora Tech Institute
+                    is more than an academy—it’s a movement to create the next
+                    generation of tech innovators.
+                </p>
                 <ul class="sm">
-                    <li><a href="https://web.facebook.com/profile.php?id=61574697245670"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://instagram.com/elorainstitute"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a></li>
+                    <li>
+                        <a href="https://web.facebook.com/profile.php?id=61574697245670"><i
+                                class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i
+                                class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a>
+                    </li>
                 </ul>
             </div>
             <div class="quick-links">
@@ -239,7 +296,7 @@
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="teach-online.html">Teach on ETI</a></li>
                     <li><a href="blog&updates.html">Blog</a></li>
-                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="help-support.html">Help & Support</a></li>
                 </ul>
             </div>
             <div class="apply">
@@ -250,21 +307,30 @@
                     <li>Make payment and confirm your enrollment.</li>
                     <li>Start your tech journey with us!</li>
                 </ol>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing" class="apply-button" target="_blank">Register Now</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+                    class="apply-button" target="_blank">Register Now</a>
+
+
             </div>
         </div>
         <hr />
-        <p id="copyright">© Elora Tech Institute 2023 - 2025. All rights reserved.</p>
+        <p id="copyright">
+            &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
+        </p>
         <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
     </footer>
 
-    <!-- WhatsApp Bubble -->
-    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank" class="whatsapp-bubble">
+    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
+        class="whatsapp-bubble">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
     </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+    <script src="js/navConfig.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/blogup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>

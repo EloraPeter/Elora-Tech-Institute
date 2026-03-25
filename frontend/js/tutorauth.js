@@ -1,8 +1,8 @@
 // Forgot Password Toggle
 document.querySelector('a[href="/forgot-password"]').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.querySelector('#loginForm').style.display = 'none';
-  document.querySelector('#forgot-password-section').style.display = 'block';
+    e.preventDefault();
+    document.querySelector('#loginForm').style.display = 'none';
+    document.querySelector('#forgot-password-section').style.display = 'block';
 });
 
 // Forgot Password Form Submission
@@ -55,24 +55,24 @@ document.getElementById('forgot-password-form').addEventListener('submit', async
 
 // Toggle between login and signup forms
 function toggleForms() {
-  document.getElementById('loginForm').classList.toggle('active');
-  document.getElementById('signupForm').classList.toggle('active');
-  document.getElementById('newPassword').classList.toggle('active');
-  document.getElementById('confirmPassword').classList.toggle('active');
-  document.getElementById('loginError').textContent = '';
-  document.getElementById('signupError').textContent = '';
+    document.getElementById('loginForm').classList.toggle('active');
+    document.getElementById('signupForm').classList.toggle('active');
+    document.getElementById('newPassword').classList.toggle('active');
+    document.getElementById('confirmPassword').classList.toggle('active');
+    document.getElementById('loginError').textContent = '';
+    document.getElementById('signupError').textContent = '';
 }
 
 function togglePassword(inputId) {
-  const input = document.getElementById(inputId);
-  const button = input.nextElementSibling;
-  if (input.type === 'password') {
-    input.type = 'text';
-    button.innerHTML = '<i class="fa-solid fa-eye"></i>';
-  } else {
-    input.type = 'password';
-    button.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
-  }
+    const input = document.getElementById(inputId);
+    const button = input.nextElementSibling;
+    if (input.type === 'password') {
+        input.type = 'text';
+        button.innerHTML = '<i class="fa-solid fa-eye"></i>';
+    } else {
+        input.type = 'password';
+        button.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+    }
 }
 
 function checkPasswordStrength() {
@@ -152,15 +152,8 @@ async function login() {
         });
         const data = await res.json();
         if (res.ok) {
+            localStorage.setItem('user', JSON.stringify(data.user));
             localStorage.setItem('token', data.token);
-            localStorage.setItem('user', JSON.stringify({
-                id: data.user.id,
-                name: data.user.name,
-                email: data.user.email,
-                role: data.user.role,
-                bio: data.user.bio || '',
-                expertise: data.user.expertise || ''
-            }));
             window.location.href = 'tutor-dashboard.html';
         } else {
             loginError.textContent = data.error || 'Login failed';

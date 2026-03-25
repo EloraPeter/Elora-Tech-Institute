@@ -8,7 +8,7 @@
     <meta name="description" content="Command the Elora Tech Institute platform with powerful tools and analytics.">
     <title>Admin Dashboard - Elora Tech Institute</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/admindash.css" />
+    <link rel="stylesheet" href="css/studentdash.css" />
     <link rel="stylesheet" href="css/profile.css" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -24,346 +24,336 @@
 
 <body>
     <nav id="navbar" role="navigation" aria-label="Main navigation">
-        <h1 id="logo">
-            <img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo">
-        </h1>
+        <a href="index.html">
+            <h1 id="logo">
+                <img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo">
+            </h1>
+        </a>
         <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
         </button>
-        <ul id="nav-link" role="menu">
-            <li class="nb" role="menuitem"><a href="index.html">Home</a></li>
-            <li class="nb" role="menuitem"><a href="about.html">About</a></li>
-            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><a
-                    href="#">Courses</a>
+        <ul id="nav-link" role="menu"></ul>
+        <ul class="nav-link">
+            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><img
+                    id="dashboard-profile-picture" class="dashboard-profile-picture" src="images/avatars/default.jpg"
+                    alt="Profile Picture" onclick="window.location.href='profile.html'">
                 <div class="dropdown1">
                     <ul class="dropdown" role="menuitem">
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="web-development.html">Web Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="web-development-html.html">HTML</a></li>
-                                    <li><a href="web-development-css.html">CSS</a></li>
-                                    <li><a href="web-development-javascript.html">JavaScript</a></li>
-                                    <li><a href="web-development-php.html">PHP & Laravel</a></li>
-                                    <li><a href="web-development-wordpress.html">WordPress</a></li>
-                                    <li><a href="web-development-frontend.html">Frontend Development</a></li>
-                                    <li><a href="web-development-backend.html">Backend Development</a></li>
-                                    <li><a href="web-development-fullstack.html">Full-Stack Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="mobile-apps.html">Mobile App Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="mobile-react-native.html">React Native</a></li>
-                                    <li><a href="mobile-flutter.html">Flutter</a></li>
-                                    <li><a href="mobile-android.html">Android Development (Kotlin)</a></li>
-                                    <li><a href="mobile-ios.html">iOS Development (Swift)</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="data-science.html">Data Science & Machine Learning</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="data-python.html">Python for Data Science</a></li>
-                                    <li><a href="data-machine-learning.html">Machine Learning</a></li>
-                                    <li><a href="data-deep-learning.html">Deep Learning & AI</a></li>
-                                    <li><a href="data-big-data.html">Big Data Analytics</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cybersecurity.html">Cybersecurity & Ethical Hacking</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cyber-ethical-hacking.html">Ethical Hacking</a></li>
-                                    <li><a href="cyber-network-security.html">Network Security</a></li>
-                                    <li><a href="cyber-threat-intelligence.html">Threat Intelligence</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="cloud-computing.html">Cloud Computing & DevOps</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="cloud-aws.html">AWS & Google Cloud</a></li>
-                                    <li><a href="cloud-docker.html">Docker & Kubernetes</a></li>
-                                    <li><a href="cloud-ci-cd.html">CI/CD Pipelines</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="blockchain.html">Blockchain & Web3</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="blockchain-solidity.html">Solidity & Smart Contracts</a></li>
-                                    <li><a href="blockchain-dapps.html">Decentralized Apps (dApps)</a></li>
-                                    <li><a href="blockchain-nfts.html">NFT & Crypto Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="game-development.html">Game Development</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="game-unity.html">Unity Game Development</a></li>
-                                    <li><a href="game-unreal.html">Unreal Engine</a></li>
-                                    <li><a href="game-mobile.html">Mobile Game Development</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="robotics.html">Robotics & IoT</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="robotics-arduino.html">Arduino & Raspberry Pi</a></li>
-                                    <li><a href="robotics-automation.html">Automation & AI in IoT</a></li>
-                                    <li><a href="robotics-smart-home.html">Smart Home Devices</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="ui-ux.html">UI/UX Design</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="ui-figma.html">Figma & Adobe XD</a></li>
-                                    <li><a href="ui-wireframing.html">Wireframing & Prototyping</a></li>
-                                    <li><a href="ui-user-research.html">User Research & UX Strategy</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li role="menuitem" class="dropdown-parent" aria-haspopup="true" aria-expanded="false"><a
-                                href="digital-marketing.html">Digital Marketing & Tech Business</a>
-                            <div class="dropdown2">
-                                <ul class="dropdown-sub" role="menu">
-                                    <li><a href="marketing-seo.html">SEO & Content Marketing</a></li>
-                                    <li><a href="marketing-social-media.html">Social Media Growth</a></li>
-                                    <li><a href="marketing-tech-startup.html">Tech Startup Strategies</a></li>
-                                </ul>
-                            </div>
-                        </li>
+                        <li role="menuitem"><a href="profile.html"></a>Profile</li>
+                        <li role="menuitem"><a href=".html"></a>Settings</li>
+                        <li role="menuitem" class="logout-btn" onclick="logout()"><a href="#"></a>logout</li>
+
                     </ul>
                 </div>
             </li>
-            <li class="nb" role="menuitem"><a href="admissions.html">Admissions</a></li>
-            <li class="nb" role="menuitem"><a href="contact.html">Contact</a></li>
-            <li role="menuitem" class="enroll-btn">
-                <button class="logout-btn btn" onclick="logout()">Logout</button>
-            </li>
         </ul>
-        <button class="logout-btn btn big" onclick="logout()">Logout</button>
         <div id="toggle"><i class="fa-solid fa-moon"></i></div>
     </nav>
+    <button class="sidebar-toggle" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <aside id="sidebar-nav">
+        <ul class="links"></ul>
+    </aside>
 
-    <div class="dashboard-container">
-        <div class="dashboard-header">
-            <h2>Command the Platform with Confidence, <span id="userName"></span>! 🌍</h2>
-            <img id="dashboard-profile-picture" src="images/avatars/default.jpg" alt="Profile Picture"
-                onclick="window.location.href='profile.html'">
-        </div>
+    <main>
 
-        <div class="financials">
-            <p>Total Platform Revenue: $<span id="totalRevenue">0.00</span></p>
-        </div>
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Command the Platform with Confidence, <span id="userName"></span>! 🌍</h2>
+                <!-- <img id="dashboard-profile-picture" src="images/avatars/default.jpg" alt="Profile Picture"
+                onclick="window.location.href='profile.html'"> -->
+                <button class="logout-btn" onclick="logout()">Logout</button>
 
-        <div class="card-grid">
-            <div class="card" onclick="scrollToSection('courses')">
-                <i class="fas fa-book"></i>
-                <h3>Steer Courses</h3>
-                <p>Approve, reject, or delete courses.</p>
             </div>
-            <div class="card" onclick="scrollToSection('submissions')">
-                <i class="fas fa-file-alt"></i>
-                <h3>Review Submissions</h3>
-                <p>Evaluate course outlines.</p>
+
+            <div class="financials">
+                <p>Total Platform Revenue: $<span id="totalRevenue">0.00</span></p>
             </div>
-            <div class="card" onclick="scrollToSection('users')">
-                <i class="fas fa-users"></i>
-                <h3>Manage Users</h3>
-                <p>Promote or remove users.</p>
+
+            <div class="card-grid">
+                <div class="card" onclick="scrollToSection('courses')">
+                    <i class="fas fa-book"></i>
+                    <h3>Steer Courses</h3>
+                    <p>Approve, reject, or delete courses.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('submissions')">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Review Submissions</h3>
+                    <p>Evaluate course outlines.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('users')">
+                    <i class="fas fa-users"></i>
+                    <h3>Manage Users</h3>
+                    <p>Promote or remove users.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('reports')">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Drive Insights</h3>
+                    <p>Analyze platform metrics.</p>
+                </div>
+                <div class="card" onclick="openModal('notificationModal')">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Broadcast News</h3>
+                    <p>Send platform announcements.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('content')">
+                    <i class="fas fa-file-video"></i>
+                    <h3>Oversee Content</h3>
+                    <p>Review course materials.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('certificates')">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Issue Certificates</h3>
+                    <p>Manage learner achievements.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('events')">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Monitor Events</h3>
+                    <p>Oversee live course schedules.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('forums')">
+                    <i class="fas fa-comments"></i>
+                    <h3>Moderate Forums</h3>
+                    <p>Manage discussions.</p>
+                </div>
+                <div class="card" onclick="scrollToSection('assessments')">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Review Assessments</h3>
+                    <p>Monitor student performance.</p>
+                </div>
             </div>
-            <div class="card" onclick="scrollToSection('reports')">
-                <i class="fas fa-chart-bar"></i>
-                <h3>Drive Insights</h3>
-                <p>Analyze platform metrics.</p>
+
+            <div class="section" id="reports">
+                <h2>Drive Platform Success with Insights</h2>
+                <div class="analytics-chart">
+                    <canvas id="analyticsChart"></canvas>
+                </div>
+                <ul class="list" id="reports-list"></ul>
             </div>
-            <div class="card" onclick="openModal('notificationModal')">
-                <i class="fas fa-bullhorn"></i>
-                <h3>Broadcast News</h3>
-                <p>Send platform announcements.</p>
+
+            <div class="section" id="courses">
+                <h2>Steer Courses to Excellence</h2>
+                <ul class="list" id="course-list"></ul>
             </div>
-            <div class="card" onclick="scrollToSection('content')">
-                <i class="fas fa-file-video"></i>
-                <h3>Oversee Content</h3>
-                <p>Review course materials.</p>
+
+            <div class="section" id="submissions">
+                <h2>Review Course Submissions</h2>
+                <ul class="list" id="submission-list"></ul>
             </div>
-            <div class="card" onclick="scrollToSection('certificates')">
-                <i class="fas fa-certificate"></i>
-                <h3>Issue Certificates</h3>
-                <p>Manage learner achievements.</p>
+
+            <div class="section" id="users">
+                <h2>Empower Your Community</h2>
+                <ul class="list" id="user-list"></ul>
             </div>
-            <div class="card" onclick="scrollToSection('events')">
-                <i class="fas fa-calendar-alt"></i>
-                <h3>Monitor Events</h3>
-                <p>Oversee live course schedules.</p>
+
+            <div class="section" id="content">
+                <h2>Ensure Content Quality</h2>
+                <ul class="list" id="content-list"></ul>
             </div>
-            <div class="card" onclick="scrollToSection('forums')">
-                <i class="fas fa-comments"></i>
-                <h3>Moderate Forums</h3>
-                <p>Manage discussions.</p>
+
+            <div class="section" id="certificates">
+                <h2>Celebrate Achievements</h2>
+                <div class="filter-group">
+                    <input type="text" id="certificate-user-filter" placeholder="Filter by student name">
+                    <input type="text" id="certificate-course-filter" placeholder="Filter by course title">
+                </div>
+                <ul class="list" id="certificate-list"></ul>
             </div>
-            <div class="card" onclick="scrollToSection('assessments')">
-                <i class="fas fa-clipboard-check"></i>
-                <h3>Review Assessments</h3>
-                <p>Monitor student performance.</p>
+
+            <div class="section" id="events">
+                <h2>Coordinate Live Events</h2>
+                <ul class="list" id="event-list"></ul>
             </div>
-        </div>
 
-        <div class="section" id="reports">
-            <h2>Drive Platform Success with Insights</h2>
-            <div class="analytics-chart">
-                <canvas id="analyticsChart"></canvas>
+            <div class="section" id="forums">
+                <h2>Foster Community Discussions</h2>
+                <ul class="list" id="forum-list"></ul>
             </div>
-            <ul class="list" id="reports-list"></ul>
-        </div>
 
-        <div class="section" id="courses">
-            <h2>Steer Courses to Excellence</h2>
-            <ul class="list" id="course-list"></ul>
-        </div>
-
-        <div class="section" id="submissions">
-            <h2>Review Course Submissions</h2>
-            <ul class="list" id="submission-list"></ul>
-        </div>
-
-        <div class="section" id="users">
-            <h2>Empower Your Community</h2>
-            <ul class="list" id="user-list"></ul>
-        </div>
-
-        <div class="section" id="content">
-            <h2>Ensure Content Quality</h2>
-            <ul class="list" id="content-list"></ul>
-        </div>
-
-        <div class="section" id="certificates">
-            <h2>Celebrate Achievements</h2>
-            <div class="filter-group">
-                <input type="text" id="certificate-user-filter" placeholder="Filter by student name">
-                <input type="text" id="certificate-course-filter" placeholder="Filter by course title">
+            <div class="section" id="assessments">
+                <h2>Track Academic Progress</h2>
+                <ul class="list" id="assessment-list"></ul>
             </div>
-            <ul class="list" id="certificate-list"></ul>
+
+            <div class="section" id="notifications">
+                <h2>Notification Logs</h2>
+                <ul class="list" id="notification-list"></ul>
+            </div>
+
+            <div id="error"></div>
         </div>
 
-        <div class="section" id="events">
-            <h2>Coordinate Live Events</h2>
-            <ul class="list" id="event-list"></ul>
-        </div>
 
-        <div class="section" id="forums">
-            <h2>Foster Community Discussions</h2>
-            <ul class="list" id="forum-list"></ul>
-        </div>
-
-        <div class="section" id="assessments">
-            <h2>Track Academic Progress</h2>
-            <ul class="list" id="assessment-list"></ul>
-        </div>
-
-        <div class="section" id="notifications">
-            <h2>Notification Logs</h2>
-            <ul class="list" id="notification-list"></ul>
-        </div>
-
-        <div id="error"></div>
-    </div>
-
-
-    <div id="notificationModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('notificationModal')">&times;</span>
-            <h2>Send Announcement</h2>
-            <select id="notification-recipient" multiple>
-                <option value="students">Students</option>
-                <option value="tutors">Tutors</option>
-                <option value="admins">Admins</option>
-                <option value="all">All Users</option>
-            </select>
-            <select id="notification-type">
-                <option value="general">General</option>
-                <option value="admin_notification">Admin Notification</option>
-                <option value="system_alert">System Alert</option>
-            </select>
-            <textarea id="notification-message" placeholder="Enter announcement"></textarea>
-            <button onclick="sendNotification()">Send</button>
-        </div>
-    </div>
-
-    <!-- Promote User Modal -->
-    <div id="promoteUserModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('promoteUserModal')">×</span>
-            <h2>Promote User</h2>
-            <input type="hidden" id="promote-user-id">
-            <div class="form-group">
-                <label for="promote-role">New Role</label>
-                <select id="promote-role" required>
-                    <option value="student">Student</option>
-                    <option value="instructor">Instructor</option>
-                    <option value="admin">Admin</option>
+        <div id="notificationModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('notificationModal')">&times;</span>
+                <h2>Send Announcement</h2>
+                <select id="notification-recipient" multiple>
+                    <option value="students">Students</option>
+                    <option value="tutors">Tutors</option>
+                    <option value="admins">Admins</option>
+                    <option value="all">All Users</option>
                 </select>
-            </div>
-            <button class="btn" onclick="promoteUser()">Promote User</button>
-        </div>
-    </div>
-
-
-
-    <!-- Review Submission Modal -->
-    <div id="reviewSubmissionModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('reviewSubmissionModal')">×</span>
-            <h2>Review Course Submission</h2>
-            <input type="hidden" id="submission-id">
-            <div class="form-group">
-                <label for="submission-status">Status</label>
-                <select id="submission-status" required>
-                    <option value="approved">Approve</option>
-                    <option value="rejected">Reject</option>
+                <select id="notification-type">
+                    <option value="general">General</option>
+                    <option value="admin_notification">Admin Notification</option>
+                    <option value="system_alert">System Alert</option>
                 </select>
+                <textarea id="notification-message" placeholder="Enter announcement"></textarea>
+                <button onclick="sendNotification()">Send</button>
             </div>
-            <div class="form-group">
-                <label for="submission-comments">Comments</label>
-                <textarea id="submission-comments" placeholder="Provide feedback"></textarea>
-            </div>
-            <button class="btn" onclick="reviewSubmission()">Submit Review</button>
         </div>
-    </div>
 
-    <!-- Issue Certificate Modal -->
-    <div id="issueCertificateModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('issueCertificateModal')">×</span>
-            <h2>Issue Certificate</h2>
-            <input type="hidden" id="certificate-user-id">
-            <input type="hidden" id="certificate-course-id">
-            <div class="form-group">
-                <label for="certificate-user-name">Student Name</label>
-                <input type="text" id="certificate-user-name" disabled>
+        <!-- Promote User Modal -->
+        <div id="promoteUserModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('promoteUserModal')">×</span>
+                <h2>Promote User</h2>
+                <input type="hidden" id="promote-user-id">
+                <div class="form-group">
+                    <label for="promote-role">New Role</label>
+                    <select id="promote-role" required>
+                        <option value="student">Student</option>
+                        <option value="instructor">Instructor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="promoteUser()">Promote User</button>
             </div>
-            <div class="form-group">
-                <label for="certificate-course-title">Course Title</label>
-                <input type="text" id="certificate-course-title" disabled>
-            </div>
-            <button class="btn" onclick="issueCertificate()">Issue Certificate</button>
         </div>
-    </div>
 
-    <script src="js/admindash.js"></script>
+
+
+        <!-- Review Course Modal -->
+        <div id="reviewCourseModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('reviewCourseModal')">×</span>
+                <h3>Review Course</h3>
+                <form id="review-course-form">
+                    <input type="hidden" id="review-course-id">
+                    <div class="form-group">
+                        <label for="review-course-title">Course Title</label>
+                        <input type="text" id="review-course-title" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-course-description">Description</label>
+                        <textarea id="review-course-description" readonly></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-course-status">Status</label>
+                        <select id="review-course-status">
+                            <option value="approve">Approve</option>
+                            <option value="reject">Reject</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-course-feedback">Feedback (Optional)</label>
+                        <textarea id="review-course-feedback" placeholder="Enter feedback for the instructor"
+                            aria-describedby="feedback-tooltip"></textarea>
+                        <span id="feedback-tooltip" class="tooltip">Provide feedback to help the instructor improve the
+                            course.</span>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="reviewCourse()">Submit Review</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Issue Certificate Modal -->
+        <div id="issueCertificateModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('issueCertificateModal')">×</span>
+                <h2>Issue Certificate</h2>
+                <input type="hidden" id="certificate-user-id">
+                <input type="hidden" id="certificate-course-id">
+                <div class="form-group">
+                    <label for="certificate-user-name">Student Name</label>
+                    <input type="text" id="certificate-user-name" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="certificate-course-title">Course Title</label>
+                    <input type="text" id="certificate-course-title" disabled>
+                </div>
+                <button class="btn" onclick="issueCertificate()">Issue Certificate</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="info">
+            <div class="about">
+                <h2>Elora Tech Institute</h2>
+                <p>
+                    Elora Tech Institute equips individuals with in-demand tech skills
+                    through hands-on training in web development, cybersecurity, Web3,
+                    IoT, and more. Our vision is to be a leading tech institution,
+                    shaping the future of tech education through innovation and
+                    excellence. With a comprehensive curriculum, hands-on projects,
+                    flexible online learning, and career support, Elora Tech Institute
+                    is more than an academy—it’s a movement to create the next
+                    generation of tech innovators.
+                </p>
+                <ul class="sm">
+                    <li>
+                        <a href="https://web.facebook.com/profile.php?id=61574697245670"><i
+                                class="fab fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i
+                                class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="quick-links">
+                <h2>Discover ETI</h2>
+                <ul id="links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="teach-online.html">Teach on ETI</a></li>
+                    <li><a href="blog&updates.html">Blog</a></li>
+
+                    <li><a href="help-support.html">Help & Support</a></li>
+                </ul>
+            </div>
+            <div class="apply">
+                <h2>How to Apply</h2>
+                <ol>
+                    <li>Visit our website and check out the programs.</li>
+                    <li>Fill out the registration form.</li>
+                    <li>Make payment and confirm your enrollment.</li>
+                    <li>Start your tech journey with us!</li>
+                </ol>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
+                    class="apply-button" target="_blank">Register Now</a>
+
+
+            </div>
+        </div>
+        <hr />
+        <p id="copyright">
+            &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
+        </p>
+        <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
+    </footer>
+
+    <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
+        class="whatsapp-bubble">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+
+
+    <script src="js/navConfig.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/admindash.js"></script>
     <script src="js/script.js"></script>
 </body>
 

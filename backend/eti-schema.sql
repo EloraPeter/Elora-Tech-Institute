@@ -41,6 +41,21 @@ CREATE TABLE password_reset_tokens (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+ALTER TABLE notifications
+ADD COLUMN type VARCHAR(50);
+
+UPDATE notifications
+SET type = 'general' -- or any suitable default
+
+ALTER TABLE notifications
+ALTER COLUMN type SET NOT NULL;
+
+ALTER TABLE courses ADD COLUMN rejection_feedback TEXT;
+
+ALTER TABLE courses
+  ADD COLUMN live_date TIMESTAMP,
+  ADD COLUMN enrollment_deadline TIMESTAMP;
+
 ALTER TABLE password_reset_tokens
 ADD COLUMN otp VARCHAR(6),
 ALTER COLUMN expires_at SET DEFAULT NOW() + INTERVAL '30 minutes';
@@ -65,6 +80,14 @@ CREATE TABLE courses (
     status VARCHAR(20) NOT NULL CHECK (status IN ('pending', 'approved', 'rejected')) DEFAULT 'pending',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     approved_at TIMESTAMP
+);
+
+CREATE TABLE course_feedback (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  course_id UUID REFERENCES courses(id) ON DELETE CASCADE,
+  feedback TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_by UUID REFERENCES users(id) -- Admin who provided feedback
 );
 
 -- Create course_content table
@@ -96,6 +119,43 @@ CREATE TABLE course_purchases (
     payment_status VARCHAR(50) DEFAULT 'pending' CHECK (payment_status IN ('pending', 'completed', 'failed')),
     UNIQUE (student_id, course_id)
 );
+
+
+CREATE TABLE blogs (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    title VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    content TEXT NOT NULL,
+    author_id UUID REFERENCES users(id) ON DELETE SET NULL,
+    category VARCHAR(100) NOT NULL,
+    tags TEXT[] NOT NULL DEFAULT '{}',
+    image_url VARCHAR(255),
+    video_url VARCHAR(255),
+    is_featured BOOLEAN DEFAULT FALSE,
+    is_draft BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_blogs_slug ON blogs(slug);
+CREATE INDEX idx_blogs_category ON blogs(category);
+CREATE INDEX idx_blogs_tags ON blogs USING GIN(tags);
+
+-- ✅ Corrected function with language declared
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ✅ Trigger using the above function
+CREATE TRIGGER update_blogs_updated_at
+    BEFORE UPDATE ON blogs
+    FOR EACH ROW
+    EXECUTE FUNCTION update_updated_at_column();
+
 
 -- Create reviews table
 CREATE TABLE reviews (
@@ -244,10 +304,24 @@ CREATE TABLE payments (
     CONSTRAINT payments_paystack_reference_unique UNIQUE (paystack_reference)
 );
 
+--SUPPORT TICKETS
+CREATE TABLE support_tickets (
+  id SERIAL PRIMARY KEY,
+  user_id UUID REFERENCES users(id),
+  role VARCHAR(20) NOT NULL,
+  category VARCHAR(50) NOT NULL,
+  subject VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  message TEXT NOT NULL,
+  status VARCHAR(20) DEFAULT 'Open',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- NOTIFICATIONS
 CREATE TABLE notifications (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    type VARCHAR(50) NOT NULL,
     notification_type VARCHAR(50) NOT NULL CHECK (notification_type IN ('enrollment', 'certificate_issued', 'course_approved', 'payment_completed', 'assessment_passed')),
     message TEXT NOT NULL,
     read BOOLEAN DEFAULT FALSE,

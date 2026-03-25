@@ -162,47 +162,47 @@ const mainNavLinks = {
 
     ],
     instructor: [
-        { text: 'Dashboard', href: 'instructor-dashboard.html', role: 'menuitem' },
-        { text: 'Manage Courses', href: 'instructor-courses.html', role: 'menuitem' },
-        {
-            text: 'Profile Picture',
-            href: 'profile.html',
-            role: 'menuitem',
-            class: 'dashboard-profile-picture dropdown-parent main nb',
-            img: 'images/avatars/default.jpg',
-            alt: 'Profile Picture',
-            submenu: [
-                { text: 'Profile', href: 'profile.html', role: 'menuitem' },
-                { text: 'Settings', href: 'student-settings.html', role: 'menuitem' },
-                { text: 'Logout', href: '#', role: 'menuitem', onclick: 'logout()' }
-            ]
-        },
-        { text: 'Logout', href: '#', role: 'menuitem', class: 'enroll-btn', isButton: true, onclick: 'logout()' }
+        { text: 'Dashboard', href: 'tutor-dashboard.html', role: 'menuitem', class: 'nb' },
+        { text: 'Manage Courses', href: 'instructor-courses.html', role: 'menuitem', class: 'nb' },
+        // {
+        //     text: 'Profile Picture',
+        //     href: 'profile.html',
+        //     role: 'menuitem',
+        //     class: 'dashboard-profile-picture dropdown-parent main nb',
+        //     img: 'images/avatars/default.jpg',
+        //     alt: 'Profile Picture',
+        //     submenu: [
+        //         { text: 'Profile', href: 'profile.html', role: 'menuitem' },
+        //         { text: 'Settings', href: 'student-settings.html', role: 'menuitem' },
+        //         { text: 'Logout', href: '#', role: 'menuitem', onclick: 'logout()' }
+        //     ]
+        // },
+        // { text: 'Logout', href: '#', role: 'menuitem', class: 'enroll-btn', isButton: true, onclick: 'logout()' }
     ],
     admin: [
         { text: 'Dashboard', href: 'admin-dashboard.html', role: 'menuitem', class: 'nb' },
         { text: 'Manage Users', href: 'admin-users.html', role: 'menuitem', class: 'nb' },
         { text: 'Manage Courses', href: 'admin-courses.html', role: 'menuitem', class: 'nb' },
-        {
-            text: 'Profile Picture',
-            href: 'profile.html',
-            role: 'menuitem',
-            class: 'dashboard-profile-picture dropdown-parent main nb',
-            img: 'images/avatars/default.jpg',
-            alt: 'Profile Picture',
-            submenu: [
-                { text: 'Profile', href: 'profile.html', role: 'menuitem' },
-                { text: 'Settings', href: 'student-settings.html', role: 'menuitem' },
-                { text: 'Logout', href: '#', role: 'menuitem', onclick: 'logout()' }
-            ]
-        },
-        { text: 'Logout', href: '#', role: 'menuitem', class: 'enroll-btn', isButton: true, onclick: 'logout()' }
+        // {
+        //     text: 'Profile Picture',
+        //     href: 'profile.html',
+        //     role: 'menuitem',
+        //     class: 'dashboard-profile-picture dropdown-parent main nb',
+        //     img: 'images/avatars/default.jpg',
+        //     alt: 'Profile Picture',
+        //     submenu: [
+        //         { text: 'Profile', href: 'profile.html', role: 'menuitem' },
+        //         { text: 'Settings', href: 'student-settings.html', role: 'menuitem' },
+        //         { text: 'Logout', href: '#', role: 'menuitem', onclick: 'logout()' }
+        //     ]
+        // },
+        // { text: 'Logout', href: '#', role: 'menuitem', class: 'enroll-btn', isButton: true, onclick: 'logout()' }
     ]
 };
 
 const sidebarNavLinks = {
     guest: [],
-    tutor: [
+    instructor: [
         {
             group: 'Account',
             items: [
@@ -278,7 +278,7 @@ const sidebarNavLinks = {
                 { text: 'Dashboard', href: 'admin-dashboard.html', class: 'nb', role: 'menuitem', icon: 'fa-house' },
                 { text: 'Courses', href: 'admin-courses.html', class: 'nb', role: 'menuitem', icon: 'fa-book' },
                 { text: 'Users', href: 'admin-users.html', class: 'nb', role: 'menuitem', icon: 'fa-users' },
-                { text: 'Blog', href: 'admin-blog.html', class: 'nb', role: 'menuitem', icon: 'fa-blog' }
+                { text: 'Blog', href: 'blog-management.html', class: 'nb', role: 'menuitem', icon: 'fa-blog' }
             ]
         },
         {
@@ -299,7 +299,7 @@ const sidebarNavLinks = {
                 { text: 'Active Devices', href: 'admin-devices.html', class: 'nb', role: 'menuitem', icon: 'fa-display' },
                 { text: '2FA', href: 'admin-2fa.html', role: 'menuitem', class: 'nb', icon: 'fa-shield-alt' },
                 { text: 'Danger Zone', href: 'admin-danger-zone.html', class: 'nb', role: 'menuitem', icon: 'fa-exclamation-triangle' },
-                { text: 'Logout', href: '#', role: 'menuitem', class: 'nb', icon: 'fa-right-from-bracket', isButton: true, onclick: 'logout()' }
+                // { text: 'Logout', href: '#', role: 'menuitem', class: 'nb', icon: 'fa-right-from-bracket', isButton: true, onclick: 'logout()' }
             ]
         },
         {

@@ -519,7 +519,7 @@
         <a href="test.html">testing</a>
     </main>
 
-    <footer>
+     <footer>
         <div class="info">
             <div class="about">
                 <h2>Elora Tech Institute</h2>
@@ -557,9 +557,10 @@
                     <li><a href="courses.html">Courses</a></li>
                     <li><a href="admissions.html">Admissions</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="about.html#faq">FAQ</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="teach-online.html">Teach on ETI</a></li>
-                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="blog&updates.html">Blog</a></li>
+                    <li><a href="help-support.html">Help & Support</a></li>
                 </ul>
             </div>
             <div class="apply">
@@ -572,17 +573,15 @@
                 </ol>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
                     class="apply-button" target="_blank">Register Now</a>
+
+
             </div>
         </div>
         <hr />
         <p id="copyright">
             &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
         </p>
-        <p id="designer">
-            created by
-            <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a>
-            with ❤
-        </p>
+        <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
     </footer>
 
     <a href="https://wa.me/+12025550123?text=Hi%20there" target="_blank" class="whatsapp-bubble">
@@ -615,3 +614,383 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Full Stack WebDev Mastery - Eti E-Learning Platform</title>
+<style>
+  :root {
+    --color-bg: #ffffff;
+    --color-primary: #111827;
+    --color-primary-dark: #1f2937;
+    --color-text-primary: #111827;
+    --color-text-secondary: #6b7280;
+    --color-card-bg: #f9fafb;
+    --radius: 0.75rem;
+    --shadow: 0 4px 14px rgba(0,0,0,0.07);
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --transition: 0.3s ease;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+  a:hover, a:focus {
+    color: var(--color-primary-dark);
+    outline: none;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 100;
+    padding: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+  }
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  nav a.cta {
+    padding: 0.5rem 1.5rem;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius);
+    transition: background-color var(--transition);
+  }
+  nav a.cta:hover, nav a.cta:focus {
+    background: var(--color-primary-dark);
+    outline: none;
+  }
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .hero {
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-primary);
+  }
+  .hero p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    max-width: 640px;
+    margin: 0 auto 1.5rem;
+  }
+  .btn-primary {
+    background: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color var(--transition);
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background: var(--color-primary-dark);
+    outline: none;
+  }
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .course-overview {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+  .syllabus {
+    background: var(--color-card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+  }
+  .syllabus ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .syllabus li {
+    padding: 0.5rem 0;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .syllabus li:last-child {
+    border-bottom: none;
+  }
+  .instructor-card {
+    background: var(--color-card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .instructor-photo {
+    background: var(--color-primary);
+    color: white;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+  }
+  .instructor-info {
+    flex: 1;
+  }
+  .instructor-name {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+  }
+  .instructor-bio {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+  }
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-radius: var(--radius);
+    background: var(--color-card-bg);
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+  }
+  .faq-question {
+    padding: 1.25rem 2rem;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    position: relative;
+    user-select: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    background: none;
+  }
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 2rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-primary);
+    transition: transform var(--transition);
+  }
+  .faq-item.open .faq-question::after {
+    content: '-';
+    transform: rotate(180deg);
+  }
+  .faq-answer {
+    padding: 0 2rem 1.5rem 2rem;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .faq-item.open .faq-answer {
+    max-height: 500px;
+  }
+  footer {
+    border-top: 1px solid #e5e7eb;
+    padding: 2rem 2rem;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 600px) {
+    header {
+      padding: 1rem 1.5rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+    }
+    main {
+      padding: 3rem 1rem 4rem;
+    }
+    .instructor-card {
+      flex-direction: column;
+      text-align: center;
+    }
+    .instructor-info {
+      flex: none;
+    }
+    .instructor-photo {
+      margin: 0 auto 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <a href="web-development.html" class="logo" aria-label="Eti E-Learning Platform">ETI</a>
+  <nav aria-label="Primary navigation">
+    <a href="web-development.html">Home</a>
+    <a href="web-development-backend.html">Backend Development</a>
+    <a href="web-development-frontend.html">Frontend Development</a>
+    <a href="web-development-fullstack.html">Full Stack</a>
+    <a href="web-development-coursename-full-stack-webdev-mastery.html" aria-current="page" class="cta">Enroll Now</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="course-title">
+    <h1 id="course-title">Full Stack Web Development Mastery</h1>
+    <p>Comprehensive course covering frontend and backend web development, deployment, and real-world projects to make you a proficient full stack developer.</p>
+    <button class="btn-primary" type="button" onclick="alert('Enrollment coming soon!');">Enroll Now</button>
+  </section>
+
+  <section class="section" aria-labelledby="overview-title">
+    <h2 class="section-title" id="overview-title">Course Overview</h2>
+    <p class="course-overview">
+      This Mastery course will take you through both frontend and backend technologies including HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, and deployment strategies. You will build advanced projects to showcase your skills and gain hands-on experience.
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="syllabus-title">
+    <h2 class="section-title" id="syllabus-title">Course Syllabus</h2>
+    <div class="syllabus" role="list">
+      <ul>
+        <li>HTML5, CSS3 & Responsive Design</li>
+        <li>JavaScript Fundamentals and ES6+</li>
+        <li>React and Frontend Frameworks</li>
+        <li>Node.js & Express Backend Development</li>
+        <li>Database Management with MongoDB</li>
+        <li>RESTful API Design and Security</li>
+        <li>Deployment to Cloud Platforms and DevOps Basics</li>
+        <li>Project: Build a Full Stack Application</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="instructor-title">
+    <h2 class="section-title" id="instructor-title">Your Instructor</h2>
+    <div class="instructor-card">
+      <div class="instructor-photo" aria-label="Photo of Jordan Lee">JL</div>
+      <div class="instructor-info">
+        <div class="instructor-name">Jordan Lee</div>
+        <div class="instructor-bio">Full Stack Developer with 10+ years experience building scalable applications and teaching web development.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item" tabindex="0">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq1" id="faq1-button">
+          What prior knowledge do I need to start this course?
+        </button>
+        <div class="faq-answer" id="faq1" role="region" aria-labelledby="faq1-button">
+          Basic knowledge of programming concepts is helpful but not required. The course starts with fundamental concepts and builds up.
+        </div>
+      </div>
+      <div class="faq-item" tabindex="0">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq2" id="faq2-button">
+          How long does it take to complete the course?
+        </button>
+        <div class="faq-answer" id="faq2" role="region" aria-labelledby="faq2-button">
+          Most students take around 6-9 months studying part-time to complete the course and projects.
+        </div>
+      </div>
+      <div class="faq-item" tabindex="0">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq3" id="faq3-button">
+          Will I receive a certificate of completion?
+        </button>
+        <div class="faq-answer" id="faq3" role="region" aria-labelledby="faq3-button">
+          Yes, upon finishing the course and projects successfully, you will receive a certificate to showcase your skills.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 ETI E-Learning Platform. All rights reserved.
+</footer>
+
+<script>
+  // FAQ toggle functionality
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const faqItem = button.parentElement;
+      const isOpen = faqItem.classList.contains('open');
+      faqItem.classList.toggle('open', !isOpen);
+      button.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+</script>
+</body>
+</html>
+ -->

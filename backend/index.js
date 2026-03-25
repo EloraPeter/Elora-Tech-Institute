@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path'); // Add path module for file resolution
 const auth = require('./auth');
@@ -18,6 +19,9 @@ const eventRoutes = require('./routes/events');
 const discussionForumRoutes = require('./routes/discussionForums');
 const assessmentRoutes = require('./routes/assessments');
 const courseCompletionRoutes = require('./routes/courseCompletions');
+const supportRoutes = require('./routes/supportRoutes'); // New support routes
+const docsRoutes = require('./routes/docsRoutes'); // New documentation routes
+const blogRoutes = require('./routes/blogs');
 
 const app = express();
 
@@ -25,6 +29,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend'))); // Use path.join for robust file resolution
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Apply JSON parsing only for non-upload routes
+app.use((req, res, next) => {
+    if (req.path === '/api/blogs/upload') {
+        return bodyParser.raw({ limit: '10mb' })(req, res, next); // Allow 10MB for uploads
+    }
+    return bodyParser.json()(req, res, next);
+});
 
 // Explicit route for auth-callback to ensure it’s served
 app.get('/auth/callback', (req, res) => {
@@ -53,6 +66,9 @@ app.use('/api/events', eventRoutes);
 app.use('/api/discussion-forums', discussionForumRoutes);
 app.use('/api/assessments', assessmentRoutes);
 app.use('/api/course-completions', courseCompletionRoutes);
+app.use('/api/support', supportRoutes); // New support endpoint
+app.use('/api/docs', docsRoutes); // New documentation endpoint
+app.use('/api/blogs', blogRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

@@ -1,0 +1,274 @@
+/* Web Development Page */
+#web-dev {
+  margin: 0 13%;
+  text-align: left;
+}
+
+#web-dev h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+#web-dev h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+#web-dev p {
+  font-size: 16px;
+}
+
+#web-dev .webdev-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-item {
+  margin-bottom: 50px;
+}
+
+.course-item a {
+  text-decoration: none;
+}
+
+.course-item img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.course-item .courseitem-info {
+  margin: 0;
+  color: var(--text-color);
+}
+
+.course-item .courseitem-info h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.course-item .courseitem-info p {
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 0;
+}
+
+.course-item .courseitem-info .pd {
+  display: flex;
+  justify-content: space-between;
+  color: var(--p-color2);
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.course-item .courseitem-info .pd p {
+  color: var(--p-color2);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.course-item .courseitem-info .pd i {
+  color: var(--primary-color);
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.course-item .courseitem-info .sr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--p-color2);
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.course-item .courseitem-info .sr .star i {
+  color: var(--secondary-color);
+  font-size: 14px;
+}
+
+.course-item .courseitem-info .sr .star p {
+  color: #738485;
+  font-size: 15px;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.all-courses .filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.all-courses .filter-header i {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.all-courses .filter-header .search-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--tertiary-color);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.all-courses .filter-header .search-wrapper #searchInput {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 1rem;
+  background: transparent;
+  color: var(--text-color);
+  width: 200px;
+}
+
+.all-courses .faacl {
+  display: flex;
+  gap: 20px;
+}
+
+.all-courses .faacl .filter-all {
+  padding: 10px;
+  display: block;
+}
+
+.all-courses .faacl .filter-all.hidden {
+  display: none;
+}
+
+.all-courses .faacl .filter-all #filterButtons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.all-courses .faacl .filter-all #filterButtons li {
+  list-style: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.all-courses .faacl .filter-all #filterButtons li h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.all-courses .faacl .filter-all #filterButtons>li {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--tertiary-color);
+}
+
+.all-courses .faacl .filter-all #filterButtons>li:hover {
+  transform: scale(1.05);
+}
+
+.all-courses .faacl .filter-all #filterButtons .filter-sub {
+  left: 100%;
+  top: 0;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  border-radius: 5px;
+  min-width: 150px;
+  padding-inline-start: 0;
+}
+
+.all-courses .faacl .filter-all #filterButtons .filter-sub li {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.all-courses .faacl .filter-all #filterButtons .filter-sub li label {
+  cursor: pointer;
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+.collapsible .more {
+  display: block;
+  text-align: center;
+}
+
+.all-courses .faacl .allcourse-list {
+  width: 75%;
+}
+
+.all-courses .faacl .allcourse-list .allcourse-item {
+  display: flex;
+  text-decoration: none;
+  padding: 10px;
+  color: var(--text-color);
+  gap: 20px;
+  width: 98%;
+}
+
+.all-courses .faacl .allcourse-list .allcourse-item:hover {
+  transform: translateY(-5px);
+}
+
+.all-courses .faacl .allcourse-list .allcourse-item .image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.all-courses .faacl .allcourse-list .allcourse-item .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.all-courses .faacl .allcourse-list .allcourse-item .details {
+  padding-left: 10px;
+  text-align: left;
+  width: 80%;
+}
+
+.all-courses .faacl .allcourse-list .allcourse-item .details h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.all-courses .faacl .allcourse-list .allcourse-item .details h3 {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.all-courses .faacl .allcourse-list .allcourse-item .details p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: var(--tertiary-color);
+}
+
+.all-courses .faacl .allcourse-list .allcourse-item .details p i {
+  font-size: 5px;
+  vertical-align: middle;
+}
+
+/* Success Page */
+.success-container {
+  text-align: center;
+  padding: 50px;
+  background: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-light);
+  margin: 50px auto;
+  max-width: 600px;
+}

@@ -23,40 +23,24 @@ async function fetchWithAuth(url, options = {}) {
         'Authorization': `Bearer ${token}`,
         ...options.headers
     };
-    try {
-        const response = await fetch(url, { ...options, headers });
-        if (response.status === 401) {
-            console.error(`401 Unauthorized for URL: ${url}`);
-            showError('Session expired. Please log in again.');
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-            setTimeout(() => {
-                window.location.href = 'tutor-signup-login.html';
-            }, 2000);
-            throw new Error('Unauthorized');
-        }
-        if (response.status === 403) {
-            console.error(`403 Forbidden for URL: ${url}`);
-            showError('Access denied. Please check your permissions.');
-            throw new Error('Forbidden');
-        }
-        if (!response.ok) {
-            let errorData = { error: `HTTP error ${response.status}` };
-            const contentType = response.headers.get('content-type');
-            if (contentType && contentType.includes('application/json')) {
-                errorData = await response.json();
-            } else {
-                const text = await response.text();
-                console.error(`Non-JSON response for URL: ${url}`, text);
-            }
-            console.error(`Error ${response.status} for URL: ${url}`, errorData);
-            throw new Error(errorData.error || `HTTP error ${response.status}`);
-        }
-        return response.json();
-    } catch (err) {
-        console.error(`Fetch error for URL: ${url}`, err);
-        throw err;
+
+    const response = await fetch(url, { ...options, headers });
+    if (response.status === 401) {
+        showError('Session expired. Please log in again.');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setTimeout(() => {
+            window.location.href = 'tutor-signup-login.html';
+        }, 1000);
+        throw new Error('Unauthorized');
     }
+    if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || `HTTP error ${response.status}`);
+    }
+    return response.json();
+
+
 }
 
 // Modal handling
@@ -65,13 +49,7 @@ function openModal(modalId) {
 }
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
-    if (modalId === 'createCourseModal') {
-        document.getElementById('course-title').value = '';
-        document.getElementById('course-description').value = '';
-        document.getElementById('course-price').value = '';
-        document.getElementById('course-duration').value = '';
-        document.getElementById('course-type').value = 'live';
-    } else if (modalId === 'editCourseModal') {
+    if (modalId === 'editCourseModal') {
         document.getElementById('edit-course-id').value = '';
         document.getElementById('edit-course-title').value = '';
         document.getElementById('edit-course-description').value = '';
@@ -86,10 +64,6 @@ function closeModal(modalId) {
     } else if (modalId === 'notificationModal') {
         document.getElementById('notification-course-id').value = '';
         document.getElementById('notification-message').value = '';
-    } else if (modalId === 'profileModal') {
-        document.getElementById('profile-name').value = user.name;
-        document.getElementById('profile-bio').value = user.bio || '';
-        document.getElementById('profile-expertise').value = user.expertise || '';
     }
 }
 
@@ -133,25 +107,25 @@ async function uploadProfilePicture(event) {
     }
 }
 
-// Create a course
-async function createCourse() {
-    const title = document.getElementById('course-title').value;
-    const description = document.getElementById('course-description').value;
-    const price = parseFloat(document.getElementById('course-price').value);
-    const duration = parseInt(document.getElementById('course-duration').value);
-    const course_type = document.getElementById('course-type').value;
-    try {
-        const data = await fetchWithAuth('http://localhost:3000/api/courses', {
-            method: 'POST',
-            body: JSON.stringify({ title, description, instructor_id: user.id, price, duration, course_type })
-        });
-        fetchCourses();
-        closeModal('createCourseModal');
-        showError('Course created successfully! Awaiting approval.', '#28a745');
-    } catch (err) {
-        showError('Failed to create course: ' + err.message);
-    }
-}
+// // Create a course
+// async function createCourse() {
+//     const title = document.getElementById('course-title').value;
+//     const description = document.getElementById('course-description').value;
+//     const price = parseFloat(document.getElementById('course-price').value);
+//     const duration = parseInt(document.getElementById('course-duration').value);
+//     const course_type = document.getElementById('course-type').value;
+//     try {
+//         const data = await fetchWithAuth('http://localhost:3000/api/courses', {
+//             method: 'POST',
+//             body: JSON.stringify({ title, description, instructor_id: user.id, price, duration, course_type })
+//         });
+//         fetchCourses();
+//         closeModal('createCourseModal');
+//         showError('Course created successfully! Awaiting approval.', '#28a745');
+//     } catch (err) {
+//         showError('Failed to create course: ' + err.message);
+//     }
+// }
 
 // Open edit course modal
 function openEditCourse(course) {
@@ -266,11 +240,10 @@ async function updateProfile() {
 }
 
 // Fetch and display courses
+// In fetchCourses function, update the course list rendering
 async function fetchCourses() {
     try {
-        console.log('Fetching courses...');
         const courses = await fetchWithAuth(`http://localhost:3000/api/courses?user_id=${user.id}`);
-        console.log('Courses fetched:', courses);
         const courseList = document.getElementById('course-list');
         courseList.innerHTML = '';
         if (!Array.isArray(courses) || courses.length === 0) {
@@ -280,29 +253,30 @@ async function fetchCourses() {
         courses.forEach(course => {
             const li = document.createElement('li');
             li.innerHTML = `
-                <div>
-                    <strong>${course.title}</strong><br>
-                    ${course.description || 'No description'}<br>
-                    Price: $${course.price} | Duration: ${course.duration || 'N/A'} hours | Type: ${course.course_type}<br>
-                    Status: ${course.status}
-                </div>
-                <div>
-                    ${course.status === 'pending' ? `
-                        <button onclick='openEditCourse(${JSON.stringify(course)})'>Edit</button>
-                        <button class="delete" onclick="deleteCourse('${course.id}')">Delete</button>
-                    ` : ''}
-                    ${course.status === 'approved' ? `
-                        <button onclick="openUploadContent('${course.id}')">Upload Content</button>
-                        <button onclick="openNotification('${course.id}')">Notify Students</button>
-                    ` : ''}
-                </div>
-            `;
+        <div>
+          <strong>${course.title}</strong><br>
+          ${course.description || 'No description'}<br>
+          Price: $${course.price} | Duration: ${course.duration || 'N/A'} hours | Type: ${course.course_type}<br>
+          Status: ${course.status}
+          ${course.status === 'rejected' && course.rejection_feedback ? `<br>Feedback: ${course.rejection_feedback}` : ''}
+        </div>
+        <div>
+          ${course.status === 'pending' ? `
+            <button onclick='openEditCourse(${JSON.stringify(course)})'>Edit</button>
+            <button class="delete" onclick="deleteCourse('${course.id}')">Delete</button>
+          ` : ''}
+          ${course.status === 'approved' ? `
+            <button onclick="openUploadContent('${course.id}')">Upload Content</button>
+            <button onclick="openNotification('${course.id}')">Notify Students</button>
+          ` : ''}
+        </div>
+      `;
             courseList.appendChild(li);
         });
     } catch (err) {
-        console.error('Error fetching courses:', err);
         document.getElementById('course-list').innerHTML = '<li>Error loading courses: ' + err.message + '</li>';
     }
+    
 }
 
 // Fetch and display students

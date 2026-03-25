@@ -36,22 +36,62 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Create a new course (requires instructor role)
+// Create a course (requires instructor role)
 router.post('/', authenticateJWT, async (req, res) => {
-  if (!req.user) {
-    return res.status(401).json({ error: 'Authentication required' });
-  }
-  const { title, description, instructor_id, price, duration, course_type } = req.body;
-  if (!['live', 'prerecorded', 'ebook'].includes(course_type)) {
-    return res.status(400).json({ error: 'Invalid course type' });
-  }
-  if (req.user.role !== 'instructor' || req.user.id !== instructor_id) {
+  if (!req.user || req.user.role !== 'instructor') {
     return res.status(403).json({ error: 'Unauthorized' });
   }
+  const {
+    title,
+    description,
+    price,
+    duration,
+    course_type,
+    live_date,
+    enrollment_deadline
+  } = req.body;
+
+  // Server-side validation
+  if (!title || typeof title !== 'string' || title.trim().length === 0) {
+    return res.status(400).json({ error: 'Title is required and must be a non-empty string' });
+  }
+  if (!description || typeof description !== 'string' || description.trim().length === 0) {
+    return res.status(400).json({ error: 'Description is required and must be a non-empty string' });
+  }
+  if (typeof price !== 'number' || price < 0) {
+    return res.status(400).json({ error: 'Price is required and must be a non-negative number' });
+  }
+  if (!course_type || typeof course_type !== 'string') {
+    return res.status(400).json({ error: 'Course type is required and must be a string' });
+  }
+  if (!live_date || isNaN(Date.parse(live_date))) {
+    return res.status(400).json({ error: 'Live date is required and must be a valid date' });
+  }
+  if (!enrollment_deadline || isNaN(Date.parse(enrollment_deadline))) {
+    return res.status(400).json({ error: 'Enrollment deadline is required and must be a valid date' });
+  }
+
   try {
     const result = await pool.query(
-      'INSERT INTO courses (title, description, instructor_id, price, duration, course_type, status) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-      [title, description, instructor_id, price || 0.00, duration, course_type, 'pending']
+      `INSERT INTO courses (
+        title, description, price, duration, course_type, instructor_id, 
+        status, live_date, enrollment_deadline
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
+      [
+        title.trim(),
+        description.trim(),
+        price,
+        duration,
+        course_type,
+        req.user.id,
+        'pending',
+        live_date,
+        enrollment_deadline
+      ]
+    );
+    await pool.query(
+      'INSERT INTO notifications (user_id, notification_type, message) VALUES ($1, $2, $3)',
+      [req.user.id, 'course_submitted', `Your course "${title}" has been submitted for review.`]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -123,17 +163,21 @@ router.patch('/:id/approve', authenticateJWT, async (req, res) => {
     return res.status(403).json({ error: 'Unauthorized' });
   }
   const { id } = req.params;
+  const { feedback } = req.body; // Optional feedback
   try {
     const result = await pool.query(
-      'UPDATE courses SET status = $1, approved_at = CURRENT_TIMESTAMP WHERE id = $2 RETURNING *',
-      ['approved', id]
+      'UPDATE courses SET status = $1, approved_at = CURRENT_TIMESTAMP, rejection_feedback = COALESCE($2, rejection_feedback) WHERE id = $3 RETURNING *',
+      ['approved', feedback || null, id]
     );
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Course not found' });
     }
+    const notificationMessage = feedback
+      ? `Your course "${result.rows[0].title}" has been approved! Feedback: ${feedback}`
+      : `Your course "${result.rows[0].title}" has been approved!`;
     await pool.query(
       'INSERT INTO notifications (user_id, notification_type, message) VALUES ($1, $2, $3)',
-      [result.rows[0].instructor_id, 'course_approved', `Your course "${result.rows[0].title}" has been approved!`]
+      [result.rows[0].instructor_id, 'course_approved', notificationMessage]
     );
     res.json(result.rows[0]);
   } catch (err) {
@@ -151,21 +195,46 @@ router.patch('/:id/reject', authenticateJWT, async (req, res) => {
     return res.status(403).json({ error: 'Unauthorized' });
   }
   const { id } = req.params;
+  const { feedback } = req.body; // Optional feedback
   try {
     const result = await pool.query(
-      'UPDATE courses SET status = $1 WHERE id = $2 RETURNING *',
-      ['rejected', id]
+      'UPDATE courses SET status = $1, rejection_feedback = COALESCE($2, rejection_feedback) WHERE id = $3 RETURNING *',
+      ['rejected', feedback || null, id]
     );
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Course not found' });
     }
+    const notificationMessage = feedback
+      ? `Your course "${result.rows[0].title}" was rejected. Feedback: ${feedback}`
+      : `Your course "${result.rows[0].title}" was rejected.`;
+    // In /:id/reject endpoint, replace the feedback update with:
     await pool.query(
-      'INSERT INTO notifications (user_id, notification_type, message) VALUES ($1, $2, $3)',
-      [result.rows[0].instructor_id, 'course_rejected', `Your course "${result.rows[0].title}" was rejected.`]
+      'INSERT INTO course_feedback (course_id, feedback, created_by) VALUES ($1, $2, $3)',
+      [id, feedback, req.user.id]
     );
     res.json(result.rows[0]);
   } catch (err) {
     console.error('Error rejecting course:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Get pending courses (requires admin role)
+router.get('/pending', authenticateJWT, async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Unauthorized' });
+  }
+  try {
+    const result = await pool.query(
+      'SELECT c.*, u.name AS instructor_name FROM courses c LEFT JOIN users u ON c.instructor_id = u.id WHERE c.status = $1',
+      ['pending']
+    );
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Error fetching pending courses:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });

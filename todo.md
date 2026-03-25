@@ -60,6 +60,7 @@
 - [ ] Backend: Module model (id, course_id, title, position, description) (Backend)
 - [ ] Backend: Lesson model (id, module_id, title, position, type: 'video'|'text'|'quiz', video_id, content_md, duration_min, is_preview, is_required) (Backend)
 - [ ] Backend: CRUD endpoints for modules & lessons (admin only) (Backend)
+- [ ] Instructor dashboard
 - [ ] Admin: Basic forms/pages to create/edit course → add modules → add lessons (Frontend + Backend)
 
 6. Video & Learning Experience
@@ -120,7 +121,6 @@
 - [ ] Discussion/comments per lesson
 - [ ] Drip content release
 - [ ] Wishlist/favorites
-- [ ] Instructor dashboard
 - [ ] AI recommendations or summaries (future)
 - [ ] Gamification (badges, streaks)
 - [ ] Mobile app shell or deeper PWA
