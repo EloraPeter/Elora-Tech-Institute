@@ -6,34 +6,17 @@ document.getElementById('userName').textContent = user.name;
 
 // Helper function for authenticated fetch requests
 async function fetchWithAuth(url, options = {}) {
-    const token = localStorage.getItem('token');
-    if (!token) {
+    if (!localStorage.getItem('token')) {
         showError('No authentication token found. Please log in again.');
         setTimeout(() => {
             window.location.href = 'login-signup.html';
         }, 2000);
         throw new Error('No token');
     }
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-        ...options.headers
-    };
-    const response = await fetch(url, { ...options, headers });
-    if (response.status === 401) {
-        showError('Session expired. Please log in again.');
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        setTimeout(() => {
-            window.location.href = 'login-signup.html';
-        }, 1000);
-        throw new Error('Unauthorized');
-    }
-    if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || `HTTP error ${response.status}`);
-    }
-    return response.json();
+    return window.api.request(url, {
+        ...options,
+        unauthorizedRedirect: 'login-signup.html'
+    });
 }
 
 // Modal handling
@@ -72,6 +55,9 @@ function logout() {
 // Show error or success message
 function showError(message, color = '#dc3545') {
     const errorDiv = document.getElementById('error');
+    if (!errorDiv) {
+        return;
+    }
     errorDiv.textContent = message;
     errorDiv.style.color = color;
     setTimeout(() => { errorDiv.textContent = ''; }, 3000);

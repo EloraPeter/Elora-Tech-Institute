@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Elora Tech Institute | UI Kit">
+    <meta name="description" content="Shared UI kit preview for Elora Tech Institute frontend components.">
+    <title>ETI UI Kit</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ui-kit.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div data-ui-header></div>
+
+    <main class="ui-kit-page">
+        <section class="ui-kit-hero">
+            <p class="ui-footer__eyebrow">Shared Frontend Foundation</p>
+            <h1>ETI UI kit components for consistent pages, feedback, and loading states.</h1>
+            <p>
+                This page previews the reusable header, footer, toasts, modals, buttons, badges, inputs,
+                spinner states, and skeleton loaders introduced for the frontend.
+            </p>
+            <div class="ui-button-row">
+                <button class="ui-btn ui-btn-primary" data-demo-toast="success">Success Toast</button>
+                <button class="ui-btn ui-btn-secondary" data-demo-modal>Open Alert Modal</button>
+                <button class="ui-btn ui-btn-ghost" data-demo-confirm>Open Confirm Modal</button>
+                <button class="ui-btn ui-btn-ghost" data-demo-form>Open Form Modal</button>
+                <button class="ui-btn ui-btn-ghost" data-demo-loader>Preview Loader</button>
+            </div>
+        </section>
+
+        <section class="ui-kit-section">
+            <h2>Cards and Badges</h2>
+            <p>Reusable cards and badges for dashboards, feature lists, and status indicators.</p>
+            <div class="ui-kit-grid">
+                <article class="ui-card">
+                    <span class="ui-card__icon"><i class="fa-solid fa-layer-group"></i></span>
+                    <h3 class="ui-card__title">Shared Card Surface</h3>
+                    <p class="ui-card__text">Use this as the base for feature cards, stats, settings panels, or empty states.</p>
+                    <div class="ui-badge-row">
+                        <span class="ui-badge ui-badge-info"><i class="fa-solid fa-circle-info"></i>Info</span>
+                        <span class="ui-badge ui-badge-success"><i class="fa-solid fa-circle-check"></i>Success</span>
+                    </div>
+                </article>
+                <article class="ui-card">
+                    <span class="ui-card__icon"><i class="fa-solid fa-shield-heart"></i></span>
+                    <h3 class="ui-card__title">Status Styling</h3>
+                    <p class="ui-card__text">Badges can communicate warnings, errors, approvals, or in-progress work without page-specific CSS.</p>
+                    <div class="ui-badge-row">
+                        <span class="ui-badge ui-badge-warning"><i class="fa-solid fa-triangle-exclamation"></i>Pending</span>
+                        <span class="ui-badge ui-badge-danger"><i class="fa-solid fa-ban"></i>Blocked</span>
+                    </div>
+                </article>
+                <article class="ui-card">
+                    <span class="ui-card__icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                    <h3 class="ui-card__title">Shared Actions</h3>
+                    <p class="ui-card__text">Primary, secondary, and ghost buttons now share consistent spacing, radius, and interaction behavior.</p>
+                    <div class="ui-inline-actions">
+                        <a href="#" class="ui-btn ui-btn-primary">Primary</a>
+                        <a href="#" class="ui-btn ui-btn-secondary">Secondary</a>
+                        <a href="#" class="ui-btn ui-btn-ghost">Ghost</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="ui-kit-section">
+            <h2>Form Controls</h2>
+            <p>Use these for modals, auth flows, settings pages, and short forms.</p>
+            <div class="ui-card">
+                <div class="ui-form-grid">
+                    <div class="ui-input-group">
+                        <label for="kit-name">Name</label>
+                        <input id="kit-name" class="ui-input" type="text" placeholder="Grace Hopper">
+                    </div>
+                    <div class="ui-input-group">
+                        <label for="kit-role">Role</label>
+                        <select id="kit-role" class="ui-select">
+                            <option>Student</option>
+                            <option>Instructor</option>
+                            <option>Admin</option>
+                        </select>
+                    </div>
+                    <div class="ui-input-group" style="grid-column: 1 / -1;">
+                        <label for="kit-message">Message</label>
+                        <textarea id="kit-message" class="ui-textarea" placeholder="Shared UI kit inputs keep forms visually aligned."></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ui-kit-section">
+            <h2>Loaders and Skeletons</h2>
+            <p>Use the global loader for blocking actions and skeleton cards for async content sections.</p>
+            <div class="ui-kit-grid">
+                <article class="ui-card">
+                    <h3 class="ui-card__title">Inline Spinner</h3>
+                    <p class="ui-card__text">Good for button-adjacent actions or small local fetches.</p>
+                    <div class="ui-spinner-inline">
+                        <span class="ui-spinner" aria-hidden="true"></span>
+                        <span>Loading course analytics...</span>
+                    </div>
+                </article>
+                <article class="ui-skeleton-card">
+                    <div class="ui-skeleton-stack">
+                        <div class="ui-skeleton ui-skeleton--avatar"></div>
+                        <div class="ui-skeleton ui-skeleton--title"></div>
+                        <div class="ui-skeleton ui-skeleton--line"></div>
+                        <div class="ui-skeleton ui-skeleton--line" style="width: 88%;"></div>
+                        <div class="ui-skeleton ui-skeleton--line" style="width: 72%;"></div>
+                    </div>
+                </article>
+                <article class="ui-skeleton-card">
+                    <div class="ui-skeleton-stack">
+                        <div class="ui-skeleton ui-skeleton--title" style="width: 44%;"></div>
+                        <div class="ui-skeleton ui-skeleton--line"></div>
+                        <div class="ui-skeleton ui-skeleton--line" style="width: 92%;"></div>
+                        <div class="ui-skeleton ui-skeleton--line" style="width: 58%;"></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div data-ui-footer></div>
+
+    <script src="js/navConfig.js"></script>
+    <script src="js/ui-kit.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/ui-kit-demo.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

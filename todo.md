@@ -20,16 +20,16 @@
 - [x] Set up backend folder: controllers/, routes/, models/, middleware/, services/, config/, utils/, server.js (Backend)
 - [x] Initialize PostgreSQL (local + hosted e.g. Supabase/Neon) + first migration (users table at minimum) (Backend)
 - [x] Install core backend deps: express, cors, helmet, rate-limit, bcrypt, jwt, pg/prisma, dotenv, nodemailer/brevo (Backend)
-- [ ] Create api.js fetch wrapper (baseURL, token auto-attach, toast on error, loading flag) (Frontend)
-- [ ] Build global UI kit components:
-- [ ] Header (logo + future nav + auth/user dropdown)
-- [ ]Footer (updated)
-- [ ]Toast notification
-- [ ]Modal (confirm, alert, form)
-- [ ]Spinner + skeleton loaders (Frontend/Designer)
+- [x] Create api.js fetch wrapper (baseURL, token auto-attach, toast on error, loading flag) (Frontend)
+- [x] Build global UI kit components:
+- [x] Header (logo + future nav + auth/user dropdown)
+- [x]Footer (updated)
+- [x]Toast notification
+- [x]Modal (confirm, alert, form)
+- [x]Spinner + skeleton loaders (Frontend/Designer)
 
 
-- [ ] Add dark mode toggle (CSS variables + localStorage persist) – optional but high UX impact (Frontend)
+- [x] Add dark mode toggle (CSS variables + localStorage persist) – optional but high UX impact (Frontend)
 
 3. Authentication & User Management
 

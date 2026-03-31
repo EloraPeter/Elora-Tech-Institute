@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile - Elora Tech Institute</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/ui-kit.css">
   <link rel="stylesheet" href="css/profile.css">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -18,25 +19,7 @@
 </head>
 
 <body>
-  <nav id="navbar" role="navigation" aria-label="Main navigation">
-    <h1 id="logo">
-      <a href="index.html">
-        <img src="images/eti logo main.jfif" alt="">
-      </a>
-    </h1>
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-    <ul ul id="nav-link" role="menu"></ul>
-    <!-- <a href="login-signup.html" class="btn big">Enroll Now</a> -->
-    <div id="toggle"><i class="fa-solid fa-moon"></i></div>
-  </nav>
-  <!-- <button class="sidebar-toggle" aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
-    </button> -->
-  <aside id="sidebar-nav">
-    <ul class="links"></ul>
-  </aside>
+  <div data-ui-header></div>
   <main>
     <header class="profile">
       <button id="back-button"><i class="fa-solid fa-arrow-left"></i></button>
@@ -100,6 +83,8 @@
       </div>
     </div>
   </div>
+  <div data-ui-footer></div>
+  <!-- legacy footer kept for reference
    <footer>
         <div class="info">
             <div class="about">
@@ -164,6 +149,7 @@
         </p>
         <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
     </footer>
+  -->
 
   <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
     class="whatsapp-bubble">
@@ -172,6 +158,8 @@
 
 
   <script src="js/navConfig.js"></script>
+  <script src="js/ui-kit.js"></script>
+  <script src="js/api.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/profile.js"></script>
   <script src="js/script.js"></script>

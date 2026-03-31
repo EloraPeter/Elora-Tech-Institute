@@ -6,35 +6,23 @@ if (!user || user.role !== 'instructor') {
 
 // Helper function for authenticated fetch requests
 async function fetchWithAuth(url, options = {}) {
-  const token = localStorage.getItem('token');
-  if (!token) {
+  if (!localStorage.getItem('token')) {
     showError('No authentication token found. Please log in again.');
     setTimeout(() => window.location.href = 'tutor-signup-login.html', 2000);
     throw new Error('No token');
   }
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`,
-    ...options.headers
-  };
-  const response = await fetch(url, { ...options, headers });
-  if (response.status === 401) {
-    showError('Session expired. Please log in again.');
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    setTimeout(() => window.location.href = 'tutor-signup-login.html', 1000);
-    throw new Error('Unauthorized');
-  }
-  if (!response.ok) {
-    const data = await response.json();
-    throw new Error(data.error || `HTTP error ${response.status}`);
-  }
-  return response.json();
+  return window.api.request(url, {
+    ...options,
+    unauthorizedRedirect: 'tutor-signup-login.html'
+  });
 }
 
 // Show error
 function showError(message, color = '#dc3545') {
     const errorDiv = document.getElementById('error');
+    if (!errorDiv) {
+        return;
+    }
     errorDiv.textContent = message;
     errorDiv.style.color = color;
     errorDiv.focus();
@@ -239,12 +227,10 @@ async function saveCourse(status, isAutosave = false) {
     });
 
     try {
-        const response = await fetch('http://localhost:3000/api/courses', {
+        await fetchWithAuth('/courses', {
             method: 'POST',
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
             body: formData
         });
-        if (!response.ok) throw new Error((await response.json()).error);
         isDirty = false;
         showError(`Course ${isAutosave ? 'autosaved' : 'saved'} as ${status}!`, '#28a745');
         if (status === 'publish') window.location.href = 'tutor-dash.html';

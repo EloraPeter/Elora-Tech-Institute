@@ -8,6 +8,7 @@
     <meta name="description" content="Command the Elora Tech Institute platform with powerful tools and analytics.">
     <title>Admin Dashboard - Elora Tech Institute</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/ui-kit.css" />
     <link rel="stylesheet" href="css/studentdash.css" />
     <link rel="stylesheet" href="css/profile.css" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
@@ -23,38 +24,7 @@
 </head>
 
 <body>
-    <nav id="navbar" role="navigation" aria-label="Main navigation">
-        <a href="index.html">
-            <h1 id="logo">
-                <img src="images/eti logo main.jfif" alt="Elora Tech Institute Logo">
-            </h1>
-        </a>
-        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <ul id="nav-link" role="menu"></ul>
-        <ul class="nav-link">
-            <li role="menuitem" class="dropdown-parent main nb" aria-haspopup="true" aria-expanded="false"><img
-                    id="dashboard-profile-picture" class="dashboard-profile-picture" src="images/avatars/default.jpg"
-                    alt="Profile Picture" onclick="window.location.href='profile.html'">
-                <div class="dropdown1">
-                    <ul class="dropdown" role="menuitem">
-                        <li role="menuitem"><a href="profile.html"></a>Profile</li>
-                        <li role="menuitem"><a href=".html"></a>Settings</li>
-                        <li role="menuitem" class="logout-btn" onclick="logout()"><a href="#"></a>logout</li>
-
-                    </ul>
-                </div>
-            </li>
-        </ul>
-        <div id="toggle"><i class="fa-solid fa-moon"></i></div>
-    </nav>
-    <button class="sidebar-toggle" aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
-    </button>
-    <aside id="sidebar-nav">
-        <ul class="links"></ul>
-    </aside>
+    <div data-ui-header></div>
 
     <main>
 
@@ -279,6 +249,8 @@
         </div>
     </main>
 
+    <div data-ui-footer></div>
+    <!-- legacy footer kept for reference
     <footer>
         <div class="info">
             <div class="about">
@@ -344,6 +316,7 @@
         </p>
         <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
     </footer>
+    -->
 
     <a href="https://wa.me/+2348105769233?text=Hi%20I%20got%20redirected%20here%20from%20ETI%20website" target="_blank"
         class="whatsapp-bubble">
@@ -352,6 +325,8 @@
 
 
     <script src="js/navConfig.js"></script>
+    <script src="js/ui-kit.js"></script>
+    <script src="js/api.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/admindash.js"></script>
     <script src="js/script.js"></script>

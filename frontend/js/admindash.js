@@ -8,8 +8,7 @@ document.getElementById('userName').textContent = user.name;
 
 // Helper function for authenticated fetch requests
 async function fetchWithAuth(url, options = {}) {
-    const token = localStorage.getItem('token');
-    if (!token) {
+    if (!localStorage.getItem('token')) {
         console.error('No token found for URL:', url);
         showError('No authentication token found. Please log in again.');
         setTimeout(() => {
@@ -17,41 +16,11 @@ async function fetchWithAuth(url, options = {}) {
         }, 2000);
         throw new Error('No token');
     }
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-        ...options.headers
-    };
     try {
-        const response = await fetch(url, { ...options, headers });
-        if (response.status === 401) {
-            console.error(`401 Unauthorized for URL: ${url}`);
-            showError('Session expired. Please log in again.');
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-            setTimeout(() => {
-                window.location.href = 'admin-signup-login.html';
-            }, 1000);
-            throw new Error('Unauthorized');
-        }
-        if (response.status === 403) {
-            console.error(`403 Forbidden for URL: ${url}`);
-            showError('Access denied. Please check your permissions.');
-            throw new Error('Forbidden');
-        }
-        if (!response.ok) {
-            let errorData = { error: `HTTP error ${response.status}` };
-            const contentType = response.headers.get('content-type');
-            if (contentType && contentType.includes('application/json')) {
-                errorData = await response.json();
-            } else {
-                const text = await response.text();
-                console.error(`Non-JSON response for URL: ${url}`, text);
-            }
-            console.error(`Error ${response.status} for URL: ${url}`, errorData);
-            throw new Error(errorData.error || `HTTP error ${response.status}`);
-        }
-        return response.json();
+        return await window.api.request(url, {
+            ...options,
+            unauthorizedRedirect: 'admin-signup-login.html'
+        });
     } catch (err) {
         console.error(`Fetch error for URL: ${url}`, err);
         throw err;
@@ -99,6 +68,9 @@ function logout() {
 // Show error or success message
 function showError(message, color = '#dc3545') {
     const errorDiv = document.getElementById('error');
+    if (!errorDiv) {
+        return;
+    }
     errorDiv.textContent = message;
     errorDiv.style.color = color;
     setTimeout(() => { errorDiv.textContent = ''; }, 3000);
