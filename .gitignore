@@ -8,3 +8,5 @@ structure.txt
 backend/node_modules
 backend/node_modules/balanced-match/README.md
 node_modules
+node_modules/
+backend/node_modules/
