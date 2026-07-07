@@ -10,9 +10,24 @@
     <meta name="keywords"
         content="Elora Tech Institute, tech academy, web development, cybersecurity, programming, coding school, AI, robotics, IT training">
     <title>Home - Elora Tech Institute</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Elora Tech Institute | Learn, Innovate, Succeed" />
+    <meta property="og:description"
+        content="Elora Tech Institute offers top-tier tech education, helping students master web development, cybersecurity, Web3, and more. Join us and build your future in tech." />
+    <meta property="og:image" content="images/eti logo main.jfif" />
+    <meta property="og:url" content="https://eloratechinstitute.com/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Elora Tech Institute | Learn, Innovate, Succeed" />
+    <meta name="twitter:description"
+        content="Elora Tech Institute offers top-tier tech education, helping students master web development, cybersecurity, Web3, and more." />
+    <meta name="twitter:image" content="images/eti logo main.jfif" />
+
     <link rel="stylesheet" href="css/style.css" />
     <!-- <link rel="stylesheet" href="css/profile.css" /> -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -26,7 +41,7 @@
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <h1 id="logo">
             <a href="index.html">
-                <img src="images/eti logo main.jfif" alt="">
+                <img src="images/eti logo main.jfif" alt="Elora Tech Institute logo">
             </a>
         </h1>
         <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -56,7 +71,7 @@
                 </div>
             </div>
             <div class="hero-img">
-                <img src="images/surface-DTPY6b0RMRk-unsplash.jpg" alt="" />
+                <img src="images/surface-DTPY6b0RMRk-unsplash.jpg" alt="Student learning tech skills on a laptop" />
             </div>
         </div>
     </header>
@@ -95,8 +110,8 @@
             </div>
 
             <div class="how-it-works-buttons">
-                <button class="btn">Enroll</button>
-                <a href="#" class="learn-more">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+                <a href="login-signup.html" class="btn" role="button" aria-label="Enroll in a course">Enroll</a>
+                <a href="courses.html" class="learn-more" aria-label="Learn more about how Elora Tech Institute works">Learn More <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </section>
 
@@ -146,13 +161,13 @@
             <p>Our top-rated courses for beginners and professionals.</p>
             <div class="featured-courses-container">
                 <div class="fcc-item">
-                    <img src="images/webdev.jpeg" alt="" />
+                    <img src="images/webdev.jpeg" alt="Frontend Development Bootcamp course thumbnail" />
                     <div class="fcc-info">
                         <h3>Frontend Development Bootcamp</h3>
                         <p>HTML, CSS, JS, React, Tailwind, Bootstrap</p>
                         <div class="pd">
-                            <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price: &#8358;75,000</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration: 10 weeks</p>
                         </div>
                         <hr />
                         <div class="sr">
@@ -165,19 +180,44 @@
                                 <p>(4.5/5)</p>
                             </div>
                             <div class="rmbtn">
-                                <a href="#" class="">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="web-development-frontend.html" class="">Read More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="fcc-item">
-                    <img src="images/cyber.jpeg" alt="" />
+                    <img src="images/ui-ux.jpeg" alt="UI/UX Design course thumbnail" />
+                    <div class="fcc-info">
+                        <h3>UI/UX Design</h3>
+                        <p>Figma, wireframing, user-centered design</p>
+                        <div class="pd">
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price: &#8358;75,000</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration: 6-8 weeks</p>
+                        </div>
+                        <hr />
+                        <div class="sr">
+                            <div class="star">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <p>(4.5/5)</p>
+                            </div>
+                            <div class="rmbtn">
+                                <a href="ui-ux.html" class="">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fcc-item">
+                    <img src="images/cyber.jpeg" alt="Cybersecurity and Ethical Hacking course thumbnail" />
                     <div class="fcc-info">
                         <h3>Cybersecurity & Ethical Hacking</h3>
                         <p>Network security, penetration testing</p>
                         <div class="pd">
-                            <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price: &#8358;95,000</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration: 12 weeks</p>
                         </div>
                         <hr />
                         <div class="sr">
@@ -190,19 +230,19 @@
                                 <p>(4.5/5)</p>
                             </div>
                             <div class="rmbtn">
-                                <a href="#" class="">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="cybersecurity.html" class="">Read More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="fcc-item">
-                    <img src="images/neural network.jpeg" alt="" />
+                    <img src="images/neural network.jpeg" alt="Web3 and Blockchain Development course thumbnail" />
                     <div class="fcc-info">
                         <h3>Web3 & Blockchain Development</h3>
                         <p>Smart contracts, DApps</p>
                         <div class="pd">
-                            <p><i class="fa-solid fa-sack-dollar"></i>Price:</p>
-                            <p><i class="fa-solid fa-clock"></i>Duration:</p>
+                            <p><i class="fa-solid fa-sack-dollar"></i>Price: &#8358;100,000</p>
+                            <p><i class="fa-solid fa-clock"></i>Duration: 12 weeks</p>
                         </div>
                         <hr />
                         <div class="sr">
@@ -215,7 +255,7 @@
                                 <p>(4.5/5)</p>
                             </div>
                             <div class="rmbtn">
-                                <a href="#" class="">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                <a href="blockchain-dapps.html" class="">Read More <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -228,7 +268,7 @@
             autoplay-delay="2000" autoplay-disable-on-interaction="false">
             <swiper-slide class="slide">
                 <div class="content">
-                    <img src="images/DALL·E  a young African male student.webp" alt="" />
+                    <img src="images/DALL·E  a young African male student.webp" alt="Portrait of Michael O., Web3 Developer graduate" />
                     <h3>Michael O., <span>Web3 Developer</span></h3>
                     <p>
                         <i class="fa-solid fa-quote-left"></i>
@@ -240,7 +280,7 @@
             </swiper-slide>
             <swiper-slide class="slide">
                 <div class="content">
-                    <img src="images/a young African female student .webp" alt="" />
+                    <img src="images/a young African female student .webp" alt="Portrait of Jane A., Frontend Developer graduate" />
                     <h3>Jane A., <span> Frontend Developer</span></h3>
                     <p>
                         <i class="fa-solid fa-quote-left"></i>
@@ -253,8 +293,8 @@
             </swiper-slide>
             <swiper-slide class="slide">
                 <div class="content">
-                    <img src="images/dall e a young African man with a well-groomed beard.webp" alt="" />
-                    <h3>Michael O., <span> UI/UX Designer</span></h3>
+                    <img src="images/dall e a young African man with a well-groomed beard.webp" alt="Portrait of Tobi A., UI/UX Designer graduate" />
+                    <h3>Tobi A., <span> UI/UX Designer</span></h3>
                     <p>
                         <i class="fa-solid fa-quote-left"></i>
                         I came in as a complete beginner, and now I design beautiful,
@@ -266,7 +306,7 @@
             </swiper-slide>
             <swiper-slide class="slide">
                 <div class="content">
-                    <img src="images/a young African female student with braided hair.webp" alt="" />
+                    <img src="images/a young African female student with braided hair.webp" alt="Portrait of Sarah K., Web3 Developer graduate" />
                     <h3>Sarah K., <span>Web3 Developer</span></h3>
                     <p>
                         <i class="fa-solid fa-quote-left"></i>
@@ -279,7 +319,7 @@
             </swiper-slide>
             <swiper-slide class="slide">
                 <div class="content">
-                    <img src="images/a young Nigerian male student.webp" alt="" />
+                    <img src="images/a young Nigerian male student.webp" alt="Portrait of David C., Cybersecurity Enthusiast graduate" />
                     <h3>David C., <span>Cybersecurity Enthusiast</span></h3>
                     <p>
                         <i class="fa-solid fa-quote-left"></i>
@@ -292,7 +332,7 @@
             </swiper-slide>
             <swiper-slide class="slide">
                 <div class="content">
-                    <img src="images/a young African female student with a warm smile.webp" alt="" />
+                    <img src="images/a young African female student with a warm smile.webp" alt="Portrait of Chisom E., Full-Stack Developer graduate" />
                     <h3>Chisom E., <span>Full-Stack Developer</span></h3>
                     <p>
                         <i class="fa-solid fa-quote-left"></i>
@@ -311,7 +351,7 @@
                 alike—and take the first step by joining our next cohort today.</p>
             <div class="hero-btn">
                 <a href="login-signup.html" class="btn">Sign Up</a>
-                <a href="#" class="btn">Learn More</a>
+                <a href="courses.html" class="btn">Learn More</a>
             </div>
 
         </section>
@@ -325,7 +365,7 @@
                         Institute.
                     </p>
                     <p class="terms">
-                        By clicking Sign Up, you agree to our <a href="terms of service.html">Terms and Conditions</a>.
+                        By clicking Sign Up, you agree to our <a href="terms-of-service.html">Terms and Conditions</a>.
                     </p>
                 </div>
                 <form class="newsletter-form">
@@ -338,6 +378,7 @@
 
     </main>
 
+   
     <footer>
         <div class="info">
             <div class="about">
@@ -354,20 +395,25 @@
                 </p>
                 <ul class="sm">
                     <li>
-                        <a href="https://web.facebook.com/profile.php?id=61574697245670"><i
+                        <a href="https://web.facebook.com/profile.php?id=61574697245670" aria-label="Elora Tech Institute on Facebook"><i
                                 class="fab fa-facebook"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://instagram.com/elorainstitute" aria-label="Elora Tech Institute on Instagram"><i class="fab fa-instagram"></i></a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/"><i
+                        <a href="https://www.linkedin.com/in/florence-ofuokwu-908129316/" aria-label="Elora Tech Institute on LinkedIn"><i
                                 class="fab fa-linkedin"></i></a>
                     </li>
                     <li>
-                        <a href="https://github.com/EloraPeter?tab=repositories"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/EloraPeter?tab=repositories" aria-label="Elora Tech Institute on GitHub"><i class="fab fa-github"></i></a>
                     </li>
                 </ul>
+                <p class="footer-contact">
+                    <a href="mailto:eloratechinstitute@gmail.com">eloratechinstitute@gmail.com</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="https://wa.me/+2348105769233">+234 810 576 9233</a>
+                </p>
             </div>
             <div class="quick-links">
                 <h2>Discover ETI</h2>
@@ -390,15 +436,15 @@
                     <li>Make payment and confirm your enrollment.</li>
                     <li>Start your tech journey with us!</li>
                 </ol>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH5Ofy75Le_UUQyE4kDCSOSIb7McKldQPkD47OOXekt1veMw/viewform?usp=sharing"
-                    class="apply-button" target="_blank">Register Now</a>
+                <a href="login-signup.html"
+                    class="apply-button">Register Now</a>
 
 
             </div>
         </div>
         <hr />
         <p id="copyright">
-            &copy; Elora Tech Institute 2023 - 2025. All rights reserved.
+            &copy; Elora Tech Institute 2023 - 2026. All rights reserved.
         </p>
         <p id="designer">Created by <a href="https://elorapeter.github.io/hackaton-portfolio/">Elora</a> with ❤</p>
     </footer>
